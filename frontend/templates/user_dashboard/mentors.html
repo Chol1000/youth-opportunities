@@ -1,0 +1,3405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentors - Youth Opportunities</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #c7d2fe;
+            --dark: #1e293b;
+            --darker: #0f172a;
+            --darkest: #020617;
+            --light: #f1f5f9;
+            --lighter: #f8fafc;
+            --danger: #ef4444;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --info: #3b82f6;
+            --sidebar-width: 280px;
+            --header-height: 70px;
+            --bg-color: #ffffff;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+            --card-border: rgba(0,0,0,0.1);
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            --input-bg: #ffffff;
+            --input-border: rgba(0,0,0,0.1);
+            --hover-bg: rgba(0,0,0,0.02);
+            --divider-color: rgba(0,0,0,0.05);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --card-bg: #1e293b;
+            --card-border: rgba(255,255,255,0.1);
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            --input-bg: #1e293b;
+            --input-border: rgba(255,255,255,0.1);
+            --hover-bg: rgba(255,255,255,0.05);
+            --divider-color: rgba(255,255,255,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--card-bg);
+            height: 100vh;
+            position: fixed;
+            padding: 0;
+            border-right: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+            z-index: 100;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--card-shadow);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 70px;
+                padding-top: 70px;
+                display: block;
+                overflow-x: hidden;
+            }
+            
+            .sidebar {
+                display: none !important;
+            }
+            
+            .main-content {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                padding: 5px;
+                width: 100vw;
+                max-width: 100vw;
+                box-sizing: border-box;
+                overflow-x: hidden;
+                position: static;
+                left: auto;
+                right: auto;
+                transform: none;
+            }
+            
+            .header {
+                height: 60px;
+                padding: 0 10px;
+                width: 100vw;
+                max-width: 100vw;
+                left: 0;
+                right: 0;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .header-left {
+                display: flex;
+                order: 1;
+            }
+            
+            .header-left .search-bar {
+                display: none;
+            }
+            
+            .header-right {
+                display: none;
+            }
+            
+            .menu-toggle {
+                order: 2;
+            }
+            
+            .notification-bell,
+            .theme-toggle {
+                display: none !important;
+            }
+            
+            .menu-toggle {
+                display: flex !important;
+                order: 2;
+                width: 30px;
+                height: 30px;
+                flex-direction: column;
+                justify-content: space-between;
+                cursor: pointer;
+                z-index: 100;
+            }
+            
+            .menu-toggle span {
+                width: 100%;
+                height: 3px;
+                background: var(--text-color);
+                border-radius: 3px;
+                transition: all 0.3s ease;
+            }
+            
+            .profile-section {
+                padding: 8px;
+                margin-bottom: 8px;
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--divider-color);
+            background: var(--card-bg);
+            position: sticky;
+            top: -1px;
+            z-index: 10;
+            flex-shrink: 0;
+            box-shadow: 0 0 0 1px var(--card-bg), 0 2px 15px rgba(0,0,0,0.1);
+            margin-top: -1px;
+        }
+
+        .sidebar-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .sidebar-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 10px;
+            color: var(--text-color);
+        }
+
+        .sidebar-header .admin-name {
+            font-size: 14px;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-top: 3px;
+        }
+
+        .sidebar-menu {
+            padding: 10px;
+            overflow-y: auto;
+            flex: 1;
+            padding-bottom: 20px;
+            margin-top: -1px;
+        }
+
+        .menu-item {
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .menu-item:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+        }
+
+        .menu-item.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .menu-item i {
+            width: 20px;
+            text-align: center;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+
+        .menu-item .badge {
+            margin-left: auto;
+            background: var(--danger);
+            color: white;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: 600;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            padding: 25px;
+            padding-top: calc(var(--header-height) + 25px);
+            transition: margin-left 0.3s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                position: relative;
+            }
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: calc(100% - var(--sidebar-width));
+            height: var(--header-height);
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--divider-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 25px;
+            z-index: 90;
+            transition: width 0.3s ease;
+            box-shadow: var(--card-shadow);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                width: 100%;
+            }
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--hover-bg);
+        }
+
+        .theme-toggle i {
+            font-size: 18px;
+            color: var(--text-color);
+        }
+
+        .theme-toggle .toggle-text {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .menu-toggle {
+            display: none;
+            width: 30px;
+            height: 30px;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background: var(--text-color);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+
+        .search-bar {
+            position: relative;
+            width: 300px;
+        }
+
+        @media (max-width: 576px) {
+            .search-bar {
+                display: none;
+            }
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px 10px 40px;
+            border-radius: 8px;
+            border: 1px solid var(--input-border);
+            background: var(--input-bg);
+            color: var(--text-color);
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--primary);
+            border-color: var(--primary);
+        }
+
+        .search-bar i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-color);
+            opacity: 0.7;
+        }
+
+        .notification-bell {
+            position: relative;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .notification-bell:hover {
+            background: var(--hover-bg);
+        }
+
+        .notification-bell .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--danger);
+            color: white;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            position: relative;
+            padding: 5px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .user-profile:hover {
+            background: var(--hover-bg);
+        }
+
+        .user-profile img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .user-profile .name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .user-profile .role {
+            font-size: 12px;
+            opacity: 0.7;
+            background: var(--primary);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .page-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(99, 102, 241, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #dc2626;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+        }
+
+        .profile-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid var(--card-border);
+            margin-bottom: 25px;
+            position: relative;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .profile-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--divider-color);
+        }
+        
+        .section-header h2 {
+            font-size: 18px;
+            color: var(--text-color);
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .edit-btn {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: transparent;
+            border: none;
+            color: var(--primary);
+            font-size: 14px;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .edit-btn:hover {
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
+            font-size: 14px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--input-border);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: var(--input-bg);
+            color: var(--text-color);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236366f1' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 12px;
+        }
+
+        .opportunity-item, .event-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+            box-shadow: var(--card-shadow);
+        }
+
+        .opportunity-item:hover, .event-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .opportunity-item h3, .event-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .opportunity-item p, .event-item p {
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        .shared-opportunity-item {
+            padding: 15px;
+            border-bottom: 1px solid var(--divider-color);
+            transition: all 0.3s ease;
+        }
+
+        .shared-opportunity-item:last-child {
+            border-bottom: none;
+        }
+
+        .shared-opportunity-item:hover {
+            background: var(--hover-bg);
+        }
+
+        .shared-opportunity-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .shared-opportunity-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .shared-opportunity-status {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status-pending {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+        }
+
+        .status-approved {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+
+        .status-rejected {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+        }
+        
+        .progress-tracker {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .progress-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+        
+        .step-circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #e5e7eb;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 12px;
+            margin-bottom: 8px;
+        }
+        
+        .progress-step.active .step-circle {
+            background: var(--success);
+            color: white;
+        }
+        
+        .progress-step.success .step-circle {
+            background: var(--success);
+            color: white;
+        }
+        
+        .progress-step.rejected .step-circle {
+            background: var(--danger);
+            color: white;
+        }
+        
+        .step-label {
+            font-size: 12px;
+            text-align: center;
+            color: var(--text-color);
+            opacity: 0.7;
+        }
+        
+        .progress-step.active .step-label {
+            opacity: 1;
+            font-weight: 600;
+        }
+        
+        .progress-line {
+            flex: 1;
+            height: 2px;
+            background: #e5e7eb;
+            margin: 0 10px;
+        }
+        
+        .progress-line.active {
+            background: var(--success);
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 90;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            background: var(--success);
+            color: white;
+            border-radius: 8px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            animation: slideIn 0.3s, fadeOut 0.5s 2.5s forwards;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .notification.error {
+            background: var(--warning);
+        }
+        
+        .notification.info {
+            background: var(--info);
+        }
+
+        .notification i {
+            font-size: 18px;
+        }
+
+        @keyframes slideIn {
+            from { right: -100px; opacity: 0; }
+            to { right: 20px; opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; }
+        }
+        
+        .search-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .search-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .search-modal .modal-content {
+            background: var(--card-bg);
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+        }
+        
+        .search-modal.show .modal-content {
+            transform: scale(1);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--card-border);
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+            color: var(--text-color);
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        
+        .search-form {
+            padding: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .modal-search-input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            font-size: 16px;
+            background: var(--card-bg);
+            color: var(--text-color);
+        }
+        
+        .modal-search-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        
+        .search-results {
+            padding: 0 20px 20px;
+            overflow-y: auto;
+            flex: 1;
+            max-height: 400px;
+        }
+        
+        .search-result-item {
+            padding: 15px;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-result-item:hover {
+            background: var(--hover-bg);
+        }
+        
+        .search-result-item h5 {
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .search-result-item p {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .mobile-bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100vw;
+            max-width: 100vw;
+            background: var(--card-bg);
+            border-top: 1px solid var(--card-border);
+            padding: 8px 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+        
+        .bottom-nav-items {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            padding: 4px 2px;
+            flex: 1;
+            max-width: 20%;
+        }
+        
+        .bottom-nav-item i {
+            font-size: 16px;
+            margin-bottom: 2px;
+        }
+        
+        .bottom-nav-item span {
+            font-size: 9px;
+            font-weight: 500;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .bottom-nav-item:hover,
+        .bottom-nav-item.active {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-dropdown {
+            position: fixed;
+            top: 75px;
+            right: 5px;
+            width: 200px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1001;
+        }
+        
+        .mobile-menu-content {
+            padding: 8px 0;
+        }
+        
+        .mobile-menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .mobile-menu-item:hover {
+            background: var(--hover-bg);
+        }
+        
+        .mobile-menu-item i {
+            width: 16px;
+            font-size: 14px;
+        }
+        
+        .mobile-menu-item span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .mobile-menu-item .badge {
+            margin-left: auto;
+            background: var(--danger);
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            min-width: 16px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-bottom-nav {
+                display: block;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .action-buttons .btn {
+                width: 100%;
+                justify-content: center;
+                font-size: 12px;
+                padding: 8px 12px;
+            }
+            
+            .action-btns {
+                flex-direction: row;
+                gap: 8px;
+            }
+            
+            .action-btns .btn {
+                flex: 1;
+                font-size: 12px;
+                padding: 8px 12px;
+                justify-content: center;
+            }
+            
+            /* Mobile mentor cards layout */
+            div[style*="display: flex; align-items: center; justify-content: space-between"],
+            div[style*="display: flex; justify-content: space-between; align-items: center"] {
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                gap: 12px !important;
+            }
+            
+            div[style*="display: flex; align-items: center; gap: 12px"] {
+                width: 100% !important;
+            }
+            
+            div[style*="display: flex; gap: 8px"] {
+                width: 100% !important;
+                flex-direction: column !important;
+                gap: 8px !important;
+            }
+            
+            div[style*="display: flex; gap: 8px"] .btn {
+                width: 100% !important;
+                font-size: 11px !important;
+                padding: 8px 12px !important;
+                justify-content: center !important;
+            }
+            
+            /* Progress tracker mobile */
+            .progress-tracker {
+                flex-direction: column !important;
+                gap: 10px !important;
+            }
+            
+            .progress-step {
+                flex-direction: row !important;
+                align-items: center !important;
+                width: 100% !important;
+                justify-content: flex-start !important;
+            }
+            
+            .step-circle {
+                margin-bottom: 0 !important;
+                margin-right: 10px !important;
+            }
+            
+            .progress-line {
+                display: none !important;
+            }
+        }
+        
+        .custom-select-wrapper {
+            position: relative;
+        }
+        
+        .custom-select {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+        
+        .select-arrow {
+            transition: transform 0.3s ease;
+        }
+        
+        .custom-select.active .select-arrow {
+            transform: rotate(180deg);
+        }
+        
+        .select-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--card-bg);
+            border: 1px solid var(--input-border);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .select-option {
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            font-size: 14px;
+        }
+        
+        .select-option:hover {
+            background: var(--hover-bg);
+        }
+        
+        .select-option.selected {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+        }
+        
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 8px;
+            }
+            
+            .profile-section {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 0 15px;
+            }
+            
+            .header-right {
+                gap: 10px;
+            }
+        }
+        
+        /* Modal responsive styles */
+        @media (max-width: 768px) {
+            div[id*="Modal"] div[style*="max-width: 600px"],
+            div[id*="Modal"] div[style*="max-width: 500px"],
+            div[id*="Modal"] div[style*="max-width: 450px"] {
+                width: 95% !important;
+                max-width: 95% !important;
+                margin: 10px !important;
+                max-height: 90vh !important;
+            }
+            
+            div[id*="Modal"] .form-group {
+                margin-bottom: 12px !important;
+            }
+            
+            div[id*="Modal"] .form-control {
+                font-size: 14px !important;
+                padding: 10px !important;
+            }
+            
+            div[id*="Modal"] textarea.form-control {
+                min-height: 80px !important;
+            }
+            
+            div[id*="Modal"] .btn {
+                font-size: 12px !important;
+                padding: 8px 12px !important;
+            }
+        }
+        
+        /* Past session badge styling */
+        .status-badge.past-session {
+            background: linear-gradient(135deg, #6b7280, #4b5563);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 4px rgba(107, 114, 128, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+    <link rel="icon" href="../../static/images/youthopps-logo.png" type="image/png">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img id="sidebarProfilePic" src="../../static/images/default-image.jpg" alt="Profile">
+            <div>
+                <h2>User Dashboard</h2>
+                <div class="admin-name" id="sidebarUserName">Welcome, Loading...</div>
+            </div>
+        </div>
+        
+        <div class="sidebar-menu">
+            <a href="index.html" class="menu-item" data-section="dashboard">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            
+            <a href="profile.html" class="menu-item" data-section="profile">
+                <i class="fas fa-user"></i>
+                <span>My Profile</span>
+            </a>
+            
+            <a href="opportunities.html" class="menu-item" data-section="opportunities">
+                <i class="fas fa-briefcase"></i>
+                <span>Opportunities</span>
+            </a>
+            
+            <a href="mentors.html" class="menu-item active" data-section="mentors">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span>Mentors</span>
+            </a>
+            
+            <a href="community.html" class="menu-item" data-section="community">
+                <i class="fas fa-users"></i>
+                <span>Community</span>
+            </a>
+            
+            <a href="inbox.html" class="menu-item" data-section="inbox">
+                <i class="fas fa-inbox"></i>
+                <span>Inbox</span>
+                <span class="badge" id="messageCount">0</span>
+            </a>
+            
+            <a href="cv-review.html" class="menu-item" data-section="cv-review">
+                <i class="fas fa-file-alt"></i>
+                <span>CV Review</span>
+            </a>
+            
+            <a href="training.html" class="menu-item" data-section="training">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Training</span>
+            </a>
+            
+            <a href="webinars.html" class="menu-item" data-section="webinars">
+                <i class="fas fa-video"></i>
+                <span>Webinars</span>
+            </a>
+            
+            <a href="notifications.html" class="menu-item" data-section="notifications">
+                <i class="fas fa-bell"></i>
+                <span>Notifications</span>
+                <span class="badge" id="notificationCount">0</span>
+            </a>
+            
+            <a href="settings.html" class="menu-item" data-section="settings">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            
+            <div class="menu-item" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div class="mobile-menu-dropdown" id="mobileMenuDropdown" style="display: none;">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-item" id="mobileSearch">
+                <i class="fas fa-search"></i>
+                <span>Search</span>
+            </div>
+            <a href="settings.html" class="mobile-menu-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            <a href="notifications.html" class="mobile-menu-item">
+                <i class="fas fa-bell"></i>
+                <span>Notifications</span>
+                <span class="badge" id="mobileNotificationBadge">0</span>
+            </a>
+            <a href="cv-review.html" class="mobile-menu-item">
+                <i class="fas fa-file-alt"></i>
+                <span>CV Review</span>
+            </a>
+            <a href="mentors.html" class="mobile-menu-item">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span>Mentors</span>
+            </a>
+            <a href="training.html" class="mobile-menu-item">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Training</span>
+            </a>
+            <a href="webinars.html" class="mobile-menu-item">
+                <i class="fas fa-video"></i>
+                <span>Webinars</span>
+            </a>
+            <div class="mobile-menu-item" id="mobileThemeToggle">
+                <i class="fas fa-moon"></i>
+                <span>Dark Mode</span>
+            </div>
+            <div class="mobile-menu-item" id="mobileLogout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+    
+    <!-- Mobile Bottom Navigation -->
+    <div class="mobile-bottom-nav">
+        <div class="bottom-nav-items">
+            <a href="index.html" class="bottom-nav-item">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="opportunities.html" class="bottom-nav-item">
+                <i class="fas fa-briefcase"></i>
+                <span>Opportunities</span>
+            </a>
+            <a href="community.html" class="bottom-nav-item">
+                <i class="fas fa-users"></i>
+                <span>Community</span>
+            </a>
+            <a href="inbox.html" class="bottom-nav-item">
+                <i class="fas fa-inbox"></i>
+                <span>Inbox</span>
+            </a>
+            <a href="profile.html" class="bottom-nav-item">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="mentorSearch" placeholder="Search mentors...">
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <div class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                    <span class="toggle-text">Dark Mode</span>
+                </div>
+                
+                <div class="notification-bell" id="notificationBell">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge" id="notificationBadge">0</span>
+                </div>
+                
+                <div class="user-profile">
+                    <img id="headerProfilePic" src="../../static/images/default-image.jpg" alt="User">
+                    <div>
+                        <div class="name" id="headerUserName">Loading...</div>
+                        <div class="role">Member</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Opportunities Content -->
+        <div id="opportunitiesContent">
+            <div class="page-header">
+                <h1 class="page-title">Mentors</h1>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" id="becomeMentorBtn">
+                        <i class="fas fa-user-tie"></i> Become a Mentor
+                    </button>
+                    <button class="btn btn-primary" id="addMentorBtn">
+                        <i class="fas fa-plus"></i> <span id="addBtnText">Add Mentor</span>
+                    </button>
+                    <button class="btn btn-secondary" id="refreshMentorsBtn">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Sent Requests Section -->
+            <div class="profile-section">
+                <div class="section-header">
+                    <h2>Sent Requests</h2>
+                </div>
+                <div id="sentRequestsList">
+                    <p>You haven't sent any connection requests yet.</p>
+                </div>
+            </div>
+            
+            <!-- Received Requests Section -->
+            <div class="profile-section">
+                <div class="section-header">
+                    <h2>Connection Requests</h2>
+                </div>
+                <div id="receivedRequestsList">
+                    <p>No connection requests received.</p>
+                </div>
+            </div>
+
+            <!-- My Mentors/Mentees Section -->
+            <div class="profile-section">
+                <div class="section-header">
+                    <h2 id="myMentorsTitle">My Mentors</h2>
+                </div>
+                <div id="myMentorsList">
+                    <p>You haven't connected with any mentors yet.</p>
+                </div>
+            </div>
+
+            <!-- Pending Sessions Section -->
+            <div class="profile-section">
+                <div class="section-header">
+                    <h2>Pending Sessions</h2>
+                </div>
+                <div id="pendingSessionsList">
+                    <p>No pending sessions.</p>
+                </div>
+            </div>
+            
+            <!-- Upcoming Sessions Section -->
+            <div class="profile-section">
+                <div class="section-header">
+                    <h2>Upcoming Sessions</h2>
+                </div>
+                <div id="upcomingSessionsList">
+                    <p>No upcoming sessions scheduled.</p>
+                </div>
+            </div>
+            
+            <!-- Previous Sessions Section -->
+            <div class="profile-section">
+                <div class="section-header">
+                    <h2>Previous Sessions</h2>
+                </div>
+                <div id="completedSessionsList">
+                    <p>No previous sessions yet.</p>
+                </div>
+            </div>
+            
+            <!-- My Mentees Section (for mentors) -->
+            <div class="profile-section" id="myMenteesSection" style="display: none;">
+                <div class="section-header">
+                    <h2>My Mentees</h2>
+                </div>
+                <div id="myMenteesList">
+                    <p>No mentees yet.</p>
+                </div>
+            </div>
+            
+            <!-- Mentor Applications Section (for users) -->
+            <div class="profile-section" id="mentorApplicationsSection">
+                <div class="section-header">
+                    <h2>My Mentor Applications</h2>
+                </div>
+                <div id="mentorApplicationsList">
+                    <p>No mentor applications submitted yet.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        // Set initial theme
+        if (currentTheme === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i><span class="toggle-text">Light Mode</span>';
+        } else {
+            body.removeAttribute('data-theme');
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i><span class="toggle-text">Dark Mode</span>';
+        }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i><span class="toggle-text">Dark Mode</span>';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i><span class="toggle-text">Light Mode</span>';
+            }
+        });
+
+        // Toggle mobile menu dropdown
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
+        const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+        const mobileLogout = document.getElementById('mobileLogout');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (window.innerWidth <= 768) {
+                    const isVisible = mobileMenuDropdown.style.display === 'block';
+                    mobileMenuDropdown.style.display = isVisible ? 'none' : 'block';
+                    this.classList.toggle('active');
+                }
+            });
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function() {
+            if (mobileMenuDropdown) {
+                mobileMenuDropdown.style.display = 'none';
+                if (menuToggle) {
+                    menuToggle.classList.remove('active');
+                }
+            }
+        });
+        
+        // Mobile theme toggle
+        if (mobileThemeToggle) {
+            mobileThemeToggle.addEventListener('click', function() {
+                if (body.getAttribute('data-theme') === 'dark') {
+                    body.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'light');
+                    this.innerHTML = '<i class="fas fa-moon"></i><span>Dark Mode</span>';
+                } else {
+                    body.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                    this.innerHTML = '<i class="fas fa-sun"></i><span>Light Mode</span>';
+                }
+                mobileMenuDropdown.style.display = 'none';
+            });
+        }
+        
+        // Mobile logout
+        if (mobileLogout) {
+            mobileLogout.addEventListener('click', function() {
+                if (confirm('Are you sure you want to logout?')) {
+                    localStorage.removeItem('user');
+                    window.location.href = '../login.html';
+                }
+            });
+        }
+        
+        // Mobile search modal
+        const mobileSearch = document.getElementById('mobileSearch');
+        if (mobileSearch) {
+            mobileSearch.addEventListener('click', function() {
+                showSearchModal();
+                mobileMenuDropdown.style.display = 'none';
+            });
+        }
+        
+        // Desktop search functionality
+        const mentorSearch = document.getElementById('mentorSearch');
+        if (mentorSearch) {
+            mentorSearch.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const mentorItems = document.querySelectorAll('[style*="display: flex; align-items: center; justify-content: space-between"]');
+                
+                mentorItems.forEach(item => {
+                    const content = item.textContent.toLowerCase();
+                    if (content.includes('session with') || content.includes('mentor') || content.includes('mentee')) {
+                        item.style.display = content.includes(searchTerm) ? 'flex' : 'none';
+                    }
+                });
+            });
+        }
+        
+        // Show search modal (mobile)
+        function showSearchModal() {
+            const modal = document.createElement('div');
+            modal.className = 'search-modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Search Mentors</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <div class="search-form">
+                        <input type="text" class="modal-search-input" placeholder="Search mentors, sessions..." autofocus>
+                        <button class="modal-search-btn"><i class="fas fa-search"></i> Search</button>
+                    </div>
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            setTimeout(() => modal.classList.add('show'), 10);
+            
+            const searchInput = modal.querySelector('.modal-search-input');
+            const searchButton = modal.querySelector('.modal-search-btn');
+            const resultsDiv = modal.querySelector('#searchResults');
+            
+            function closeModal() {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    if (document.body.contains(modal)) {
+                        document.body.removeChild(modal);
+                    }
+                }, 300);
+            }
+            
+            function performModalSearch() {
+                const query = searchInput.value.toLowerCase().trim();
+                if (!query) return;
+                
+                resultsDiv.innerHTML = '<p>Searching...</p>';
+                
+                const results = [];
+                const mentorItems = document.querySelectorAll('[style*="display: flex; align-items: center; justify-content: space-between"]');
+                
+                mentorItems.forEach(item => {
+                    const content = item.textContent || '';
+                    if (content.toLowerCase().includes(query) && (content.includes('Session with') || content.includes('mentor') || content.includes('mentee'))) {
+                        const title = item.querySelector('h4')?.textContent || 'Mentor Item';
+                        results.push({
+                            type: content.includes('Session') ? 'Session' : 'Connection',
+                            title: title,
+                            content: content
+                        });
+                    }
+                });
+                
+                resultsDiv.innerHTML = `<h4>${results.length} results found</h4>`;
+                results.slice(0, 10).forEach(result => {
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'search-result-item';
+                    resultItem.innerHTML = `
+                        <h5>${result.title}</h5>
+                        <p>${result.type}</p>
+                    `;
+                    resultsDiv.appendChild(resultItem);
+                });
+            }
+            
+            searchButton.onclick = performModalSearch;
+            searchInput.onkeypress = (e) => { if (e.key === 'Enter') performModalSearch(); };
+            
+            modal.querySelector('.modal-close').onclick = closeModal;
+            modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+            
+            setTimeout(() => searchInput.focus(), 100);
+        }
+
+        // Profile picture upload
+        document.querySelector('.sidebar-header img').addEventListener('click', function() {
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = 'image/*';
+            fileInput.click();
+            
+            fileInput.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('sidebarProfilePic').src = e.target.result;
+                        document.getElementById('headerProfilePic').src = e.target.result;
+                        showAlert('Profile picture updated successfully!', 'success');
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+        });
+
+        // Opportunities-specific code removed for mentors page
+
+        // Security: HTML escaping function
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Show alert message
+        function showAlert(message, type = 'success') {
+            const alert = document.createElement('div');
+            alert.className = `notification ${type === 'error' ? 'error' : type === 'info' ? 'info' : ''}`;
+            alert.innerHTML = `
+                <i class="fas ${type === 'error' ? 'fa-times-circle' : type === 'info' ? 'fa-info-circle' : 'fa-check-circle'}"></i>
+                <span>${message}</span>
+            `;
+            document.body.appendChild(alert);
+
+            setTimeout(() => {
+                alert.remove();
+            }, 7000);
+        }
+
+        // CSRF Token Handling
+        async function getCSRFToken() {
+            try {
+                const response = await fetch('/api/csrf/', {
+                    credentials: 'include'
+                });
+                const data = await response.json();
+                return data.csrfToken;
+            } catch (error) {
+                console.error('Error getting CSRF token:', error);
+                return null;
+            }
+        }
+
+        // Fetch with authentication
+        async function fetchWithAuth(url, options = {}) {
+            const csrfToken = await getCSRFToken();
+            
+            const headers = {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken,
+            };
+            
+            if (options.headers) {
+                Object.assign(headers, options.headers);
+            }
+            
+            const response = await fetch(url, {
+                ...options,
+                headers,
+                credentials: 'include',
+            });
+            
+            if (response.status === 401 || response.status === 403) {
+                window.location.href = '../login.html';
+                return;
+            }
+            
+            if (!response.ok) {
+                const error = new Error('Request failed');
+                error.response = response;
+                throw error;
+            }
+            
+            return response.json();
+        }
+        
+        // Fetch with authentication for file uploads
+        async function fetchWithAuthFile(url, options = {}) {
+            const csrfToken = await getCSRFToken();
+            
+            const headers = {
+                'X-CSRFToken': csrfToken,
+            };
+            
+            if (options.headers) {
+                Object.assign(headers, options.headers);
+            }
+            
+            const response = await fetch(url, {
+                ...options,
+                headers,
+                credentials: 'include',
+            });
+            
+            if (response.status === 401 || response.status === 403) {
+                window.location.href = '../login.html';
+                return;
+            }
+            
+            if (!response.ok) {
+                throw new Error('Request failed');
+            }
+            
+            return response.json();
+        }
+
+        // Opportunities functions removed for mentors page
+
+        // Add Mentor Button
+        document.getElementById('addMentorBtn').addEventListener('click', function() {
+            showMentorsModal();
+        });
+        
+        // Show mentors modal
+        function showMentorsModal() {
+            const modal = document.createElement('div');
+            modal.id = 'mentorsModal';
+            modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;';
+            
+            const modalContent = `
+                <div style="background: var(--card-bg); border-radius: 12px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto; padding: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--divider-color);">
+                        <h2 style="margin: 0; font-size: 18px;">Available Mentors</h2>
+                        <button onclick="closeMentorsModal()" style="background: none; border: none; font-size: 20px; cursor: pointer; color: var(--text-color);">&times;</button>
+                    </div>
+                    <div id="modalMentorsList">
+                        <div style="text-align: center; padding: 20px;">Loading mentors...</div>
+                    </div>
+                </div>
+            `;
+            
+            modal.innerHTML = modalContent;
+            document.body.appendChild(modal);
+            
+            loadMentorsInModal();
+        }
+        
+        // Close mentors modal
+        function closeMentorsModal() {
+            const modal = document.getElementById('mentorsModal');
+            if (modal) modal.remove();
+        }
+        
+        // Load mentors in modal
+        async function loadMentorsInModal() {
+            try {
+                const user = await fetchWithAuth('/api/user/');
+                
+                if (user.role === 'mentor') {
+                    // For mentors, show available users
+                    const usersResponse = await fetchWithAuth('/api/users/');
+                    const users = usersResponse || [];
+                    const availableUsers = users.filter(u => u.role !== 'mentor');
+                    
+                    const container = document.getElementById('modalMentorsList');
+                    if (availableUsers.length === 0) {
+                        container.innerHTML = '<p style="text-align: center; padding: 20px;">No users available.</p>';
+                        return;
+                    }
+                    
+                    container.innerHTML = availableUsers.map(user => `
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 15px; border-bottom: 1px solid var(--divider-color);">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <img src="${user.profile_pic || '../../static/images/default-profile.png'}" alt="${user.full_name}" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                                <div>
+                                    <h4 style="margin: 0 0 4px 0; font-size: 16px;">${user.full_name}</h4>
+                                    <p style="margin: 0; font-size: 13px; opacity: 0.7;">${user.email}</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="inviteUserAsMentee(${user.id})" class="btn btn-primary" style="padding: 6px 12px; font-size: 12px;">
+                                    <i class="fas fa-plus"></i> Invite
+                                </button>
+                            </div>
+                        </div>
+                    `).join('');
+                } else {
+                    // For users, show available mentors
+                    const [mentorsResponse, requestsResponse] = await Promise.all([
+                        fetchWithAuth('/api/mentors/'),
+                        fetchWithAuth('/api/mentorship/requests/')
+                    ]);
+                    
+                    const mentors = mentorsResponse.mentors || mentorsResponse || [];
+                    const myRequests = requestsResponse || [];
+                    
+                    const connectedMentorIds = myRequests.map(req => req.mentor?.id).filter(id => id);
+                    const availableMentors = mentors.filter(mentor => !connectedMentorIds.includes(mentor.id));
+                    
+                    const container = document.getElementById('modalMentorsList');
+                    if (availableMentors.length === 0) {
+                        container.innerHTML = '<p style="text-align: center; padding: 20px;">No new mentors available.</p>';
+                        return;
+                    }
+                    
+                    container.innerHTML = availableMentors.map(mentor => `
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 15px; border-bottom: 1px solid var(--divider-color);">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <img src="${mentor.profile_pic || '../../static/images/default-profile.png'}" alt="${mentor.full_name}" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                                <div>
+                                    <h4 style="margin: 0 0 4px 0; font-size: 16px;">${mentor.full_name}</h4>
+                                    <p style="margin: 0; font-size: 13px; opacity: 0.7;">${mentor.email}</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="requestMentorFromModal(${mentor.id})" class="btn btn-primary" style="padding: 6px 12px; font-size: 12px;">
+                                    <i class="fas fa-plus"></i> Request
+                                </button>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            } catch (error) {
+                console.error('Error loading mentors:', error);
+                document.getElementById('modalMentorsList').innerHTML = '<p style="text-align: center; padding: 20px;">Failed to load mentors.</p>';
+            }
+        }
+        
+        // Request mentor from modal
+        function requestMentorFromModal(mentorId) {
+            closeMentorsModal();
+            fetchWithAuth('/api/mentors/').then(response => {
+                const mentors = response.mentors || response || [];
+                const selectedMentor = mentors.find(m => m.id === mentorId);
+                if (selectedMentor) {
+                    showRequestModal(selectedMentor, false);
+                }
+            });
+        }
+        
+        // Show request modal
+        function showRequestModal(person, isMentorInviting = false) {
+            const modal = document.createElement('div');
+            modal.id = 'requestModal';
+            modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;';
+            
+            const title = isMentorInviting ? 'Invite as Mentee' : 'Connect with Mentor';
+            const label = isMentorInviting ? 'User' : 'Mentor';
+            const buttonText = isMentorInviting ? 'Send Invitation' : 'Send Connection Request';
+            
+            const modalContent = `
+                <div style="background: var(--card-bg); border-radius: 12px; max-width: 500px; width: 90%; padding: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--divider-color);">
+                        <h2 style="margin: 0; font-size: 18px;">${title}</h2>
+                        <button onclick="closeRequestModal()" style="background: none; border: none; font-size: 20px; cursor: pointer; color: var(--text-color);">&times;</button>
+                    </div>
+                    <form id="mentorRequestForm">
+                        <div class="form-group">
+                            <label for="personName">${label}: ${person.full_name}</label>
+                            <input type="hidden" id="personName" name="person_id" value="${person.id}">
+                            <input type="hidden" id="requestType" name="request_type" value="${isMentorInviting ? 'invite' : 'request'}">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" id="mentorRequestInput" name="mentor_request" value="${person.full_name}" readonly style="border: none; background: transparent; outline: none;">
+                        </div>
+                        <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
+                            <button type="button" onclick="closeRequestModal()" class="btn btn-secondary">Cancel</button>
+                            <button type="submit" class="btn btn-primary">${buttonText}</button>
+                        </div>
+                    </form>
+                </div>
+            `;
+            
+            modal.innerHTML = modalContent;
+            document.body.appendChild(modal);
+            
+            document.getElementById('mentorRequestForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const formData = {
+                    mentor_id: person.id
+                };
+                
+                try {
+                    await fetchWithAuth('/api/mentorship/requests/', {
+                        method: 'POST',
+                        body: JSON.stringify(formData)
+                    });
+                    
+                    const successMessage = isMentorInviting ? 
+                        'Mentee invitation sent successfully!' : 
+                        'Connection request sent successfully!';
+                    
+                    showAlert(successMessage);
+                    closeRequestModal();
+                    loadSentRequests();
+                    loadMyMentors();
+                } catch (error) {
+                    console.error('Error sending request:', error);
+                    showAlert('Failed to send request', 'error');
+                }
+            });
+        }
+        
+        // Close request modal
+        function closeRequestModal() {
+            const modal = document.getElementById('requestModal');
+            if (modal) modal.remove();
+        }
+        
+        // Make functions global
+        window.closeMentorsModal = closeMentorsModal;
+        window.requestMentorFromModal = requestMentorFromModal;
+        window.closeRequestModal = closeRequestModal;
+
+
+
+        // Become Mentor Button
+        document.getElementById('becomeMentorBtn').addEventListener('click', becomeMentor);
+        
+        // Debug: Check if elements exist
+        console.log('DOM elements check:', {
+            becomeMentorBtn: document.getElementById('becomeMentorBtn'),
+            addMentorBtn: document.getElementById('addMentorBtn'),
+            refreshMentorsBtn: document.getElementById('refreshMentorsBtn')
+        });
+        
+        // Refresh Mentors
+        document.getElementById('refreshMentorsBtn').addEventListener('click', async function() {
+            try {
+                await loadSentRequests();
+                await loadReceivedRequests();
+                await loadMyMentors();
+                await loadPendingSessions();
+                await loadUpcomingSessions();
+                await loadCompletedSessions();
+                await loadMentorApplications();
+                showAlert('Mentors data refreshed successfully!', 'success');
+            } catch (error) {
+                console.error('Error refreshing mentors:', error);
+                showAlert('Failed to refresh mentors', 'error');
+            }
+        });
+        
+        // Load sent requests
+        async function loadSentRequests() {
+            try {
+                const response = await fetchWithAuth('/api/mentorship/requests/?type=sent');
+                const requests = response || [];
+                renderSentRequests(requests);
+            } catch (error) {
+                console.error('Error loading sent requests:', error);
+            }
+        }
+        
+        // Load received requests
+        async function loadReceivedRequests() {
+            try {
+                const response = await fetchWithAuth('/api/mentorship/requests/?type=received');
+                const requests = response || [];
+                renderReceivedRequests(requests);
+            } catch (error) {
+                console.error('Error loading received requests:', error);
+            }
+        }
+        
+        // Load my mentors
+        async function loadMyMentors() {
+            try {
+                const response = await fetchWithAuth('/api/mentorship/requests/');
+                const allRequests = response || [];
+                const approvedRequests = allRequests.filter(req => req.status === 'approved');
+                renderMyMentors(approvedRequests);
+            } catch (error) {
+                console.error('Error loading my mentors:', error);
+            }
+        }
+        
+        // Render sent requests
+        function renderSentRequests(requests) {
+            const container = document.getElementById('sentRequestsList');
+            
+            // Filter out approved requests (they should be in My Mentors)
+            const pendingAndRejectedRequests = requests.filter(req => req.status !== 'approved');
+            
+            if (pendingAndRejectedRequests.length === 0) {
+                container.innerHTML = '<p>You haven\'t sent any connection requests yet.</p>';
+                return;
+            }
+            
+            container.innerHTML = pendingAndRejectedRequests.map(request => `
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 15px; border-bottom: 1px solid var(--divider-color);">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <img src="${request.mentor?.profile_pic || '../../static/images/default-profile.png'}" alt="${request.mentor?.full_name || 'Mentor'}" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="margin: 0 0 4px 0; font-size: 16px; cursor: pointer; color: var(--primary);" onclick="viewProfile(${request.mentor?.id})">${request.mentor?.full_name || 'Mentor'}</h4>
+                            <p style="margin: 0; font-size: 13px; opacity: 0.7;">Sent ${request.created_at ? new Date(request.created_at).toLocaleDateString() : 'Recently'}</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span class="status-badge status-${request.status}">${request.status?.charAt(0).toUpperCase() + request.status?.slice(1) || 'Pending'}</span>
+                        ${request.status === 'pending' ? `<button onclick="cancelRequest(${request.id})" class="btn btn-danger" style="padding: 4px 8px; font-size: 11px;"><i class="fas fa-times"></i> Cancel</button>` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // Render received requests
+        function renderReceivedRequests(requests) {
+            const container = document.getElementById('receivedRequestsList');
+            
+            // Filter out approved requests (they should be in My Mentees)
+            const pendingRequests = requests.filter(req => req.status === 'pending');
+            
+            if (pendingRequests.length === 0) {
+                container.innerHTML = '<p>No connection requests received.</p>';
+                return;
+            }
+            
+            container.innerHTML = pendingRequests.map(request => `
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 15px; border-bottom: 1px solid var(--divider-color);">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <img src="${request.mentee?.profile_pic || '../../static/images/default-profile.png'}" alt="${request.mentee?.full_name || 'User'}" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <h4 style="margin: 0 0 4px 0; font-size: 16px; cursor: pointer; color: var(--primary);" onclick="viewProfile(${request.mentee?.id})">${request.mentee?.full_name || 'User'}</h4>
+                            <p style="margin: 0; font-size: 13px; opacity: 0.7;">Wants to connect</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 8px;">
+                        <button onclick="respondToRequest(${request.id}, 'approved')" class="btn btn-primary" style="padding: 6px 12px; font-size: 12px;">
+                            <i class="fas fa-check"></i> Accept
+                        </button>
+                        <button onclick="respondToRequest(${request.id}, 'rejected')" class="btn btn-danger" style="padding: 6px 12px; font-size: 12px;">
+                            <i class="fas fa-times"></i> Decline
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // Render my mentors
+        function renderMyMentors(requests) {
+            const container = document.getElementById('myMentorsList');
+            
+            // Check if current user is a mentor
+            const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
+            const isMentor = currentUser.role === 'mentor';
+            
+            if (requests.length === 0) {
+                if (isMentor) {
+                    container.innerHTML = '<p>No mentees yet.</p>';
+                } else {
+                    container.innerHTML = '<p>You haven\'t connected with any mentors yet.</p>';
+                }
+                return;
+            }
+            
+            // Filter only approved requests
+            const approvedRequests = requests.filter(req => req.status === 'approved');
+            
+            container.innerHTML = approvedRequests.map(request => {
+                if (isMentor) {
+                    // For mentors, show mentees
+                    const mentee = request.mentee;
+                    return `
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 15px; border-bottom: 1px solid var(--divider-color);">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <img src="${mentee?.profile_pic || '../../static/images/default-profile.png'}" alt="${mentee?.full_name || 'Mentee'}" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                                <div>
+                                    <h4 style="margin: 0 0 4px 0; font-size: 16px; cursor: pointer; color: var(--primary);" onclick="viewProfile(${mentee?.id})">${mentee?.full_name || 'Mentee'}</h4>
+                                    <p style="margin: 0; font-size: 13px; opacity: 0.7;">Connected ${request.updated_at ? new Date(request.updated_at).toLocaleDateString() : 'Recently'}</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="messageMentor(${mentee?.id})" class="btn btn-primary" style="padding: 6px 12px; font-size: 12px;">
+                                    <i class="fas fa-envelope"></i> Message
+                                </button>
+                                <button onclick="disconnectMentor(${request.id})" class="btn btn-danger" style="padding: 6px 12px; font-size: 12px;">
+                                    <i class="fas fa-unlink"></i> Disconnect
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    // For users, show mentors
+                    const mentor = request.mentor;
+                    return `
+                        <div style="display: flex; align-items: center; justify-content: space-between; padding: 15px; border-bottom: 1px solid var(--divider-color);">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <img src="${mentor?.profile_pic || '../../static/images/default-profile.png'}" alt="${mentor?.full_name || 'Mentor'}" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;">
+                                <div>
+                                    <h4 style="margin: 0 0 4px 0; font-size: 16px; cursor: pointer; color: var(--primary);" onclick="viewProfile(${mentor?.id})">${mentor?.full_name || 'Mentor'}</h4>
+                                    <p style="margin: 0; font-size: 13px; opacity: 0.7;">Connected ${request.updated_at ? new Date(request.updated_at).toLocaleDateString() : 'Recently'}</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="requestSession(${request.id})" class="btn btn-secondary" style="padding: 6px 12px; font-size: 12px;">
+                                    <i class="fas fa-calendar"></i> Request Session
+                                </button>
+                                <button onclick="messageMentor(${mentor?.id})" class="btn btn-primary" style="padding: 6px 12px; font-size: 12px;">
+                                    <i class="fas fa-envelope"></i> Message
+                                </button>
+                                <button onclick="disconnectMentor(${request.id})" class="btn btn-danger" style="padding: 6px 12px; font-size: 12px;">
+                                    <i class="fas fa-unlink"></i> Disconnect
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                }
+            }).join('');
+        }
+        
+        // Respond to connection request
+        async function respondToRequest(requestId, status) {
+            try {
+                await fetchWithAuth(`/api/mentorship/requests/${requestId}/status/`, {
+                    method: 'POST',
+                    body: JSON.stringify({ status })
+                });
+                
+                showAlert(`Request ${status === 'approved' ? 'accepted' : 'declined'} successfully!`);
+                loadReceivedRequests();
+                loadMyMentors();
+            } catch (error) {
+                console.error('Error responding to request:', error);
+                showAlert('Failed to respond to request', 'error');
+            }
+        }
+        
+        // Cancel request function
+        async function cancelRequest(requestId) {
+            if (!confirm('Are you sure you want to cancel this request?')) return;
+            
+            try {
+                await fetchWithAuth(`/api/mentorship/requests/${requestId}/`, {
+                    method: 'DELETE'
+                });
+                
+                showAlert('Request cancelled successfully!');
+                loadSentRequests();
+            } catch (error) {
+                console.error('Error cancelling request:', error);
+                showAlert('Failed to cancel request', 'error');
+            }
+        }
+        
+        // Request session function
+        function requestSession(requestId) {
+            const modal = document.createElement('div');
+            modal.id = 'sessionModal';
+            modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;';
+            
+            const modalContent = `
+                <div style="background: var(--card-bg); border-radius: 12px; width: 450px; max-height: 80vh; overflow-y: auto; padding: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--divider-color);">
+                        <h2 style="margin: 0; font-size: 18px;">Request Session</h2>
+                        <button onclick="closeSessionModal()" style="background: none; border: none; font-size: 20px; cursor: pointer; color: var(--text-color);">&times;</button>
+                    </div>
+                    <form id="sessionRequestForm">
+                        <div class="form-group">
+                            <label for="sessionTopic">Session Topic*</label>
+                            <input type="text" id="sessionTopic" class="form-control" placeholder="e.g., Career Guidance, Resume Review" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="sessionDate">Preferred Date*</label>
+                            <div class="custom-select-wrapper">
+                                <div id="sessionDate" class="form-control custom-select" data-value="">
+                                    <span class="select-text">Select preferred date</span>
+                                    <i class="fas fa-chevron-down select-arrow"></i>
+                                </div>
+                                <div class="select-options" id="sessionDateOptions" style="display: none;">
+                                    <!-- Date options will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="sessionTime">Preferred Time*</label>
+                            <div class="custom-select-wrapper">
+                                <div id="sessionTime" class="form-control custom-select" data-value="">
+                                    <span class="select-text">Select preferred time</span>
+                                    <i class="fas fa-chevron-down select-arrow"></i>
+                                </div>
+                                <div class="select-options" id="sessionTimeOptions" style="display: none;">
+                                    <!-- Time options will be populated by JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="sessionDuration">Duration (minutes)*</label>
+                            <div class="custom-select-wrapper">
+                                <div id="sessionDuration" class="form-control custom-select" data-value="60">
+                                    <span class="select-text">60 minutes</span>
+                                    <i class="fas fa-chevron-down select-arrow"></i>
+                                </div>
+                                <div class="select-options" id="sessionDurationOptions" style="display: none;">
+                                    <div class="select-option" data-value="30">30 minutes</div>
+                                    <div class="select-option" data-value="60">60 minutes</div>
+                                    <div class="select-option" data-value="90">90 minutes</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="meetingLink">Meeting Link (Optional)</label>
+                            <input type="url" id="meetingLink" class="form-control" placeholder="https://meet.google.com/... or https://meet.jit.si/...">
+                            <small style="color: var(--text-color); opacity: 0.7; font-size: 12px;">Paste your Google Meet, Jitsi, Zoom, or any meeting platform link</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="sessionNotes">Additional Notes</label>
+                            <textarea id="sessionNotes" class="form-control" rows="3" placeholder="Any specific topics or questions you'd like to discuss..."></textarea>
+                        </div>
+                        <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
+                            <button type="button" onclick="closeSessionModal()" class="btn btn-secondary">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Request Session</button>
+                        </div>
+                    </form>
+                </div>
+            `;
+            
+            modal.innerHTML = modalContent;
+            document.body.appendChild(modal);
+            
+            // Populate date options (next 30 days)
+            const dateOptions = document.getElementById('sessionDateOptions');
+            const today = new Date();
+            for (let i = 1; i <= 30; i++) {
+                const date = new Date(today);
+                date.setDate(today.getDate() + i);
+                const dateStr = date.toISOString().split('T')[0];
+                const displayStr = date.toLocaleDateString('en-US', { 
+                    weekday: 'short', 
+                    month: 'short', 
+                    day: 'numeric' 
+                });
+                const option = document.createElement('div');
+                option.className = 'select-option';
+                option.dataset.value = dateStr;
+                option.textContent = displayStr;
+                dateOptions.appendChild(option);
+            }
+            
+            // Populate time options (9 AM to 9 PM)
+            const timeOptions = document.getElementById('sessionTimeOptions');
+            for (let hour = 9; hour <= 21; hour++) {
+                for (let minute = 0; minute < 60; minute += 30) {
+                    const timeStr = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
+                    const displayStr = new Date(`2000-01-01T${timeStr}`).toLocaleTimeString('en-US', {
+                        hour: 'numeric',
+                        minute: '2-digit',
+                        hour12: true
+                    });
+                    const option = document.createElement('div');
+                    option.className = 'select-option';
+                    option.dataset.value = timeStr;
+                    option.textContent = displayStr;
+                    timeOptions.appendChild(option);
+                }
+            }
+            
+            // Initialize custom selects for session modal
+            initSessionModalSelects();
+            
+            document.getElementById('sessionRequestForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                // Validate required fields
+                const topic = document.getElementById('sessionTopic').value;
+                const preferredDate = document.getElementById('sessionDate').dataset.value;
+                const preferredTime = document.getElementById('sessionTime').dataset.value;
+                const duration = document.getElementById('sessionDuration').dataset.value;
+                
+                if (!topic || !preferredDate || !preferredTime || !duration) {
+                    showAlert('Please fill in all required fields', 'error');
+                    return;
+                }
+                
+                const formData = {
+                    mentor_request_id: requestId,
+                    topic: topic,
+                    preferred_date: preferredDate,
+                    preferred_time: preferredTime,
+                    duration: parseInt(duration),
+                    meeting_link: document.getElementById('meetingLink').value,
+                    notes: document.getElementById('sessionNotes').value
+                };
+                
+                try {
+                    await fetchWithAuth('/api/mentorship/sessions/request/', {
+                        method: 'POST',
+                        body: JSON.stringify(formData)
+                    });
+                    
+                    showAlert('Session request sent successfully! Your mentor will be notified.');
+                    closeSessionModal();
+                    loadPendingSessions();
+                    loadUpcomingSessions();
+                } catch (error) {
+                    console.error('Error requesting session:', error);
+                    try {
+                        const errorData = await error.response?.json() || {};
+                        showAlert(errorData.message || 'Failed to request session', 'error');
+                    } catch {
+                        showAlert('Failed to request session', 'error');
+                    }
+                }
+            });
+        }
+        
+        // Close session modal
+        function closeSessionModal() {
+            const modal = document.getElementById('sessionModal');
+            if (modal) modal.remove();
+        }
+        
+        // Edit session function
+        async function editSession(sessionId) {
+            try {
+                // Get session details from both pending and upcoming
+                let session = null;
+                try {
+                    const pendingSessions = await fetchWithAuth('/api/mentorship/sessions/?pending=true');
+                    session = pendingSessions.find(s => s.id === sessionId);
+                } catch (e) {}
+                
+                if (!session) {
+                    try {
+                        const upcomingSessions = await fetchWithAuth('/api/mentorship/sessions/?upcoming=true');
+                        session = upcomingSessions.find(s => s.id === sessionId);
+                    } catch (e) {}
+                }
+                
+                if (!session && window.approvedSessions) {
+                    session = window.approvedSessions.find(s => s.id === sessionId);
+                }
+                
+                if (!session) {
+                    showAlert('Session not found', 'error');
+                    return;
+                }
+                
+                const modal = document.createElement('div');
+                modal.id = 'editSessionModal';
+                modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;';
+                
+                const scheduledDate = new Date(session.scheduled_time);
+                const dateStr = scheduledDate.toISOString().split('T')[0];
+                const timeStr = scheduledDate.toTimeString().split(' ')[0].substring(0, 5);
+                
+                const modalContent = `
+                    <div style="background: var(--card-bg); border-radius: 12px; width: 450px; max-height: 80vh; overflow-y: auto; padding: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--divider-color);">
+                            <h2 style="margin: 0; font-size: 18px;">Edit Session</h2>
+                            <button onclick="closeEditSessionModal()" style="background: none; border: none; font-size: 20px; cursor: pointer; color: var(--text-color);">&times;</button>
+                        </div>
+                        <form id="editSessionForm">
+                            <div class="form-group">
+                                <label for="editSessionDate">Preferred Date*</label>
+                                <div class="custom-select-wrapper">
+                                    <div id="editSessionDate" class="form-control custom-select" data-value="${dateStr}">
+                                        <span class="select-text">${scheduledDate.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })}</span>
+                                        <i class="fas fa-chevron-down select-arrow"></i>
+                                    </div>
+                                    <div class="select-options" id="editSessionDateOptions" style="display: none;">
+                                        <!-- Date options will be populated by JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="editSessionTime">Preferred Time*</label>
+                                <div class="custom-select-wrapper">
+                                    <div id="editSessionTime" class="form-control custom-select" data-value="${timeStr}">
+                                        <span class="select-text">${new Date(`2000-01-01T${timeStr}`).toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true })}</span>
+                                        <i class="fas fa-chevron-down select-arrow"></i>
+                                    </div>
+                                    <div class="select-options" id="editSessionTimeOptions" style="display: none;">
+                                        <!-- Time options will be populated by JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="editSessionDuration">Duration (minutes)*</label>
+                                <div class="custom-select-wrapper">
+                                    <div id="editSessionDuration" class="form-control custom-select" data-value="${session.duration}">
+                                        <span class="select-text">${session.duration} minutes</span>
+                                        <i class="fas fa-chevron-down select-arrow"></i>
+                                    </div>
+                                    <div class="select-options" id="editSessionDurationOptions" style="display: none;">
+                                        <div class="select-option" data-value="30">30 minutes</div>
+                                        <div class="select-option" data-value="60">60 minutes</div>
+                                        <div class="select-option" data-value="90">90 minutes</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="editMeetingLink">Meeting Link (Optional)</label>
+                                <input type="url" id="editMeetingLink" class="form-control" value="${session.meeting_link || ''}" placeholder="https://meet.google.com/...">
+                            </div>
+                            <div class="form-group">
+                                <label for="editSessionNotes">Additional Notes</label>
+                                <textarea id="editSessionNotes" class="form-control" rows="3" placeholder="Any specific topics or questions...">${session.notes || ''}</textarea>
+                            </div>
+                            <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
+                                <button type="button" onclick="closeEditSessionModal()" class="btn btn-secondary">Cancel</button>
+                                <button type="submit" class="btn btn-primary">Update Session</button>
+                            </div>
+                        </form>
+                    </div>
+                `;
+                
+                modal.innerHTML = modalContent;
+                document.body.appendChild(modal);
+                
+                // Populate edit date options (next 30 days)
+                const editDateOptions = document.getElementById('editSessionDateOptions');
+                const today = new Date();
+                for (let i = 0; i <= 30; i++) {
+                    const date = new Date(today);
+                    date.setDate(today.getDate() + i);
+                    const dateStr = date.toISOString().split('T')[0];
+                    const displayStr = date.toLocaleDateString('en-US', { 
+                        weekday: 'short', 
+                        month: 'short', 
+                        day: 'numeric' 
+                    });
+                    const option = document.createElement('div');
+                    option.className = 'select-option';
+                    option.dataset.value = dateStr;
+                    option.textContent = displayStr;
+                    editDateOptions.appendChild(option);
+                }
+                
+                // Populate edit time options (9 AM to 9 PM)
+                const editTimeOptions = document.getElementById('editSessionTimeOptions');
+                for (let hour = 9; hour <= 21; hour++) {
+                    for (let minute = 0; minute < 60; minute += 30) {
+                        const timeStr = `${hour.toString().padStart(2, '0')}:${minute.toString().padStart(2, '0')}`;
+                        const displayStr = new Date(`2000-01-01T${timeStr}`).toLocaleTimeString('en-US', {
+                            hour: 'numeric',
+                            minute: '2-digit',
+                            hour12: true
+                        });
+                        const option = document.createElement('div');
+                        option.className = 'select-option';
+                        option.dataset.value = timeStr;
+                        option.textContent = displayStr;
+                        editTimeOptions.appendChild(option);
+                    }
+                }
+                
+                // Initialize edit session custom selects
+                initEditSessionSelects();
+                
+                document.getElementById('editSessionForm').addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    
+                    const formData = {
+                        preferred_date: document.getElementById('editSessionDate').dataset.value,
+                        preferred_time: document.getElementById('editSessionTime').dataset.value,
+                        duration: parseInt(document.getElementById('editSessionDuration').dataset.value),
+                        meeting_link: document.getElementById('editMeetingLink').value,
+                        notes: document.getElementById('editSessionNotes').value
+                    };
+                    
+                    try {
+                        await fetchWithAuth(`/api/mentorship/sessions/${sessionId}/`, {
+                            method: 'PUT',
+                            body: JSON.stringify(formData)
+                        });
+                        
+                        showAlert('Session updated successfully!');
+                        closeEditSessionModal();
+                        loadPendingSessions();
+                        loadUpcomingSessions();
+                    } catch (error) {
+                        console.error('Error updating session:', error);
+                        try {
+                            const errorData = await error.response?.json() || {};
+                            showAlert(errorData.message || 'Failed to update session', 'error');
+                        } catch {
+                            showAlert('Failed to update session', 'error');
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error('Error loading session for edit:', error);
+                showAlert('Failed to load session details', 'error');
+            }
+        }
+        
+        function closeEditSessionModal() {
+            const modal = document.getElementById('editSessionModal');
+            if (modal) modal.remove();
+        }
+        
+        // Message mentor function
+        async function messageMentor(mentorId) {
+            try {
+                // Create or get chat room
+                const response = await fetchWithAuth('/api/chat/rooms/', {
+                    method: 'POST',
+                    body: JSON.stringify({ participant_id: mentorId })
+                });
+                
+                // Redirect to inbox with the mentor selected
+                window.location.href = `inbox.html?user=${mentorId}`;
+            } catch (error) {
+                console.error('Error starting chat:', error);
+                showAlert('Failed to start chat', 'error');
+            }
+        }
+        
+        // Become mentor function
+        function becomeMentor() {
+            const modal = document.createElement('div');
+            modal.id = 'mentorApplicationModal';
+            modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;';
+            
+            const modalContent = `
+                <div style="background: var(--card-bg); border-radius: 12px; width: 600px; max-height: 80vh; overflow-y: auto; padding: 20px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--divider-color);">
+                        <h2 style="margin: 0; font-size: 18px;">Become a Mentor</h2>
+                        <button onclick="closeMentorApplicationModal()" style="background: none; border: none; font-size: 20px; cursor: pointer; color: var(--text-color);">&times;</button>
+                    </div>
+                    <form id="mentorApplicationForm">
+                        <div class="form-group">
+                            <label for="yearsExperience">Years of Experience*</label>
+                            <input type="number" id="yearsExperience" class="form-control" min="0" placeholder="Enter your years of experience" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="whyMentor">Why do you want to be a mentor?*</label>
+                            <textarea id="whyMentor" class="form-control" rows="4" placeholder="Tell us about your motivation to become a mentor and how you can help others..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="agreeToTerms" required>
+                                I agree to serve as a mentor following all platform rules and guidelines*
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="agreeToVolunteer" required>
+                                I understand this is voluntary work and I expect no payment*
+                            </label>
+                        </div>
+                        <div style="display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px;">
+                            <button type="button" onclick="closeMentorApplicationModal()" class="btn btn-secondary">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Submit Application</button>
+                        </div>
+                    </form>
+                </div>
+            `;
+            
+            modal.innerHTML = modalContent;
+            document.body.appendChild(modal);
+            
+            document.getElementById('mentorApplicationForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const formData = {
+                    years_experience: document.getElementById('yearsExperience').value,
+                    why_mentor: document.getElementById('whyMentor').value,
+                    agree_to_terms: document.getElementById('agreeToTerms').checked,
+                    agree_to_volunteer: document.getElementById('agreeToVolunteer').checked
+                };
+                
+                try {
+                    await fetchWithAuth('/api/mentor-applications/', {
+                        method: 'POST',
+                        body: JSON.stringify(formData)
+                    });
+                    
+                    showAlert('Mentor application submitted successfully!');
+                    closeMentorApplicationModal();
+                    loadMentorApplications();
+                } catch (error) {
+                    console.error('Error submitting mentor application:', error);
+                    try {
+                        const errorData = await error.response?.json() || {};
+                        showAlert(errorData.message || 'Failed to submit mentor application', 'error');
+                    } catch {
+                        showAlert('Failed to submit mentor application', 'error');
+                    }
+                }
+            });
+        }
+        
+        function closeMentorApplicationModal() {
+            const modal = document.getElementById('mentorApplicationModal');
+            if (modal) modal.remove();
+        }
+        
+        // Disconnect mentor function
+        async function disconnectMentor(requestId) {
+            if (!confirm('Are you sure you want to disconnect from this mentor?')) return;
+            
+            try {
+                await fetchWithAuth(`/api/mentorship/requests/${requestId}/`, {
+                    method: 'DELETE'
+                });
+                
+                showAlert('Disconnected from mentor successfully!');
+                loadMyMentors();
+            } catch (error) {
+                console.error('Error disconnecting mentor:', error);
+                showAlert('Failed to disconnect from mentor', 'error');
+            }
+        }
+        
+        // Cancel session function
+        async function cancelSession(sessionId) {
+            if (!confirm('Are you sure you want to cancel this session?')) return;
+            
+            try {
+                await fetchWithAuth(`/api/mentorship/sessions/${sessionId}/`, {
+                    method: 'DELETE'
+                });
+                
+                showAlert('Session cancelled successfully!');
+                loadPendingSessions();
+                loadUpcomingSessions();
+            } catch (error) {
+                console.error('Error cancelling session:', error);
+                showAlert('Failed to cancel session', 'error');
+            }
+        }
+        
+        // Load previous sessions (past sessions)
+        async function loadCompletedSessions() {
+            try {
+                // Try to get completed sessions from backend first
+                let completedSessions = [];
+                try {
+                    completedSessions = await fetchWithAuth('/api/mentorship/sessions/?completed=true');
+                } catch (e) {
+                    console.log('Backend completed sessions failed, using frontend logic');
+                }
+                
+                // If backend doesn't return completed sessions, use frontend logic
+                if (!completedSessions || completedSessions.length === 0) {
+                    // Get all sessions and filter for past ones
+                    const pendingResponse = await fetchWithAuth('/api/mentorship/sessions/?pending=true');
+                    const pendingSessions = pendingResponse || [];
+                    
+                    let upcomingResponse = [];
+                    try {
+                        upcomingResponse = await fetchWithAuth('/api/mentorship/sessions/?upcoming=true');
+                    } catch (e) {}
+                    
+                    // Combine all sessions
+                    const allSessions = [...pendingSessions, ...(upcomingResponse || [])];
+                    
+                    // Add frontend-tracked approved sessions
+                    if (window.approvedSessions) {
+                        allSessions.push(...window.approvedSessions);
+                    }
+                    
+                    // Filter for past sessions (approved sessions that have completely ended)
+                    completedSessions = allSessions.filter(s => {
+                        const sessionStart = new Date(s.scheduled_time);
+                        const sessionEnd = new Date(sessionStart.getTime() + (s.duration * 60000));
+                        const now = new Date();
+                        return s.status === 'approved' && now >= sessionEnd;
+                    });
+                    
+                    // Remove duplicates
+                    completedSessions = completedSessions.filter((session, index, self) => 
+                        index === self.findIndex(s => s.id === session.id)
+                    );
+                }
+                
+                renderCompletedSessions(completedSessions);
+            } catch (error) {
+                console.error('Error loading previous sessions:', error);
+            }
+        }
+        
+        // Render previous sessions
+        function renderCompletedSessions(sessions) {
+            const container = document.getElementById('completedSessionsList');
+            
+            if (sessions.length === 0) {
+                container.innerHTML = '<p>No previous sessions yet.</p>';
+                return;
+            }
+            
+            container.innerHTML = sessions.map(session => {
+                const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
+                const isMentor = currentUser.role === 'mentor';
+                const person = isMentor ? session.mentee : session.mentor;
+                const personName = person?.full_name || (isMentor ? 'Mentee' : 'Mentor');
+                
+                return `
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid var(--divider-color);">
+                        <div>
+                            <h4 style="margin: 0 0 4px 0; font-size: 16px;">Session with <span style="cursor: pointer; color: var(--primary);" onclick="viewProfile(${person?.id})">${personName}</span></h4>
+                            <p style="margin: 0; font-size: 13px; opacity: 0.7;">${new Date(session.scheduled_time).toLocaleDateString()} at ${new Date(session.scheduled_time).toLocaleTimeString()}</p>
+                            <p style="margin: 0; font-size: 13px; opacity: 0.7;">${session.duration} minutes - Past Session</p>
+                        </div>
+                        <div style="display: flex; gap: 8px;">
+                            <span class="status-badge past-session">Past</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        // Load mentor applications
+        async function loadMentorApplications() {
+            try {
+                const response = await fetchWithAuth('/api/mentor-applications/');
+                const applications = response || [];
+                renderMentorApplications(applications);
+            } catch (error) {
+                console.error('Error loading mentor applications:', error);
+            }
+        }
+        
+        // Render mentor applications
+        function renderMentorApplications(applications) {
+            const container = document.getElementById('mentorApplicationsList');
+            
+            if (applications.length === 0) {
+                container.innerHTML = '<p>No mentor applications submitted yet.</p>';
+                return;
+            }
+            
+            container.innerHTML = applications.map(app => `
+                <div style="padding: 20px; border-bottom: 1px solid var(--divider-color);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <h4 style="margin: 0; font-size: 16px;">Mentor Application</h4>
+                        <span style="font-size: 13px; opacity: 0.7;">Submitted ${new Date(app.created_at).toLocaleDateString()}</span>
+                    </div>
+                    <div class="progress-tracker" style="margin-bottom: 15px;">
+                        <div class="progress-step ${app.status === 'submitted' || app.status === 'in_review' || app.status === 'interview' || app.status === 'completed' || app.status === 'successful' || app.status === 'rejected' ? 'active' : ''}">
+                            <div class="step-circle">1</div>
+                            <div class="step-label">Submitted</div>
+                        </div>
+                        <div class="progress-line ${app.status === 'in_review' || app.status === 'interview' || app.status === 'completed' || app.status === 'successful' || app.status === 'rejected' ? 'active' : ''}"></div>
+                        <div class="progress-step ${app.status === 'in_review' || app.status === 'interview' || app.status === 'completed' || app.status === 'successful' || app.status === 'rejected' ? 'active' : ''}">
+                            <div class="step-circle">2</div>
+                            <div class="step-label">In Review</div>
+                        </div>
+                        <div class="progress-line ${app.status === 'interview' || app.status === 'completed' || app.status === 'successful' || app.status === 'rejected' ? 'active' : ''}"></div>
+                        <div class="progress-step ${app.status === 'interview' || app.status === 'completed' || app.status === 'successful' || app.status === 'rejected' ? 'active' : ''}">
+                            <div class="step-circle">3</div>
+                            <div class="step-label">Interview</div>
+                        </div>
+                        <div class="progress-line ${app.status === 'completed' || app.status === 'successful' || app.status === 'rejected' ? 'active' : ''}"></div>
+                        <div class="progress-step ${app.status === 'completed' || app.status === 'successful' || app.status === 'rejected' ? 'active' : ''}">
+                            <div class="step-circle">4</div>
+                            <div class="step-label">Completed</div>
+                        </div>
+                        <div class="progress-line ${app.status === 'successful' || app.status === 'rejected' ? 'active' : ''}"></div>
+                        <div class="progress-step ${app.status === 'successful' || app.status === 'rejected' ? 'active' : ''} ${app.status === 'successful' ? 'success' : app.status === 'rejected' ? 'rejected' : ''}">
+                            <div class="step-circle">${app.status === 'successful' ? '✓' : app.status === 'rejected' ? '✗' : '5'}</div>
+                            <div class="step-label">${app.status === 'successful' ? 'Successful' : app.status === 'rejected' ? 'Rejected' : 'Decision'}</div>
+                        </div>
+                    </div>
+                    <p style="margin: 0; font-size: 14px;">Status: <strong>${app.status?.charAt(0).toUpperCase() + app.status?.slice(1).replace('_', ' ') || 'Submitted'}</strong></p>
+                </div>
+            `).join('');
+        }
+        
+        // Update message count function
+        async function updateMessageCount() {
+            try {
+                const chatRooms = await fetchWithAuth('/api/chat/rooms/');
+                let unreadCount = 0;
+                
+                for (const room of chatRooms) {
+                    const messages = await fetchWithAuth(`/api/chat/messages/${room.id}/`);
+                    const unreadMessages = messages.filter(msg => 
+                        !msg.is_read && msg.sender.id !== window.currentUserId
+                    );
+                    unreadCount += unreadMessages.length;
+                }
+                
+                // Update message count badges
+                const messageCountElements = document.querySelectorAll('#messageCount');
+                messageCountElements.forEach(el => {
+                    el.textContent = unreadCount;
+                    el.style.display = unreadCount > 0 ? 'inline' : 'none';
+                });
+                
+            } catch (error) {
+                console.error('Error updating message count:', error);
+            }
+        }
+        
+        // Approve session function
+        async function approveSession(sessionId) {
+            if (!confirm('Are you sure you want to approve this session?')) return;
+            
+            try {
+                const response = await fetchWithAuth(`/api/mentorship/sessions/${sessionId}/`, {
+                    method: 'PUT',
+                    body: JSON.stringify({ status: 'approved' })
+                });
+                console.log('Approve response:', response);
+                console.log('Approved session status:', response.session?.status);
+                
+                // Since backend isn't updating status properly, let's simulate it
+                if (response.session) {
+                    response.session.status = 'approved';
+                    // Store the approved session temporarily
+                    window.approvedSessions = window.approvedSessions || [];
+                    window.approvedSessions.push(response.session);
+                }
+                
+                showAlert('Session approved successfully!');
+                
+                // Wait a moment then reload
+                setTimeout(async () => {
+                    await loadPendingSessions();
+                    await loadUpcomingSessions();
+                }, 500);
+            } catch (error) {
+                console.error('Error approving session:', error);
+                showAlert('Failed to approve session', 'error');
+            }
+        }
+        
+        // Decline session function
+        async function declineSession(sessionId) {
+            if (!confirm('Are you sure you want to decline this session?')) return;
+            
+            try {
+                const response = await fetchWithAuth(`/api/mentorship/sessions/${sessionId}/`, {
+                    method: 'PUT',
+                    body: JSON.stringify({ status: 'rejected' })
+                });
+                showAlert('Session declined successfully!');
+                await loadPendingSessions();
+            } catch (error) {
+                console.error('Error declining session:', error);
+                showAlert('Failed to decline session', 'error');
+            }
+        }
+        
+        // View profile function
+        function viewProfile(userId) {
+            if (userId) {
+                window.location.href = `profile-view.html?id=${userId}`;
+            }
+        }
+        
+        // Initialize session modal custom selects
+        function initSessionModalSelects() {
+            // Session date
+            document.getElementById('sessionDate').addEventListener('click', function(e) {
+                e.stopPropagation();
+                const options = document.getElementById('sessionDateOptions');
+                const isVisible = options.style.display === 'block';
+                options.style.display = isVisible ? 'none' : 'block';
+                this.classList.toggle('active');
+            });
+            
+            document.querySelectorAll('#sessionDateOptions .select-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const value = this.dataset.value;
+                    const text = this.textContent;
+                    const select = document.getElementById('sessionDate');
+                    const selectText = select.querySelector('.select-text');
+                    
+                    selectText.textContent = text;
+                    select.dataset.value = value;
+                    
+                    document.getElementById('sessionDateOptions').style.display = 'none';
+                    select.classList.remove('active');
+                });
+            });
+            
+            // Session time
+            document.getElementById('sessionTime').addEventListener('click', function(e) {
+                e.stopPropagation();
+                const options = document.getElementById('sessionTimeOptions');
+                const isVisible = options.style.display === 'block';
+                options.style.display = isVisible ? 'none' : 'block';
+                this.classList.toggle('active');
+            });
+            
+            document.querySelectorAll('#sessionTimeOptions .select-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const value = this.dataset.value;
+                    const text = this.textContent;
+                    const select = document.getElementById('sessionTime');
+                    const selectText = select.querySelector('.select-text');
+                    
+                    selectText.textContent = text;
+                    select.dataset.value = value;
+                    
+                    document.getElementById('sessionTimeOptions').style.display = 'none';
+                    select.classList.remove('active');
+                });
+            });
+            
+            // Session duration
+            document.getElementById('sessionDuration').addEventListener('click', function(e) {
+                e.stopPropagation();
+                const options = document.getElementById('sessionDurationOptions');
+                const isVisible = options.style.display === 'block';
+                options.style.display = isVisible ? 'none' : 'block';
+                this.classList.toggle('active');
+            });
+            
+            document.querySelectorAll('#sessionDurationOptions .select-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const value = this.dataset.value;
+                    const text = this.textContent;
+                    const select = document.getElementById('sessionDuration');
+                    const selectText = select.querySelector('.select-text');
+                    
+                    selectText.textContent = text;
+                    select.dataset.value = value;
+                    
+                    document.getElementById('sessionDurationOptions').style.display = 'none';
+                    select.classList.remove('active');
+                });
+            });
+            
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', function() {
+                const sessionDateOptions = document.getElementById('sessionDateOptions');
+                const sessionTimeOptions = document.getElementById('sessionTimeOptions');
+                const sessionDurationOptions = document.getElementById('sessionDurationOptions');
+                const sessionDate = document.getElementById('sessionDate');
+                const sessionTime = document.getElementById('sessionTime');
+                const sessionDuration = document.getElementById('sessionDuration');
+                
+                if (sessionDateOptions) sessionDateOptions.style.display = 'none';
+                if (sessionTimeOptions) sessionTimeOptions.style.display = 'none';
+                if (sessionDurationOptions) sessionDurationOptions.style.display = 'none';
+                if (sessionDate) sessionDate.classList.remove('active');
+                if (sessionTime) sessionTime.classList.remove('active');
+                if (sessionDuration) sessionDuration.classList.remove('active');
+            });
+        }
+        
+        // Make functions global
+        window.respondToRequest = respondToRequest;
+        window.cancelRequest = cancelRequest;
+        window.requestSession = requestSession;
+        window.closeSessionModal = closeSessionModal;
+        window.editSession = editSession;
+        window.cancelSession = cancelSession;
+        window.messageMentor = messageMentor;
+        window.becomeMentor = becomeMentor;
+        window.closeMentorApplicationModal = closeMentorApplicationModal;
+        window.disconnectMentor = disconnectMentor;
+        window.closeEditSessionModal = closeEditSessionModal;
+        window.updateMessageCount = updateMessageCount;
+        window.approveSession = approveSession;
+        window.declineSession = declineSession;
+        window.viewProfile = viewProfile;
+        
+        // Invite user as mentee function
+        async function inviteUserAsMentee(userId) {
+            try {
+                closeMentorsModal();
+                
+                // Show request modal similar to user role
+                const users = await fetchWithAuth('/api/users/');
+                const selectedUser = users.find(u => u.id === userId);
+                if (selectedUser) {
+                    showRequestModal(selectedUser, true); // true indicates mentor inviting user
+                }
+            } catch (error) {
+                console.error('Error loading user:', error);
+                showAlert('Failed to load user details', 'error');
+            }
+        }
+        
+        window.inviteUserAsMentee = inviteUserAsMentee;
+        
+        // Initialize edit session modal custom selects
+        function initEditSessionSelects() {
+            // Edit session date
+            document.getElementById('editSessionDate').addEventListener('click', function(e) {
+                e.stopPropagation();
+                const options = document.getElementById('editSessionDateOptions');
+                const isVisible = options.style.display === 'block';
+                options.style.display = isVisible ? 'none' : 'block';
+                this.classList.toggle('active');
+            });
+            
+            document.querySelectorAll('#editSessionDateOptions .select-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const value = this.dataset.value;
+                    const text = this.textContent;
+                    const select = document.getElementById('editSessionDate');
+                    const selectText = select.querySelector('.select-text');
+                    
+                    selectText.textContent = text;
+                    select.dataset.value = value;
+                    
+                    document.getElementById('editSessionDateOptions').style.display = 'none';
+                    select.classList.remove('active');
+                });
+            });
+            
+            // Edit session time
+            document.getElementById('editSessionTime').addEventListener('click', function(e) {
+                e.stopPropagation();
+                const options = document.getElementById('editSessionTimeOptions');
+                const isVisible = options.style.display === 'block';
+                options.style.display = isVisible ? 'none' : 'block';
+                this.classList.toggle('active');
+            });
+            
+            document.querySelectorAll('#editSessionTimeOptions .select-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const value = this.dataset.value;
+                    const text = this.textContent;
+                    const select = document.getElementById('editSessionTime');
+                    const selectText = select.querySelector('.select-text');
+                    
+                    selectText.textContent = text;
+                    select.dataset.value = value;
+                    
+                    document.getElementById('editSessionTimeOptions').style.display = 'none';
+                    select.classList.remove('active');
+                });
+            });
+            
+            // Edit session duration
+            document.getElementById('editSessionDuration').addEventListener('click', function(e) {
+                e.stopPropagation();
+                const options = document.getElementById('editSessionDurationOptions');
+                const isVisible = options.style.display === 'block';
+                options.style.display = isVisible ? 'none' : 'block';
+                this.classList.toggle('active');
+            });
+            
+            document.querySelectorAll('#editSessionDurationOptions .select-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const value = this.dataset.value;
+                    const text = this.textContent;
+                    const select = document.getElementById('editSessionDuration');
+                    const selectText = select.querySelector('.select-text');
+                    
+                    selectText.textContent = text;
+                    select.dataset.value = value;
+                    
+                    document.getElementById('editSessionDurationOptions').style.display = 'none';
+                    select.classList.remove('active');
+                });
+            });
+        }
+        
+        // Load upcoming sessions
+        async function loadUpcomingSessions() {
+            try {
+                // Get pending sessions and filter for approved ones
+                const pendingResponse = await fetchWithAuth('/api/mentorship/sessions/?pending=true');
+                const pendingSessions = pendingResponse || [];
+                
+                // Also try to get upcoming sessions
+                let upcomingResponse = [];
+                try {
+                    upcomingResponse = await fetchWithAuth('/api/mentorship/sessions/?upcoming=true');
+                } catch (e) {
+                    console.log('Upcoming endpoint failed');
+                }
+                
+                // Combine and filter for approved sessions that haven't ended yet
+                const allSessions = [...pendingSessions, ...(upcomingResponse || [])];
+                let approvedSessions = allSessions.filter(s => {
+                    const sessionStart = new Date(s.scheduled_time);
+                    const sessionEnd = new Date(sessionStart.getTime() + (s.duration * 60000)); // duration in minutes to milliseconds
+                    const now = new Date();
+                    return s.status === 'approved' && now < sessionEnd;
+                });
+                
+                // Add frontend-tracked approved sessions
+                if (window.approvedSessions) {
+                    const futureApprovedSessions = window.approvedSessions.filter(s => {
+                        const sessionStart = new Date(s.scheduled_time);
+                        const sessionEnd = new Date(sessionStart.getTime() + (s.duration * 60000));
+                        const now = new Date();
+                        return now < sessionEnd;
+                    });
+                    approvedSessions = [...approvedSessions, ...futureApprovedSessions];
+                    // Remove duplicates
+                    approvedSessions = approvedSessions.filter((session, index, self) => 
+                        index === self.findIndex(s => s.id === session.id)
+                    );
+                }
+                
+                console.log('Found approved sessions:', approvedSessions);
+                
+                renderUpcomingSessions(approvedSessions);
+            } catch (error) {
+                console.error('Error loading upcoming sessions:', error);
+            }
+        }
+        
+        // Load pending sessions
+        async function loadPendingSessions() {
+            try {
+                const response = await fetchWithAuth('/api/mentorship/sessions/?pending=true');
+                let sessions = response || [];
+                console.log('Pending sessions with details:', sessions.map(s => ({id: s.id, status: s.status, scheduled_time: s.scheduled_time})));
+                
+                // Filter out sessions that we've approved on frontend
+                if (window.approvedSessions) {
+                    const approvedIds = window.approvedSessions.map(s => s.id);
+                    sessions = sessions.filter(s => !approvedIds.includes(s.id));
+                }
+                
+                await renderPendingSessions(sessions);
+            } catch (error) {
+                console.error('Error loading pending sessions:', error);
+            }
+        }
+        
+        // Render pending sessions
+        async function renderPendingSessions(sessions) {
+            const container = document.getElementById('pendingSessionsList');
+            
+            if (sessions.length === 0) {
+                container.innerHTML = '<p>No pending sessions.</p>';
+                return;
+            }
+            
+            // Get current user from the stored user data
+            let currentUser;
+            try {
+                const userData = await fetchWithAuth('/api/user/');
+                currentUser = userData;
+            } catch {
+                currentUser = JSON.parse(localStorage.getItem('user') || '{}');
+            }
+            const isMentor = currentUser.role === 'mentor';
+            
+            container.innerHTML = sessions.map(session => {
+                const person = isMentor ? session.mentee : session.mentor;
+                const personName = person?.full_name || (isMentor ? 'Mentee' : 'Mentor');
+                
+                return `
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid var(--divider-color);">
+                        <div>
+                            <h4 style="margin: 0 0 4px 0; font-size: 16px;">Session with <span style="cursor: pointer; color: var(--primary);" onclick="viewProfile(${person?.id})">${personName}</span></h4>
+                            <p style="margin: 0; font-size: 13px; opacity: 0.7;">${new Date(session.scheduled_time).toLocaleDateString()} at ${new Date(session.scheduled_time).toLocaleTimeString()}</p>
+                            <p style="margin: 0; font-size: 13px; opacity: 0.7;">${session.duration} minutes</p>
+                        </div>
+                        <div style="display: flex; gap: 8px;">
+                            ${isMentor ? `
+                                <button onclick="approveSession(${session.id})" class="btn btn-primary" style="padding: 6px 10px; font-size: 11px;"><i class="fas fa-check"></i> Accept</button>
+                                <button onclick="declineSession(${session.id})" class="btn btn-danger" style="padding: 6px 10px; font-size: 11px;"><i class="fas fa-times"></i> Decline</button>
+                            ` : `
+                                <span class="status-badge status-pending" style="font-size: 12px;">Pending Approval</span>
+                                <button onclick="editSession(${session.id})" class="btn btn-secondary" style="padding: 6px 10px; font-size: 11px;"><i class="fas fa-edit"></i></button>
+                                <button onclick="cancelSession(${session.id})" class="btn btn-danger" style="padding: 6px 10px; font-size: 11px;"><i class="fas fa-times"></i></button>
+                            `}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        // Render upcoming sessions
+        function renderUpcomingSessions(sessions) {
+            const container = document.getElementById('upcomingSessionsList');
+            
+            if (sessions.length === 0) {
+                container.innerHTML = '<p>No upcoming sessions scheduled.</p>';
+                return;
+            }
+            
+            container.innerHTML = sessions.map(session => {
+                const currentUser = JSON.parse(localStorage.getItem('user') || '{}');
+                const isMentor = currentUser.role === 'mentor';
+                const person = isMentor ? session.mentee : session.mentor;
+                const personName = person?.full_name || (isMentor ? 'Mentee' : 'Mentor');
+                
+                // Determine session status
+                const sessionStart = new Date(session.scheduled_time);
+                const sessionEnd = new Date(sessionStart.getTime() + (session.duration * 60000));
+                const now = new Date();
+                const isOngoing = now >= sessionStart && now < sessionEnd;
+                const statusText = isOngoing ? 'Ongoing' : 'Upcoming';
+                const statusColor = isOngoing ? 'var(--warning)' : 'var(--primary)';
+                
+                return `
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid var(--divider-color);">
+                        <div>
+                            <h4 style="margin: 0 0 4px 0; font-size: 16px;">Session with <span style="cursor: pointer; color: var(--primary);" onclick="viewProfile(${person?.id})">${personName}</span></h4>
+                            <p style="margin: 0; font-size: 13px; opacity: 0.7;">${new Date(session.scheduled_time).toLocaleDateString()} at ${new Date(session.scheduled_time).toLocaleTimeString()}</p>
+                            <p style="margin: 0; font-size: 13px; opacity: 0.7;">${session.duration} minutes - <span style="color: ${statusColor}; font-weight: 600;">${statusText}</span></p>
+                        </div>
+                        <div style="display: flex; gap: 8px;">
+                            ${session.meeting_link ? `<a href="${session.meeting_link}" target="_blank" class="btn btn-primary" style="padding: 8px 16px; font-size: 12px; background: var(--success); text-decoration: none;"><i class="fas fa-video"></i> Join Meet</a>` : ''}
+                            <button onclick="editSession(${session.id})" class="btn btn-secondary" style="padding: 6px 10px; font-size: 11px;"><i class="fas fa-edit"></i></button>
+                            <button onclick="cancelSession(${session.id})" class="btn btn-danger" style="padding: 6px 10px; font-size: 11px;"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Initialize the page with user data
+        document.addEventListener('DOMContentLoaded', async function() {
+            console.log('DOM Content Loaded - Starting initialization');
+            try {
+                // Fetch current user data
+                console.log('Fetching user data...');
+                const user = await fetchWithAuth('/api/user/');
+                console.log('User data received:', user);
+                
+                // Update UI with user data
+                document.getElementById('sidebarUserName').textContent = `Welcome, ${user.full_name || 'User'}`;
+                document.getElementById('headerUserName').textContent = user.full_name || 'User';
+                
+                // Update profile pictures
+                if (user.profile_pic) {
+                    document.getElementById('sidebarProfilePic').src = user.profile_pic;
+                    document.getElementById('headerProfilePic').src = user.profile_pic;
+                }
+                
+                // Update role display
+                const roleElement = document.querySelector('.user-profile .role');
+                if (user.role === 'super_admin') {
+                    roleElement.textContent = 'Super Admin';
+                } else if (user.role === 'admin') {
+                    roleElement.textContent = 'Admin';
+                } else if (user.role === 'mentor') {
+                    roleElement.textContent = 'Mentor';
+                    // Update navigation for mentors
+                    document.querySelector('a[href="mentors.html"] span').textContent = 'Mentees';
+                    // Hide Become a Mentor button and Add Mentor button
+                    document.getElementById('becomeMentorBtn').style.display = 'none';
+                    document.getElementById('addMentorBtn').style.display = 'none';
+                    // Hide sent requests section for mentors
+                    document.querySelector('#sentRequestsList').parentElement.style.display = 'none';
+                    // Hide mentees section and applications section for mentors
+                    document.getElementById('myMenteesSection').style.display = 'none';
+                    document.getElementById('mentorApplicationsSection').style.display = 'none';
+                    // Change My Mentors to My Mentees
+                    document.getElementById('myMentorsTitle').textContent = 'My Mentees';
+                } else {
+                    roleElement.textContent = 'Member';
+                }
+                
+                console.log('Loading mentors data...');
+                // Load mentors data
+                await loadSentRequests();
+                await loadReceivedRequests();
+                await loadMyMentors();
+                await loadPendingSessions();
+                await loadUpcomingSessions();
+                await loadCompletedSessions();
+                await loadMentorApplications();
+                
+                // Load notifications count
+                const notificationsResponse = await fetchWithAuth('/api/notifications/');
+                const unreadCount = notificationsResponse.unread_count || 0;
+                document.getElementById('notificationBadge').textContent = unreadCount;
+                document.getElementById('notificationCount').textContent = unreadCount;
+                
+                // Update message count
+                await updateMessageCount();
+                
+                console.log('Page initialization completed successfully');
+                
+            } catch (error) {
+                console.error('Error initializing page:', error);
+                // Don't redirect immediately, let user see the error
+                showAlert('Failed to load page data. Please refresh.', 'error');
+            }
+        });
+
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            if (confirm('Are you sure you want to logout?')) {
+                // Clear user data from localStorage
+                localStorage.removeItem('user');
+                
+                // Redirect to login page
+                window.location.href = '../login.html';
+            }
+        });
+    </script>
+</body>
+</html>
+

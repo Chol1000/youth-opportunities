@@ -1,0 +1,3374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community - Youth Opportunities</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #c7d2fe;
+            --dark: #1e293b;
+            --darker: #0f172a;
+            --darkest: #020617;
+            --light: #f1f5f9;
+            --lighter: #f8fafc;
+            --danger: #ef4444;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --info: #3b82f6;
+            --sidebar-width: 280px;
+            --header-height: 70px;
+            --right-sidebar-width: 300px;
+            --bg-color: #ffffff;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+            --card-border: rgba(0,0,0,0.1);
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            --input-bg: #ffffff;
+            --input-border: rgba(0,0,0,0.1);
+            --hover-bg: rgba(0,0,0,0.02);
+            --divider-color: rgba(0,0,0,0.05);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --card-bg: #1e293b;
+            --card-border: rgba(255,255,255,0.1);
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            --input-bg: #1e293b;
+            --input-border: rgba(255,255,255,0.1);
+            --hover-bg: rgba(255,255,255,0.05);
+            --divider-color: rgba(255,255,255,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--card-bg);
+            height: 100vh;
+            position: fixed;
+            padding: 0;
+            border-right: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+            z-index: 100;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--card-shadow);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 70px;
+                padding-top: 70px;
+                display: block;
+                overflow-x: hidden;
+            }
+            
+            .sidebar {
+                display: none !important;
+            }
+            
+            .main-content {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                padding: 5px;
+                width: 100vw;
+                max-width: 100vw;
+                box-sizing: border-box;
+                overflow-x: hidden;
+                position: static;
+                left: auto;
+                right: auto;
+                transform: none;
+            }
+            
+            .header {
+                height: 60px;
+                padding: 0 10px;
+                width: 100vw;
+                max-width: 100vw;
+                left: 0;
+                right: 0;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .header-left {
+                display: flex;
+                order: 1;
+            }
+            
+            .header-left .search-bar {
+                display: none;
+            }
+            
+            .header-right {
+                display: none;
+            }
+            
+            .menu-toggle {
+                order: 2;
+            }
+            
+            .notification-bell,
+            .theme-toggle {
+                display: none !important;
+            }
+            
+            .menu-toggle {
+                display: flex !important;
+                order: 2;
+                width: 30px;
+                height: 30px;
+                flex-direction: column;
+                justify-content: space-between;
+                cursor: pointer;
+                z-index: 100;
+            }
+            
+            .menu-toggle span {
+                width: 100%;
+                height: 3px;
+                background: var(--text-color);
+                border-radius: 3px;
+                transition: all 0.3s ease;
+            }
+            
+            .profile-section {
+                padding: 8px;
+                margin-bottom: 8px;
+                width: 100%;
+                max-width: 100%;
+            }
+            
+            .community-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .community-sidebar {
+                display: none;
+            }
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--divider-color);
+            background: var(--card-bg);
+            position: sticky;
+            top: -1px;
+            z-index: 10;
+            flex-shrink: 0;
+            box-shadow: 0 0 0 1px var(--card-bg), 0 2px 15px rgba(0,0,0,0.1);
+            margin-top: -1px;
+        }
+
+        .sidebar-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .sidebar-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 10px;
+            color: var(--text-color);
+        }
+
+        .sidebar-header .admin-name {
+            font-size: 14px;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-top: 3px;
+        }
+
+        .sidebar-menu {
+            padding: 10px;
+            overflow-y: auto;
+            flex: 1;
+            padding-bottom: 20px;
+            margin-top: -1px;
+        }
+
+        .menu-item {
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .menu-item:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+        }
+
+        .menu-item.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .menu-item i {
+            width: 20px;
+            text-align: center;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+
+        .menu-item .badge {
+            margin-left: auto;
+            background: var(--danger);
+            color: white;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: 600;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            padding: 25px;
+            padding-top: calc(var(--header-height) + 25px);
+            transition: margin-left 0.3s ease;
+            display: flex;
+            gap: 20px;
+            max-width: 100%;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: calc(100% - var(--sidebar-width));
+            height: var(--header-height);
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--divider-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 25px;
+            z-index: 90;
+            transition: width 0.3s ease;
+            box-shadow: var(--card-shadow);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                position: relative;
+            }
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--hover-bg);
+        }
+
+        .theme-toggle i {
+            font-size: 18px;
+            color: var(--text-color);
+        }
+
+        .theme-toggle .toggle-text {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .menu-toggle {
+            display: none;
+            width: 30px;
+            height: 30px;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+        }
+
+        .mobile-bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100vw;
+            max-width: 100vw;
+            background: var(--card-bg);
+            border-top: 1px solid var(--card-border);
+            padding: 8px 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+        
+        .bottom-nav-items {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            padding: 4px 2px;
+            flex: 1;
+            max-width: 20%;
+        }
+        
+        .bottom-nav-item i {
+            font-size: 16px;
+            margin-bottom: 2px;
+        }
+        
+        .bottom-nav-item span {
+            font-size: 9px;
+            font-weight: 500;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .bottom-nav-item:hover,
+        .bottom-nav-item.active {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-dropdown {
+            position: fixed;
+            top: 75px;
+            right: 5px;
+            width: 200px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1001;
+        }
+        
+        .mobile-menu-content {
+            padding: 8px 0;
+        }
+        
+        .mobile-menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .mobile-menu-item:hover {
+            background: var(--hover-bg);
+        }
+        
+        .mobile-menu-item i {
+            width: 16px;
+            font-size: 14px;
+        }
+        
+        .mobile-menu-item span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .mobile-menu-item .badge {
+            margin-left: auto;
+            background: var(--danger);
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            min-width: 16px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-bottom-nav {
+                display: block;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .action-buttons .btn {
+                width: 100%;
+                justify-content: center;
+                font-size: 12px;
+                padding: 8px 12px;
+            }
+            
+            .tab-buttons {
+                width: 100%;
+            }
+            
+            .tab-btn {
+                flex: 1;
+                font-size: 12px;
+                padding: 8px 12px;
+                justify-content: center;
+            }
+            
+            /* Facebook-style posts */
+            .profile-section {
+                border-radius: 0 !important;
+                margin-bottom: 0 !important;
+                border: none !important;
+                border-bottom: 8px solid var(--hover-bg) !important;
+                box-shadow: none !important;
+                margin-left: -5px !important;
+                margin-right: -5px !important;
+                width: calc(100% + 10px) !important;
+            }
+            
+            .profile-section img[style*="width: 100%"] {
+                margin-left: -25px !important;
+                margin-right: -25px !important;
+                width: calc(100% + 50px) !important;
+                border-radius: 0 !important;
+            }
+            
+            /* Discussion responsive fixes */
+            .new-post.discussion-form {
+                border-radius: 0 !important;
+                margin-left: -5px !important;
+                margin-right: -5px !important;
+                width: calc(100% + 10px) !important;
+            }
+            
+            .discussion-title-row {
+                flex-direction: column !important;
+                gap: 10px !important;
+            }
+            
+            .discussion-title-input,
+            .discussion-topic-select {
+                width: 100% !important;
+                min-width: auto !important;
+            }
+            
+            .discussion-topic-select {
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+                overflow: hidden !important;
+            }
+            
+            .discussion-submit-btn {
+                padding: 8px 16px !important;
+                font-size: 12px !important;
+                border-radius: 6px !important;
+            }
+            
+            /* Discussion modal fixes */
+            div[style*="position: fixed"] div[style*="width: 90%"] {
+                width: 95% !important;
+                max-width: 95% !important;
+                margin: 10px !important;
+                max-height: 90vh !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 8px;
+            }
+            
+            .profile-section {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 0 15px;
+            }
+            
+            .header-right {
+                gap: 10px;
+            }
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background: var(--text-color);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+
+        .search-bar {
+            position: relative;
+            width: 300px;
+        }
+
+        @media (max-width: 768px) {
+            .search-bar {
+                display: none;
+            }
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px 10px 40px;
+            border-radius: 8px;
+            border: 1px solid var(--input-border);
+            background: var(--input-bg);
+            color: var(--text-color);
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--primary);
+            border-color: var(--primary);
+        }
+
+        .search-bar i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-color);
+            opacity: 0.7;
+        }
+
+        .notification-bell {
+            position: relative;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .notification-bell:hover {
+            background: var(--hover-bg);
+        }
+
+        .notification-bell .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--danger);
+            color: white;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            position: relative;
+            padding: 5px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .user-profile:hover {
+            background: var(--hover-bg);
+        }
+
+        .user-profile img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .user-profile .name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .user-profile .role {
+            font-size: 12px;
+            opacity: 0.7;
+            background: var(--primary);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .page-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(99, 102, 241, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+        }
+
+        .profile-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid var(--card-border);
+            margin-bottom: 25px;
+            position: relative;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .profile-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 90;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            background: var(--success);
+            color: white;
+            border-radius: 8px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            animation: slideIn 0.3s, fadeOut 0.5s 2.5s forwards;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .notification.error {
+            background: var(--warning);
+        }
+        
+        .notification.info {
+            background: var(--info);
+        }
+
+        .notification i {
+            font-size: 18px;
+        }
+
+        @keyframes slideIn {
+            from { right: -100px; opacity: 0; }
+            to { right: 20px; opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; }
+        }
+        
+        .search-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .search-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .search-modal .modal-content {
+            background: var(--card-bg);
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .search-modal .modal-content {
+                width: 95% !important;
+                max-width: 95% !important;
+                margin: 10px !important;
+            }
+        }
+        
+        .search-modal.show .modal-content {
+            transform: scale(1);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--card-border);
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+            color: var(--text-color);
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        
+        .search-form {
+            padding: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .modal-search-input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            font-size: 16px;
+            background: var(--card-bg);
+            color: var(--text-color);
+        }
+        
+        .modal-search-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        
+        .search-results {
+            padding: 0 20px 20px;
+            overflow-y: auto;
+            flex: 1;
+            max-height: 400px;
+        }
+        
+        .search-result-item {
+            padding: 15px;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-result-item:hover {
+            background: var(--hover-bg);
+        }
+        
+        .search-result-item h5 {
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .search-result-item p {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* Community Layout */
+        .community-container {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .community-main {
+            flex: 1;
+            min-width: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .community-sidebar {
+            width: var(--right-sidebar-width);
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 1200px) {
+            .community-sidebar {
+                display: none;
+            }
+        }
+
+        /* Tab buttons styling */
+        .tab-buttons {
+            display: flex;
+            gap: 5px;
+            background: var(--hover-bg);
+            padding: 5px;
+            border-radius: 10px;
+        }
+        
+        .tab-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .tab-btn i {
+            font-size: 16px;
+        }
+
+        /* Right Sidebar */
+        .sidebar-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--card-shadow);
+        }
+
+        .sidebar-card h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .filter-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-item:hover {
+            background: var(--hover-bg);
+        }
+
+        .filter-item.active {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+        }
+
+        .filter-item i {
+            width: 20px;
+            text-align: center;
+        }
+
+        .trending-tag {
+            display: inline-block;
+            padding: 5px 10px;
+            background: var(--hover-bg);
+            border-radius: 20px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .trending-tag:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+        }
+
+        /* Loading spinner */
+        .spinner {
+            display: none;
+            width: 40px;
+            height: 40px;
+            margin: 20px auto;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid var(--primary);
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Post form styling */
+        .new-post {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .post-form {
+            border: 2px solid var(--primary-light);
+        }
+        
+        .post-form-header {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .new-post-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        
+        .post-inputs {
+            flex: 1;
+        }
+        
+        .post-content-input {
+            width: 100%;
+            min-height: 100px;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid var(--input-border);
+            background: var(--input-bg);
+            color: var(--text-color);
+            font-size: 15px;
+            line-height: 1.6;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+        
+        .post-content-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+        
+        .new-post-preview {
+            margin-bottom: 15px;
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            max-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--hover-bg);
+        }
+        
+        .new-post-preview img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+        }
+        
+        .new-post-remove {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .post-form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid var(--divider-color);
+        }
+        
+        .post-options {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .post-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+        
+        .post-option:hover {
+            background: var(--hover-bg);
+        }
+        
+        .post-option input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        .post-submit-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 10px;
+        }
+        
+        /* Discussion form styling */
+        .discussion-form {
+            border: 2px solid var(--primary-light);
+        }
+        
+        .discussion-form-header {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .discussion-inputs {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .discussion-title-row {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .discussion-title-input {
+            flex: 1;
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 2px solid var(--input-border);
+            background: var(--input-bg);
+            color: var(--text-color);
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-title-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+        
+        .custom-select-wrapper {
+            position: relative;
+            min-width: 180px;
+        }
+        
+        .discussion-topic-select {
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 2px solid var(--input-border);
+            background: var(--input-bg);
+            color: var(--text-color);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .select-arrow {
+            transition: transform 0.3s ease;
+        }
+        
+        .custom-select.active .select-arrow {
+            transform: rotate(180deg);
+        }
+        
+        .select-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--card-bg);
+            border: 2px solid var(--input-border);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .select-option {
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            font-size: 14px;
+        }
+        
+        .select-option:hover {
+            background: var(--hover-bg);
+        }
+        
+        .select-option.selected {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+        }
+        
+        .discussion-topic-select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+        
+        .discussion-content-input {
+            width: 100%;
+            min-height: 120px;
+            padding: 20px;
+            border-radius: 12px;
+            border: 2px solid var(--input-border);
+            background: var(--input-bg);
+            color: var(--text-color);
+            font-size: 15px;
+            line-height: 1.6;
+            resize: vertical;
+            transition: all 0.3s ease;
+        }
+        
+        .discussion-content-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+        
+        .discussion-form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid var(--divider-color);
+        }
+        
+        .discussion-tips {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-color);
+            opacity: 0.7;
+            font-size: 13px;
+        }
+        
+        .discussion-tips i {
+            color: var(--warning);
+        }
+        
+        .discussion-submit-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            font-size: 15px;
+            font-weight: 600;
+            border-radius: 10px;
+        }
+    </style>
+    <link rel="icon" href="../../static/images/youthopps-logo.png" type="image/png">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img id="sidebarProfilePic" src="../../static/images/default-image.jpg" alt="Profile">
+            <div>
+                <h2>User Dashboard</h2>
+                <div class="admin-name" id="sidebarUserName">Welcome, Loading ...</div>
+            </div>
+        </div>
+        
+        <div class="sidebar-menu">
+            <a href="index.html" class="menu-item" data-section="dashboard">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            
+            <a href="profile.html" class="menu-item" data-section="profile">
+                <i class="fas fa-user"></i>
+                <span>My Profile</span>
+            </a>
+            
+            <a href="opportunities.html" class="menu-item" data-section="opportunities">
+                <i class="fas fa-briefcase"></i>
+                <span>Opportunities</span>
+            </a>
+            
+            <a href="mentors.html" class="menu-item" data-section="mentors">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span>Mentors</span>
+            </a>
+            
+            <a href="community.html" class="menu-item active" data-section="community">
+                <i class="fas fa-users"></i>
+                <span>Community</span>
+            </a>
+            
+            <a href="inbox.html" class="menu-item" data-section="inbox">
+                <i class="fas fa-inbox"></i>
+                <span>Inbox</span>
+                <span class="badge" id="messageCount">0</span>
+            </a>
+            
+            <a href="cv-review.html" class="menu-item" data-section="cv-review">
+                <i class="fas fa-file-alt"></i>
+                <span>CV Review</span>
+            </a>
+            
+            <a href="training.html" class="menu-item" data-section="training">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Training</span>
+            </a>
+            
+            <a href="webinars.html" class="menu-item" data-section="webinars">
+                <i class="fas fa-video"></i>
+                <span>Webinars</span>
+            </a>
+            
+            <a href="notifications.html" class="menu-item" data-section="notifications">
+                <i class="fas fa-bell"></i>
+                <span>Notifications</span>
+                <span class="badge" id="notificationCount">0</span>
+            </a>
+            
+            <a href="settings.html" class="menu-item" data-section="settings">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            
+            <div class="menu-item" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div class="mobile-menu-dropdown" id="mobileMenuDropdown" style="display: none;">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-item" id="mobileSearch">
+                <i class="fas fa-search"></i>
+                <span>Search</span>
+            </div>
+            <a href="settings.html" class="mobile-menu-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            <a href="notifications.html" class="mobile-menu-item">
+                <i class="fas fa-bell"></i>
+                <span>Notifications</span>
+                <span class="badge" id="mobileNotificationBadge">0</span>
+            </a>
+            <a href="cv-review.html" class="mobile-menu-item">
+                <i class="fas fa-file-alt"></i>
+                <span>CV Review</span>
+            </a>
+            <a href="mentors.html" class="mobile-menu-item">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span>Mentors</span>
+            </a>
+            <a href="training.html" class="mobile-menu-item">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Training</span>
+            </a>
+            <a href="webinars.html" class="mobile-menu-item">
+                <i class="fas fa-video"></i>
+                <span>Webinars</span>
+            </a>
+            <div class="mobile-menu-item" id="mobileThemeToggle">
+                <i class="fas fa-moon"></i>
+                <span>Dark Mode</span>
+            </div>
+            <div class="mobile-menu-item" id="mobileLogout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+    
+    <!-- Mobile Bottom Navigation -->
+    <div class="mobile-bottom-nav">
+        <div class="bottom-nav-items">
+            <a href="index.html" class="bottom-nav-item">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="opportunities.html" class="bottom-nav-item">
+                <i class="fas fa-briefcase"></i>
+                <span>Opportunities</span>
+            </a>
+            <a href="community.html" class="bottom-nav-item active">
+                <i class="fas fa-users"></i>
+                <span>Community</span>
+            </a>
+            <a href="inbox.html" class="bottom-nav-item">
+                <i class="fas fa-inbox"></i>
+                <span>Inbox</span>
+            </a>
+            <a href="profile.html" class="bottom-nav-item">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="communitySearch" placeholder="Search community...">
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <div class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                    <span class="toggle-text">Dark Mode</span>
+                </div>
+                
+                <div class="notification-bell" id="notificationBell">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge" id="notificationBadge">0</span>
+                </div>
+                
+                <div class="user-profile">
+                    <img id="headerProfilePic" src="../../static/images/default-image.jpg" alt="User">
+                    <div>
+                        <div class="name" id="headerUserName">Loading...</div>
+                        <div class="role">Member</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Community Content -->
+        <div class="community-container">
+            <div class="community-main">
+                <div class="page-header">
+                    <h1 class="page-title">Community</h1>
+                    <div class="action-buttons">
+                        <div class="tab-buttons">
+                            <button class="btn btn-primary tab-btn" id="postsTab">
+                                <i class="fas fa-comments"></i>
+                                <span>Posts</span>
+                            </button>
+                            <button class="btn btn-secondary tab-btn" id="discussionsTab">
+                                <i class="fas fa-users"></i>
+                                <span>Discussions</span>
+                            </button>
+                        </div>
+                        <div class="search-bar">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="communitySearchSecond" placeholder="Search...">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Posts Section -->
+                <div id="postsSection">
+                    <!-- New Post Form -->
+                    <div class="new-post post-form">
+                        <div class="post-form-header">
+                            <img id="newPostAvatar" src="../../static/images/default-image.jpg" alt="User" class="new-post-avatar">
+                            <div class="post-inputs">
+                                <textarea class="post-content-input" placeholder="What's on your mind? Share with the community..." id="postContentInput"></textarea>
+                            </div>
+                        </div>
+                        <div id="newPostPreview" class="new-post-preview" style="display: none;">
+                            <img id="postImagePreview" src="" alt="Post preview">
+                            <div class="new-post-remove" id="removePostImage">
+                                <i class="fas fa-times"></i>
+                            </div>
+                        </div>
+                        <div class="post-form-actions">
+                            <div class="post-options">
+                                <div class="post-option" id="addPostImage">
+                                    <i class="fas fa-image"></i>
+                                    <span>Photo</span>
+                                    <input type="file" id="imageUpload" accept="image/*">
+                                </div>
+                            </div>
+                            <button class="btn btn-primary post-submit-btn" id="postSubmitBtn">
+                                <i class="fas fa-paper-plane"></i>
+                                <span id="postButtonText">Share Post</span>
+                                <div class="spinner" id="postSpinner" style="display: none;"></div>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Community Posts -->
+                    <div class="posts-container" id="postsContainer">
+                        <div class="spinner" id="loadingSpinner"></div>
+                        <!-- Posts will be dynamically loaded here -->
+                    </div>
+                </div>
+                
+                <!-- Discussions Section -->
+                <div id="discussionsSection" style="display: none;">
+                    <!-- New Discussion Form -->
+                    <div class="new-post discussion-form">
+                        <div class="discussion-form-header">
+                            <img id="newDiscussionAvatar" src="../../static/images/default-image.jpg" alt="User" class="new-post-avatar">
+                            <div class="discussion-inputs">
+                                <div class="discussion-title-row">
+                                    <input type="text" class="discussion-title-input" placeholder="What would you like to discuss?" id="discussionTitleInput">
+                                    <div class="custom-select-wrapper">
+                                        <div id="discussionTopic" class="discussion-topic-select custom-select" data-value="general">
+                                            <span class="select-text">💬 General</span>
+                                            <i class="fas fa-chevron-down select-arrow"></i>
+                                        </div>
+                                        <div class="select-options" id="topicOptions" style="display: none;">
+                                            <div class="select-option" data-value="general">💬 General</div>
+                                            <div class="select-option" data-value="career">💼 Career</div>
+                                            <div class="select-option" data-value="education">🎓 Education</div>
+                                            <div class="select-option" data-value="opportunities">🚀 Opportunities</div>
+                                            <div class="select-option" data-value="mentorship">👥 Mentorship</div>
+                                            <div class="select-option" data-value="networking">🤝 Networking</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <textarea class="discussion-content-input" placeholder="Share your thoughts, ask questions, or start a meaningful conversation..." id="discussionContentInput"></textarea>
+                            </div>
+                        </div>
+                        <div class="discussion-form-actions">
+                            <div class="discussion-tips">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>Tip: Be specific and engaging to get better responses</span>
+                            </div>
+                            <button class="btn btn-primary discussion-submit-btn" id="discussionSubmitBtn">
+                                <i class="fas fa-paper-plane"></i>
+                                <span id="discussionButtonText">Start Discussion</span>
+                                <div class="spinner" id="discussionSpinner" style="display: none;"></div>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Discussions List -->
+                    <div class="discussions-container" id="discussionsContainer">
+                        <div class="spinner" id="discussionsLoadingSpinner"></div>
+                        <!-- Discussions will be dynamically loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar -->
+            <div class="community-sidebar">
+                <div class="sidebar-card">
+                    <h3>Time Filters</h3>
+                    <div class="filter-item time-filter active" data-filter="all">
+                        <i class="fas fa-list"></i>
+                        <span>All Posts</span>
+                    </div>
+                    <div class="filter-item time-filter" data-filter="today">
+                        <i class="fas fa-calendar-day"></i>
+                        <span>Today</span>
+                    </div>
+                    <div class="filter-item time-filter" data-filter="week">
+                        <i class="fas fa-calendar-week"></i>
+                        <span>Last 7 Days</span>
+                    </div>
+                    <div class="filter-item time-filter" data-filter="month">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>This Month</span>
+                    </div>
+                    <div class="filter-item time-filter" data-filter="year">
+                        <i class="fas fa-calendar"></i>
+                        <span>This Year</span>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <h3>Trending Topics</h3>
+                    <div>
+                        <span class="trending-tag">#careeradvice</span>
+                        <span class="trending-tag">#internship</span>
+                        <span class="trending-tag">#jobsearch</span>
+                        <span class="trending-tag">#mentorship</span>
+                        <span class="trending-tag">#resume</span>
+                        <span class="trending-tag">#interviewtips</span>
+                        <span class="trending-tag">#networking</span>
+                        <span class="trending-tag">#leadership</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        document.getElementById('postsTab').addEventListener('click', function() {
+            document.getElementById('postsSection').style.display = 'block';
+            document.getElementById('discussionsSection').style.display = 'none';
+            this.className = 'btn btn-primary tab-btn';
+            document.getElementById('discussionsTab').className = 'btn btn-secondary tab-btn';
+            document.getElementById('communitySearch').placeholder = 'Search posts...';
+        });
+        
+        document.getElementById('discussionsTab').addEventListener('click', function() {
+            document.getElementById('postsSection').style.display = 'none';
+            document.getElementById('discussionsSection').style.display = 'block';
+            this.className = 'btn btn-primary tab-btn';
+            document.getElementById('postsTab').className = 'btn btn-secondary tab-btn';
+            document.getElementById('communitySearch').placeholder = 'Search discussions...';
+        });
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        // Set initial theme
+        if (currentTheme === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i><span class="toggle-text">Light Mode</span>';
+        } else {
+            body.removeAttribute('data-theme');
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i><span class="toggle-text">Dark Mode</span>';
+        }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i><span class="toggle-text">Dark Mode</span>';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i><span class="toggle-text">Light Mode</span>';
+            }
+        });
+
+        // Toggle mobile menu dropdown
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
+        const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+        const mobileLogout = document.getElementById('mobileLogout');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (window.innerWidth <= 768) {
+                    const isVisible = mobileMenuDropdown.style.display === 'block';
+                    mobileMenuDropdown.style.display = isVisible ? 'none' : 'block';
+                    this.classList.toggle('active');
+                }
+            });
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function() {
+            if (mobileMenuDropdown) {
+                mobileMenuDropdown.style.display = 'none';
+                if (menuToggle) {
+                    menuToggle.classList.remove('active');
+                }
+            }
+        });
+        
+        // Mobile theme toggle
+        if (mobileThemeToggle) {
+            mobileThemeToggle.addEventListener('click', function() {
+                if (body.getAttribute('data-theme') === 'dark') {
+                    body.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'light');
+                    this.innerHTML = '<i class="fas fa-moon"></i><span>Dark Mode</span>';
+                } else {
+                    body.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                    this.innerHTML = '<i class="fas fa-sun"></i><span>Light Mode</span>';
+                }
+                mobileMenuDropdown.style.display = 'none';
+            });
+        }
+        
+        // Mobile logout
+        if (mobileLogout) {
+            mobileLogout.addEventListener('click', function() {
+                if (confirm('Are you sure you want to logout?')) {
+                    localStorage.removeItem('user');
+                    window.location.href = '../login.html';
+                }
+            });
+        }
+        
+        // Mobile search modal
+        const mobileSearch = document.getElementById('mobileSearch');
+        if (mobileSearch) {
+            mobileSearch.addEventListener('click', function() {
+                showSearchModal();
+                mobileMenuDropdown.style.display = 'none';
+            });
+        }
+        
+        // Desktop search functionality
+        const communitySearch = document.getElementById('communitySearch');
+        const communitySearchSecond = document.getElementById('communitySearchSecond');
+        
+        function performSearch(searchTerm) {
+            const postItems = document.querySelectorAll('.profile-section');
+            
+            postItems.forEach(item => {
+                const content = item.textContent.toLowerCase();
+                item.style.display = content.includes(searchTerm) ? 'block' : 'none';
+            });
+        }
+        
+        if (communitySearch) {
+            communitySearch.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                if (communitySearchSecond) communitySearchSecond.value = this.value;
+                performSearch(searchTerm);
+            });
+        }
+        
+        if (communitySearchSecond) {
+            communitySearchSecond.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                if (communitySearch) communitySearch.value = this.value;
+                performSearch(searchTerm);
+            });
+        }
+        
+        // Show search modal (mobile)
+        function showSearchModal() {
+            const modal = document.createElement('div');
+            modal.className = 'search-modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Search Community</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <div class="search-form">
+                        <input type="text" class="modal-search-input" placeholder="Search posts, users..." autofocus>
+                        <button class="modal-search-btn"><i class="fas fa-search"></i> Search</button>
+                    </div>
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            setTimeout(() => modal.classList.add('show'), 10);
+            
+            const searchInput = modal.querySelector('.modal-search-input');
+            const searchButton = modal.querySelector('.modal-search-btn');
+            const resultsDiv = modal.querySelector('#searchResults');
+            
+            function closeModal() {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    if (document.body.contains(modal)) {
+                        document.body.removeChild(modal);
+                    }
+                }, 300);
+            }
+            
+            function performModalSearch() {
+                const query = searchInput.value.toLowerCase().trim();
+                if (!query) return;
+                
+                resultsDiv.innerHTML = '<p>Searching...</p>';
+                
+                const results = [];
+                const profileSections = document.querySelectorAll('.profile-section');
+                
+                // Search community content
+                profileSections.forEach(item => {
+                    const content = item.textContent || '';
+                    if (content.toLowerCase().includes(query)) {
+                        const title = item.querySelector('h3')?.textContent || item.querySelector('h4')?.textContent || 'Community Content';
+                        const type = content.includes('Discussion') || content.includes('replies') ? 'Discussion' : 'Post';
+                        results.push({
+                            type: type,
+                            title: title,
+                            content: content
+                        });
+                    }
+                });
+                
+                resultsDiv.innerHTML = `<h4>${results.length} results found</h4>`;
+                results.slice(0, 10).forEach(result => {
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'search-result-item';
+                    resultItem.innerHTML = `
+                        <h5>${result.title}</h5>
+                        <p>${result.type}</p>
+                    `;
+                    resultsDiv.appendChild(resultItem);
+                });
+            }
+            
+            searchButton.onclick = performModalSearch;
+            searchInput.onkeypress = (e) => { if (e.key === 'Enter') performModalSearch(); };
+            
+            modal.querySelector('.modal-close').onclick = closeModal;
+            modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+            
+            setTimeout(() => searchInput.focus(), 100);
+        }
+        
+        // Custom select functionality
+        document.getElementById('discussionTopic').addEventListener('click', function(e) {
+            e.stopPropagation();
+            const options = document.getElementById('topicOptions');
+            const isVisible = options.style.display === 'block';
+            options.style.display = isVisible ? 'none' : 'block';
+            this.classList.toggle('active');
+        });
+        
+        document.querySelectorAll('.select-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const value = this.dataset.value;
+                const text = this.textContent;
+                const select = document.getElementById('discussionTopic');
+                const selectText = select.querySelector('.select-text');
+                
+                selectText.textContent = text;
+                select.dataset.value = value;
+                
+                document.querySelectorAll('.select-option').forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                
+                document.getElementById('topicOptions').style.display = 'none';
+                select.classList.remove('active');
+            });
+        });
+        
+        document.addEventListener('click', function() {
+            document.getElementById('topicOptions').style.display = 'none';
+            document.getElementById('discussionTopic').classList.remove('active');
+        });
+        
+        // Discussion functionality
+        document.getElementById('discussionSubmitBtn').addEventListener('click', async function() {
+            const title = document.getElementById('discussionTitleInput').value.trim();
+            const content = document.getElementById('discussionContentInput').value.trim();
+            const topic = document.getElementById('discussionTopic').dataset.value;
+            
+            if (!title || !content) {
+                alert('Please fill in both title and content');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/internal-discussions/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': await getCSRFToken()
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({ title, content, topic })
+                });
+                
+                if (response.ok) {
+                    document.getElementById('discussionTitleInput').value = '';
+                    document.getElementById('discussionContentInput').value = '';
+                    loadDiscussions();
+                    showAlert('Discussion started successfully!');
+                } else {
+                    showAlert('Failed to create discussion', 'error');
+                }
+            } catch (error) {
+                console.error('Error creating discussion:', error);
+                alert('Failed to create discussion');
+            }
+        });
+        
+        // Post submission functionality
+        document.getElementById('postSubmitBtn').addEventListener('click', async function() {
+            const postContent = document.getElementById('postContentInput').value.trim();
+            const imageFile = document.getElementById('imageUpload').files[0];
+            
+            if (!postContent && !imageFile) {
+                alert('Please add some content or image to your post');
+                return;
+            }
+            
+            try {
+                const formData = new FormData();
+                if (postContent) formData.append('content', postContent);
+                if (imageFile) formData.append('image', imageFile);
+                
+                const response = await fetch('/api/community/posts/', {
+                    method: 'POST',
+                    body: formData,
+                    credentials: 'include',
+                    headers: {
+                        'X-CSRFToken': await getCSRFToken()
+                    }
+                });
+                
+                if (response.ok) {
+                    document.getElementById('postContentInput').value = '';
+                    document.getElementById('imageUpload').value = '';
+                    document.getElementById('newPostPreview').style.display = 'none';
+                    loadPosts();
+                } else {
+                    alert('Failed to create post');
+                }
+            } catch (error) {
+                console.error('Error creating post:', error);
+                alert('Failed to create post');
+            }
+        });
+        
+        // Image upload preview
+        document.getElementById('imageUpload').addEventListener('change', function() {
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('postImagePreview').src = e.target.result;
+                    document.getElementById('newPostPreview').style.display = 'block';
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+        
+        // Remove image preview
+        document.getElementById('removePostImage').addEventListener('click', function() {
+            document.getElementById('newPostPreview').style.display = 'none';
+            document.getElementById('postImagePreview').src = '';
+            document.getElementById('imageUpload').value = '';
+        });
+        
+        // Load discussions
+        async function loadDiscussions() {
+            try {
+                const response = await fetch('/api/internal-discussions/', {
+                    credentials: 'include'
+                });
+                const discussions = await response.json();
+                window.discussionsData = discussions;
+                renderDiscussions(discussions);
+            } catch (error) {
+                console.error('Error loading discussions:', error);
+            }
+        }
+        
+        function renderDiscussions(discussions) {
+            const container = document.getElementById('discussionsContainer');
+            
+            if (discussions.length === 0) {
+                container.innerHTML = '<div class="profile-section"><p>No discussions yet. Start the first one!</p></div>';
+                return;
+            }
+            
+            // Make viewProfile available
+            window.viewProfile = viewProfile;
+            
+            container.innerHTML = discussions.map(discussion => `
+                <div class="profile-section">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                        <img src="${discussion.user.profile_pic || '../../static/images/default-profile.png'}" alt="${discussion.user.full_name}" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <div style="font-weight: 600; cursor: pointer; color: var(--primary);" onclick="viewProfile(${discussion.user.id})">${discussion.user.full_name}</div>
+                            <div style="font-size: 12px; opacity: 0.7;">${new Date(discussion.created_at).toLocaleDateString()}</div>
+                        </div>
+                        <span style="margin-left: auto; background: var(--hover-bg); padding: 5px 10px; border-radius: 20px; font-size: 13px;">${discussion.topic}</span>
+                        <div style="position: relative;">
+                            <button onclick="toggleDiscussionMenu(${discussion.id})" style="background: none; border: none; color: var(--text-color); opacity: 0.7; cursor: pointer; padding: 5px; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                            <div id="discussionMenu-${discussion.id}" style="position: absolute; right: 0; top: 100%; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; box-shadow: var(--card-shadow); min-width: 150px; z-index: 10; display: none; overflow: hidden;">
+                                ${window.currentUserId === discussion.user.id ? `
+                                    <button onclick="editDiscussion(${discussion.id})" style="width: 100%; padding: 8px 15px; text-align: left; background: none; border: none; color: var(--text-color); cursor: pointer; display: flex; align-items: center; gap: 10px; font-size: 14px;">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </button>
+                                    <button onclick="deleteDiscussion(${discussion.id})" style="width: 100%; padding: 8px 15px; text-align: left; background: none; border: none; color: var(--danger); cursor: pointer; display: flex; align-items: center; gap: 10px; font-size: 14px;">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                ` : `
+                                    <button onclick="reportDiscussion(${discussion.id})" style="width: 100%; padding: 8px 15px; text-align: left; background: none; border: none; color: var(--warning); cursor: pointer; display: flex; align-items: center; gap: 10px; font-size: 14px;">
+                                        <i class="fas fa-flag"></i> Report
+                                    </button>
+                                `}
+                            </div>
+                        </div>
+                    </div>
+                    <h3 style="margin-bottom: 10px; cursor: pointer;" onclick="viewDiscussion(${discussion.id})">${discussion.title}</h3>
+                    <p style="margin-bottom: 15px; cursor: pointer;" onclick="viewDiscussion(${discussion.id})">${discussion.content.substring(0, 200)}${discussion.content.length > 200 ? '...' : ''}</p>
+                    <div style="display: flex; align-items: center; gap: 15px; font-size: 14px; opacity: 0.8;">
+                        <div><i class="fas fa-comments"></i> ${discussion.replies_count || 0} replies</div>
+                    </div>
+                </div>
+            `).join('');
+            
+            // Add click outside handler for all menus
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('[onclick*="toggleDiscussionMenu"]')) {
+                    document.querySelectorAll('[id*="discussionMenu-"]').forEach(menu => {
+                        menu.style.display = 'none';
+                    });
+                }
+                if (!e.target.closest('[onclick*="togglePostMenu"]')) {
+                    document.querySelectorAll('[id*="postMenu-"]').forEach(menu => {
+                        menu.style.display = 'none';
+                    });
+                }
+                if (!e.target.closest('[onclick*="toggleCommentMenu"]')) {
+                    document.querySelectorAll('[id*="commentMenu-"]').forEach(menu => {
+                        menu.style.display = 'none';
+                    });
+                }
+            });
+        }
+        
+        function viewDiscussion(discussionId) {
+            showDiscussionModal(discussionId);
+        }
+        
+        async function showDiscussionModal(discussionId) {
+            try {
+                const [discussionResponse, repliesResponse] = await Promise.all([
+                    fetch(`/api/internal-discussions/`, { credentials: 'include' }),
+                    fetch(`/api/internal-discussions/${discussionId}/replies/`, { credentials: 'include' })
+                ]);
+                
+                const discussions = await discussionResponse.json();
+                const discussion = discussions.find(d => d.id === discussionId);
+                const replies = await repliesResponse.json();
+                
+                if (!discussion) return;
+                
+                // Ensure viewProfile is globally available
+                window.viewProfile = viewProfile;
+                
+                const modal = document.createElement('div');
+                modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center; overflow-y: auto;';
+                
+                modal.innerHTML = `
+                    <div style="background: var(--card-bg); border-radius: 12px; width: 90%; max-width: 800px; max-height: 90vh; overflow-y: auto; margin: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px; border-bottom: 1px solid var(--divider-color);">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <img src="${discussion.user.profile_pic || '../../static/images/default-profile.png'}" alt="${discussion.user.full_name}" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                                <div>
+                                    <div style="font-weight: 600; cursor: pointer; color: var(--primary);" onclick="viewProfile(${discussion.user.id})">${discussion.user.full_name}</div>
+                                    <div style="font-size: 12px; opacity: 0.7;">${new Date(discussion.created_at).toLocaleDateString()}</div>
+                                </div>
+                                <span style="margin-left: 10px; background: var(--hover-bg); padding: 5px 10px; border-radius: 20px; font-size: 13px;">${discussion.topic}</span>
+                            </div>
+                            <button onclick="closeDiscussionModal()" style="background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
+                        </div>
+                        <div style="padding: 20px;">
+                            <h2 style="margin: 0 0 15px 0;">${discussion.title}</h2>
+                            <div style="margin-bottom: 20px; line-height: 1.6;">${discussion.content}</div>
+                            
+                            <div style="border-top: 1px solid var(--divider-color); padding-top: 20px;">
+                                <h4>Replies (${replies.length})</h4>
+                                <div id="repliesContainer-${discussionId}">
+                                    ${replies.length > 3 ? `
+                                        <div class="replies-preview">
+                                            ${replies.slice(0, 3).map(reply => `
+                                                <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                                                    <img src="${reply.user.profile_pic || '../../static/images/default-profile.png'}" alt="${reply.user.full_name}" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                                                    <div style="flex: 1; background: var(--hover-bg); padding: 10px 15px; border-radius: 18px; position: relative;">
+                                                        <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 5px;">
+                                                            <span style="font-weight: 600; font-size: 14px;">${reply.user.full_name}</span>
+                                                            <span style="font-size: 11px; opacity: 0.7;">${new Date(reply.created_at).toLocaleDateString()}</span>
+                                                            ${window.currentUserId === reply.user.id ? `
+                                                                <div style="margin-left: auto; position: relative;">
+                                                                    <button onclick="toggleReplyMenu(${reply.id})" style="background: none; border: none; color: var(--text-color); opacity: 0.7; cursor: pointer; padding: 2px; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;">
+                                                                        <i class="fas fa-ellipsis-h" style="font-size: 10px;"></i>
+                                                                    </button>
+                                                                    <div id="replyMenu-${reply.id}" style="position: absolute; right: 0; top: 100%; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; box-shadow: var(--card-shadow); min-width: 120px; z-index: 10; display: none; overflow: hidden;">
+                                                                        <button onclick="editReply(${reply.id}, ${discussionId})" style="width: 100%; padding: 6px 12px; text-align: left; background: none; border: none; color: var(--text-color); cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 12px;">
+                                                                            <i class="fas fa-edit"></i> Edit
+                                                                        </button>
+                                                                        <button onclick="deleteReply(${reply.id}, ${discussionId})" style="width: 100%; padding: 6px 12px; text-align: left; background: none; border: none; color: var(--danger); cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 12px;">
+                                                                            <i class="fas fa-trash"></i> Delete
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            ` : ''}
+                                                        </div>
+                                                        <div style="font-size: 14px; line-height: 1.5;">${reply.content}</div>
+                                                    </div>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                        <div class="replies-hidden" style="display: none;">
+                                            ${replies.slice(3).map(reply => `
+                                                <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                                                    <img src="${reply.user.profile_pic || '../../static/images/default-profile.png'}" alt="${reply.user.full_name}" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                                                    <div style="flex: 1; background: var(--hover-bg); padding: 10px 15px; border-radius: 18px; position: relative;">
+                                                        <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 5px;">
+                                                            <span style="font-weight: 600; font-size: 14px;">${reply.user.full_name}</span>
+                                                            <span style="font-size: 11px; opacity: 0.7;">${new Date(reply.created_at).toLocaleDateString()}</span>
+                                                            ${window.currentUserId === reply.user.id ? `
+                                                                <div style="margin-left: auto; position: relative;">
+                                                                    <button onclick="toggleReplyMenu(${reply.id})" style="background: none; border: none; color: var(--text-color); opacity: 0.7; cursor: pointer; padding: 2px; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;">
+                                                                        <i class="fas fa-ellipsis-h" style="font-size: 10px;"></i>
+                                                                    </button>
+                                                                    <div id="replyMenu-${reply.id}" style="position: absolute; right: 0; top: 100%; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; box-shadow: var(--card-shadow); min-width: 120px; z-index: 10; display: none; overflow: hidden;">
+                                                                        <button onclick="editReply(${reply.id}, ${discussionId})" style="width: 100%; padding: 6px 12px; text-align: left; background: none; border: none; color: var(--text-color); cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 12px;">
+                                                                            <i class="fas fa-edit"></i> Edit
+                                                                        </button>
+                                                                        <button onclick="deleteReply(${reply.id}, ${discussionId})" style="width: 100%; padding: 6px 12px; text-align: left; background: none; border: none; color: var(--danger); cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 12px;">
+                                                                            <i class="fas fa-trash"></i> Delete
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            ` : ''}
+                                                        </div>
+                                                        <div style="font-size: 14px; line-height: 1.5;">${reply.content}</div>
+                                                    </div>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                        <button class="show-more-replies" onclick="toggleReplies(${discussionId})" style="background: none; border: none; color: var(--primary); cursor: pointer; padding: 10px 0; font-weight: 500;">
+                                            <i class="fas fa-chevron-down"></i> Show ${replies.length - 3} more replies
+                                        </button>
+                                    ` : replies.map(reply => `
+                                        <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                                            <img src="${reply.user.profile_pic || '../../static/images/default-profile.png'}" alt="${reply.user.full_name}" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                                            <div style="flex: 1; background: var(--hover-bg); padding: 10px 15px; border-radius: 18px; position: relative;">
+                                                <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 5px;">
+                                                    <span style="font-weight: 600; font-size: 14px;">${reply.user.full_name}</span>
+                                                    <span style="font-size: 11px; opacity: 0.7;">${new Date(reply.created_at).toLocaleDateString()}</span>
+                                                    <div style="margin-left: auto; position: relative;">
+                                                        <button onclick="toggleReplyMenu(${reply.id})" style="background: none; border: none; color: var(--text-color); opacity: 0.7; cursor: pointer; padding: 2px; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;">
+                                                            <i class="fas fa-ellipsis-h" style="font-size: 10px;"></i>
+                                                        </button>
+                                                        <div id="replyMenu-${reply.id}" style="position: absolute; right: 0; top: 100%; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; box-shadow: var(--card-shadow); min-width: 120px; z-index: 10; display: none; overflow: hidden;">
+                                                            ${window.currentUserId === reply.user.id ? `
+                                                                <button onclick="editReply(${reply.id}, ${discussionId})" style="width: 100%; padding: 6px 12px; text-align: left; background: none; border: none; color: var(--text-color); cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 12px;">
+                                                                    <i class="fas fa-edit"></i> Edit
+                                                                </button>
+                                                                <button onclick="deleteReply(${reply.id}, ${discussionId})" style="width: 100%; padding: 6px 12px; text-align: left; background: none; border: none; color: var(--danger); cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 12px;">
+                                                                    <i class="fas fa-trash"></i> Delete
+                                                                </button>
+                                                            ` : `
+                                                                <button onclick="reportReply(${reply.id})" style="width: 100%; padding: 6px 12px; text-align: left; background: none; border: none; color: var(--warning); cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 12px;">
+                                                                    <i class="fas fa-flag"></i> Report
+                                                                </button>
+                                                            `}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div style="font-size: 14px; line-height: 1.5;">${reply.content}</div>
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                                
+                                <div style="display: flex; gap: 10px; margin-top: 20px;">
+                                    <img src="${window.currentUserAvatar || '../../static/images/default-profile.png'}" alt="User" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                                    <input type="text" placeholder="Write a reply..." id="replyInput-${discussionId}" style="flex: 1; padding: 10px 15px; border-radius: 20px; border: 1px solid var(--input-border); background: var(--input-bg); color: var(--text-color);">
+                                    <button onclick="submitReply(${discussionId})" style="width: 40px; height: 40px; border-radius: 50%; background: var(--primary); color: white; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-paper-plane"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+            } catch (error) {
+                console.error('Error loading discussion:', error);
+            }
+        }
+        
+        function closeDiscussionModal() {
+            const modal = document.querySelector('div[style*="position: fixed"]');
+            if (modal) modal.remove();
+        }
+        
+        async function submitReply(discussionId) {
+            const input = document.getElementById(`replyInput-${discussionId}`);
+            const content = input.value.trim();
+            
+            if (!content) return;
+            
+            try {
+                const response = await fetch(`/api/internal-discussions/${discussionId}/replies/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': await getCSRFToken()
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({ content })
+                });
+                
+                if (response.ok) {
+                    input.value = '';
+                    closeDiscussionModal();
+                    showDiscussionModal(discussionId);
+                    showAlert('Reply added successfully!');
+                }
+            } catch (error) {
+                console.error('Error submitting reply:', error);
+            }
+        }
+        
+        function toggleDiscussionMenu(discussionId) {
+            event.stopPropagation();
+            const menu = document.getElementById(`discussionMenu-${discussionId}`);
+            document.querySelectorAll('[id*="discussionMenu-"]').forEach(m => {
+                if (m !== menu) m.style.display = 'none';
+            });
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+        
+        function editDiscussion(discussionId) {
+            alert('Edit functionality will be implemented');
+        }
+        
+        async function loadPosts() {
+            try {
+                const response = await fetch('/api/community/posts/', { credentials: 'include' });
+                const posts = await response.json();
+                
+                // Comments are included in the post response
+                posts.forEach(post => {
+                    if (!post.comments) {
+                        post.comments = [];
+                    }
+                });
+                
+                window.postsData = posts;
+                renderPosts(posts);
+            } catch (error) {
+                console.error('Error loading posts:', error);
+            }
+        }
+        
+        function renderPosts(posts) {
+            // Make sure functions are available
+            window.toggleComments = toggleComments;
+            window.likePost = likePost;
+            window.submitComment = submitComment;
+            window.togglePostMenu = togglePostMenu;
+            window.editPost = editPost;
+            window.deletePost = deletePost;
+            window.viewProfile = viewProfile;
+            const container = document.getElementById('postsContainer');
+            
+            if (posts.length === 0) {
+                container.innerHTML = '<div class="profile-section"><p>No posts yet. Be the first to share!</p></div>';
+                return;
+            }
+            
+            container.innerHTML = posts.map(post => `
+                <div class="profile-section">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
+                        <img src="${post.user.profile_pic || '../../static/images/default-profile.png'}" alt="${post.user.full_name}" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <div>
+                            <div style="font-weight: 600; cursor: pointer; color: var(--primary);" onclick="viewProfile(${post.user.id})">${post.user.full_name}</div>
+                            <div style="font-size: 12px; opacity: 0.7;">${new Date(post.created_at).toLocaleDateString()}</div>
+                        </div>
+                        <div style="margin-left: auto; position: relative;">
+                            <button onclick="togglePostMenu(${post.id})" style="background: none; border: none; color: var(--text-color); opacity: 0.7; cursor: pointer; padding: 5px; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-ellipsis-h"></i>
+                            </button>
+                            <div id="postMenu-${post.id}" style="position: absolute; right: 0; top: 100%; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; box-shadow: var(--card-shadow); min-width: 150px; z-index: 10; display: none; overflow: hidden;">
+                                ${window.currentUserId === post.user.id ? `
+                                    <button onclick="editPost(${post.id})" style="width: 100%; padding: 8px 15px; text-align: left; background: none; border: none; color: var(--text-color); cursor: pointer; display: flex; align-items: center; gap: 10px; font-size: 14px;">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </button>
+                                    <button onclick="deletePost(${post.id})" style="width: 100%; padding: 8px 15px; text-align: left; background: none; border: none; color: var(--danger); cursor: pointer; display: flex; align-items: center; gap: 10px; font-size: 14px;">
+                                        <i class="fas fa-trash"></i> Delete
+                                    </button>
+                                ` : `
+                                    <button onclick="reportPost(${post.id})" style="width: 100%; padding: 8px 15px; text-align: left; background: none; border: none; color: var(--warning); cursor: pointer; display: flex; align-items: center; gap: 10px; font-size: 14px;">
+                                        <i class="fas fa-flag"></i> Report
+                                    </button>
+                                `}
+                            </div>
+                        </div>
+                    </div>
+                    <p style="margin-bottom: 15px;">${post.content}</p>
+                    ${post.image ? `<img src="${post.image}" alt="Post" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 8px; margin-bottom: 15px;">` : ''}
+                    <div style="display: flex; align-items: center; gap: 15px; font-size: 14px; opacity: 0.8; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid var(--divider-color);">
+                        <div><i class="fas fa-thumbs-up"></i> ${post.like_count || 0}</div>
+                        <div><i class="fas fa-comment"></i> ${post.comment_count || 0}</div>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <button onclick="window.likePost(${post.id})" style="flex: 1; padding: 8px; border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 5px; background: transparent; border: none; color: var(--text-color); cursor: pointer; transition: all 0.3s ease;">
+                            <i class="fas fa-thumbs-up"></i> Like
+                        </button>
+                        <button onclick="window.toggleComments(${post.id})" style="flex: 1; padding: 8px; border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 5px; background: transparent; border: none; color: var(--text-color); cursor: pointer; transition: all 0.3s ease;">
+                            <i class="fas fa-comment"></i> Comment
+                        </button>
+                    </div>
+                    <div id="comments-${post.id}" style="display: none; margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--divider-color);">
+                        <div id="commentsList-${post.id}" style="margin-bottom: 15px;">
+                            ${(post.comments || []).length > 3 ? `
+                                <div class="comments-preview">
+                                    ${(post.comments || []).slice(0, 3).map(comment => `
+                                        <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                                            <img src="${comment.user.profile_pic || '../../static/images/default-profile.png'}" alt="${comment.user.full_name}" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                                            <div style="flex: 1; background: var(--hover-bg); padding: 10px 15px; border-radius: 18px; position: relative;">
+                                                <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 5px;">
+                                                    <span style="font-weight: 600; font-size: 14px;">${comment.user.full_name}</span>
+                                                    <span style="font-size: 11px; opacity: 0.7;">${new Date(comment.created_at).toLocaleDateString()}</span>
+                                                    ${window.currentUserId === comment.user.id ? `
+                                                        <div style="margin-left: auto; position: relative;">
+                                                            <button onclick="toggleCommentMenu(${comment.id})" style="background: none; border: none; color: var(--text-color); opacity: 0.7; cursor: pointer; padding: 2px; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;">
+                                                                <i class="fas fa-ellipsis-h" style="font-size: 10px;"></i>
+                                                            </button>
+                                                            <div id="commentMenu-${comment.id}" style="position: absolute; right: 0; top: 100%; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; box-shadow: var(--card-shadow); min-width: 120px; z-index: 10; display: none; overflow: hidden;">
+                                                                <button onclick="editComment(${comment.id}, ${post.id})" style="width: 100%; padding: 6px 12px; text-align: left; background: none; border: none; color: var(--text-color); cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 12px;">
+                                                                    <i class="fas fa-edit"></i> Edit
+                                                                </button>
+                                                                <button onclick="deleteComment(${comment.id}, ${post.id})" style="width: 100%; padding: 6px 12px; text-align: left; background: none; border: none; color: var(--danger); cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 12px;">
+                                                                    <i class="fas fa-trash"></i> Delete
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    ` : ''}
+                                                </div>
+                                                <div style="font-size: 14px; line-height: 1.5;">${comment.content}</div>
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                                <div class="comments-hidden" style="display: none;">
+                                    ${(post.comments || []).slice(3).map(comment => `
+                                        <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                                            <img src="${comment.user.profile_pic || '../../static/images/default-profile.png'}" alt="${comment.user.full_name}" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                                            <div style="flex: 1; background: var(--hover-bg); padding: 10px 15px; border-radius: 18px; position: relative;">
+                                                <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 5px;">
+                                                    <span style="font-weight: 600; font-size: 14px;">${comment.user.full_name}</span>
+                                                    <span style="font-size: 11px; opacity: 0.7;">${new Date(comment.created_at).toLocaleDateString()}</span>
+                                                    ${window.currentUserId === comment.user.id ? `
+                                                        <div style="margin-left: auto; position: relative;">
+                                                            <button onclick="toggleCommentMenu(${comment.id})" style="background: none; border: none; color: var(--text-color); opacity: 0.7; cursor: pointer; padding: 2px; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;">
+                                                                <i class="fas fa-ellipsis-h" style="font-size: 10px;"></i>
+                                                            </button>
+                                                            <div id="commentMenu-${comment.id}" style="position: absolute; right: 0; top: 100%; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; box-shadow: var(--card-shadow); min-width: 120px; z-index: 10; display: none; overflow: hidden;">
+                                                                <button onclick="editComment(${comment.id}, ${post.id})" style="width: 100%; padding: 6px 12px; text-align: left; background: none; border: none; color: var(--text-color); cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 12px;">
+                                                                    <i class="fas fa-edit"></i> Edit
+                                                                </button>
+                                                                <button onclick="deleteComment(${comment.id}, ${post.id})" style="width: 100%; padding: 6px 12px; text-align: left; background: none; border: none; color: var(--danger); cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 12px;">
+                                                                    <i class="fas fa-trash"></i> Delete
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    ` : ''}
+                                                </div>
+                                                <div style="font-size: 14px; line-height: 1.5;">${comment.content}</div>
+                                            </div>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                                <button class="show-more-comments" onclick="togglePostComments(${post.id})" style="background: none; border: none; color: var(--primary); cursor: pointer; padding: 10px 0; font-weight: 500;">
+                                    <i class="fas fa-chevron-down"></i> Show ${(post.comments || []).length - 3} more comments
+                                </button>
+                            ` : (post.comments || []).map(comment => `
+                                <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                                    <img src="${comment.user.profile_pic || '../../static/images/default-profile.png'}" alt="${comment.user.full_name}" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                                    <div style="flex: 1; background: var(--hover-bg); padding: 10px 15px; border-radius: 18px; position: relative;">
+                                        <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 5px;">
+                                            <span style="font-weight: 600; font-size: 14px; cursor: pointer; color: var(--primary);" onclick="viewProfile(${comment.user.id})">${comment.user.full_name}</span>
+                                            <span style="font-size: 11px; opacity: 0.7;">${new Date(comment.created_at).toLocaleDateString()}</span>
+                                            <div style="margin-left: auto; position: relative;">
+                                                <button onclick="toggleCommentMenu(${comment.id})" style="background: none; border: none; color: var(--text-color); opacity: 0.7; cursor: pointer; padding: 2px; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;">
+                                                    <i class="fas fa-ellipsis-h" style="font-size: 10px;"></i>
+                                                </button>
+                                                <div id="commentMenu-${comment.id}" style="position: absolute; right: 0; top: 100%; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; box-shadow: var(--card-shadow); min-width: 120px; z-index: 10; display: none; overflow: hidden;">
+                                                    ${window.currentUserId === comment.user.id ? `
+                                                        <button onclick="editComment(${comment.id}, ${post.id})" style="width: 100%; padding: 6px 12px; text-align: left; background: none; border: none; color: var(--text-color); cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 12px;">
+                                                            <i class="fas fa-edit"></i> Edit
+                                                        </button>
+                                                        <button onclick="deleteComment(${comment.id}, ${post.id})" style="width: 100%; padding: 6px 12px; text-align: left; background: none; border: none; color: var(--danger); cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 12px;">
+                                                            <i class="fas fa-trash"></i> Delete
+                                                        </button>
+                                                    ` : `
+                                                        <button onclick="reportComment(${comment.id})" style="width: 100%; padding: 6px 12px; text-align: left; background: none; border: none; color: var(--warning); cursor: pointer; display: flex; align-items: center; gap: 8px; font-size: 12px;">
+                                                            <i class="fas fa-flag"></i> Report
+                                                        </button>
+                                                    `}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="font-size: 14px; line-height: 1.5;">${comment.content}</div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <img src="${window.currentUserAvatar || '../../static/images/default-profile.png'}" alt="User" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                            <input type="text" placeholder="Write a comment..." id="commentInput-${post.id}" style="flex: 1; padding: 10px 15px; border-radius: 20px; border: 1px solid var(--input-border); background: var(--input-bg); color: var(--text-color);">
+                            <button onclick="submitComment(${post.id})" style="width: 40px; height: 40px; border-radius: 50%; background: var(--primary); color: white; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        async function editDiscussion(discussionId) {
+            try {
+                const discussions = await (await fetch('/api/internal-discussions/', { credentials: 'include' })).json();
+                const discussion = discussions.find(d => d.id === discussionId);
+                
+                if (!discussion) return;
+                
+                const modal = document.createElement('div');
+                modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;';
+                
+                modal.innerHTML = `
+                    <div style="background: var(--card-bg); border-radius: 12px; width: 90%; max-width: 600px; padding: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <h3>Edit Discussion</h3>
+                            <button onclick="closeEditModal()" style="background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
+                        </div>
+                        <input type="text" id="editDiscussionTitle" value="${discussion.title}" style="width: 100%; padding: 15px; border-radius: 8px; border: 1px solid var(--input-border); margin-bottom: 15px;">
+                        <textarea id="editDiscussionContent" style="width: 100%; min-height: 120px; padding: 15px; border-radius: 8px; border: 1px solid var(--input-border); margin-bottom: 15px;">${discussion.content}</textarea>
+                        <select id="editDiscussionTopic" style="width: 100%; padding: 15px; border-radius: 8px; border: 1px solid var(--input-border); margin-bottom: 15px;">
+                            <option value="general" ${discussion.topic === 'general' ? 'selected' : ''}>💬 General</option>
+                            <option value="career" ${discussion.topic === 'career' ? 'selected' : ''}>💼 Career</option>
+                            <option value="education" ${discussion.topic === 'education' ? 'selected' : ''}>🎓 Education</option>
+                            <option value="opportunities" ${discussion.topic === 'opportunities' ? 'selected' : ''}>🚀 Opportunities</option>
+                            <option value="mentorship" ${discussion.topic === 'mentorship' ? 'selected' : ''}>👥 Mentorship</option>
+                            <option value="networking" ${discussion.topic === 'networking' ? 'selected' : ''}>🤝 Networking</option>
+                        </select>
+                        <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                            <button onclick="closeEditModal()" style="padding: 10px 20px; border: none; border-radius: 8px; background: var(--hover-bg); cursor: pointer;">Cancel</button>
+                            <button onclick="saveDiscussionEdit(${discussionId})" style="padding: 10px 20px; border: none; border-radius: 8px; background: var(--primary); color: white; cursor: pointer;">Save</button>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+            } catch (error) {
+                console.error('Error loading discussion for edit:', error);
+            }
+        }
+        
+        async function saveDiscussionEdit(discussionId) {
+            const title = document.getElementById('editDiscussionTitle').value.trim();
+            const content = document.getElementById('editDiscussionContent').value.trim();
+            const topic = document.getElementById('editDiscussionTopic').value;
+            
+            if (!title || !content) {
+                alert('Please fill in both title and content');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/internal-discussions/${discussionId}/`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': await getCSRFToken()
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({ title, content, topic })
+                });
+                
+                if (response.ok) {
+                    closeEditModal();
+                    loadDiscussions();
+                    showAlert('Discussion updated successfully!');
+                }
+            } catch (error) {
+                console.error('Error updating discussion:', error);
+            }
+        }
+        
+        async function deleteDiscussion(discussionId) {
+            if (confirm('Are you sure you want to delete this discussion?')) {
+                try {
+                    const response = await fetch(`/api/internal-discussions/${discussionId}/`, {
+                        method: 'DELETE',
+                        headers: {
+                            'X-CSRFToken': await getCSRFToken()
+                        },
+                        credentials: 'include'
+                    });
+                    
+                    if (response.ok) {
+                        loadDiscussions();
+                    }
+                } catch (error) {
+                    console.error('Error deleting discussion:', error);
+                }
+            }
+        }
+        
+        function closeEditModal() {
+            const modals = document.querySelectorAll('div[style*="position: fixed"]');
+            if (modals.length > 0) {
+                modals[modals.length - 1].remove();
+            }
+        }
+        
+        function showAlert(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type === 'error' ? 'error' : ''}`;
+            notification.innerHTML = `
+                <i class="fas ${type === 'error' ? 'fa-times-circle' : 'fa-check-circle'}"></i>
+                <span>${message}</span>
+            `;
+            notification.style.cssText = 'position: fixed; top: 20px; right: 20px; padding: 15px 20px; background: var(--success); color: white; border-radius: 8px; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 10px; font-size: 14px;';
+            if (type === 'error') {
+                notification.style.background = 'var(--danger)';
+            }
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        function toggleReplyMenu(replyId) {
+            event.stopPropagation();
+            const menu = document.getElementById(`replyMenu-${replyId}`);
+            document.querySelectorAll('[id*="replyMenu-"]').forEach(m => {
+                if (m !== menu) m.style.display = 'none';
+            });
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+        
+        function editReply(replyId, discussionId) {
+            alert('Edit reply functionality will be implemented');
+        }
+        
+        function deleteReply(replyId, discussionId) {
+            if (confirm('Are you sure you want to delete this reply?')) {
+                alert('Delete reply functionality will be implemented');
+            }
+        }
+        
+        function togglePostMenu(postId) {
+            event.stopPropagation();
+            const menu = document.getElementById(`postMenu-${postId}`);
+            document.querySelectorAll('[id*="postMenu-"]').forEach(m => {
+                if (m !== menu) m.style.display = 'none';
+            });
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+        
+        async function editPost(postId) {
+            try {
+                const posts = await (await fetch('/api/community/posts/', { credentials: 'include' })).json();
+                const post = posts.find(p => p.id === postId);
+                
+                if (!post) return;
+                
+                const modal = document.createElement('div');
+                modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;';
+                
+                modal.innerHTML = `
+                    <div style="background: var(--card-bg); border-radius: 12px; width: 90%; max-width: 600px; padding: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <h3>Edit Post</h3>
+                            <button onclick="closeEditModal()" style="background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
+                        </div>
+                        <textarea id="editPostContent" style="width: 100%; min-height: 120px; padding: 15px; border-radius: 8px; border: 1px solid var(--input-border); margin-bottom: 15px;">${post.content}</textarea>
+                        <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                            <button onclick="closeEditModal()" style="padding: 10px 20px; border: none; border-radius: 8px; background: var(--hover-bg); cursor: pointer;">Cancel</button>
+                            <button onclick="savePostEdit(${postId})" style="padding: 10px 20px; border: none; border-radius: 8px; background: var(--primary); color: white; cursor: pointer;">Save</button>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+            } catch (error) {
+                console.error('Error loading post for edit:', error);
+            }
+        }
+        
+        async function savePostEdit(postId) {
+            const content = document.getElementById('editPostContent').value.trim();
+            
+            if (!content) {
+                alert('Please enter post content');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/community/posts/${postId}/`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': await getCSRFToken()
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({ content })
+                });
+                
+                if (response.ok) {
+                    closeEditModal();
+                    loadPosts();
+                    showAlert('Post updated successfully!');
+                }
+            } catch (error) {
+                console.error('Error updating post:', error);
+            }
+        }
+        
+        async function deletePost(postId) {
+            if (confirm('Are you sure you want to delete this post?')) {
+                try {
+                    const response = await fetch(`/api/community/posts/${postId}/`, {
+                        method: 'DELETE',
+                        headers: {
+                            'X-CSRFToken': await getCSRFToken()
+                        },
+                        credentials: 'include'
+                    });
+                    
+                    if (response.ok) {
+                        loadPosts();
+                        showAlert('Post deleted successfully!');
+                    }
+                } catch (error) {
+                    console.error('Error deleting post:', error);
+                }
+            }
+        }
+        
+        function likePost(postId) {
+            alert('Like functionality will be implemented');
+        }
+        
+        function toggleComments(postId) {
+            const commentsSection = document.getElementById(`comments-${postId}`);
+            
+            if (commentsSection.style.display === 'none' || commentsSection.style.display === '') {
+                commentsSection.style.display = 'block';
+            } else {
+                commentsSection.style.display = 'none';
+            }
+        }
+        
+        function submitComment(postId) {
+            const input = document.getElementById(`commentInput-${postId}`);
+            const content = input.value.trim();
+            
+            if (!content) return;
+            
+            alert('Comment functionality will be implemented');
+            input.value = '';
+        }
+        
+        async function editReply(replyId, discussionId) {
+            try {
+                const replies = await (await fetch(`/api/internal-discussions/${discussionId}/replies/`, { credentials: 'include' })).json();
+                const reply = replies.find(r => r.id === replyId);
+                
+                if (!reply) return;
+                
+                const modal = document.createElement('div');
+                modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;';
+                
+                modal.innerHTML = `
+                    <div style="background: var(--card-bg); border-radius: 12px; width: 90%; max-width: 500px; padding: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <h3>Edit Reply</h3>
+                            <button onclick="closeEditModal()" style="background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
+                        </div>
+                        <textarea id="editReplyContent" style="width: 100%; min-height: 80px; padding: 15px; border-radius: 8px; border: 1px solid var(--input-border); margin-bottom: 15px;">${reply.content}</textarea>
+                        <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                            <button onclick="closeEditModal()" style="padding: 10px 20px; border: none; border-radius: 8px; background: var(--hover-bg); cursor: pointer;">Cancel</button>
+                            <button onclick="saveReplyEdit(${replyId}, ${discussionId})" style="padding: 10px 20px; border: none; border-radius: 8px; background: var(--primary); color: white; cursor: pointer;">Save</button>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+            } catch (error) {
+                console.error('Error loading reply for edit:', error);
+            }
+        }
+        
+        async function saveReplyEdit(replyId, discussionId) {
+            const content = document.getElementById('editReplyContent').value.trim();
+            
+            if (!content) {
+                alert('Please enter reply content');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/internal-discussions/replies/${replyId}/`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': await getCSRFToken()
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({ content })
+                });
+                
+                if (response.ok) {
+                    closeEditModal();
+                    closeDiscussionModal();
+                    showDiscussionModal(discussionId);
+                }
+            } catch (error) {
+                console.error('Error updating reply:', error);
+            }
+        }
+        
+        async function deleteReply(replyId, discussionId) {
+            if (confirm('Are you sure you want to delete this reply?')) {
+                try {
+                    const response = await fetch(`/api/internal-discussions/replies/${replyId}/`, {
+                        method: 'DELETE',
+                        headers: {
+                            'X-CSRFToken': await getCSRFToken()
+                        },
+                        credentials: 'include'
+                    });
+                    
+                    if (response.ok) {
+                        closeDiscussionModal();
+                        showDiscussionModal(discussionId);
+                    }
+                } catch (error) {
+                    console.error('Error deleting reply:', error);
+                }
+            }
+        }
+        
+        function toggleReplies(discussionId) {
+            const hiddenReplies = document.querySelector('.replies-hidden');
+            const showMoreBtn = document.querySelector('.show-more-replies');
+            
+            if (hiddenReplies.style.display === 'none') {
+                hiddenReplies.style.display = 'block';
+                showMoreBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Show less';
+            } else {
+                hiddenReplies.style.display = 'none';
+                const hiddenCount = hiddenReplies.children.length;
+                showMoreBtn.innerHTML = `<i class="fas fa-chevron-down"></i> Show ${hiddenCount} more replies`;
+            }
+        }
+        
+        async function likePost(postId) {
+            try {
+                const response = await fetch(`/api/community/posts/${postId}/reactions/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': await getCSRFToken()
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({ reaction_type: 'like' })
+                });
+                
+                if (response.ok) {
+                    loadPosts();
+                }
+            } catch (error) {
+                console.error('Error liking post:', error);
+            }
+        }
+        
+        async function submitComment(postId) {
+            const input = document.getElementById(`commentInput-${postId}`);
+            const content = input.value.trim();
+            
+            if (!content) return;
+            
+            try {
+                const response = await fetch(`/api/community/posts/${postId}/comments/`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': await getCSRFToken()
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({ content })
+                });
+                
+                if (response.ok) {
+                    const newComment = await response.json();
+                    input.value = '';
+                    
+                    // Add comment to the comments list immediately
+                    const commentsList = document.getElementById(`commentsList-${postId}`);
+                    if (commentsList) {
+                        const commentHtml = `
+                            <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                                <img src="${window.currentUserAvatar || '../../static/images/default-profile.png'}" alt="You" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
+                                <div style="flex: 1; background: var(--hover-bg); padding: 10px 15px; border-radius: 18px;">
+                                    <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 5px;">
+                                        <span style="font-weight: 600; font-size: 14px;">You</span>
+                                        <span style="font-size: 11px; opacity: 0.7;">Just now</span>
+                                    </div>
+                                    <div style="font-size: 14px; line-height: 1.5;">${content}</div>
+                                </div>
+                            </div>
+                        `;
+                        commentsList.innerHTML += commentHtml;
+                    }
+                    
+                    showAlert('Comment added successfully!');
+                    loadPosts(); // Refresh to update counts
+                }
+            } catch (error) {
+                console.error('Error submitting comment:', error);
+            }
+        }
+        
+        // Make functions global
+        window.toggleComments = toggleComments;
+        window.likePost = likePost;
+        window.submitComment = submitComment;
+        window.togglePostMenu = togglePostMenu;
+        window.editPost = editPost;
+        window.deletePost = deletePost;
+        
+
+        
+        function toggleCommentMenu(commentId) {
+            event.stopPropagation();
+            const menu = document.getElementById(`commentMenu-${commentId}`);
+            document.querySelectorAll('[id*="commentMenu-"]').forEach(m => {
+                if (m !== menu) m.style.display = 'none';
+            });
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+        
+        async function editComment(commentId, postId) {
+            try {
+                const posts = window.postsData || [];
+                const post = posts.find(p => p.id === postId);
+                const comment = post.comments.find(c => c.id === commentId);
+                
+                if (!comment) return;
+                
+                const modal = document.createElement('div');
+                modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;';
+                
+                modal.innerHTML = `
+                    <div style="background: var(--card-bg); border-radius: 12px; width: 90%; max-width: 500px; padding: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <h3>Edit Comment</h3>
+                            <button onclick="closeEditModal()" style="background: none; border: none; font-size: 20px; cursor: pointer;">&times;</button>
+                        </div>
+                        <textarea id="editCommentContent" style="width: 100%; min-height: 80px; padding: 15px; border-radius: 8px; border: 1px solid var(--input-border); margin-bottom: 15px;">${comment.content}</textarea>
+                        <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                            <button onclick="closeEditModal()" style="padding: 10px 20px; border: none; border-radius: 8px; background: var(--hover-bg); cursor: pointer;">Cancel</button>
+                            <button onclick="saveCommentEdit(${commentId}, ${postId})" style="padding: 10px 20px; border: none; border-radius: 8px; background: var(--primary); color: white; cursor: pointer;">Save</button>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+            } catch (error) {
+                console.error('Error loading comment for edit:', error);
+            }
+        }
+        
+        async function saveCommentEdit(commentId, postId) {
+            const content = document.getElementById('editCommentContent').value.trim();
+            
+            if (!content) {
+                alert('Please enter comment content');
+                return;
+            }
+            
+            try {
+                const response = await fetch(`/api/community/comments/${commentId}/`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': await getCSRFToken()
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify({ content })
+                });
+                
+                if (response.ok) {
+                    closeEditModal();
+                    loadPosts();
+                    showAlert('Comment updated successfully!');
+                }
+            } catch (error) {
+                console.error('Error updating comment:', error);
+            }
+        }
+        
+        async function deleteComment(commentId, postId) {
+            if (confirm('Are you sure you want to delete this comment?')) {
+                try {
+                    const response = await fetch(`/api/community/comments/${commentId}/`, {
+                        method: 'DELETE',
+                        headers: {
+                            'X-CSRFToken': await getCSRFToken()
+                        },
+                        credentials: 'include'
+                    });
+                    
+                    if (response.ok) {
+                        loadPosts();
+                        showAlert('Comment deleted successfully!');
+                    }
+                } catch (error) {
+                    console.error('Error deleting comment:', error);
+                }
+            }
+        }
+        
+        function togglePostComments(postId) {
+            const hiddenComments = document.querySelector('.comments-hidden');
+            const showMoreBtn = document.querySelector('.show-more-comments');
+            
+            if (hiddenComments && showMoreBtn) {
+                if (hiddenComments.style.display === 'none') {
+                    hiddenComments.style.display = 'block';
+                    showMoreBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Show less';
+                } else {
+                    hiddenComments.style.display = 'none';
+                    const hiddenCount = hiddenComments.children.length;
+                    showMoreBtn.innerHTML = `<i class="fas fa-chevron-down"></i> Show ${hiddenCount} more comments`;
+                }
+            }
+        }
+        
+        async function reportPost(postId) {
+            const reason = prompt('Please enter the reason for reporting this post:');
+            if (reason && reason.trim()) {
+                try {
+                    const response = await fetch('/api/reports/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': await getCSRFToken()
+                        },
+                        credentials: 'include',
+                        body: JSON.stringify({
+                            report_type: 'content',
+                            subject: 'Inappropriate Post Content',
+                            description: `Post ID: ${postId}\nReason: ${reason.trim()}`
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        showAlert('Post reported successfully!');
+                    } else {
+                        showAlert('Failed to report post. Please try again.', 'error');
+                    }
+                } catch (error) {
+                    console.error('Error reporting post:', error);
+                    showAlert('Failed to report post. Please try again.', 'error');
+                }
+            }
+        }
+        
+        async function reportComment(commentId) {
+            const reason = prompt('Please enter the reason for reporting this comment:');
+            if (reason && reason.trim()) {
+                try {
+                    const response = await fetch('/api/reports/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': await getCSRFToken()
+                        },
+                        credentials: 'include',
+                        body: JSON.stringify({
+                            report_type: 'content',
+                            subject: 'Inappropriate Comment Content',
+                            description: `Comment ID: ${commentId}\nReason: ${reason.trim()}`
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        showAlert('Comment reported successfully!');
+                    } else {
+                        showAlert('Failed to report comment. Please try again.', 'error');
+                    }
+                } catch (error) {
+                    console.error('Error reporting comment:', error);
+                    showAlert('Failed to report comment. Please try again.', 'error');
+                }
+            }
+        }
+        
+        async function reportDiscussion(discussionId) {
+            const reason = prompt('Please enter the reason for reporting this discussion:');
+            if (reason && reason.trim()) {
+                try {
+                    const response = await fetch('/api/reports/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': await getCSRFToken()
+                        },
+                        credentials: 'include',
+                        body: JSON.stringify({
+                            report_type: 'content',
+                            subject: 'Inappropriate Discussion Content',
+                            description: `Discussion ID: ${discussionId}\nReason: ${reason.trim()}`
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        showAlert('Discussion reported successfully!');
+                    } else {
+                        showAlert('Failed to report discussion. Please try again.', 'error');
+                    }
+                } catch (error) {
+                    console.error('Error reporting discussion:', error);
+                    showAlert('Failed to report discussion. Please try again.', 'error');
+                }
+            }
+        }
+        
+        async function reportReply(replyId) {
+            const reason = prompt('Please enter the reason for reporting this reply:');
+            if (reason && reason.trim()) {
+                try {
+                    const response = await fetch('/api/reports/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': await getCSRFToken()
+                        },
+                        credentials: 'include',
+                        body: JSON.stringify({
+                            report_type: 'content',
+                            subject: 'Inappropriate Reply Content',
+                            description: `Reply ID: ${replyId}\nReason: ${reason.trim()}`
+                        })
+                    });
+                    
+                    if (response.ok) {
+                        showAlert('Reply reported successfully!');
+                    } else {
+                        showAlert('Failed to report reply. Please try again.', 'error');
+                    }
+                } catch (error) {
+                    console.error('Error reporting reply:', error);
+                    showAlert('Failed to report reply. Please try again.', 'error');
+                }
+            }
+        }
+        
+        // Search functionality
+        document.getElementById('communitySearch').addEventListener('input', function() {
+            const query = this.value.toLowerCase().trim();
+            applyFilters();
+        });
+        
+        // Time filter functionality
+        document.querySelectorAll('.time-filter').forEach(filter => {
+            filter.addEventListener('click', function() {
+                document.querySelectorAll('.time-filter').forEach(f => f.classList.remove('active'));
+                this.classList.add('active');
+                applyFilters();
+            });
+        });
+        
+        // Trending topics functionality
+        document.querySelectorAll('.trending-tag').forEach(tag => {
+            tag.addEventListener('click', function() {
+                const topic = this.textContent.replace('#', '');
+                document.getElementById('communitySearch').value = topic;
+                applyFilters();
+            });
+        });
+        
+        function applyFilters() {
+            const query = document.getElementById('communitySearch').value.toLowerCase().trim();
+            const timeFilter = document.querySelector('.time-filter.active')?.dataset.filter || 'all';
+            const activeTab = document.getElementById('postsTab').className.includes('btn-primary') ? 'posts' : 'discussions';
+            
+            if (activeTab === 'posts') {
+                filterPosts(query, timeFilter);
+            } else {
+                filterDiscussions(query, timeFilter);
+            }
+        }
+        
+        function filterPosts(query, timeFilter) {
+            if (!window.postsData) return;
+            
+            let filteredPosts = [...window.postsData];
+            
+            // Apply time filter
+            if (timeFilter !== 'all') {
+                const now = new Date();
+                filteredPosts = filteredPosts.filter(post => {
+                    const postDate = new Date(post.created_at);
+                    switch(timeFilter) {
+                        case 'today':
+                            return postDate.toDateString() === now.toDateString();
+                        case 'week':
+                            const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+                            return postDate >= weekAgo;
+                        case 'month':
+                            return postDate.getMonth() === now.getMonth() && postDate.getFullYear() === now.getFullYear();
+                        case 'year':
+                            return postDate.getFullYear() === now.getFullYear();
+                        default:
+                            return true;
+                    }
+                });
+            }
+            
+            // Apply search query
+            if (query) {
+                filteredPosts = filteredPosts.filter(post => 
+                    post.content.toLowerCase().includes(query) ||
+                    post.user.full_name.toLowerCase().includes(query)
+                );
+            }
+            
+            renderPosts(filteredPosts);
+        }
+        
+        function filterDiscussions(query, timeFilter) {
+            if (!window.discussionsData) return;
+            
+            let filteredDiscussions = [...window.discussionsData];
+            
+            // Apply time filter
+            if (timeFilter !== 'all') {
+                const now = new Date();
+                filteredDiscussions = filteredDiscussions.filter(discussion => {
+                    const discussionDate = new Date(discussion.created_at);
+                    switch(timeFilter) {
+                        case 'today':
+                            return discussionDate.toDateString() === now.toDateString();
+                        case 'week':
+                            const weekAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+                            return discussionDate >= weekAgo;
+                        case 'month':
+                            return discussionDate.getMonth() === now.getMonth() && discussionDate.getFullYear() === now.getFullYear();
+                        case 'year':
+                            return discussionDate.getFullYear() === now.getFullYear();
+                        default:
+                            return true;
+                    }
+                });
+            }
+            
+            // Apply search query
+            if (query) {
+                filteredDiscussions = filteredDiscussions.filter(discussion => 
+                    discussion.title.toLowerCase().includes(query) ||
+                    discussion.content.toLowerCase().includes(query) ||
+                    discussion.user.full_name.toLowerCase().includes(query) ||
+                    discussion.topic.toLowerCase().includes(query)
+                );
+            }
+            
+            renderDiscussions(filteredDiscussions);
+        }
+        
+        // Load posts on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadPosts();
+        });
+        
+        async function getCSRFToken() {
+            try {
+                const response = await fetch('/api/csrf-token/', { credentials: 'include' });
+                const data = await response.json();
+                return data.csrfToken;
+            } catch (error) {
+                console.error('Error getting CSRF token:', error);
+                return null;
+            }
+        }
+        
+        // Fetch with authentication
+        async function fetchWithAuth(url, options = {}) {
+            const csrfToken = await getCSRFToken();
+            
+            const headers = {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken,
+            };
+            
+            if (options.headers) {
+                Object.assign(headers, options.headers);
+            }
+            
+            const response = await fetch(url, {
+                ...options,
+                headers,
+                credentials: 'include',
+            });
+            
+            if (!response.ok) {
+                throw new Error('Request failed');
+            }
+            
+            return response.json();
+        }
+        
+        // View profile function
+        function viewProfile(userId) {
+            if (userId) {
+                window.location.href = `profile-view.html?id=${userId}`;
+            }
+        }
+        
+        // Make viewProfile globally available
+        window.viewProfile = viewProfile;
+        
+        // Load user profile data and update avatars
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                const response = await fetch('/api/user/', { credentials: 'include' });
+                const user = await response.json();
+                
+                // Update avatars and store user data
+                const avatarUrl = user.profile_pic || '../../static/images/default-profile.png';
+                document.getElementById('newPostAvatar').src = avatarUrl;
+                document.getElementById('newDiscussionAvatar').src = avatarUrl;
+                document.getElementById('sidebarProfilePic').src = avatarUrl;
+                document.getElementById('headerProfilePic').src = avatarUrl;
+                
+                // Update user names
+                const userName = user.full_name || user.first_name || 'User';
+                document.getElementById('sidebarUserName').textContent = `Welcome, ${userName}`;
+                document.getElementById('headerUserName').textContent = userName;
+                
+                // Load notifications count
+                const notificationsResponse = await fetchWithAuth('/api/notifications/');
+                const unreadCount = notificationsResponse.unread_count || 0;
+                document.getElementById('notificationBadge').textContent = unreadCount;
+                document.getElementById('notificationCount').textContent = unreadCount;
+                document.getElementById('messageCount').textContent = '0';
+                
+                // Store current user data globally
+                window.currentUserId = user.id;
+                window.currentUserAvatar = avatarUrl;
+                
+                // Load discussions when switching to discussions tab
+                document.getElementById('discussionsTab').addEventListener('click', loadDiscussions);
+                
+            } catch (error) {
+                console.error('Error loading user data:', error);
+            }
+        });
+    </script>
+
+</body>
+</html>

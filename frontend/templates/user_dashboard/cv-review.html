@@ -1,0 +1,2142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Review - Youth Opportunities</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+        --primary: #6366f1;
+        --primary-dark: #4f46e5;
+        --primary-light: #c7d2fe;
+        --dark: #1e293b;
+        --darker: #0f172a;
+        --darkest: #020617;
+        --light: #f1f5f9;
+        --lighter: #f8fafc;
+        --danger: #ef4444;
+        --success: #10b981;
+        --warning: #f59e0b;
+        --info: #3b82f6;
+        --sidebar-width: 280px;
+        --header-height: 70px;
+        --bg-color: #ffffff;
+        --text-color: #1e293b;
+        --card-bg: #ffffff;
+        --card-border: rgba(0,0,0,0.1);
+        --card-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        --input-bg: #ffffff;
+        --input-border: rgba(0,0,0,0.1);
+        --hover-bg: rgba(0,0,0,0.02);
+        --divider-color: rgba(0,0,0,0.05);
+            }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --card-bg: #1e293b;
+            --card-border: rgba(255,255,255,0.1);
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            --input-bg: #1e293b;
+            --input-border: rgba(255,255,255,0.1);
+            --hover-bg: rgba(255,255,255,0.05);
+            --divider-color: rgba(255,255,255,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--card-bg);
+            height: 100vh;
+            position: fixed;
+            padding: 0;
+            border-right: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+            z-index: 100;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--card-shadow);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 70px;
+                padding-top: 70px;
+                display: block;
+                overflow-x: hidden;
+            }
+            
+            .sidebar {
+                display: none !important;
+            }
+            
+            .main-content {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                padding: 5px;
+                padding-top: 3px;
+                width: 100vw;
+                max-width: 100vw;
+                box-sizing: border-box;
+                overflow-x: hidden;
+                position: static;
+                left: auto;
+                right: auto;
+                transform: none;
+            }
+            
+            .header {
+                height: 60px;
+                padding: 0 10px;
+                width: 100vw;
+                max-width: 100vw;
+                left: 0;
+                right: 0;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .header-left {
+                display: flex;
+                order: 1;
+            }
+            
+            .header-left .search-bar {
+                display: none;
+            }
+            
+            .header-right {
+                display: none;
+            }
+            
+            .menu-toggle {
+                order: 2;
+            }
+            
+            .notification-bell,
+            .theme-toggle {
+                display: none !important;
+            }
+            
+            .menu-toggle {
+                display: flex !important;
+                order: 2;
+                width: 30px;
+                height: 30px;
+                flex-direction: column;
+                justify-content: space-between;
+                cursor: pointer;
+                z-index: 100;
+            }
+            
+            .menu-toggle span {
+                width: 100%;
+                height: 3px;
+                background: var(--text-color);
+                border-radius: 3px;
+                transition: all 0.3s ease;
+            }
+            
+            .profile-section {
+                padding: 8px;
+                margin-bottom: 8px;
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--divider-color);
+            background: var(--card-bg);
+            position: sticky;
+            top: -1px;
+            z-index: 10;
+            flex-shrink: 0;
+            box-shadow: 0 0 0 1px var(--card-bg), 0 2px 15px rgba(0,0,0,0.1);
+            margin-top: -1px;
+        }
+
+        .sidebar-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .sidebar-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 10px;
+            color: var(--text-color);
+        }
+
+        .sidebar-header .admin-name {
+            font-size: 14px;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-top: 3px;
+        }
+
+        .sidebar-menu {
+            padding: 10px;
+            overflow-y: auto;
+            flex: 1;
+            padding-bottom: 20px;
+            margin-top: -1px;
+        }
+
+        .menu-item {
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .menu-item:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+        }
+
+        .menu-item.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .menu-item i {
+            width: 20px;
+            text-align: center;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+
+        .menu-item .badge {
+            margin-left: auto;
+            background: var(--danger);
+            color: white;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: 600;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            padding: 7px;
+            padding-top: calc(var(--header-height) + 25px);
+            transition: margin-left 0.3s ease;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: calc(100% - var(--sidebar-width));
+            height: var(--header-height);
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--divider-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            z-index: 90;
+            transition: width 0.3s ease;
+            box-shadow: var(--card-shadow);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                width: 100%;
+            }
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--hover-bg);
+        }
+
+        .theme-toggle i {
+            font-size: 18px;
+            color: var(--text-color);
+        }
+
+        .theme-toggle .toggle-text {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Menu Toggle */
+        .menu-toggle {
+            display: none;
+            width: 30px;
+            height: 30px;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background: var(--text-color);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+
+        .search-bar {
+            position: relative;
+            width: 300px;
+        }
+
+        @media (max-width: 576px) {
+            .search-bar {
+                display: none;
+            }
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px 10px 40px;
+            border-radius: 8px;
+            border: 1px solid var(--input-border);
+            background: var(--input-bg);
+            color: var(--text-color);
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--primary);
+            border-color: var(--primary);
+        }
+
+        .search-bar i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-color);
+            opacity: 0.7;
+        }
+
+        .notification-bell {
+            position: relative;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .notification-bell:hover {
+            background: var(--hover-bg);
+        }
+
+        .notification-bell .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--danger);
+            color: white;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            position: relative;
+            padding: 5px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .user-profile:hover {
+            background: var(--hover-bg);
+        }
+
+        .user-profile img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .user-profile .name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .user-profile .role {
+            font-size: 12px;
+            opacity: 0.7;
+            background: var(--primary);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* CV Review Content */
+        .cv-review-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cv-review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--divider-color);
+        }
+
+        .cv-review-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cv-upload-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 15px;
+            border: 1px solid var(--card-border);
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .cv-upload-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .upload-area {
+            border: 2px dashed var(--primary-light);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            background: rgba(99, 102, 241, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .upload-area:hover {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .upload-area.dragover {
+            border-color: var(--primary);
+            background: rgba(99, 102, 241, 0.15);
+        }
+
+        .upload-icon {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .upload-text {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-color);
+            margin-bottom: 8px;
+        }
+
+        .upload-subtext {
+            color: var(--text-color);
+            opacity: 0.7;
+            margin-bottom: 20px;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .upload-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .upload-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .file-preview {
+            display: none;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .file-icon {
+            font-size: 2rem;
+            color: var(--danger);
+        }
+
+        .file-details h4 {
+            margin: 0 0 4px 0;
+            color: var(--text-color);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .file-details p {
+            margin: 0;
+            color: var(--text-color);
+            opacity: 0.7;
+            font-size: 12px;
+        }
+
+        .file-actions {
+            margin-left: auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-remove {
+            background: var(--danger);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-remove:hover {
+            background: #dc2626;
+        }
+
+        .cv-form {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid var(--card-border);
+            margin-bottom: 30px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--input-border);
+            border-radius: 8px;
+            background: var(--input-bg);
+            color: var(--text-color);
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .btn-submit {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-submit:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .cv-reviews-list {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 15px;
+            border: 1px solid var(--card-border);
+            box-shadow: var(--card-shadow);
+        }
+
+        .reviews-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--divider-color);
+        }
+
+        .reviews-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 10px;
+        }
+
+        .filter-tab {
+            padding: 8px 16px;
+            border: 2px solid var(--card-border);
+            background: var(--card-bg);
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+
+        .filter-tab.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .filter-tab:hover {
+            border-color: var(--primary);
+        }
+
+        .review-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .review-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .review-info {
+            flex: 1;
+        }
+
+        .review-date {
+            font-size: 12px;
+            color: var(--text-color);
+            opacity: 0.7;
+            margin-bottom: 4px;
+        }
+
+        .review-status {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-pending {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+        }
+
+        .status-in_progress {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--info);
+        }
+
+        .status-completed {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+
+        .review-score {
+            margin-left: auto;
+            text-align: center;
+        }
+
+        .score-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 5px;
+        }
+
+        .score-excellent {
+            background: var(--success);
+        }
+
+        .score-good {
+            background: var(--info);
+        }
+
+        .score-average {
+            background: var(--warning);
+        }
+
+        .score-poor {
+            background: var(--danger);
+        }
+
+        .score-label {
+            font-size: 11px;
+            color: var(--text-color);
+            opacity: 0.7;
+        }
+
+        .review-content {
+            margin-top: 20px;
+        }
+
+        .review-notes {
+            background: rgba(99, 102, 241, 0.05);
+            border-left: 4px solid var(--primary);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .review-feedback {
+            background: var(--hover-bg);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--success);
+        }
+
+        .review-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .btn-download {
+            background: var(--info);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-download:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-color);
+            opacity: 0.7;
+        }
+
+        .empty-state i {
+            font-size: 48px;
+            color: var(--text-color);
+            opacity: 0.3;
+            margin-bottom: 16px;
+        }
+
+        .empty-state h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--primary-light);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: white;
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Mobile Menu Overlay */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 90;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* Notification Element */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            background: var(--success);
+            color: white;
+            border-radius: 8px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            animation: slideIn 0.3s, fadeOut 0.5s 2.5s forwards;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .notification.error {
+            background: var(--danger);
+        }
+
+        .notification i {
+            font-size: 18px;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; }
+        }
+        
+        .search-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .search-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .search-modal .modal-content {
+            background: var(--card-bg);
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+        }
+        
+        .search-modal.show .modal-content {
+            transform: scale(1);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--card-border);
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+            color: var(--text-color);
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        
+        .search-form {
+            padding: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .modal-search-input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            font-size: 16px;
+            background: var(--card-bg);
+            color: var(--text-color);
+        }
+        
+        .modal-search-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        
+        .search-results {
+            padding: 0 20px 20px;
+            overflow-y: auto;
+            flex: 1;
+            max-height: 400px;
+        }
+        
+        .search-result-item {
+            padding: 15px;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-result-item:hover {
+            background: var(--hover-bg);
+        }
+        
+        .search-result-item h5 {
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .search-result-item p {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .search-modal .modal-content {
+                width: 95% !important;
+                max-width: 95% !important;
+                margin: 10px !important;
+            }
+        }
+
+        .mobile-bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100vw;
+            max-width: 100vw;
+            background: var(--card-bg);
+            border-top: 1px solid var(--card-border);
+            padding: 8px 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+        
+        .bottom-nav-items {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            padding: 4px 2px;
+            flex: 1;
+            max-width: 20%;
+        }
+        
+        .bottom-nav-item i {
+            font-size: 16px;
+            margin-bottom: 2px;
+        }
+        
+        .bottom-nav-item span {
+            font-size: 9px;
+            font-weight: 500;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .bottom-nav-item:hover,
+        .bottom-nav-item.active {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-dropdown {
+            position: fixed;
+            top: 75px;
+            right: 5px;
+            width: 200px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1001;
+        }
+        
+        .mobile-menu-content {
+            padding: 8px 0;
+        }
+        
+        .mobile-menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .mobile-menu-item:hover {
+            background: var(--hover-bg);
+        }
+        
+        .mobile-menu-item i {
+            width: 16px;
+            font-size: 14px;
+        }
+        
+        .mobile-menu-item span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .mobile-menu-item .badge {
+            margin-left: auto;
+            background: var(--danger);
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            min-width: 16px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-bottom-nav {
+                display: block;
+            }
+            
+            .cv-review-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+                margin-bottom: 15px;
+                padding-bottom: 10px;
+            }
+
+            .cv-review-title {
+                font-size: 18px;
+            }
+
+            .reviews-header {
+                flex-direction: column;
+                gap: 15px;
+                align-items: flex-start;
+            }
+            
+            .reviews-title {
+                font-size: 16px;
+            }
+
+            .filter-tabs {
+                display: flex;
+                gap: 5px;
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 5px;
+            }
+            
+            .filter-tab {
+                flex-shrink: 0;
+                padding: 6px 12px;
+                font-size: 12px;
+                border-radius: 15px;
+                white-space: nowrap;
+                min-width: fit-content;
+            }
+
+            .review-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .review-score {
+                margin-left: 0;
+                align-self: flex-start;
+            }
+        }
+    </style>
+    <link rel="icon" href="../../static/images/youthopps-logo.png" type="image/png">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img id="sidebarProfilePic" src="../../static/images/default-image.jpg" alt="Profile">
+            <div>
+                <h2>User Dashboard</h2>
+                <div class="admin-name" id="sidebarUserName">Welcome, Loading...</div>
+            </div>
+        </div>
+        
+        <div class="sidebar-menu">
+            <a href="index.html" class="menu-item" data-section="dashboard">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            
+            <a href="profile.html" class="menu-item" data-section="profile">
+                <i class="fas fa-user"></i>
+                <span>My Profile</span>
+            </a>
+            
+            <a href="opportunities.html" class="menu-item" data-section="opportunities">
+                <i class="fas fa-briefcase"></i>
+                <span>Opportunities</span>
+            </a>
+            
+            <a href="mentors.html" class="menu-item" data-section="mentors">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span>Mentors</span>
+            </a>
+            
+            <a href="community.html" class="menu-item" data-section="community">
+                <i class="fas fa-users"></i>
+                <span>Community</span>
+            </a>
+            
+            <a href="inbox.html" class="menu-item" data-section="inbox">
+                <i class="fas fa-inbox"></i>
+                <span>Inbox</span>
+                <span class="badge" id="messageCount">0</span>
+            </a>
+            
+            <a href="cv-review.html" class="menu-item active" data-section="cv-review">
+                <i class="fas fa-file-alt"></i>
+                <span>CV Review</span>
+            </a>
+            
+            <a href="training.html" class="menu-item" data-section="training">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Training</span>
+            </a>
+            
+            <a href="webinars.html" class="menu-item" data-section="webinars">
+                <i class="fas fa-video"></i>
+                <span>Webinars</span>
+            </a>
+            
+            <a href="notifications.html" class="menu-item" data-section="notifications">
+                <i class="fas fa-bell"></i>
+                <span>Notifications</span>
+                <span class="badge" id="notificationCount">0</span>
+            </a>
+            
+            <a href="settings.html" class="menu-item" data-section="settings">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            
+            <div class="menu-item" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div style="text-align: center;">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Processing CV review...</div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div class="mobile-menu-dropdown" id="mobileMenuDropdown" style="display: none;">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-item" id="mobileSearch">
+                <i class="fas fa-search"></i>
+                <span>Search</span>
+            </div>
+            <a href="settings.html" class="mobile-menu-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            <a href="notifications.html" class="mobile-menu-item">
+                <i class="fas fa-bell"></i>
+                <span>Notifications</span>
+                <span class="badge" id="mobileNotificationBadge">0</span>
+            </a>
+            <a href="inbox.html" class="mobile-menu-item">
+                <i class="fas fa-inbox"></i>
+                <span>Inbox</span>
+            </a>
+            <a href="mentors.html" class="mobile-menu-item">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span>Mentors</span>
+            </a>
+            <a href="training.html" class="mobile-menu-item">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Training</span>
+            </a>
+            <a href="webinars.html" class="mobile-menu-item">
+                <i class="fas fa-video"></i>
+                <span>Webinars</span>
+            </a>
+            <div class="mobile-menu-item" id="mobileThemeToggle">
+                <i class="fas fa-moon"></i>
+                <span>Dark Mode</span>
+            </div>
+            <div class="mobile-menu-item" id="mobileLogout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+    
+    <!-- Mobile Bottom Navigation -->
+    <div class="mobile-bottom-nav">
+        <div class="bottom-nav-items">
+            <a href="index.html" class="bottom-nav-item">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="opportunities.html" class="bottom-nav-item">
+                <i class="fas fa-briefcase"></i>
+                <span>Opportunities</span>
+            </a>
+            <a href="community.html" class="bottom-nav-item">
+                <i class="fas fa-users"></i>
+                <span>Community</span>
+            </a>
+            <a href="inbox.html" class="bottom-nav-item">
+                <i class="fas fa-inbox"></i>
+                <span>Inbox</span>
+            </a>
+            <a href="profile.html" class="bottom-nav-item">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="cvSearch" placeholder="Search CV reviews...">
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <div class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                    <span class="toggle-text">Dark Mode</span>
+                </div>
+                
+                <div class="notification-bell" id="notificationBell">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge" id="notificationBadge">0</span>
+                </div>
+                
+                <div class="user-profile">
+                    <img id="headerProfilePic" src="../../static/images/default-image.jpg" alt="User">
+                    <div>
+                        <div class="name" id="headerUserName">Loading...</div>
+                        <div class="role">Member</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CV Review Content -->
+        <div class="cv-review-container">
+            <div class="cv-review-header">
+                <h1 class="cv-review-title">
+                    <i class="fas fa-file-alt"></i>
+                    CV Review Service
+                </h1>
+            </div>
+
+            <!-- CV Upload Section -->
+            <div class="cv-upload-section" id="uploadSection">
+                <h2 style="margin-bottom: 20px; color: var(--text-color);">Submit Your CV for Review</h2>
+                
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <div class="upload-text">Drop your CV here or click to browse</div>
+                    <div class="upload-subtext">Supported formats: PDF, DOC, DOCX (Max 5MB)</div>
+                    <button class="upload-btn" onclick="document.getElementById('cvFile').click()">
+                        <i class="fas fa-upload"></i> Choose File
+                    </button>
+                    <input type="file" id="cvFile" class="file-input" accept=".pdf,.doc,.docx">
+                </div>
+
+                <div class="file-preview" id="filePreview">
+                    <div class="file-info">
+                        <div class="file-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="file-details">
+                            <h4 id="fileName">CV_Document.pdf</h4>
+                            <p id="fileSize">2.5 MB</p>
+                        </div>
+                        <div class="file-actions">
+                            <button class="btn-remove" onclick="removeFile()">
+                                <i class="fas fa-times"></i> Remove
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="cv-form" id="cvForm" style="display: none;">
+                    <div class="form-group">
+                        <label for="cvNotes">Additional Notes (Optional)</label>
+                        <textarea id="cvNotes" class="form-control" placeholder="Any specific areas you'd like us to focus on or questions you have about your CV..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        <i class="fas fa-paper-plane"></i> Submit for Review
+                    </button>
+                </form>
+            </div>
+
+            <!-- CV Reviews List -->
+            <div class="cv-reviews-list">
+                <div class="reviews-header">
+                    <h2 class="reviews-title">Your CV Reviews</h2>
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-status="all">All</button>
+                        <button class="filter-tab" data-status="pending">Pending</button>
+                        <button class="filter-tab" data-status="in_progress">In Progress</button>
+                        <button class="filter-tab" data-status="completed">Completed</button>
+                    </div>
+                </div>
+
+                <div id="reviewsList">
+                    <!-- Reviews will be loaded here -->
+                </div>
+
+                <div class="empty-state" id="emptyState" style="display: none;">
+                    <i class="fas fa-file-alt"></i>
+                    <h3>No CV reviews yet</h3>
+                    <p>Submit your CV above to get professional feedback and improve your chances of landing your dream job.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Element -->
+    <div id="notificationElement" class="notification" style="display: none;"></div>
+
+    <script>
+        let currentUser = null;
+        let cvReviews = [];
+        let currentFilter = 'all';
+        let selectedFile = null;
+
+        // CSRF Token Handling
+        async function getCSRFToken() {
+            try {
+                const response = await fetch('/api/csrf/', {
+                    credentials: 'include'
+                });
+                const data = await response.json();
+                return data.csrfToken;
+            } catch (error) {
+                console.error('Error getting CSRF token:', error);
+                return null;
+            }
+        }
+
+        // Fetch with authentication
+        async function fetchWithAuth(url, options = {}) {
+            const csrfToken = await getCSRFToken();
+            
+            const headers = {
+                'X-CSRFToken': csrfToken,
+            };
+            
+            if (options.headers) {
+                Object.assign(headers, options.headers);
+            }
+            
+            // Don't set Content-Type for FormData
+            if (!(options.body instanceof FormData)) {
+                headers['Content-Type'] = 'application/json';
+            }
+            
+            const response = await fetch(url, {
+                ...options,
+                headers,
+                credentials: 'include',
+            });
+            
+            if (response.status === 401 || response.status === 403) {
+                window.location.href = '../login.html';
+                return;
+            }
+            
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Request failed');
+            }
+            
+            return response.json();
+        }
+
+        // Helper functions
+        function showLoading() {
+            document.getElementById('loadingOverlay').style.display = 'flex';
+        }
+
+        function hideLoading() {
+            document.getElementById('loadingOverlay').style.display = 'none';
+        }
+
+        function showAlert(message, type = 'success') {
+            const notification = document.getElementById('notificationElement');
+            notification.innerHTML = `
+                <i class="fas ${type === 'error' ? 'fa-times-circle' : 'fa-check-circle'}"></i>
+                <span>${message}</span>
+            `;
+            notification.className = `notification ${type === 'error' ? 'error' : ''}`;
+            notification.style.display = 'flex';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        function getScoreClass(score) {
+            if (score >= 90) return 'score-excellent';
+            if (score >= 75) return 'score-good';
+            if (score >= 60) return 'score-average';
+            return 'score-poor';
+        }
+
+        function getScoreLabel(score) {
+            if (score >= 90) return 'Excellent';
+            if (score >= 75) return 'Good';
+            if (score >= 60) return 'Average';
+            return 'Needs Work';
+        }
+
+        // File upload handling
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('cvFile');
+        const filePreview = document.getElementById('filePreview');
+        const cvForm = document.getElementById('cvForm');
+
+        // Drag and drop functionality
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                handleFileSelect(files[0]);
+            }
+        });
+
+        uploadArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFileSelect(e.target.files[0]);
+            }
+        });
+
+        function handleFileSelect(file) {
+            // Validate file type
+            const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+            if (!allowedTypes.includes(file.type)) {
+                showAlert('Please select a PDF, DOC, or DOCX file', 'error');
+                return;
+            }
+
+            // Validate file size (5MB)
+            if (file.size > 5 * 1024 * 1024) {
+                showAlert('File size must be less than 5MB', 'error');
+                return;
+            }
+
+            selectedFile = file;
+            
+            // Update file preview
+            document.getElementById('fileName').textContent = file.name;
+            document.getElementById('fileSize').textContent = formatFileSize(file.size);
+            
+            // Update file icon based on type
+            const fileIcon = document.querySelector('.file-icon i');
+            if (file.type === 'application/pdf') {
+                fileIcon.className = 'fas fa-file-pdf';
+            } else {
+                fileIcon.className = 'fas fa-file-word';
+            }
+            
+            // Show preview and form
+            filePreview.style.display = 'block';
+            cvForm.style.display = 'block';
+            uploadArea.style.display = 'none';
+        }
+
+        function removeFile() {
+            selectedFile = null;
+            filePreview.style.display = 'none';
+            cvForm.style.display = 'none';
+            uploadArea.style.display = 'block';
+            fileInput.value = '';
+        }
+
+        // Form submission
+        document.getElementById('cvForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            if (!selectedFile) {
+                showAlert('Please select a CV file', 'error');
+                return;
+            }
+
+            const submitBtn = document.getElementById('submitBtn');
+            const originalText = submitBtn.innerHTML;
+            
+            try {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+                showLoading();
+
+                const formData = new FormData();
+                formData.append('cv_file', selectedFile);
+                formData.append('additional_info', document.getElementById('cvNotes').value);
+
+                const response = await fetchWithAuth('/api/cv-reviews/', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                showAlert('CV submitted successfully! You will receive feedback within 2-3 business days.');
+                
+                // Reset form
+                removeFile();
+                document.getElementById('cvNotes').value = '';
+                
+                // Reload reviews
+                await loadCVReviews();
+
+            } catch (error) {
+                console.error('Error submitting CV:', error);
+                showAlert('Failed to submit CV: ' + error.message, 'error');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+                hideLoading();
+            }
+        });
+
+        // Load CV reviews
+        async function loadCVReviews() {
+            try {
+                const response = await fetchWithAuth('/api/cv-reviews/');
+                cvReviews = response || [];
+                renderReviews();
+            } catch (error) {
+                console.error('Error loading CV reviews:', error);
+                showAlert('Failed to load CV reviews', 'error');
+                showEmptyState();
+            }
+        }
+
+        // Render reviews
+        function renderReviews() {
+            const container = document.getElementById('reviewsList');
+            const emptyState = document.getElementById('emptyState');
+            
+            let filteredReviews = cvReviews;
+            
+            // Apply filter
+            if (currentFilter !== 'all') {
+                filteredReviews = cvReviews.filter(review => review.status === currentFilter);
+            }
+
+            if (filteredReviews.length === 0) {
+                container.innerHTML = '';
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+            container.innerHTML = filteredReviews.map(review => createReviewElement(review)).join('');
+        }
+
+        // Create review element
+        function createReviewElement(review) {
+            const scoreClass = review.score ? getScoreClass(review.score) : '';
+            const scoreLabel = review.score ? getScoreLabel(review.score) : '';
+            
+            return `
+                <div class="review-item">
+                    <div class="review-header">
+                        <div class="review-info">
+                            <div class="review-date">${formatDate(review.created_at)}</div>
+                            <span class="review-status status-${review.status}">${review.status.replace('_', ' ')}</span>
+                        </div>
+                        ${review.score ? `
+                        <div class="review-score">
+                            <div class="score-circle ${scoreClass}">${review.score}</div>
+                            <div class="score-label">${scoreLabel}</div>
+                        </div>
+                        ` : ''}
+                    </div>
+                    
+                    <div class="review-content">
+                        ${review.additional_info ? `
+                        <div class="review-notes">
+                            <h4 style="margin-bottom: 10px; color: var(--text-color);">Your Notes:</h4>
+                            <p style="margin: 0; color: var(--text-color);">${review.additional_info}</p>
+                        </div>
+                        ` : ''}
+                        
+                        ${review.feedback ? `
+                        <div class="review-feedback">
+                            <h4 style="margin-bottom: 10px; color: var(--text-color);">Professional Feedback:</h4>
+                            <p style="margin: 0; color: var(--text-color);">${review.feedback}</p>
+                            <p style="margin-top: 10px; font-size: 0.9rem; color: var(--text-color); opacity: 0.7;">
+                                Reviewed by: ${review.reviewed_by ? review.reviewed_by_name : 'Professional Reviewer'}
+                            </p>
+                        </div>
+                        ` : ''}
+                    </div>
+                    
+                    <div class="review-actions">
+                        <a href="${review.cv_file}" target="_blank" class="btn-download">
+                            <i class="fas fa-download"></i> Download CV
+                        </a>
+
+                    </div>
+                </div>
+            `;
+        }
+
+        // Cancel review
+        async function cancelReview(reviewId) {
+            if (!confirm('Are you sure you want to cancel this CV review?')) return;
+            
+            try {
+                await fetchWithAuth(`/api/cv-reviews/${reviewId}/`, {
+                    method: 'DELETE'
+                });
+                
+                showAlert('CV review cancelled successfully');
+                await loadCVReviews();
+            } catch (error) {
+                console.error('Error cancelling review:', error);
+                showAlert('Failed to cancel CV review', 'error');
+            }
+        }
+
+        // Show empty state
+        function showEmptyState() {
+            document.getElementById('reviewsList').innerHTML = '';
+            document.getElementById('emptyState').style.display = 'block';
+        }
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        // Set initial theme
+        if (currentTheme === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i><span class="toggle-text">Light Mode</span>';
+        } else {
+            body.removeAttribute('data-theme');
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i><span class="toggle-text">Dark Mode</span>';
+        }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i><span class="toggle-text">Dark Mode</span>';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i><span class="toggle-text">Light Mode</span>';
+            }
+        });
+
+        // Toggle mobile menu dropdown
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
+        const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+        const mobileLogout = document.getElementById('mobileLogout');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (window.innerWidth <= 768) {
+                    const isVisible = mobileMenuDropdown.style.display === 'block';
+                    mobileMenuDropdown.style.display = isVisible ? 'none' : 'block';
+                    this.classList.toggle('active');
+                }
+            });
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function() {
+            if (mobileMenuDropdown) {
+                mobileMenuDropdown.style.display = 'none';
+                if (menuToggle) {
+                    menuToggle.classList.remove('active');
+                }
+            }
+        });
+        
+        // Mobile theme toggle
+        if (mobileThemeToggle) {
+            mobileThemeToggle.addEventListener('click', function() {
+                if (body.getAttribute('data-theme') === 'dark') {
+                    body.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'light');
+                    this.innerHTML = '<i class="fas fa-moon"></i><span>Dark Mode</span>';
+                } else {
+                    body.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                    this.innerHTML = '<i class="fas fa-sun"></i><span>Light Mode</span>';
+                }
+                mobileMenuDropdown.style.display = 'none';
+            });
+        }
+        
+        // Mobile logout
+        if (mobileLogout) {
+            mobileLogout.addEventListener('click', function() {
+                if (confirm('Are you sure you want to logout?')) {
+                    localStorage.removeItem('user');
+                    window.location.href = '../login.html';
+                }
+            });
+        }
+        
+        // Mobile search modal
+        const mobileSearch = document.getElementById('mobileSearch');
+        if (mobileSearch) {
+            mobileSearch.addEventListener('click', function() {
+                showSearchModal();
+                mobileMenuDropdown.style.display = 'none';
+            });
+        }
+        
+        // Desktop search functionality
+        const cvSearch = document.getElementById('cvSearch');
+        if (cvSearch) {
+            cvSearch.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const reviewItems = document.querySelectorAll('.profile-section');
+                
+                reviewItems.forEach(item => {
+                    const content = item.textContent.toLowerCase();
+                    item.style.display = content.includes(searchTerm) ? 'block' : 'none';
+                });
+            });
+        }
+        
+        // Show search modal (mobile)
+        function showSearchModal() {
+            const modal = document.createElement('div');
+            modal.className = 'search-modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Search CV Reviews</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <div class="search-form">
+                        <input type="text" class="modal-search-input" placeholder="Search reviews, feedback..." autofocus>
+                        <button class="modal-search-btn"><i class="fas fa-search"></i> Search</button>
+                    </div>
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            setTimeout(() => modal.classList.add('show'), 10);
+            
+            const searchInput = modal.querySelector('.modal-search-input');
+            const searchButton = modal.querySelector('.modal-search-btn');
+            const resultsDiv = modal.querySelector('#searchResults');
+            
+            function closeModal() {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    if (document.body.contains(modal)) {
+                        document.body.removeChild(modal);
+                    }
+                }, 300);
+            }
+            
+            function performModalSearch() {
+                const query = searchInput.value.toLowerCase().trim();
+                if (!query) return;
+                
+                resultsDiv.innerHTML = '<p>Searching...</p>';
+                
+                const results = [];
+                const reviewSections = document.querySelectorAll('.profile-section');
+                
+                reviewSections.forEach(item => {
+                    const content = item.textContent || '';
+                    if (content.toLowerCase().includes(query)) {
+                        const title = item.querySelector('h2')?.textContent || item.querySelector('h3')?.textContent || 'CV Review Item';
+                        const type = content.includes('Upload') ? 'Upload Section' : content.includes('Review') ? 'Review' : 'CV Item';
+                        results.push({
+                            type: type,
+                            title: title,
+                            content: content
+                        });
+                    }
+                });
+                
+                resultsDiv.innerHTML = `<h4>${results.length} results found</h4>`;
+                results.slice(0, 10).forEach(result => {
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'search-result-item';
+                    resultItem.innerHTML = `
+                        <h5>${result.title}</h5>
+                        <p>${result.type}</p>
+                    `;
+                    resultsDiv.appendChild(resultItem);
+                });
+            }
+            
+            searchButton.onclick = performModalSearch;
+            searchInput.onkeypress = (e) => { if (e.key === 'Enter') performModalSearch(); };
+            
+            modal.querySelector('.modal-close').onclick = closeModal;
+            modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+            
+            setTimeout(() => searchInput.focus(), 100);
+        }
+
+        // Filter tabs functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterTabs = document.querySelectorAll('.filter-tab');
+            
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    // Update current filter
+                    currentFilter = this.dataset.status;
+                    
+                    // Re-render reviews
+                    renderReviews();
+                });
+            });
+
+            // Initialize page
+            initializePage();
+        });
+
+        // Initialize the page
+        async function initializePage() {
+            try {
+                // Fetch current user data
+                const userResponse = await fetchWithAuth('/api/user/');
+                currentUser = userResponse;
+                
+                // Update UI with user data
+                document.getElementById('sidebarProfilePic').src = currentUser.profile_pic || '../../static/images/default-profile.png';
+                document.getElementById('headerProfilePic').src = currentUser.profile_pic || '../../static/images/default-profile.png';
+                
+                document.getElementById('sidebarUserName').textContent = `Welcome, ${currentUser.full_name || 'User'}`;
+                document.getElementById('headerUserName').textContent = currentUser.full_name || 'User';
+                
+                // Load CV reviews
+                await loadCVReviews();
+                
+                // Load notifications count
+                const notificationsResponse = await fetchWithAuth('/api/notifications/');
+                const unreadCount = notificationsResponse.unread_count || 0;
+                document.getElementById('notificationBadge').textContent = unreadCount;
+                document.getElementById('notificationCount').textContent = unreadCount;
+                
+            } catch (error) {
+                console.error('Error initializing page:', error);
+                if (error.message.includes('401') || error.message.includes('403')) {
+                    window.location.href = '../login.html';
+                } else {
+                    showAlert('Failed to load page data', 'error');
+                }
+            }
+        }
+
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            if (confirm('Are you sure you want to logout?')) {
+                fetch('/api/logout/', {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': getCSRFToken(),
+                    },
+                    credentials: 'include',
+                })
+                .then(() => {
+                    window.location.href = '../login.html';
+                })
+                .catch(error => {
+                    console.error('Error logging out:', error);
+                    showAlert('Failed to logout', 'error');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

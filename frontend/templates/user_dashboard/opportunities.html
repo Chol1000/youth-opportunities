@@ -1,0 +1,2125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opportunities - Youth Opportunities</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --primary-light: #c7d2fe;
+            --dark: #1e293b;
+            --darker: #0f172a;
+            --darkest: #020617;
+            --light: #f1f5f9;
+            --lighter: #f8fafc;
+            --danger: #ef4444;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --info: #3b82f6;
+            --sidebar-width: 280px;
+            --header-height: 70px;
+            --bg-color: #ffffff;
+            --text-color: #1e293b;
+            --card-bg: #ffffff;
+            --card-border: rgba(0,0,0,0.1);
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            --input-bg: #ffffff;
+            --input-border: rgba(0,0,0,0.1);
+            --hover-bg: rgba(0,0,0,0.02);
+            --divider-color: rgba(0,0,0,0.05);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --card-bg: #1e293b;
+            --card-border: rgba(255,255,255,0.1);
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            --input-bg: #1e293b;
+            --input-border: rgba(255,255,255,0.1);
+            --hover-bg: rgba(255,255,255,0.05);
+            --divider-color: rgba(255,255,255,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+        }
+
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--card-bg);
+            height: 100vh;
+            position: fixed;
+            padding: 0;
+            border-right: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+            z-index: 100;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--card-shadow);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 70px;
+                padding-top: 70px;
+                display: block;
+                overflow-x: hidden;
+            }
+            
+            .sidebar {
+                display: none !important;
+            }
+            
+            .main-content {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                padding: 5px;
+                width: 100vw;
+                max-width: 100vw;
+                box-sizing: border-box;
+                overflow-x: hidden;
+                position: static;
+                left: auto;
+                right: auto;
+                transform: none;
+            }
+            
+            .header {
+                height: 60px;
+                padding: 0 10px;
+                width: 100vw;
+                max-width: 100vw;
+                left: 0;
+                right: 0;
+                box-sizing: border-box;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .header-left {
+                display: flex;
+                order: 1;
+            }
+            
+            .header-left .search-bar {
+                display: none;
+            }
+            
+            .header-right {
+                display: none;
+            }
+            
+            .menu-toggle {
+                order: 2;
+            }
+            
+            .notification-bell,
+            .theme-toggle {
+                display: none !important;
+            }
+            
+            .menu-toggle {
+                display: flex !important;
+                order: 2;
+                width: 30px;
+                height: 30px;
+                flex-direction: column;
+                justify-content: space-between;
+                cursor: pointer;
+                z-index: 100;
+            }
+            
+            .menu-toggle span {
+                width: 100%;
+                height: 3px;
+                background: var(--text-color);
+                border-radius: 3px;
+                transition: all 0.3s ease;
+            }
+            
+            .profile-section {
+                padding: 8px;
+                margin-bottom: 8px;
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--divider-color);
+            background: var(--card-bg);
+            position: sticky;
+            top: -1px;
+            z-index: 10;
+            flex-shrink: 0;
+            box-shadow: 0 0 0 1px var(--card-bg), 0 2px 15px rgba(0,0,0,0.1);
+            margin-top: -1px;
+        }
+
+        .sidebar-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .sidebar-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 10px;
+            color: var(--text-color);
+        }
+
+        .sidebar-header .admin-name {
+            font-size: 14px;
+            color: var(--text-color);
+            opacity: 0.8;
+            margin-top: 3px;
+        }
+
+        .sidebar-menu {
+            padding: 10px;
+            overflow-y: auto;
+            flex: 1;
+            padding-bottom: 20px;
+            margin-top: -1px;
+        }
+
+        .menu-item {
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-color);
+            font-weight: 500;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .menu-item:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+        }
+
+        .menu-item.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .menu-item i {
+            width: 20px;
+            text-align: center;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+
+        .menu-item .badge {
+            margin-left: auto;
+            background: var(--danger);
+            color: white;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: 600;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            padding: 25px;
+            padding-top: calc(var(--header-height) + 25px);
+            transition: margin-left 0.3s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0 !important;
+                left: 0 !important;
+                right: 0 !important;
+                position: relative;
+            }
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: calc(100% - var(--sidebar-width));
+            height: var(--header-height);
+            background: var(--card-bg);
+            border-bottom: 1px solid var(--divider-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 25px;
+            z-index: 90;
+            transition: width 0.3s ease;
+            box-shadow: var(--card-shadow);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                width: 100%;
+            }
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background: var(--hover-bg);
+        }
+
+        .theme-toggle i {
+            font-size: 18px;
+            color: var(--text-color);
+        }
+
+        .theme-toggle .toggle-text {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .menu-toggle {
+            display: none;
+            width: 30px;
+            height: 30px;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+        }
+
+        .menu-toggle span {
+            width: 100%;
+            height: 3px;
+            background: var(--text-color);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-10px) rotate(-45deg);
+        }
+
+        .search-bar {
+            position: relative;
+            width: 300px;
+        }
+
+        @media (max-width: 576px) {
+            .search-bar {
+                display: none;
+            }
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px 10px 40px;
+            border-radius: 8px;
+            border: 1px solid var(--input-border);
+            background: var(--input-bg);
+            color: var(--text-color);
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px var(--primary);
+            border-color: var(--primary);
+        }
+
+        .search-bar i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-color);
+            opacity: 0.7;
+        }
+
+        .notification-bell {
+            position: relative;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .notification-bell:hover {
+            background: var(--hover-bg);
+        }
+
+        .notification-bell .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--danger);
+            color: white;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            position: relative;
+            padding: 5px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .user-profile:hover {
+            background: var(--hover-bg);
+        }
+
+        .user-profile img {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary);
+        }
+
+        .user-profile .name {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .user-profile .role {
+            font-size: 12px;
+            opacity: 0.7;
+            background: var(--primary);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .page-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(99, 102, 241, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #dc2626;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+        }
+
+        .profile-section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid var(--card-border);
+            margin-bottom: 25px;
+            position: relative;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+        }
+
+        .profile-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--divider-color);
+        }
+        
+        .section-header h2 {
+            font-size: 18px;
+            color: var(--text-color);
+            margin: 0;
+            font-weight: 600;
+        }
+        
+        .edit-btn {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: transparent;
+            border: none;
+            color: var(--primary);
+            font-size: 14px;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .edit-btn:hover {
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
+            font-size: 14px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--input-border);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: var(--input-bg);
+            color: var(--text-color);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236366f1' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 12px;
+        }
+
+        .opportunity-item, .event-item {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid var(--card-border);
+            transition: all 0.3s ease;
+            box-shadow: var(--card-shadow);
+        }
+
+        .opportunity-item:hover, .event-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .opportunity-item h3, .event-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .opportunity-item p, .event-item p {
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        .shared-opportunity-item {
+            padding: 15px;
+            border-bottom: 1px solid var(--divider-color);
+            transition: all 0.3s ease;
+        }
+
+        .shared-opportunity-item:last-child {
+            border-bottom: none;
+        }
+
+        .shared-opportunity-item:hover {
+            background: var(--hover-bg);
+        }
+
+        .shared-opportunity-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .shared-opportunity-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .shared-opportunity-status {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status-pending {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--warning);
+        }
+
+        .status-approved {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+        }
+
+        .status-rejected {
+            background: rgba(239, 68, 68, 0.1);
+            color: var(--danger);
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 90;
+            opacity: 0;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            background: var(--success);
+            color: white;
+            border-radius: 8px;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            animation: slideIn 0.3s, fadeOut 0.5s 2.5s forwards;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .notification.error {
+            background: var(--danger);
+        }
+
+        .notification i {
+            font-size: 18px;
+        }
+
+        @keyframes slideIn {
+            from { right: -100px; opacity: 0; }
+            to { right: 20px; opacity: 1; }
+        }
+
+        @keyframes fadeOut {
+            to { opacity: 0; }
+        }
+        
+        .search-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .search-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .search-modal .modal-content {
+            background: var(--card-bg);
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+        }
+        
+        .search-modal.show .modal-content {
+            transform: scale(1);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--card-border);
+        }
+        
+        .modal-header h3 {
+            margin: 0;
+            color: var(--text-color);
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+        
+        .search-form {
+            padding: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .modal-search-input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid var(--card-border);
+            border-radius: 6px;
+            font-size: 16px;
+            background: var(--card-bg);
+            color: var(--text-color);
+        }
+        
+        .modal-search-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        
+        .search-results {
+            padding: 0 20px 20px;
+            overflow-y: auto;
+            flex: 1;
+            max-height: 400px;
+        }
+        
+        .search-result-item {
+            padding: 15px;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-result-item:hover {
+            background: var(--hover-bg);
+        }
+        
+        .search-result-item h5 {
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .search-result-item p {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .mobile-bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100vw;
+            max-width: 100vw;
+            background: var(--card-bg);
+            border-top: 1px solid var(--card-border);
+            padding: 8px 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+        
+        .bottom-nav-items {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            max-width: 100%;
+        }
+        
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            padding: 4px 2px;
+            flex: 1;
+            max-width: 20%;
+        }
+        
+        .bottom-nav-item i {
+            font-size: 16px;
+            margin-bottom: 2px;
+        }
+        
+        .bottom-nav-item span {
+            font-size: 9px;
+            font-weight: 500;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .bottom-nav-item:hover,
+        .bottom-nav-item.active {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-dropdown {
+            position: fixed;
+            top: 75px;
+            right: 5px;
+            width: 200px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1001;
+        }
+        
+        .mobile-menu-content {
+            padding: 8px 0;
+        }
+        
+        .mobile-menu-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .mobile-menu-item:hover {
+            background: var(--hover-bg);
+        }
+        
+        .mobile-menu-item i {
+            width: 16px;
+            font-size: 14px;
+        }
+        
+        .mobile-menu-item span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .mobile-menu-item .badge {
+            margin-left: auto;
+            background: var(--danger);
+            color: white;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            min-width: 16px;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-bottom-nav {
+                display: block;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .action-buttons .btn {
+                width: 100%;
+                justify-content: center;
+                font-size: 12px;
+                padding: 8px 12px;
+            }
+            
+            .action-btns {
+                flex-direction: row;
+                gap: 8px;
+            }
+            
+            .action-btns .btn {
+                flex: 1;
+                font-size: 12px;
+                padding: 8px 12px;
+                justify-content: center;
+            }
+        }
+        
+        .custom-select-wrapper {
+            position: relative;
+        }
+        
+        .custom-select {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+        
+        .select-arrow {
+            transition: transform 0.3s ease;
+        }
+        
+        .custom-select.active .select-arrow {
+            transform: rotate(180deg);
+        }
+        
+        .select-options {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--card-bg);
+            border: 1px solid var(--input-border);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1000;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        
+        .select-option {
+            padding: 12px 15px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            font-size: 14px;
+        }
+        
+        .select-option:hover {
+            background: var(--hover-bg);
+        }
+        
+        .select-option.selected {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+            input[type="date"] {
+                position: relative;
+                z-index: 999;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 8px;
+            }
+            
+            .profile-section {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 0 15px;
+            }
+            
+            .header-right {
+                gap: 10px;
+            }
+        }
+    </style>
+    <link rel="icon" href="../../static/images/youthopps-logo.png" type="image/png">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img id="sidebarProfilePic" src="../../static/images/default-image.jpg" alt="Profile">
+            <div>
+                <h2>User Dashboard</h2>
+                <div class="admin-name" id="sidebarUserName">Welcome, Loading ...</div>
+            </div>
+        </div>
+        
+        <div class="sidebar-menu">
+            <a href="index.html" class="menu-item" data-section="dashboard">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            
+            <a href="profile.html" class="menu-item" data-section="profile">
+                <i class="fas fa-user"></i>
+                <span>My Profile</span>
+            </a>
+            
+            <a href="opportunities.html" class="menu-item active" data-section="opportunities">
+                <i class="fas fa-briefcase"></i>
+                <span>Opportunities</span>
+            </a>
+            
+            <a href="mentors.html" class="menu-item" data-section="mentors">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span>Mentors</span>
+            </a>
+            
+            <a href="community.html" class="menu-item" data-section="community">
+                <i class="fas fa-users"></i>
+                <span>Community</span>
+            </a>
+            
+            <a href="inbox.html" class="menu-item" data-section="inbox">
+                <i class="fas fa-inbox"></i>
+                <span>Inbox</span>
+                <span class="badge" id="messageCount">0</span>
+            </a>
+            
+            <a href="cv-review.html" class="menu-item" data-section="cv-review">
+                <i class="fas fa-file-alt"></i>
+                <span>CV Review</span>
+            </a>
+            
+            <a href="training.html" class="menu-item" data-section="training">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Training</span>
+            </a>
+            
+            <a href="webinars.html" class="menu-item" data-section="webinars">
+                <i class="fas fa-video"></i>
+                <span>Webinars</span>
+            </a>
+            
+            <a href="notifications.html" class="menu-item" data-section="notifications">
+                <i class="fas fa-bell"></i>
+                <span>Notifications</span>
+                <span class="badge" id="notificationCount">0</span>
+            </a>
+            
+            <a href="settings.html" class="menu-item" data-section="settings">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            
+            <div class="menu-item" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div class="mobile-menu-dropdown" id="mobileMenuDropdown" style="display: none;">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-item" id="mobileSearch">
+                <i class="fas fa-search"></i>
+                <span>Search</span>
+            </div>
+            <a href="settings.html" class="mobile-menu-item">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            <a href="notifications.html" class="mobile-menu-item">
+                <i class="fas fa-bell"></i>
+                <span>Notifications</span>
+                <span class="badge" id="mobileNotificationBadge">0</span>
+            </a>
+            <a href="cv-review.html" class="mobile-menu-item">
+                <i class="fas fa-file-alt"></i>
+                <span>CV Review</span>
+            </a>
+            <a href="mentors.html" class="mobile-menu-item">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <span>Mentors</span>
+            </a>
+            <a href="training.html" class="mobile-menu-item">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Training</span>
+            </a>
+            <a href="webinars.html" class="mobile-menu-item">
+                <i class="fas fa-video"></i>
+                <span>Webinars</span>
+            </a>
+            <div class="mobile-menu-item" id="mobileThemeToggle">
+                <i class="fas fa-moon"></i>
+                <span>Dark Mode</span>
+            </div>
+            <div class="mobile-menu-item" id="mobileLogout">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay"></div>
+    
+    <!-- Mobile Bottom Navigation -->
+    <div class="mobile-bottom-nav">
+        <div class="bottom-nav-items">
+            <a href="index.html" class="bottom-nav-item">
+                <i class="fas fa-home"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="opportunities.html" class="bottom-nav-item active">
+                <i class="fas fa-briefcase"></i>
+                <span>Opportunities</span>
+            </a>
+            <a href="community.html" class="bottom-nav-item">
+                <i class="fas fa-users"></i>
+                <span>Community</span>
+            </a>
+            <a href="inbox.html" class="bottom-nav-item">
+                <i class="fas fa-inbox"></i>
+                <span>Inbox</span>
+            </a>
+            <a href="profile.html" class="bottom-nav-item">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="opportunitySearch" placeholder="Search opportunities...">
+                </div>
+            </div>
+            
+            <div class="header-right">
+                <div class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                    <span class="toggle-text">Dark Mode</span>
+                </div>
+                
+                <div class="notification-bell" id="notificationBell">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge" id="notificationBadge">0</span>
+                </div>
+                
+                <div class="user-profile">
+                    <img id="headerProfilePic" src="../../static/images/default-image.jpg" alt="User">
+                    <div>
+                        <div class="name" id="headerUserName">Loading...</div>
+                        <div class="role">Member</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Opportunities Content -->
+        <div id="opportunitiesContent">
+            <div class="page-header">
+                <h1 class="page-title">Opportunities</h1>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" id="shareOpportunityToggleBtn">
+                        <i class="fas fa-plus"></i> Share Opportunity
+                    </button>
+                    <button class="btn btn-primary" id="filterOpportunitiesBtn">
+                        <i class="fas fa-filter"></i> Filter
+                    </button>
+                    <button class="btn btn-secondary" id="refreshOpportunitiesBtn">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Share Opportunity Section -->
+            <div class="profile-section" id="shareOpportunitySection" style="display: none;">
+                <div class="section-header">
+                    <h2>Share an Opportunity</h2>
+                </div>
+                
+                <div class="share-opportunity-form">
+                    <p style="margin-bottom: 20px;">Found an interesting opportunity? Share it with the community and help others grow!</p>
+                    
+                    <div class="form-group">
+                        <label for="opportunityTitle">Opportunity Title*</label>
+                        <input type="text" id="opportunityTitle" class="form-control" placeholder="e.g. Software Engineering Internship at Google">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="opportunityOrganization">Organization*</label>
+                        <input type="text" id="opportunityOrganization" class="form-control" placeholder="e.g. Google">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="organizationLogo">Organization Logo (Optional)</label>
+                        <input type="file" id="organizationLogo" class="form-control" accept="image/*">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="opportunityType">Opportunity Type*</label>
+                        <div class="custom-select-wrapper">
+                            <div id="opportunityType" class="form-control custom-select" data-value="">
+                                <span class="select-text">Select type</span>
+                                <i class="fas fa-chevron-down select-arrow"></i>
+                            </div>
+                            <div class="select-options" id="opportunityTypeOptions" style="display: none;">
+                                <div class="select-option" data-value="">Select type</div>
+                                <div class="select-option" data-value="internship">Internships</div>
+                                <div class="select-option" data-value="job">Jobs</div>
+                                <div class="select-option" data-value="grant">Grants</div>
+                                <div class="select-option" data-value="scholarship">Scholarships</div>
+                                <div class="select-option" data-value="fellowship">Fellowships</div>
+                                <div class="select-option" data-value="conference">Conferences</div>
+                                <div class="select-option" data-value="workshop">Workshops</div>
+                                <div class="select-option" data-value="training">Trainings</div>
+                                <div class="select-option" data-value="competition">Competitions</div>
+                                <div class="select-option" data-value="miscellaneous">Miscellaneous</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="opportunityLocation">Location*</label>
+                        <input type="text" id="opportunityLocation" class="form-control" placeholder="e.g. Kigali, Rwanda or Remote">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="opportunityDeadline">Deadline*</label>
+                        <input type="text" id="opportunityDeadline" class="form-control" placeholder="e.g. 12/31/2024 or December 31, 2024">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="opportunityDescription">Description*</label>
+                        <textarea id="opportunityDescription" class="form-control" rows="5" placeholder="Provide details about the opportunity, requirements, benefits, etc."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="opportunityLink">Application Link*</label>
+                        <input type="url" id="opportunityLink" class="form-control" placeholder="https://example.com/apply">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="featuredImage">Featured Image/Poster (Optional)</label>
+                        <input type="file" id="featuredImage" class="form-control" accept="image/*">
+                    </div>
+                    
+
+                    
+                    <div class="action-btns">
+                        <button class="btn btn-primary" id="submitOpportunityBtn">
+                            <i class="fas fa-share"></i> Share Opportunity
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Shared Opportunities Section -->
+            <div class="profile-section">
+                <div class="section-header">
+                    <h2>My Shared Opportunities</h2>
+                </div>
+                
+                <div class="shared-opportunities-list">
+                    <p>You haven't shared any opportunities yet.</p>
+                </div>
+            </div>
+            
+            <!-- Available Opportunities Section -->
+            <div class="profile-section">
+                <div class="section-header">
+                    <h2>Available Opportunities</h2>
+                </div>
+                
+                <div class="opportunities-list" id="allOpportunities">
+                    <div class="opportunity-item">
+                        <h3>Software Engineer Internship</h3>
+                        <p>Andela | Deadline: May 30, 2023</p>
+                        <p>Kigali, Rwanda | Full-time</p>
+                        <div class="action-btns">
+                            <button class="btn btn-primary">Apply Now</button>
+                            <button class="btn btn-secondary">View Details</button>
+                        </div>
+                    </div>
+                    
+                    <div class="opportunity-item">
+                        <h3>Google Developer Scholarship</h3>
+                        <p>Google | Deadline: June 15, 2023</p>
+                        <p>Online | Training Program</p>
+                        <div class="action-btns">
+                            <button class="btn btn-primary">Apply Now</button>
+                            <button class="btn btn-secondary">View Details</button>
+                        </div>
+                    </div>
+                    
+                    <div class="opportunity-item">
+                        <h3>Marketing Assistant</h3>
+                        <p>UNICEF | Deadline: June 1, 2023</p>
+                        <p>Remote | Part-time</p>
+                        <div class="action-btns">
+                            <button class="btn btn-primary">Apply Now</button>
+                            <button class="btn btn-secondary">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        // Set initial theme
+        if (currentTheme === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i><span class="toggle-text">Light Mode</span>';
+        } else {
+            body.removeAttribute('data-theme');
+            themeToggle.innerHTML = '<i class="fas fa-moon"></i><span class="toggle-text">Dark Mode</span>';
+        }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i><span class="toggle-text">Dark Mode</span>';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i><span class="toggle-text">Light Mode</span>';
+            }
+        });
+
+        // Toggle mobile menu dropdown
+        const menuToggle = document.querySelector('.menu-toggle');
+        const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
+        const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+        const mobileLogout = document.getElementById('mobileLogout');
+        
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (window.innerWidth <= 768) {
+                    const isVisible = mobileMenuDropdown.style.display === 'block';
+                    mobileMenuDropdown.style.display = isVisible ? 'none' : 'block';
+                    this.classList.toggle('active');
+                }
+            });
+        }
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function() {
+            if (mobileMenuDropdown) {
+                mobileMenuDropdown.style.display = 'none';
+                if (menuToggle) {
+                    menuToggle.classList.remove('active');
+                }
+            }
+        });
+        
+        // Mobile theme toggle
+        if (mobileThemeToggle) {
+            mobileThemeToggle.addEventListener('click', function() {
+                if (body.getAttribute('data-theme') === 'dark') {
+                    body.removeAttribute('data-theme');
+                    localStorage.setItem('theme', 'light');
+                    this.innerHTML = '<i class="fas fa-moon"></i><span>Dark Mode</span>';
+                } else {
+                    body.setAttribute('data-theme', 'dark');
+                    localStorage.setItem('theme', 'dark');
+                    this.innerHTML = '<i class="fas fa-sun"></i><span>Light Mode</span>';
+                }
+                mobileMenuDropdown.style.display = 'none';
+            });
+        }
+        
+        // Mobile logout
+        if (mobileLogout) {
+            mobileLogout.addEventListener('click', function() {
+                if (confirm('Are you sure you want to logout?')) {
+                    localStorage.removeItem('user');
+                    window.location.href = '../login.html';
+                }
+            });
+        }
+        
+        // Mobile search modal
+        const mobileSearch = document.getElementById('mobileSearch');
+        if (mobileSearch) {
+            mobileSearch.addEventListener('click', function() {
+                showSearchModal();
+                mobileMenuDropdown.style.display = 'none';
+            });
+        }
+        
+        // Desktop search functionality
+        const opportunitySearch = document.getElementById('opportunitySearch');
+        if (opportunitySearch) {
+            opportunitySearch.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const opportunityItems = document.querySelectorAll('.opportunity-item');
+                const sharedItems = document.querySelectorAll('.shared-opportunity-item');
+                
+                // Search opportunities
+                opportunityItems.forEach(item => {
+                    const content = item.textContent.toLowerCase();
+                    item.style.display = content.includes(searchTerm) ? 'block' : 'none';
+                });
+                
+                // Search shared opportunities
+                sharedItems.forEach(item => {
+                    const content = item.textContent.toLowerCase();
+                    item.style.display = content.includes(searchTerm) ? 'block' : 'none';
+                });
+            });
+        }
+        
+        // Show search modal (mobile)
+        function showSearchModal() {
+            const modal = document.createElement('div');
+            modal.className = 'search-modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Search Opportunities</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <div class="search-form">
+                        <input type="text" class="modal-search-input" placeholder="Search for opportunities..." autofocus>
+                        <button class="modal-search-btn"><i class="fas fa-search"></i> Search</button>
+                    </div>
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            setTimeout(() => modal.classList.add('show'), 10);
+            
+            const searchInput = modal.querySelector('.modal-search-input');
+            const searchButton = modal.querySelector('.modal-search-btn');
+            const resultsDiv = modal.querySelector('#searchResults');
+            
+            function closeModal() {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    if (document.body.contains(modal)) {
+                        document.body.removeChild(modal);
+                    }
+                }, 300);
+            }
+            
+            function performModalSearch() {
+                const query = searchInput.value.toLowerCase().trim();
+                if (!query) return;
+                
+                resultsDiv.innerHTML = '<p>Searching...</p>';
+                
+                const results = [];
+                const opportunityItems = document.querySelectorAll('.opportunity-item');
+                const sharedItems = document.querySelectorAll('.shared-opportunity-item');
+                
+                // Search opportunities
+                opportunityItems.forEach(item => {
+                    const content = item.textContent || '';
+                    if (content.toLowerCase().includes(query)) {
+                        results.push({
+                            type: 'Available Opportunity',
+                            title: item.querySelector('h3')?.textContent || 'Opportunity',
+                            content: content
+                        });
+                    }
+                });
+                
+                // Search shared opportunities
+                sharedItems.forEach(item => {
+                    const content = item.textContent || '';
+                    if (content.toLowerCase().includes(query)) {
+                        results.push({
+                            type: 'My Shared Opportunity',
+                            title: item.querySelector('.shared-opportunity-title')?.textContent || 'Shared Opportunity',
+                            content: content
+                        });
+                    }
+                });
+                
+                resultsDiv.innerHTML = `<h4>${results.length} results found</h4>`;
+                results.slice(0, 10).forEach(result => {
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'search-result-item';
+                    resultItem.innerHTML = `
+                        <h5>${result.title}</h5>
+                        <p>${result.type}</p>
+                    `;
+                    resultsDiv.appendChild(resultItem);
+                });
+            }
+            
+            searchButton.onclick = performModalSearch;
+            searchInput.onkeypress = (e) => { if (e.key === 'Enter') performModalSearch(); };
+            
+            modal.querySelector('.modal-close').onclick = closeModal;
+            modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+            
+            setTimeout(() => searchInput.focus(), 100);
+        }
+
+        // Profile picture upload
+        document.querySelector('.sidebar-header img').addEventListener('click', function() {
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = 'image/*';
+            fileInput.click();
+            
+            fileInput.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('sidebarProfilePic').src = e.target.result;
+                        document.getElementById('headerProfilePic').src = e.target.result;
+                        showAlert('Profile picture updated successfully!', 'success');
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+        });
+
+        // Share Opportunity Form
+        document.getElementById('submitOpportunityBtn').addEventListener('click', async function() {
+            const title = document.getElementById('opportunityTitle').value;
+            const organization = document.getElementById('opportunityOrganization').value;
+            const type = document.getElementById('opportunityType').dataset.value;
+            const location = document.getElementById('opportunityLocation').value;
+            const deadlineInput = document.getElementById('opportunityDeadline').value;
+            // Convert manual date input to ISO format
+            let deadline = deadlineInput;
+            if (deadlineInput && !deadlineInput.includes('T')) {
+                // Try to parse common date formats and convert to ISO
+                const date = new Date(deadlineInput);
+                if (isNaN(date.getTime())) {
+                    showAlert('Please enter a valid date format (e.g., 12/31/2024 or December 31, 2024)', 'error');
+                    return;
+                }
+                deadline = date.toISOString().split('T')[0]; // YYYY-MM-DD format
+            }
+            const description = document.getElementById('opportunityDescription').value;
+            const link = document.getElementById('opportunityLink').value;
+            
+            console.log('Form values:', { title, organization, type, location, deadline, description, link });
+            
+            if (!title || !organization || !type || !location || !deadline || !description || !link) {
+                showAlert('Please fill in all required fields', 'error');
+                return;
+            }
+            
+            try {
+                const formData = new FormData();
+                formData.append('title', title);
+                formData.append('organization', organization);
+                formData.append('opportunity_type', type);
+                formData.append('location', location);
+                formData.append('deadline', deadline);
+                formData.append('deadline_type', 'specific');
+                formData.append('description', description);
+                formData.append('opportunity_link', link);
+
+                
+                // Debug: Log FormData contents
+                for (let [key, value] of formData.entries()) {
+                    console.log(key, value);
+                }
+                
+                // Add files if selected
+                const logoFile = document.getElementById('organizationLogo').files[0];
+                if (logoFile) {
+                    formData.append('organization_logo', logoFile);
+                }
+                
+                const imageFile = document.getElementById('featuredImage').files[0];
+                if (imageFile) {
+                    formData.append('featured_image', imageFile);
+                }
+                
+                const response = await fetchWithAuthFile('/api/create-opportunity/', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                showAlert('Opportunity shared successfully! It will be reviewed by admins.', 'success');
+                
+                // Reset form
+                document.getElementById('opportunityTitle').value = '';
+                document.getElementById('opportunityOrganization').value = '';
+                document.getElementById('opportunityType').value = '';
+                document.getElementById('opportunityLocation').value = '';
+                document.getElementById('opportunityDeadline').value = '';
+                document.getElementById('opportunityDescription').value = '';
+                document.getElementById('opportunityLink').value = '';
+
+                document.getElementById('organizationLogo').value = '';
+                document.getElementById('featuredImage').value = '';
+                
+                // Refresh shared opportunities
+                await loadMySharedOpportunities();
+                
+            } catch (error) {
+                console.error('Error sharing opportunity:', error);
+                showAlert('Failed to share opportunity. Please try again.', 'error');
+            }
+        });
+
+        // Toggle Share Opportunity Form
+        document.getElementById('shareOpportunityToggleBtn').addEventListener('click', function() {
+            const section = document.getElementById('shareOpportunitySection');
+            const btn = document.getElementById('shareOpportunityToggleBtn');
+            
+            if (section.style.display === 'none') {
+                section.style.display = 'block';
+                btn.innerHTML = '<i class="fas fa-minus"></i> Hide Form';
+            } else {
+                section.style.display = 'none';
+                btn.innerHTML = '<i class="fas fa-plus"></i> Share Opportunity';
+            }
+        });
+
+        // Filter state
+        let currentFilter = 'all';
+        
+        // Filter Opportunities
+        document.getElementById('filterOpportunitiesBtn').addEventListener('click', function() {
+            const filterOptions = [
+                { value: 'all', label: 'All Opportunities' },
+                { value: 'internship', label: 'Internships' },
+                { value: 'job', label: 'Jobs' },
+                { value: 'scholarship', label: 'Scholarships' },
+                { value: 'fellowship', label: 'Fellowships' },
+                { value: 'grant', label: 'Grants' },
+                { value: 'conference', label: 'Conferences' },
+                { value: 'workshop', label: 'Workshops' },
+                { value: 'training', label: 'Trainings' },
+                { value: 'competition', label: 'Competitions' },
+                { value: 'miscellaneous', label: 'Miscellaneous' }
+            ];
+            
+            let filterHtml = '<div style="padding: 20px;"><h3>Filter Opportunities</h3>';
+            filterOptions.forEach(option => {
+                const checked = currentFilter === option.value ? 'checked' : '';
+                filterHtml += `<label style="display: block; margin: 10px 0; cursor: pointer;">
+                    <input type="radio" name="filter" value="${option.value}" ${checked} style="margin-right: 8px;">
+                    ${option.label}
+                </label>`;
+            });
+            filterHtml += '<div style="margin-top: 20px;"><button onclick="applyFilter()" class="btn btn-primary">Apply Filter</button> <button onclick="closeFilter()" class="btn btn-secondary">Cancel</button></div></div>';
+            
+            const filterModal = document.createElement('div');
+            filterModal.id = 'filterModal';
+            filterModal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;';
+            filterModal.innerHTML = `<div style="background: var(--card-bg); border-radius: 12px; max-width: 400px; width: 90%;">${filterHtml}</div>`;
+            
+            document.body.appendChild(filterModal);
+        });
+        
+        // Apply filter function
+        window.applyFilter = function() {
+            const selectedFilter = document.querySelector('input[name="filter"]:checked').value;
+            currentFilter = selectedFilter;
+            closeFilter();
+            filterOpportunities(selectedFilter);
+        };
+        
+        // Close filter function
+        window.closeFilter = function() {
+            const modal = document.getElementById('filterModal');
+            if (modal) modal.remove();
+        };
+        
+        // Filter opportunities function
+        async function filterOpportunities(filterType) {
+            try {
+                const response = await fetchWithAuth('/api/opportunities/');
+                const allOpportunities = response.opportunities || [];
+                
+                let filteredOpportunities = allOpportunities.filter(opp => {
+                    if (opp.status !== 'approved') return false;
+                    if (opp.deadline && new Date(opp.deadline) < new Date()) return false;
+                    return true;
+                });
+                
+                if (filterType !== 'all') {
+                    filteredOpportunities = filteredOpportunities.filter(opp => 
+                        opp.opportunity_type === filterType
+                    );
+                }
+                
+                renderOpportunities(filteredOpportunities);
+                showAlert(`Showing ${filteredOpportunities.length} ${filterType === 'all' ? '' : filterType} opportunities`, 'success');
+            } catch (error) {
+                console.error('Error filtering opportunities:', error);
+                showAlert('Failed to filter opportunities', 'error');
+            }
+        }
+
+        // Refresh Opportunities
+        document.getElementById('refreshOpportunitiesBtn').addEventListener('click', async function() {
+            try {
+                await loadOpportunities();
+                await loadMySharedOpportunities();
+                currentFilter = 'all';
+                showAlert('Opportunities refreshed successfully!', 'success');
+            } catch (error) {
+                console.error('Error refreshing opportunities:', error);
+                showAlert('Failed to refresh opportunities', 'error');
+            }
+        });
+
+        // Apply for Opportunity
+        document.querySelectorAll('.opportunity-item .btn-primary').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const opportunityTitle = this.closest('.opportunity-item').querySelector('h3').textContent;
+                showAlert(`Application for "${opportunityTitle}" submitted successfully!`, 'success');
+            });
+        });
+
+        // View Opportunity Details
+        document.querySelectorAll('.opportunity-item .btn-secondary').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const opportunityTitle = this.closest('.opportunity-item').querySelector('h3').textContent;
+                showAlert(`Viewing details for "${opportunityTitle}"`, 'success');
+            });
+        });
+
+        // Security: HTML escaping function
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Show alert message
+        function showAlert(message, type) {
+            const alert = document.createElement('div');
+            alert.className = `notification ${type === 'error' ? 'error' : ''}`;
+            alert.innerHTML = `
+                <i class="fas ${type === 'error' ? 'fa-times-circle' : 'fa-check-circle'}"></i>
+                <span>${message}</span>
+            `;
+            document.body.appendChild(alert);
+
+            setTimeout(() => {
+                alert.remove();
+            }, 3000);
+        }
+
+        // CSRF Token Handling
+        async function getCSRFToken() {
+            try {
+                const response = await fetch('/api/csrf/', {
+                    credentials: 'include'
+                });
+                const data = await response.json();
+                return data.csrfToken;
+            } catch (error) {
+                console.error('Error getting CSRF token:', error);
+                return null;
+            }
+        }
+
+        // Fetch with authentication
+        async function fetchWithAuth(url, options = {}) {
+            const csrfToken = await getCSRFToken();
+            
+            const headers = {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken,
+            };
+            
+            if (options.headers) {
+                Object.assign(headers, options.headers);
+            }
+            
+            const response = await fetch(url, {
+                ...options,
+                headers,
+                credentials: 'include',
+            });
+            
+            if (response.status === 401 || response.status === 403) {
+                window.location.href = '../login.html';
+                return;
+            }
+            
+            if (!response.ok) {
+                throw new Error('Request failed');
+            }
+            
+            return response.json();
+        }
+        
+        // Fetch with authentication for file uploads
+        async function fetchWithAuthFile(url, options = {}) {
+            const csrfToken = await getCSRFToken();
+            
+            const headers = {
+                'X-CSRFToken': csrfToken,
+            };
+            
+            if (options.headers) {
+                Object.assign(headers, options.headers);
+            }
+            
+            const response = await fetch(url, {
+                ...options,
+                headers,
+                credentials: 'include',
+            });
+            
+            if (response.status === 401 || response.status === 403) {
+                window.location.href = '../login.html';
+                return;
+            }
+            
+            if (!response.ok) {
+                throw new Error('Request failed');
+            }
+            
+            return response.json();
+        }
+
+        // Load available opportunities
+        async function loadOpportunities() {
+            try {
+                const response = await fetchWithAuth('/api/opportunities/');
+                const opportunities = response.opportunities || [];
+                
+                // Filter only approved opportunities that are not past deadline
+                const availableOpportunities = opportunities.filter(opp => {
+                    if (opp.status !== 'approved') return false;
+                    if (opp.deadline && new Date(opp.deadline) < new Date()) return false;
+                    return true;
+                });
+                
+                renderOpportunities(availableOpportunities);
+            } catch (error) {
+                console.error('Error loading opportunities:', error);
+                showAlert('Failed to load opportunities', 'error');
+            }
+        }
+
+        // Render opportunities
+        function renderOpportunities(opportunities) {
+            const container = document.getElementById('allOpportunities');
+            
+            if (opportunities.length === 0) {
+                container.innerHTML = '<p>No opportunities available at the moment.</p>';
+                return;
+            }
+            
+            container.innerHTML = opportunities.map(opp => `
+                <div class="opportunity-item">
+                    <h3>${opp.title}</h3>
+                    <p>${opp.organization || 'Organization'} | Deadline: ${opp.deadline ? new Date(opp.deadline).toLocaleDateString() : 'Rolling'}</p>
+                    <p>${opp.location || 'Location not specified'} | ${opp.opportunity_type}</p>
+                    <div class="action-btns">
+                        <a href="${opp.opportunity_link || '#'}" target="_blank" class="btn btn-primary">Apply Now</a>
+                        <a href="opportunity-details.html?id=${opp.id}" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Load user's shared opportunities
+        async function loadMySharedOpportunities() {
+            try {
+                const response = await fetchWithAuth('/api/opportunities/?status=all');
+                const allOpportunities = response.opportunities || [];
+                
+                // Filter only opportunities created by current user
+                const user = await fetchWithAuth('/api/user/');
+                const myOpportunities = allOpportunities.filter(opp => 
+                    opp.created_by && opp.created_by.id === user.id
+                );
+                renderMySharedOpportunities(myOpportunities);
+            } catch (error) {
+                console.error('Error loading shared opportunities:', error);
+            }
+        }
+
+        // Render user's shared opportunities
+        function renderMySharedOpportunities(opportunities) {
+            const container = document.querySelector('.shared-opportunities-list');
+            
+            if (opportunities.length === 0) {
+                container.innerHTML = '<p>You haven\'t shared any opportunities yet.</p>';
+                return;
+            }
+            
+            container.innerHTML = opportunities.map(opp => `
+                <div class="shared-opportunity-item">
+                    <div class="shared-opportunity-title">${escapeHtml(opp.title)}</div>
+                    <div class="shared-opportunity-meta">
+                        <span>${escapeHtml(opp.organization || 'Organization')} | ${escapeHtml(opp.opportunity_type)} | Deadline: ${opp.deadline ? new Date(opp.deadline).toLocaleDateString() : 'Rolling'}</span>
+                        <span>Shared on: ${new Date(opp.created_at).toLocaleDateString()}</span>
+                    </div>
+                    <div>
+                        <span class="shared-opportunity-status status-${opp.status}">${opp.status.charAt(0).toUpperCase() + opp.status.slice(1)}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Custom select functionality for opportunity type
+        function initOpportunityTypeSelect() {
+            document.getElementById('opportunityType').addEventListener('click', function(e) {
+                e.stopPropagation();
+                const options = document.getElementById('opportunityTypeOptions');
+                const isVisible = options.style.display === 'block';
+                options.style.display = isVisible ? 'none' : 'block';
+                this.classList.toggle('active');
+            });
+            
+            document.querySelectorAll('#opportunityTypeOptions .select-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const value = this.dataset.value;
+                    const text = this.textContent;
+                    const select = document.getElementById('opportunityType');
+                    const selectText = select.querySelector('.select-text');
+                    
+                    selectText.textContent = text;
+                    select.dataset.value = value;
+                    
+                    document.getElementById('opportunityTypeOptions').style.display = 'none';
+                    select.classList.remove('active');
+                });
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function() {
+                document.getElementById('opportunityTypeOptions').style.display = 'none';
+                document.getElementById('opportunityType').classList.remove('active');
+            });
+        }
+        
+        // Initialize the page with user data
+        document.addEventListener('DOMContentLoaded', async function() {
+            initOpportunityTypeSelect();
+            try {
+                // Fetch current user data
+                const user = await fetchWithAuth('/api/user/');
+                
+                // Update UI with user data
+                document.getElementById('sidebarUserName').textContent = `Welcome, ${user.full_name || 'User'}`;
+                document.getElementById('headerUserName').textContent = user.full_name || 'User';
+                
+                // Update profile pictures
+                if (user.profile_pic) {
+                    document.getElementById('sidebarProfilePic').src = user.profile_pic;
+                    document.getElementById('headerProfilePic').src = user.profile_pic;
+                }
+                
+                // Update role display
+                const roleElement = document.querySelector('.user-profile .role');
+                if (user.role === 'super_admin') {
+                    roleElement.textContent = 'Super Admin';
+                } else if (user.role === 'admin') {
+                    roleElement.textContent = 'Admin';
+                } else if (user.role === 'mentor') {
+                    roleElement.textContent = 'Mentor';
+                } else {
+                    roleElement.textContent = 'Member';
+                }
+                
+                // Load opportunities
+                await loadOpportunities();
+                await loadMySharedOpportunities();
+                
+                // Load notifications count
+                const notificationsResponse = await fetchWithAuth('/api/notifications/');
+                const unreadCount = notificationsResponse.unread_count || 0;
+                document.getElementById('notificationBadge').textContent = unreadCount;
+                document.getElementById('notificationCount').textContent = unreadCount;
+                
+            } catch (error) {
+                console.error('Error initializing page:', error);
+                window.location.href = '../login.html';
+            }
+        });
+
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            if (confirm('Are you sure you want to logout?')) {
+                // Clear user data from localStorage
+                localStorage.removeItem('user');
+                
+                // Redirect to login page
+                window.location.href = '../login.html';
+            }
+        });
+    </script>
+</body>
+</html>

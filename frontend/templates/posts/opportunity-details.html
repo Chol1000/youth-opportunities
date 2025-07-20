@@ -1,0 +1,2412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <title>Details - Youth Opportunities</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/6.6.6/css/flag-icons.min.css">
+    <style>
+        /* ===== Base Styles ===== */
+        :root {
+            --primary: #16B2DC;
+            --primary-dark: #0E8FB7;
+            --secondary: #1E27CE;
+            --dark: #140808;
+            --light: #F7F7F7;
+            --gray: rgba(20, 8, 8, 0.7);
+            --light-gray: rgba(20, 8, 8, 0.23);
+            --border: 1px solid rgba(0, 0, 0, 0.18);
+            --active-color: #FFD700;
+            
+            /* Theme variables */
+            --bg-color: #F7F7F7;
+            --text-color: #140808;
+            --card-bg: white;
+            --footer-bg: rgba(20, 8, 8, 0.8);
+            --footer-bottom-bg: #16B2DC;
+        }
+        
+        /* Dark theme variables */
+        .dark-theme {
+            --bg-color: #140808;
+            --text-color: #F7F7F7;
+            --card-bg: #222;
+            --light: #222;
+            --dark: #F7F7F7;
+            --footer-bg: #222;
+            --footer-bottom-bg: #0E8FB7;
+            --gray: rgba(247, 247, 247, 0.7);
+            --light-gray: rgba(247, 247, 247, 0.23);
+            --header-bg: #1a1a1a;
+            --header-border: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: all 0.3s ease;
+            padding-top: 180px; /* Space for fixed header */
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            max-width: 1920px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        /* ===== Header Styles ===== */
+        .header-container {
+            width: 100%;
+            margin: 0 auto;
+            background: var(--bg-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .dark-theme .header-container {
+            background: var(--header-bg);
+            border-bottom: 1px solid var(--header-border);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .top-bar {
+            height: 100px;
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            background: var(--bg-color);
+            position: relative;
+        }
+        
+        .dark-theme .top-bar {
+            background: var(--header-bg);
+        }
+        
+        .logo-container {
+            height: 80px;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            margin-left: 0;
+            padding-left: 0;
+        }
+        
+        .logo {
+            height: 100%;
+            width: auto;
+            max-height: 80px;
+            object-fit: contain;
+        }
+        
+        .logo-container:hover {
+            transform: scale(1.03);
+        }
+        
+        .donate-btn {
+            background: #FF6B6B;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+            position: absolute;
+            right: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .donate-btn:hover {
+            background: #FF5252;
+            transform: translateY(-2px);
+        }
+        
+        .donate-btn i {
+            margin-right: 8px;
+        }
+        
+        .upper-header-container {
+            background: var(--bg-color);
+            border-bottom: var(--border);
+            width: 100%;
+        }
+        
+        .dark-theme .upper-header-container {
+            background: var(--header-bg);
+            border-bottom: 1px solid var(--header-border);
+        }
+        
+        .upper-header {
+            height: 60px;
+            background: var(--bg-color);
+            display: flex;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .dark-theme .upper-header {
+            background: var(--header-bg);
+        }
+        
+        .date {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-right: auto;
+            color: var(--text-color);
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.25;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: 15px;
+            text-decoration: none;
+        }
+        
+        .btn i {
+            margin-right: 8px;
+            font-size: 0.8rem;
+        }
+        
+        .btn-outline {
+            border: 1px solid var(--primary);
+            background: transparent;
+            color: var(--text-color);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-solid {
+            background: var(--primary);
+            color: white;
+            border: 1px solid var(--primary);
+        }
+        
+        .btn-solid:hover {
+            background: var(--primary-dark);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-left: 25px;
+        }
+        
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            background-color: var(--primary);
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+            text-decoration: none;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+            background-color: var(--primary-dark);
+            text-decoration: none;
+        }
+        
+        /* Main Header - Compact Version */
+        .main-header-container {
+            background: var(--primary);
+            width: 100%;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-theme .main-header-container {
+            background: var(--header-bg);
+            border-bottom: 1px solid var(--header-border);
+        }
+        
+        .main-header {
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5px 20px;
+        }
+        
+        .main-nav, .secondary-nav {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        
+        .main-nav {
+            margin-bottom: 5px;
+        }
+        
+        .secondary-nav {
+            margin-bottom: 5px;
+        }
+        
+        .nav-link {
+            color: var(--light);
+            text-decoration: none;
+            font-size: 0.875rem;
+            line-height: 1;
+            white-space: nowrap;
+            position: relative;
+            padding: 8px 12px;
+            transition: all 0.3s ease;
+            margin: 2px 0;
+            border-radius: 4px;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .dark-theme .nav-link {
+            color: var(--text-color);
+        }
+        
+        .nav-link.active {
+            background-color: var(--active-color);
+            color: #000;
+            font-weight: 600;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-2px);
+            text-decoration: none;
+            background-color: rgba(255, 215, 0, 0.2);
+        }
+        
+        .dark-theme .nav-link:hover {
+            background-color: rgba(255, 215, 0, 0.3);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 12px;
+            width: 0;
+            height: 2px;
+            background: var(--active-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: calc(100% - 24px);
+        }
+        
+        /* Mobile Header */
+        .mobile-header {
+            display: none;
+            align-items: center;
+            height: 80px;
+            padding: 0 15px;
+            justify-content: space-between;
+        }
+        
+        .mobile-header .date {
+            font-size: 0.75rem;
+            color: var(--text-color);
+            flex: 1;
+        }
+        
+        .mobile-header .logo-container {
+            height: 50px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .mobile-header .logo {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        .mobile-header .nav-toggle {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-left: auto;
+        }
+        
+        /* Navigation Menu */
+        .nav-menu {
+            position: fixed;
+            top: 80px;
+            left: -100%;
+            width: 320px;
+            height: calc(100vh - 80px);
+            background: var(--card-bg);
+            transition: left 0.3s ease;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            z-index: 999;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 100px;
+        }
+        
+        .nav-menu-content {
+            padding: 20px;
+            min-height: 100%;
+            padding-bottom: 150px;
+            padding-top: 30px;
+        }
+        
+        .mobile-social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            margin-top: 5px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .mobile-social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            background-color: var(--primary);
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            text-decoration: none;
+        }
+        
+        .mobile-social-icon:hover {
+            transform: translateY(-3px);
+            background-color: var(--primary-dark);
+        }
+        
+        .nav-menu.active {
+            left: 0;
+        }
+        
+        .nav-section {
+            margin-bottom: 25px;
+        }
+        
+        .nav-section h3 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .nav-menu .nav-link {
+            display: block;
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 14px 15px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        
+        .nav-menu .nav-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .nav-menu .nav-link.active {
+            background: var(--active-color);
+            color: #000;
+            font-weight: 600;
+        }
+        
+        /* Mobile Bottom Navigation */
+        .mobile-bottom-nav {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--card-bg);
+            border-top: 1px solid var(--light-gray);
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        
+        .bottom-nav-items {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        .bottom-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--gray);
+            transition: all 0.3s ease;
+            padding: 5px;
+        }
+        
+        .bottom-nav-item i {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+        
+        .bottom-nav-item span {
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+        
+        .bottom-nav-item:hover,
+        .bottom-nav-item.active {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .bottom-nav-item.donate {
+            color: #FF6B6B;
+        }
+        
+        .bottom-nav-item.donate:hover {
+            color: #FF5252;
+        }
+        
+        /* Overlay */
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Sticky header on scroll */
+        .header-container.scrolled {
+            padding: 0;
+        }
+        
+        .header-container.scrolled .top-bar {
+            height: 70px;
+        }
+        
+        .header-container.scrolled .logo-container {
+            height: 60px;
+        }
+        
+        .header-container.scrolled .logo {
+            max-height: 60px;
+        }
+        
+        .header-container.scrolled .main-header-container {
+            position: fixed;
+            top: 70px;
+            width: 100%;
+        }
+        
+        /* Responsive Design */
+        @media (min-width: 769px) {
+            .mobile-header {
+                display: none !important;
+            }
+            
+            .mobile-bottom-nav {
+                display: none !important;
+            }
+            
+            .nav-menu {
+                display: none !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px !important;
+                padding-bottom: 70px;
+            }
+            
+            .footer {
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                padding: 0 15px;
+            }
+
+            .footer-section:first-child {
+                padding-left: 15px;
+            }
+
+            .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+                padding: 0 15px;
+            }
+
+            .social-link {
+                font-size: 0.9375rem;
+                gap: 10px;
+            }
+
+            .footer-logo {
+                width: 100%;
+                height: 100px;
+                margin-top: 0px;
+                margin-bottom: 5px;
+            }
+
+            .footer-logo img {
+                max-height: 100px;
+            }
+            
+            .back-to-top-container {
+                margin: 20px 0;
+            }
+            
+            .upper-header-container,
+            .top-bar,
+            .main-header-container {
+                display: none;
+            }
+            
+            .mobile-header {
+                display: flex;
+            }
+            
+            .mobile-bottom-nav {
+                display: block;
+            }
+            
+            .nav-menu {
+                top: 80px;
+                height: calc(100vh - 80px);
+            }
+            
+            .main-content-container {
+                flex-direction: column;
+                margin-top: 0;
+            }
+            
+            .content-main {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+            
+            .content-sidebar {
+                display: none;
+            }
+            
+            .opportunity-details {
+                padding: 0px;
+            }
+            
+            .opportunity-title {
+                font-size: 1.3rem;
+            }
+            
+            .opportunity-hero {
+                height: 250px;
+                margin: 0 0 30px 0;
+            }
+            
+            .opportunity-content {
+                padding: 0;
+            }
+            
+            .main-content-container {
+                padding: 0;
+            }
+            
+            .opportunity-details {
+                margin: 0;
+            }
+            
+            .opportunity-header,
+            .opportunity-meta,
+            .opportunity-content {
+                padding: 0;
+            }
+            
+            .back-navigation {
+                padding: 0;
+            }
+            
+            .opportunity-meta {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .opportunity-description {
+                font-size: 1rem;
+            }
+            
+            .opportunity-actions {
+                flex-direction: column;
+            }
+            
+            .apply-btn, .share-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+        }
+        
+        /* Breadcrumb and Back Button */
+        .back-navigation {
+            width: 100%;
+            max-width: 1200px;
+            margin: 30px auto 30px auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .back-btn {
+            background: transparent;
+            color: var(--primary);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            color: var(--primary-dark);
+            transform: translateX(-2px);
+        }
+        
+        .breadcrumb {
+            font-size: 0.85rem;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Main Content Container */
+        .main-content-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+        }
+        
+        .content-main {
+            flex: 1;
+            margin-right: 20px;
+        }
+        
+        .content-sidebar {
+            width: 300px;
+        }
+        
+        .opportunity-details {
+            margin-bottom: 30px;
+        }
+        
+        .opportunity-hero {
+            position: relative;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-bottom: 40px;
+        }
+        
+        .opportunity-header {
+            margin-bottom: 30px;
+        }
+        
+        .opportunity-title {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+            line-height: 1.3;
+        }
+        
+        .opportunity-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 30px;
+            padding: 20px 0;
+            border-top: 1px solid var(--light-gray);
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .dark-theme .opportunity-meta {
+            border-color: var(--header-border);
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        
+        .meta-item i {
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+        
+        .opportunity-content {
+            padding: 0;
+        }
+        
+        .opportunity-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            color: var(--text-color);
+        }
+        
+        .opportunity-description h1,
+        .opportunity-description h2,
+        .opportunity-description h3,
+        .opportunity-description h4,
+        .opportunity-description h5,
+        .opportunity-description h6 {
+            color: var(--primary);
+            margin: 30px 0 15px 0;
+        }
+        
+        .opportunity-description ul,
+        .opportunity-description ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        .opportunity-description li {
+            margin-bottom: 8px;
+        }
+        
+        .opportunity-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        .dark-theme .opportunity-actions {
+            border-top: 1px solid var(--header-border);
+        }
+        
+        .apply-btn {
+            background: var(--primary);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .apply-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(22, 178, 220, 0.3);
+        }
+        
+        .share-btn {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+            padding: 13px 25px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .share-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Sidebar Styles */
+        .sidebar-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid var(--light-gray);
+        }
+        
+        .dark-theme .sidebar-card {
+            border: 1px solid var(--header-border);
+        }
+        
+        .sidebar-title {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .dark-theme .sidebar-title {
+            border-bottom: 1px solid var(--header-border);
+        }
+        
+        /* Search Box */
+        .search-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 6px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.875rem;
+            padding-right: 40px;
+            background: var(--card-bg);
+            color: var(--text-color);
+        }
+        
+        .search-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+        }
+        
+        /* Language Selector */
+        .language-select, .theme-select {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid var(--light-gray);
+            border-radius: 6px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.875rem;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+        
+        /* Footer Styles */
+        .back-to-top-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 32px 0;
+        }
+
+        .back-to-top {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 15px;
+            min-width: 136px;
+            height: 38px;
+            border: 1px solid rgba(22, 178, 220, 0.36);
+            background: transparent;
+            color: rgba(22, 178, 220, 0.88);
+            font-weight: 400;
+            font-size: 1.125rem;
+            line-height: 1.125rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .back-to-top:hover {
+            background: rgba(22, 178, 220, 0.1);
+            border-color: rgba(22, 178, 220, 0.8);
+            color: rgba(22, 178, 220, 1);
+        }
+
+        .back-to-top i {
+            margin-right: 8px;
+        }
+
+        .footer {
+            width: 100%;
+            background: var(--footer-bg);
+            padding: 45px 0 0;
+        }
+
+        .footer-content {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section {
+            margin-bottom: 30px;
+        }
+
+        .footer-section:first-child {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 0;
+            margin-left: 0;
+        }
+
+        .footer-section h3 {
+            font-weight: 700;
+            font-size: 1.25rem;
+            line-height: 1.25rem;
+            color: #FFFFFF;
+            margin-bottom: 1.5rem;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .footer-section p {
+            font-weight: 400;
+            font-size: 0.9375rem;
+            line-height: 1.5;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-logo {
+            height: 150px;
+            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .footer-logo img {
+            height: 100%;
+            width: auto;
+            max-height: 150px;
+            object-fit: contain;
+        }
+
+        .footer-logo:hover {
+            transform: scale(1.03);
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            line-height: 1;
+            letter-spacing: 0.02em;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .social-link i {
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .social-link:hover {
+            color: #FFD700;
+            transform: translateX(5px);
+        }
+
+        .footer-btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 20px;
+            background: #16B2DC;
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            line-height: 1;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 0;
+            font-family: 'Open Sans', sans-serif;
+            margin-top: 10px;
+        }
+
+        .footer-btn:hover {
+            background: #0E8FB7;
+            transform: translateY(-2px);
+        }
+
+        .footer-btn-feedback {
+            background: #fff;
+            color: #16B2DC;
+            border: 2px solid #16B2DC;
+            width: 160px;
+        }
+
+        .footer-btn-feedback:hover {
+            background: #16B2DC;
+            color: #fff;
+        }
+
+        .footer-btn-learn-more {
+            width: 160px;
+        }
+
+        .footer-bottom {
+            width: 100%;
+            background: var(--footer-bottom-bg);
+            padding: 20px 0;
+        }
+
+        .footer-bottom-content {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            font-weight: 400;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: #FFFFFF;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-bottom i {
+            margin-right: 5px;
+        }
+        
+        /* Modal Styles */
+        .language-modal, .search-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .language-modal.show, .search-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--light-gray);
+            border-radius: 6px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            background: var(--card-bg);
+            color: var(--text-color);
+        }
+        
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        
+        .form-actions button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .form-actions button[type="submit"] {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .form-actions button[type="submit"]:hover {
+            background: var(--primary-dark);
+        }
+        
+        .form-actions button[type="button"] {
+            background: var(--light-gray);
+            color: var(--text-color);
+        }
+        
+        .form-actions button[type="button"]:hover {
+            background: var(--gray);
+            color: white;
+        }
+        
+        .modal-body {
+            padding: 20px;
+        }
+        
+        .modal-body-scroll {
+            padding: 20px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+        
+        .feedback-modal {
+            max-height: 80vh;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        
+        .modal-content {
+            background: var(--card-bg);
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transform: scale(0.7);
+            transition: transform 0.3s ease;
+        }
+        
+        .language-modal.show .modal-content, .search-modal.show .modal-content {
+            transform: scale(1);
+        }
+        
+        .search-results {
+            padding: 0 20px 20px;
+            overflow-y: auto;
+            flex: 1;
+            max-height: 400px;
+        }
+        
+        @media (max-width: 768px) {
+            .modal-content {
+                max-width: 95%;
+                max-height: 85vh;
+            }
+            
+            .search-results {
+                max-height: 300px;
+            }
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
+        .language-options {
+            padding: 20px;
+        }
+        
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-bottom: 8px;
+        }
+        
+        .lang-option:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .search-form {
+            padding: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .modal-search-input {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid var(--light-gray);
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        
+        .modal-search-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        
+        .search-results {
+            padding: 0 20px 20px;
+        }
+        
+        .search-result-item {
+            padding: 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-result-item:hover {
+            background: var(--light);
+            transform: translateY(-2px);
+        }
+        
+        .search-result-item h5 {
+            margin-bottom: 5px;
+            color: var(--primary);
+        }
+        
+        .search-result-item p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+    </style>
+    <link rel="icon" href="../static/images/youthopps-logo.png" type="image/png">
+</head>
+<body>
+    <div class="container">
+        <!-- Header - exact copy from home.html -->
+        <header class="header-container">
+            <div class="upper-header-container">
+                <div class="upper-header">
+                    <div class="date" id="currentDate"></div>
+                    <a href="#" class="btn btn-outline" id="desktopSearchBtn">
+                        <i class="fas fa-search"></i>
+                        SEARCH
+                    </a>
+                    <a href="../login.html" class="btn btn-solid">
+                        <i class="fas fa-user"></i>
+                        Login/Register
+                    </a>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="top-bar">
+                <div class="logo-container">
+                    <img src="../../static/images/favicon.ico.png" alt="Youth Opportunities Logo" class="logo">
+                </div>
+                <a href="#" class="donate-btn">
+                    <i class="fas fa-heart"></i>
+                    DONATE NOW
+                </a>
+            </div>
+            
+            <div class="main-header-container">
+                <div class="main-header">
+                    <nav class="main-nav">
+                        <a href="home.html" class="nav-link">HOME</a>
+                        <a href="internships.html" class="nav-link">INTERNSHIPS</a>
+                        <a href="jobs.html" class="nav-link">JOBS</a>
+                        <a href="grants.html" class="nav-link">GRANTS</a>
+                        <a href="scholarships.html" class="nav-link">SCHOLARSHIPS</a>
+                        <a href="fellowships.html" class="nav-link">FELLOWSHIPS</a>
+                        <a href="conferences.html" class="nav-link">CONFERENCES</a>
+                        <a href="workshops.html" class="nav-link">WORKSHOPS</a>
+                        <a href="trainings.html" class="nav-link">TRAININGS</a>
+                    </nav>
+                    <nav class="secondary-nav">
+                        <a href="community.html" class="nav-link">COMMUNITY</a>
+                        <a href="competitions.html" class="nav-link">COMPETITIONS</a>
+                        <a href="share-opportunity.html" class="nav-link">SHARE OPPORTUNITY</a>
+                        
+                        <a href="services.html" class="nav-link">SERVICES</a>
+
+                        <a href="blogs.html" class="nav-link">BLOGS</a>
+
+                        <a href="announcements.html" class="nav-link">ANNOUNCEMENTS</a>
+                        <a href="miscellaneous.html" class="nav-link">MISCELLANEOUS</a>
+                    </nav>
+                </div>
+            </div>
+            
+            <!-- Mobile Header -->
+            <div class="mobile-header">
+                <div class="date" id="currentDateMobile"></div>
+                <div class="logo-container">
+                    <img src="../../static/images/favicon.ico.png" alt="Youth Opportunities Logo" class="logo">
+                </div>
+                <button class="nav-toggle" id="navToggleMobile">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </header>
+        
+        <!-- Navigation Menu -->
+        <div class="nav-overlay" id="navOverlay"></div>
+        <nav class="nav-menu" id="navMenu">
+            <div class="nav-menu-content">
+                <div class="mobile-social-icons" style="margin-top: 5px;">
+                    <a href="#" class="mobile-social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="mobile-social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="mobile-social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="mobile-social-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="mobile-social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>Main Navigation</h3>
+                    <a href="home.html" class="nav-link">HOME</a>
+                    <a href="internships.html" class="nav-link">INTERNSHIPS</a>
+                    <a href="jobs.html" class="nav-link">JOBS</a>
+                    <a href="grants.html" class="nav-link">GRANTS</a>
+                    <a href="scholarships.html" class="nav-link">SCHOLARSHIPS</a>
+                    <a href="fellowships.html" class="nav-link">FELLOWSHIPS</a>
+                    <a href="conferences.html" class="nav-link">CONFERENCES</a>
+                    <a href="workshops.html" class="nav-link">WORKSHOPS</a>
+                    <a href="trainings.html" class="nav-link">TRAININGS</a>
+                </div>
+                
+                <div class="nav-section">
+                    <h3>More Options</h3>
+                    <a href="community.html" class="nav-link">COMMUNITY</a>
+                    <a href="competitions.html" class="nav-link">COMPETITIONS</a>
+                    <a href="share-opportunity.html" class="nav-link">SHARE OPPORTUNITY</a>
+                    
+                    <a href="services.html" class="nav-link">SERVICES</a>
+
+                        <a href="blogs.html" class="nav-link">BLOGS</a>
+
+                        <a href="announcements.html" class="nav-link">ANNOUNCEMENTS</a>
+                    <a href="miscellaneous.html" class="nav-link">MISCELLANEOUS</a>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Mobile Bottom Navigation -->
+        <div class="mobile-bottom-nav">
+            <div class="bottom-nav-items">
+                <a href="#" class="bottom-nav-item donate">
+                    <i class="fas fa-heart"></i>
+                    <span>Donate</span>
+                </a>
+                <a href="#" class="bottom-nav-item" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                    <span>Search</span>
+                </a>
+                <a href="../login.html" class="bottom-nav-item">
+                    <i class="fas fa-user"></i>
+                    <span>Account</span>
+                </a>
+                <a href="#" class="bottom-nav-item" id="themeToggle">
+                    <i class="fas fa-sun" id="themeIcon"></i>
+                    <span>Theme</span>
+                </a>
+                <a href="#" class="bottom-nav-item" id="languageToggle">
+                    <i class="fas fa-globe"></i>
+                    <span>Language</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Back Navigation and Breadcrumb -->
+        <div class="back-navigation">
+            <button class="back-btn" onclick="history.back()">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <div class="breadcrumb" id="breadcrumb">
+                <!-- Breadcrumb will be populated here -->
+            </div>
+        </div>
+        
+        <!-- Main Content - opportunity details instead of carousel -->
+        <div class="main-content-container">
+            <div class="content-main">
+                <div class="opportunity-details">
+                    <div class="opportunity-hero" id="opportunityImage">
+                        <!-- Hero image background -->
+                    </div>
+                    
+                    <div class="opportunity-header">
+                        <h1 class="opportunity-title" id="opportunityTitle">Loading...</h1>
+                    </div>
+                    
+                    <div class="opportunity-meta" id="opportunityMeta">
+                        <!-- Meta info will be populated here -->
+                    </div>
+                    
+                    <div class="opportunity-content">
+                        <div class="opportunity-description" id="opportunityDescription">
+                            <!-- Description will be populated here -->
+                        </div>
+                        
+                        <div class="opportunity-actions">
+                            <a href="#" class="apply-btn" id="applyBtn">
+                                <i class="fas fa-external-link-alt"></i>
+                                Apply Now
+                            </a>
+                            <button class="share-btn" id="shareBtn">
+                                <i class="fas fa-share-alt"></i>
+                                Share
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sidebar - exact copy from home.html -->
+            <div class="content-sidebar">
+                <!-- Search Box -->
+                <div class="sidebar-card">
+                    <div class="search-box">
+                        <input type="text" class="search-input" id="sidebarSearchInput" placeholder="Search opportunities...">
+                        <button class="search-btn" id="sidebarSearchBtn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                
+                <!-- Language Selector -->
+                <div class="sidebar-card">
+                    <h3 class="sidebar-title">Language</h3>
+                    <select class="language-select" id="languageSelector">
+                        <option value="en" data-flag="us" selected>English</option>
+                        <option value="zh" data-flag="cn">中文 (Chinese)</option>
+                        <option value="es" data-flag="es">Español (Spanish)</option>
+                        <option value="fr" data-flag="fr">Français (French)</option>
+                        <option value="ar" data-flag="sa">العربية (Arabic)</option>
+                        <option value="hi" data-flag="in">हिन्दी (Hindi)</option>
+                        <option value="pt" data-flag="pt">Português (Portuguese)</option>
+                        <option value="ru" data-flag="ru">Русский (Russian)</option>
+                        <option value="de" data-flag="de">Deutsch (German)</option>
+                        <option value="ja" data-flag="jp">日本語 (Japanese)</option>
+                        <option value="sw" data-flag="ke">Kiswahili (Swahili)</option>
+                    </select>
+                    
+                    <!-- Theme Selector -->
+                    <h3 class="sidebar-title" style="margin-top: 15px;">Theme</h3>
+                    <select class="theme-select" id="themeSelector">
+                        <option value="light">Light</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer - exact copy from home.html -->
+    <div class="back-to-top-container">
+        <button class="back-to-top" id="backToTopBtn">
+            <i class="fas fa-arrow-up"></i> 
+            BACK TO TOP
+        </button>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="../../static/images/Third logo.png" alt="Youth Opportunities Logo">
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>ABOUT US</h3>
+                <p>Founded in 2024, Youth Opportunities Uniting Talent and Hope is a youth-led platform dedicated to sharing global opportunities—internships, scholarships, fellowships, jobs, conferences, and more. We connect young talents to life-changing resources that inspire growth, exposure, and hope for a brighter future.</p>
+                <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 10px;">
+                    <a href="aboutus.html?from=opportunity-details" class="footer-btn footer-btn-learn-more" style="text-decoration: none;">LEARN MORE</a>
+                    <button class="footer-btn footer-btn-feedback">FEEDBACK</button>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>FOLLOW US ON:</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link">
+                        <i class="fab fa-facebook-f"></i> Facebook
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-twitter"></i> Twitter
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-whatsapp"></i> Whatsapp
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-linkedin-in"></i> LinkedIn
+                    </a>
+                    <a href="#" class="social-link">
+                        <i class="fab fa-telegram"></i> Telegram
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>NEWSLETTERS</h3>
+                <p>Get the latest internships, scholarships, fellowships, jobs, and more straight to your inbox.</p>
+                <button class="footer-btn">SUBSCRIBE</button>
+
+                <h3 style="margin-top: 30px;">FREQUENTLY ASKED QUESTIONS</h3>
+                <a href="faq.html?from=opportunity-details" class="footer-btn" style="padding: 5px 15px; height: 28px; font-size: 15px; text-decoration: none;">FAQ</a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-content">
+                <p><i class="fas fa-user"></i> Designed By: Chol Atem Giet</p>
+                <p><i class="fas fa-phone"></i> Contact Us</p>
+                <p>Terms of Use | Privacy Policy</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current date
+        function updateDate() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            
+            const mobileOptions = {
+                weekday: 'short',
+                month: 'short',
+                day: 'numeric'
+            };
+            
+            const dateElement = document.getElementById('currentDate');
+            const dateElementMobile = document.getElementById('currentDateMobile');
+            
+            const formattedDate = now.toLocaleDateString('en-US', options);
+            const mobileDate = now.toLocaleDateString('en-US', mobileOptions);
+            
+            if (dateElement) {
+                dateElement.textContent = formattedDate;
+            }
+            if (dateElementMobile) {
+                dateElementMobile.textContent = mobileDate;
+            }
+        }
+        
+        updateDate();
+
+        // Get opportunity ID from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const opportunityId = urlParams.get('id');
+        let opportunity = null;
+
+        // Load opportunity details
+        async function loadOpportunityDetails() {
+            try {
+                const response = await fetch(`http://127.0.0.1:8000/api/opportunities/?status=approved`);
+                const data = await response.json();
+                opportunity = data.opportunities ? data.opportunities.find(opp => opp.id == opportunityId) : null;
+                
+                if (!opportunity) {
+                    throw new Error('Opportunity not found');
+                }
+                
+                // Set active nav link based on opportunity type
+                const navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    const linkText = link.textContent.toLowerCase();
+                    const oppType = opportunity.opportunity_type.toLowerCase();
+                    if ((oppType === 'internship' && linkText === 'internships') ||
+                        (oppType === 'job' && linkText === 'jobs') ||
+                        (oppType === 'scholarship' && linkText === 'scholarships') ||
+                        (oppType === 'fellowship' && linkText === 'fellowships') ||
+                        (oppType === 'grant' && linkText === 'grants') ||
+                        (oppType === 'conference' && linkText === 'conferences') ||
+                        (oppType === 'workshop' && linkText === 'workshops') ||
+                        (oppType === 'training' && linkText === 'trainings') ||
+                        (oppType === 'competition' && linkText === 'competitions') ||
+                        (oppType === 'announcement' && linkText === 'announcements') ||
+                        (oppType === 'miscellaneous' && linkText === 'miscellaneous')) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Set breadcrumb
+                const breadcrumb = document.getElementById('breadcrumb');
+                const referrer = document.referrer;
+                let breadcrumbHTML = '';
+                
+                if (referrer.includes('home.html') || referrer.includes('index.html') || referrer === '') {
+                    breadcrumbHTML = `<a href="home.html">Home</a> >> <span>${opportunity.opportunity_type.charAt(0).toUpperCase() + opportunity.opportunity_type.slice(1)}</span> >> <span>Details</span>`;
+                } else if (referrer.includes('internships.html')) {
+                    breadcrumbHTML = `<a href="internships.html">Internships</a> >> <span>Details</span>`;
+                } else if (referrer.includes('scholarships.html')) {
+                    breadcrumbHTML = `<a href="scholarships.html">Scholarships</a> >> <span>Details</span>`;
+                } else if (referrer.includes('jobs.html')) {
+                    breadcrumbHTML = `<a href="jobs.html">Jobs</a> >> <span>Details</span>`;
+                } else if (referrer.includes('fellowships.html')) {
+                    breadcrumbHTML = `<a href="fellowships.html">Fellowships</a> >> <span>Details</span>`;
+                } else if (referrer.includes('grants.html')) {
+                    breadcrumbHTML = `<a href="grants.html">Grants</a> >> <span>Details</span>`;
+                } else if (referrer.includes('conferences.html')) {
+                    breadcrumbHTML = `<a href="conferences.html">Conferences</a> >> <span>Details</span>`;
+                } else if (referrer.includes('workshops.html')) {
+                    breadcrumbHTML = `<a href="workshops.html">Workshops</a> >> <span>Details</span>`;
+                } else if (referrer.includes('trainings.html')) {
+                    breadcrumbHTML = `<a href="trainings.html">Trainings</a> >> <span>Details</span>`;
+                } else {
+                    breadcrumbHTML = `<a href="home.html">Home</a> >> <span>${opportunity.opportunity_type.charAt(0).toUpperCase() + opportunity.opportunity_type.slice(1)}</span> >> <span>Details</span>`;
+                }
+                
+                breadcrumb.innerHTML = breadcrumbHTML;
+                
+                // Set hero image
+                const imageUrl = opportunity.featured_image || 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80';
+                document.getElementById('opportunityImage').style.backgroundImage = `url('${imageUrl}')`;
+                
+                // Populate content
+                document.getElementById('opportunityTitle').textContent = opportunity.title;
+                document.getElementById('opportunityDescription').innerHTML = opportunity.description;
+                
+                // Populate meta info
+                const metaContainer = document.getElementById('opportunityMeta');
+                metaContainer.innerHTML = `
+                    <div class="meta-item">
+                        <i class="fas fa-tag"></i>
+                        <span>${opportunity.opportunity_type.charAt(0).toUpperCase() + opportunity.opportunity_type.slice(1)}</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>${opportunity.location || 'Global'}</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>${opportunity.deadline || 'No deadline'}</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-building"></i>
+                        <span>${opportunity.organization || 'Organization'}</span>
+                    </div>
+                `;
+                
+                // Set apply button link
+                const applyBtn = document.getElementById('applyBtn');
+                if (opportunity.application_link) {
+                    applyBtn.href = opportunity.application_link;
+                    applyBtn.target = '_blank';
+                } else {
+                    applyBtn.style.display = 'none';
+                }
+                
+                // Share functionality
+                document.getElementById('shareBtn').addEventListener('click', function() {
+                    if (navigator.share) {
+                        navigator.share({
+                            title: opportunity.title,
+                            text: opportunity.description?.replace(/<[^>]*>/g, '').substring(0, 100) + '...',
+                            url: window.location.href
+                        });
+                    } else {
+                        // Fallback: copy to clipboard
+                        navigator.clipboard.writeText(window.location.href).then(() => {
+                            alert('Link copied to clipboard!');
+                        });
+                    }
+                });
+                
+            } catch (error) {
+                console.error('Error loading opportunity:', error);
+                document.getElementById('opportunityTitle').textContent = 'Opportunity Not Found';
+                document.getElementById('opportunityDescription').textContent = 'Sorry, this opportunity could not be loaded.';
+            }
+        }
+
+        // Theme persistence
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-theme');
+        }
+        
+        // Language selector functionality
+        const languageSelector = document.getElementById('languageSelector');
+        const themeSelector = document.getElementById('themeSelector');
+        
+        if (themeSelector) {
+            themeSelector.value = savedTheme;
+            themeSelector.addEventListener('change', function() {
+                if (this.value === 'dark') {
+                    document.body.classList.add('dark-theme');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    document.body.classList.remove('dark-theme');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        }
+        
+        if (languageSelector) {
+            const savedLang = localStorage.getItem('language') || 'en';
+            languageSelector.value = savedLang;
+        }
+
+        // Language modal
+        function showLanguageModal() {
+            const modal = document.createElement('div');
+            modal.className = 'language-modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Select Language</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <div class="language-options">
+                        <div class="lang-option" data-lang="en"><span class="fi fi-us"></span> English</div>
+                        <div class="lang-option" data-lang="zh"><span class="fi fi-cn"></span> 中文 (Chinese)</div>
+                        <div class="lang-option" data-lang="es"><span class="fi fi-es"></span> Español (Spanish)</div>
+                        <div class="lang-option" data-lang="fr"><span class="fi fi-fr"></span> Français (French)</div>
+                        <div class="lang-option" data-lang="ar"><span class="fi fi-sa"></span> العربية (Arabic)</div>
+                        <div class="lang-option" data-lang="hi"><span class="fi fi-in"></span> हिन्दी (Hindi)</div>
+                        <div class="lang-option" data-lang="pt"><span class="fi fi-pt"></span> Português (Portuguese)</div>
+                        <div class="lang-option" data-lang="ru"><span class="fi fi-ru"></span> Русский (Russian)</div>
+                        <div class="lang-option" data-lang="de"><span class="fi fi-de"></span> Deutsch (German)</div>
+                        <div class="lang-option" data-lang="ja"><span class="fi fi-jp"></span> 日本語 (Japanese)</div>
+                        <div class="lang-option" data-lang="sw"><span class="fi fi-ke"></span> Kiswahili (Swahili)</div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            // Close modal
+            modal.querySelector('.modal-close').onclick = () => document.body.removeChild(modal);
+            modal.onclick = (e) => { if (e.target === modal) document.body.removeChild(modal); };
+            
+            // Language selection
+            modal.querySelectorAll('.lang-option').forEach(option => {
+                option.onclick = () => {
+                    const lang = option.dataset.lang;
+                    if (languageSelector) languageSelector.value = lang;
+                    document.body.removeChild(modal);
+                };
+            });
+        }
+        
+        // Search modal
+        function showSearchModal() {
+            const modal = document.createElement('div');
+            modal.className = 'search-modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Search Opportunities</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <div class="search-form">
+                        <input type="text" class="modal-search-input" placeholder="Search for opportunities..." autofocus>
+                        <button class="modal-search-btn"><i class="fas fa-search"></i> Search</button>
+                    </div>
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            setTimeout(() => modal.classList.add('show'), 10);
+            
+            const searchInput = modal.querySelector('.modal-search-input');
+            const searchButton = modal.querySelector('.modal-search-btn');
+            const resultsDiv = modal.querySelector('#searchResults');
+            
+            function closeModal() {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    if (document.body.contains(modal)) {
+                        document.body.removeChild(modal);
+                    }
+                }, 300);
+            }
+            
+            async function performModalSearch() {
+                const query = searchInput.value.toLowerCase().trim();
+                if (!query) return;
+                
+                resultsDiv.innerHTML = '<p>Searching...</p>';
+                
+                try {
+                    const response = await fetch('http://127.0.0.1:8000/api/opportunities/?status=approved');
+                    const data = await response.json();
+                    const allOpportunities = data.opportunities || [];
+                    
+                    const allowedTypes = ['scholarship', 'internship', 'job', 'grant', 'fellowship', 'conference', 'workshop', 'training', 'competition', 'announcement', 'miscellaneous'];
+                    const filteredOpportunities = allOpportunities.filter(opp => 
+                        allowedTypes.includes(opp.opportunity_type) &&
+                        (opp.title?.toLowerCase().includes(query) ||
+                        opp.description?.toLowerCase().includes(query) ||
+                        opp.location?.toLowerCase().includes(query) ||
+                        opp.organization?.toLowerCase().includes(query) ||
+                        opp.opportunity_type?.toLowerCase().includes(query))
+                    );
+                    
+                    resultsDiv.innerHTML = `<h4>${filteredOpportunities.length} results found</h4>`;
+                    filteredOpportunities.slice(0, 10).forEach(opp => {
+                        const resultItem = document.createElement('div');
+                        resultItem.className = 'search-result-item';
+                        resultItem.innerHTML = `
+                            <h5>${opp.title}</h5>
+                            <p>${opp.opportunity_type} • ${opp.location}</p>
+                        `;
+                        resultItem.onclick = () => {
+                            window.location.href = `opportunity-details.html?id=${opp.id}`;
+                        };
+                        resultsDiv.appendChild(resultItem);
+                    });
+                } catch (error) {
+                    resultsDiv.innerHTML = '<p>Error searching opportunities</p>';
+                }
+            }
+            
+            searchButton.onclick = performModalSearch;
+            searchInput.onkeypress = (e) => { if (e.key === 'Enter') performModalSearch(); };
+            
+            modal.querySelector('.modal-close').onclick = closeModal;
+            modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+            
+            setTimeout(() => searchInput.focus(), 100);
+        }
+        
+        // Navigation toggle functionality
+        const navToggleMobile = document.getElementById('navToggleMobile');
+        const navMenu = document.getElementById('navMenu');
+        const navOverlay = document.getElementById('navOverlay');
+        const languageToggle = document.getElementById('languageToggle');
+        const searchBtn = document.getElementById('searchBtn');
+        
+        function toggleNav() {
+            navMenu.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+        }
+        
+        function closeNav() {
+            navMenu.classList.remove('active');
+            navOverlay.classList.remove('active');
+        }
+        
+        if (navToggleMobile) navToggleMobile.addEventListener('click', toggleNav);
+        if (navOverlay) navOverlay.addEventListener('click', closeNav);
+        
+        // Close nav when clicking on nav links
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', closeNav);
+        });
+        
+        // Mobile theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        
+        if (themeToggle) {
+            themeToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (document.body.classList.contains('dark-theme')) {
+                    document.body.classList.remove('dark-theme');
+                    localStorage.setItem('theme', 'light');
+                    themeIcon.className = 'fas fa-sun';
+                } else {
+                    document.body.classList.add('dark-theme');
+                    localStorage.setItem('theme', 'dark');
+                    themeIcon.className = 'far fa-sun';
+                }
+            });
+        }
+        
+        // Set initial theme icon
+        if (themeIcon) {
+            if (savedTheme === 'dark') {
+                themeIcon.className = 'far fa-sun';
+            } else {
+                themeIcon.className = 'fas fa-sun';
+            }
+        }
+        
+        // Language toggle modal
+        if (languageToggle) {
+            languageToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                showLanguageModal();
+            });
+        }
+        
+        // Search modal functionality
+        if (searchBtn) {
+            searchBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                showSearchModal();
+            });
+        }
+        
+        // Desktop search functionality
+        const desktopSearchBtn = document.getElementById('desktopSearchBtn');
+        if (desktopSearchBtn) {
+            desktopSearchBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                showSearchModal();
+            });
+        }
+        
+        // Sidebar search functionality
+        const sidebarSearchBtn = document.getElementById('sidebarSearchBtn');
+        const sidebarSearchInput = document.getElementById('sidebarSearchInput');
+        
+        if (sidebarSearchBtn) {
+            sidebarSearchBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                showSearchModal();
+            });
+        }
+        
+        if (sidebarSearchInput) {
+            sidebarSearchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    showSearchModal();
+                }
+            });
+        }
+
+        // Back to top functionality
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+        
+        // Sticky header functionality - exact copy from home.html
+        function updateLayout() {
+            const header = document.querySelector('.header-container');
+            if (header) {
+                const headerHeight = header.offsetHeight;
+                const isMobile = window.innerWidth <= 768;
+                
+                if (isMobile) {
+                    document.body.style.paddingTop = '80px';
+                } else {
+                    document.body.style.paddingTop = headerHeight + 'px';
+                }
+            }
+        }
+        
+        const header = document.querySelector('.header-container');
+        if (header) {
+            let headerHeight = header.offsetHeight;
+            
+            // Recalculate header height after content loads
+            setTimeout(() => {
+                headerHeight = header.offsetHeight;
+                document.body.style.paddingTop = headerHeight + 'px';
+            }, 100);
+            
+            window.addEventListener('scroll', function() {
+                const isMobile = window.innerWidth <= 768;
+                
+                if (!isMobile) {
+                    if (window.pageYOffset > 50) {
+                        header.classList.add('scrolled');
+                        document.body.style.paddingTop = (headerHeight - 30) + 'px';
+                    } else {
+                        header.classList.remove('scrolled');
+                        document.body.style.paddingTop = headerHeight + 'px';
+                    }
+                }
+            });
+
+            // Set initial padding
+            document.body.style.paddingTop = headerHeight + 'px';
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                headerHeight = header.offsetHeight;
+                updateLayout();
+            });
+            
+            // Recalculate on visibility change (inspect element)
+            document.addEventListener('visibilitychange', function() {
+                if (!document.hidden) {
+                    setTimeout(() => {
+                        headerHeight = header.offsetHeight;
+                        document.body.style.paddingTop = headerHeight + 'px';
+                    }, 100);
+                }
+            });
+            
+            // Set initial layout
+            updateLayout();
+        }
+
+        function showFeedbackModal() {
+            const modal = document.createElement('div');
+            modal.className = 'search-modal';
+            modal.innerHTML = `
+                <div class="modal-content feedback-modal">
+                    <div class="modal-header">
+                        <h3>Send Feedback</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <div class="modal-body-scroll">
+                        <form id="feedbackForm">
+                            <div class="form-group">
+                                <label for="feedbackName">Name *</label>
+                                <input type="text" id="feedbackName" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="feedbackEmail">Email *</label>
+                                <input type="email" id="feedbackEmail" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="feedbackSubject">Subject *</label>
+                                <input type="text" id="feedbackSubject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="feedbackMessage">Message *</label>
+                                <textarea id="feedbackMessage" name="message" rows="4" required></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" onclick="closeFeedbackModal()">Cancel</button>
+                                <button type="submit">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            setTimeout(() => modal.classList.add('show'), 10);
+            
+            function closeModal() {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    if (document.body.contains(modal)) {
+                        document.body.removeChild(modal);
+                    }
+                }, 300);
+            }
+            
+            window.closeFeedbackModal = closeModal;
+            
+            modal.querySelector('.modal-close').onclick = closeModal;
+            modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+            
+            const form = modal.querySelector('#feedbackForm');
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData.entries());
+                data.feedback_type = 'general';
+                
+                try {
+                    const response = await fetch('http://127.0.0.1:8000/api/feedback/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': getCookie('csrftoken')
+                        },
+                        body: JSON.stringify(data)
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (response.ok) {
+                        alert(result.message);
+                        closeModal();
+                    } else {
+                        alert(result.message || 'Failed to send feedback');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Failed to send feedback. Please try again.');
+                }
+            });
+        }
+        
+        function showNewsletterModal() {
+            const modal = document.createElement('div');
+            modal.className = 'search-modal';
+            modal.innerHTML = `
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Subscribe to Newsletter</h3>
+                        <button class="modal-close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="newsletterForm">
+                            <div class="form-group">
+                                <label for="newsletterName">Name (Optional)</label>
+                                <input type="text" id="newsletterName" name="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="newsletterEmail">Email *</label>
+                                <input type="email" id="newsletterEmail" name="email" required>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" onclick="closeNewsletterModal()">Cancel</button>
+                                <button type="submit">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            
+            setTimeout(() => modal.classList.add('show'), 10);
+            
+            function closeModal() {
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    if (document.body.contains(modal)) {
+                        document.body.removeChild(modal);
+                    }
+                }, 300);
+            }
+            
+            window.closeNewsletterModal = closeModal;
+            
+            modal.querySelector('.modal-close').onclick = closeModal;
+            modal.onclick = (e) => { if (e.target === modal) closeModal(); };
+            
+            const form = modal.querySelector('#newsletterForm');
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(this);
+                const data = Object.fromEntries(formData.entries());
+                
+                try {
+                    const response = await fetch('http://127.0.0.1:8000/api/newsletter/subscribe/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': getCookie('csrftoken')
+                        },
+                        body: JSON.stringify(data)
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (response.ok) {
+                        alert(result.message);
+                        closeModal();
+                    } else {
+                        alert(result.message || 'Failed to subscribe');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Failed to subscribe. Please try again.');
+                }
+            });
+        }
+        
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue || document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+        }
+        
+        // Add event listeners for footer buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const feedbackBtns = document.querySelectorAll('.footer-btn');
+            feedbackBtns.forEach(btn => {
+                if (btn.textContent.includes('FEEDBACK')) {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        showFeedbackModal();
+                    });
+                }
+                if (btn.textContent.includes('SUBSCRIBE')) {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        showNewsletterModal();
+                    });
+                }
+            });
+        });
+        
+        // Load details when page loads
+        if (opportunityId) {
+            loadOpportunityDetails();
+        } else {
+            document.getElementById('opportunityTitle').textContent = 'No Opportunity Selected';
+            document.getElementById('opportunityDescription').textContent = 'Please select an opportunity to view details.';
+        }
+    </script>
+</body>
+</html>
