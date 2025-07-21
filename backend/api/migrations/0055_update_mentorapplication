@@ -1,0 +1,41 @@
+# Generated manually
+
+from django.db import migrations, models
+
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+        ('api', '0054_mentorapplication'),
+    ]
+
+    operations = [
+        migrations.RemoveField(
+            model_name='mentorapplication',
+            name='about_you',
+        ),
+        migrations.RemoveField(
+            model_name='mentorapplication',
+            name='cv_file',
+        ),
+        migrations.RemoveField(
+            model_name='mentorapplication',
+            name='cover_letter',
+        ),
+        migrations.AddField(
+            model_name='mentorapplication',
+            name='why_mentor',
+            field=models.TextField(default=''),
+            preserve_default=False,
+        ),
+        migrations.AddField(
+            model_name='mentorapplication',
+            name='agree_to_terms',
+            field=models.BooleanField(default=False),
+        ),
+        migrations.AddField(
+            model_name='mentorapplication',
+            name='agree_to_volunteer',
+            field=models.BooleanField(default=False),
+        ),
+    ]
