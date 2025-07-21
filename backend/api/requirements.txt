@@ -1,0 +1,10 @@
+# Core Django
+Django==4.2.0
+djangorestframework==3.14.0
+psycopg2-binary==2.9.6  # For PostgreSQL or empty if using SQLite
+bcrypt==4.0.1  # For password hashing
+django-cors-headers==4.2.0  # For frontend-backend communication
+
+# Development tools
+python-dotenv==1.0.0  # For environment variables
+cryptography==41.0.0  # For message encryption
