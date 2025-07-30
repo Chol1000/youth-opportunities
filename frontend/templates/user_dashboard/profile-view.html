@@ -82,11 +82,11 @@
                 display: block;
                 overflow-x: hidden;
             }
-            
+
             .sidebar {
                 display: none !important;
             }
-            
+
             .main-content {
                 margin-left: 0 !important;
                 margin-right: 0 !important;
@@ -101,7 +101,7 @@
                 right: auto;
                 transform: none;
             }
-            
+
             .header {
                 height: 60px;
                 padding: 0 10px;
@@ -114,29 +114,29 @@
                 justify-content: space-between;
                 align-items: center;
             }
-            
+
             .header-left {
                 display: flex;
                 order: 1;
             }
-            
+
             .header-left .search-bar {
                 display: none;
             }
-            
+
             .header-right {
                 display: none;
             }
-            
+
             .menu-toggle {
                 order: 2;
             }
-            
+
             .notification-bell,
             .theme-toggle {
                 display: none !important;
             }
-            
+
             .menu-toggle {
                 display: flex !important;
                 order: 2;
@@ -147,7 +147,7 @@
                 cursor: pointer;
                 z-index: 100;
             }
-            
+
             .menu-toggle span {
                 width: 100%;
                 height: 3px;
@@ -533,7 +533,7 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
-        
+
         .section-header {
             display: flex;
             justify-content: space-between;
@@ -542,14 +542,14 @@
             padding-bottom: 15px;
             border-bottom: 1px solid var(--divider-color);
         }
-        
+
         .section-header h2 {
             font-size: 18px;
             color: var(--text-color);
             margin: 0;
             font-weight: 600;
         }
-        
+
         .edit-btn {
             display: flex;
             align-items: center;
@@ -563,7 +563,7 @@
             border-radius: 6px;
             transition: all 0.3s ease;
         }
-        
+
         .edit-btn:hover {
             background: rgba(99, 102, 241, 0.1);
         }
@@ -585,7 +585,7 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
-        
+
         .profile-pic {
             position: relative;
             width: 120px;
@@ -595,13 +595,13 @@
             flex-shrink: 0;
             border: 4px solid var(--primary-light);
         }
-        
+
         .profile-pic img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         .profile-pic-edit {
             position: absolute;
             bottom: 0;
@@ -621,18 +621,18 @@
         .profile-pic-edit:hover {
             background: rgba(0,0,0,0.7);
         }
-        
+
         .profile-info {
             flex: 1;
         }
-        
+
         .profile-info h1 {
             margin: 0 0 10px 0;
             font-size: 28px;
             color: var(--text-color);
             font-weight: 700;
         }
-        
+
         .profile-info p {
             margin: 0;
             font-size: 16px;
@@ -645,12 +645,12 @@
             display: flex;
             gap: 30px;
         }
-        
+
         .profile-main-content {
             flex: 1;
             margin-right: 10px;
         }
-        
+
         .profile-sidebar {
             flex: 2;
             padding: 30px;
@@ -659,7 +659,7 @@
             position: sticky;
             top: 100px;
         }
-        
+
         .profile-header {
             display: flex;
             flex-direction: column;
@@ -667,7 +667,7 @@
             text-align: center;
             gap: 15px;
         }
-        
+
         .profile-info {
             display: flex;
             flex-direction: column;
@@ -675,7 +675,7 @@
             text-align: center;
             gap: 8px;
         }
-        
+
         .stats-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -734,7 +734,7 @@
             margin-bottom: 20px;
             height: 10px;
         }
-        
+
         .progress-bar {
             height: 100%;
             background-color: var(--primary);
@@ -742,7 +742,7 @@
             width: 0%;
             transition: width 0.5s ease;
         }
-        
+
         .progress-text {
             text-align: center;
             margin-top: 10px;
@@ -898,7 +898,7 @@
         @keyframes fadeOut {
             to { opacity: 0; }
         }
-        
+
         .search-modal {
             position: fixed;
             top: 0;
@@ -914,12 +914,12 @@
             visibility: hidden;
             transition: all 0.3s ease;
         }
-        
+
         .search-modal.show {
             opacity: 1;
             visibility: visible;
         }
-        
+
         .search-modal .modal-content {
             background: var(--card-bg);
             border-radius: 12px;
@@ -932,11 +932,11 @@
             transform: scale(0.7);
             transition: transform 0.3s ease;
         }
-        
+
         .search-modal.show .modal-content {
             transform: scale(1);
         }
-        
+
         .modal-header {
             display: flex;
             justify-content: space-between;
@@ -944,12 +944,12 @@
             padding: 20px;
             border-bottom: 1px solid var(--card-border);
         }
-        
+
         .modal-header h3 {
             margin: 0;
             color: var(--text-color);
         }
-        
+
         .modal-close {
             background: none;
             border: none;
@@ -957,13 +957,13 @@
             cursor: pointer;
             color: var(--text-color);
         }
-        
+
         .search-form {
             padding: 20px;
             display: flex;
             gap: 10px;
         }
-        
+
         .modal-search-input {
             flex: 1;
             padding: 12px;
@@ -973,7 +973,7 @@
             background: var(--card-bg);
             color: var(--text-color);
         }
-        
+
         .modal-search-btn {
             background: var(--primary);
             color: white;
@@ -982,14 +982,14 @@
             border-radius: 6px;
             cursor: pointer;
         }
-        
+
         .search-results {
             padding: 0 20px 20px;
             overflow-y: auto;
             flex: 1;
             max-height: 400px;
         }
-        
+
         .search-result-item {
             padding: 15px;
             border: 1px solid var(--card-border);
@@ -998,22 +998,22 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .search-result-item:hover {
             background: var(--hover-bg);
         }
-        
+
         .search-result-item h5 {
             margin-bottom: 5px;
             color: var(--primary);
         }
-        
+
         .search-result-item p {
             color: var(--text-color);
             font-size: 0.9rem;
             margin: 0;
         }
-        
+
         @media (max-width: 768px) {
             .search-modal .modal-content {
                 width: 95% !important;
@@ -1035,7 +1035,7 @@
             z-index: 1000;
             box-sizing: border-box;
         }
-        
+
         .bottom-nav-items {
             display: flex;
             justify-content: space-around;
@@ -1043,7 +1043,7 @@
             width: 100%;
             max-width: 100%;
         }
-        
+
         .bottom-nav-item {
             display: flex;
             flex-direction: column;
@@ -1055,12 +1055,12 @@
             flex: 1;
             max-width: 20%;
         }
-        
+
         .bottom-nav-item i {
             font-size: 16px;
             margin-bottom: 2px;
         }
-        
+
         .bottom-nav-item span {
             font-size: 9px;
             font-weight: 500;
@@ -1069,12 +1069,12 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        
+
         .bottom-nav-item:hover,
         .bottom-nav-item.active {
             color: var(--primary);
         }
-        
+
         .mobile-menu-dropdown {
             position: fixed;
             top: 75px;
@@ -1086,11 +1086,11 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             z-index: 1001;
         }
-        
+
         .mobile-menu-content {
             padding: 8px 0;
         }
-        
+
         .mobile-menu-item {
             display: flex;
             align-items: center;
@@ -1102,21 +1102,21 @@
             cursor: pointer;
             position: relative;
         }
-        
+
         .mobile-menu-item:hover {
             background: var(--hover-bg);
         }
-        
+
         .mobile-menu-item i {
             width: 16px;
             font-size: 14px;
         }
-        
+
         .mobile-menu-item span {
             font-size: 14px;
             font-weight: 500;
         }
-        
+
         .mobile-menu-item .badge {
             margin-left: auto;
             background: var(--danger);
@@ -1127,12 +1127,12 @@
             min-width: 16px;
             text-align: center;
         }
-        
+
         @media (max-width: 768px) {
             .mobile-bottom-nav {
                 display: block;
             }
-            
+
             .profile-header {
                 flex-direction: column;
                 align-items: center;
@@ -1140,99 +1140,99 @@
                 padding: 15px;
                 gap: 15px;
             }
-            
+
             .profile-pic {
                 width: 70px;
                 height: 70px;
                 flex-shrink: 0;
                 align-self: center;
             }
-            
+
             .profile-info {
                 flex: 1;
                 min-width: 0;
             }
-            
+
             .profile-info h1 {
                 font-size: 18px;
                 word-wrap: break-word;
             }
-            
+
             .profile-info p {
                 font-size: 14px;
                 word-wrap: break-word;
             }
-            
+
             .profile-pic {
                 width: 100px;
                 height: 100px;
             }
-            
+
             .action-btns {
                 flex-direction: column;
                 gap: 8px;
             }
-            
+
             .stats-cards {
                 grid-template-columns: 1fr 1fr;
                 gap: 8px;
                 width: 100%;
                 margin: 0;
             }
-            
+
             .stat-card {
                 padding: 12px 8px;
                 min-width: 0;
             }
-            
+
             .stat-value {
                 font-size: 18px;
             }
-            
+
             .stat-label {
                 font-size: 11px;
             }
-            
+
             .profile-content-layout {
                 flex-direction: column;
                 gap: 20px;
             }
-            
+
             .profile-sidebar {
                 position: static;
                 padding: 1px;
                 margin: 0;
                 flex: 1;
             }
-            
+
             .profile-section {
                 padding: 15px;
                 margin-bottom: 15px;
             }
-            
+
             .stats-cards {
                 margin-top: 20px;
                 margin-bottom: 20px;
             }
-            
+
             .section-header h2 {
                 font-size: 16px !important;
             }
-            
+
             .opportunity-item {
                 padding: 7px;
                 margin-bottom: 12px;
             }
-            
+
             .opportunity-item h4 {
                 font-size: 15px;
             }
-            
+
             .opportunity-item p {
                 font-size: 13px;
                 line-height: 1.4;
             }
-            
+
             .empty-state {
                 font-size: 14px;
                 text-align: center;
@@ -1253,65 +1253,65 @@
                 <div class="admin-name" id="sidebarUserName">Welcome, Loading...</div>
             </div>
         </div>
-        
+
         <div class="sidebar-menu">
             <a href="index.html" class="menu-item active" data-section="dashboard">
                 <i class="fas fa-home"></i>
                 <span>Dashboard</span>
             </a>
-            
+
             <a href="profile.html" class="menu-item" data-section="profile">
                 <i class="fas fa-user"></i>
                 <span>My Profile</span>
             </a>
-            
+
             <a href="opportunities.html" class="menu-item" data-section="opportunities">
                 <i class="fas fa-briefcase"></i>
                 <span>Opportunities</span>
             </a>
-            
+
             <a href="mentors.html" class="menu-item" data-section="mentors">
                 <i class="fas fa-chalkboard-teacher"></i>
                 <span>Mentors</span>
             </a>
-            
+
             <a href="community.html" class="menu-item" data-section="community">
                 <i class="fas fa-users"></i>
                 <span>Community</span>
             </a>
-            
+
             <a href="inbox.html" class="menu-item" data-section="inbox">
                 <i class="fas fa-inbox"></i>
                 <span>Inbox</span>
                 <span class="badge" id="messageCount">0</span>
             </a>
-            
+
             <a href="cv-review.html" class="menu-item" data-section="cv-review">
                 <i class="fas fa-file-alt"></i>
                 <span>CV Review</span>
             </a>
-            
+
             <a href="training.html" class="menu-item" data-section="training">
                 <i class="fas fa-graduation-cap"></i>
                 <span>Training</span>
             </a>
-            
+
             <a href="webinars.html" class="menu-item" data-section="webinars">
                 <i class="fas fa-video"></i>
                 <span>Webinars</span>
             </a>
-            
+
             <a href="notifications.html" class="menu-item" data-section="notifications">
                 <i class="fas fa-bell"></i>
                 <span>Notifications</span>
                 <span class="badge" id="notificationCount">0</span>
             </a>
-            
+
             <a href="settings.html" class="menu-item" data-section="settings">
                 <i class="fas fa-cog"></i>
                 <span>Settings</span>
             </a>
-            
+
             <div class="menu-item" id="logoutBtn">
                 <i class="fas fa-sign-out-alt"></i>
                 <span>Logout</span>
@@ -1368,7 +1368,7 @@
 
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay"></div>
-    
+
     <!-- Mobile Bottom Navigation -->
     <div class="mobile-bottom-nav">
         <div class="bottom-nav-items">
@@ -1410,18 +1410,18 @@
                     <input type="text" id="profileViewSearch" placeholder="Search profile...">
                 </div>
             </div>
-            
+
             <div class="header-right">
                 <div class="theme-toggle" id="themeToggle">
                     <i class="fas fa-moon"></i>
                     <span class="toggle-text">Dark Mode</span>
                 </div>
-                
+
                 <div class="notification-bell" id="notificationBell">
                     <i class="fas fa-bell"></i>
                     <span class="badge" id="notificationBadge">0</span>
                 </div>
-                
+
                 <div class="user-profile">
                     <img id="headerProfilePic" src="../../static/images/default-image.jpg" alt="User">
                     <div>
@@ -1465,9 +1465,9 @@
                             <div class="stat-value" id="postsCount">0</div>
                             <div class="stat-label">Posts</div>
                         </div>
-                        
 
-                        
+
+
                         <div class="stat-card" id="connectionsSection">
                             <div class="stat-icon">
                                 <i class="fas fa-users"></i>
@@ -1475,7 +1475,7 @@
                             <div class="stat-value" id="connectionsCount">0</div>
                             <div class="stat-label" id="connectionsLabel">Connections</div>
                         </div>
-                        
+
                         <div class="stat-card">
                             <div class="stat-icon">
                                 <i class="fas fa-graduation-cap"></i>
@@ -1515,7 +1515,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="profile-sidebar">
                     <!-- Recent Posts -->
                     <div>
@@ -1530,7 +1530,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Training Details Modal -->
     <div id="trainingModal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
         <div class="modal-content" style="background-color: var(--card-bg); margin: 5% auto; padding: 30px; border-radius: 12px; width: 80%; max-width: 600px; max-height: 80vh; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.3); overflow-y: auto;">
@@ -1547,10 +1547,10 @@
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
         let themeInitialized = false;
-        
+
         function applyTheme() {
             const currentTheme = localStorage.getItem('theme') || 'light';
-            
+
             if (currentTheme === 'dark') {
                 body.setAttribute('data-theme', 'dark');
                 themeToggle.innerHTML = '<i class="fas fa-sun"></i><span class="toggle-text">Light Mode</span>';
@@ -1559,10 +1559,10 @@
                 themeToggle.innerHTML = '<i class="fas fa-moon"></i><span class="toggle-text">Dark Mode</span>';
             }
         }
-        
+
         // Apply theme initially
         applyTheme();
-        
+
         // Add click listener only once
         if (!themeInitialized) {
             themeToggle.addEventListener('click', () => {
@@ -1578,14 +1578,14 @@
             });
             themeInitialized = true;
         }
-        
+
         // Re-apply theme when page becomes visible
         document.addEventListener('visibilitychange', function() {
             if (!document.hidden) {
                 applyTheme();
             }
         });
-        
+
         // Handle page show event
         window.addEventListener('pageshow', function(event) {
             applyTheme();
@@ -1596,7 +1596,7 @@
         const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
         const mobileThemeToggle = document.getElementById('mobileThemeToggle');
         const mobileLogout = document.getElementById('mobileLogout');
-        
+
         if (menuToggle) {
             menuToggle.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -1607,7 +1607,7 @@
                 }
             });
         }
-        
+
         // Close menu when clicking outside
         document.addEventListener('click', function() {
             if (mobileMenuDropdown) {
@@ -1617,7 +1617,7 @@
                 }
             }
         });
-        
+
         // Mobile theme toggle
         if (mobileThemeToggle) {
             mobileThemeToggle.addEventListener('click', function() {
@@ -1633,17 +1633,17 @@
                 mobileMenuDropdown.style.display = 'none';
             });
         }
-        
+
         // Mobile logout
         if (mobileLogout) {
             mobileLogout.addEventListener('click', function() {
                 if (confirm('Are you sure you want to logout?')) {
                     localStorage.removeItem('user');
-                    window.location.href = '../login.html';
+                    window.location.href = '../posts/home.html';
                 }
             });
         }
-        
+
         // Mobile search modal
         const mobileSearch = document.getElementById('mobileSearch');
         if (mobileSearch) {
@@ -1652,21 +1652,21 @@
                 mobileMenuDropdown.style.display = 'none';
             });
         }
-        
+
         // Desktop search functionality
         const profileViewSearch = document.getElementById('profileViewSearch');
         if (profileViewSearch) {
             profileViewSearch.addEventListener('input', function() {
                 const searchTerm = this.value.toLowerCase();
                 const profileSections = document.querySelectorAll('.profile-section');
-                
+
                 profileSections.forEach(item => {
                     const content = item.textContent.toLowerCase();
                     item.style.display = content.includes(searchTerm) ? 'block' : 'none';
                 });
             });
         }
-        
+
         // Show search modal (mobile)
         function showSearchModal() {
             const modal = document.createElement('div');
@@ -1685,13 +1685,13 @@
                 </div>
             `;
             document.body.appendChild(modal);
-            
+
             setTimeout(() => modal.classList.add('show'), 10);
-            
+
             const searchInput = modal.querySelector('.modal-search-input');
             const searchButton = modal.querySelector('.modal-search-btn');
             const resultsDiv = modal.querySelector('#searchResults');
-            
+
             function closeModal() {
                 modal.classList.remove('show');
                 setTimeout(() => {
@@ -1700,16 +1700,16 @@
                     }
                 }, 300);
             }
-            
+
             function performModalSearch() {
                 const query = searchInput.value.toLowerCase().trim();
                 if (!query) return;
-                
+
                 resultsDiv.innerHTML = '<p>Searching...</p>';
-                
+
                 const results = [];
                 const profileSections = document.querySelectorAll('.profile-section');
-                
+
                 profileSections.forEach(item => {
                     const content = item.textContent || '';
                     if (content.toLowerCase().includes(query)) {
@@ -1722,7 +1722,7 @@
                         });
                     }
                 });
-                
+
                 resultsDiv.innerHTML = `<h4>${results.length} results found</h4>`;
                 results.slice(0, 10).forEach(result => {
                     const resultItem = document.createElement('div');
@@ -1734,13 +1734,13 @@
                     resultsDiv.appendChild(resultItem);
                 });
             }
-            
+
             searchButton.onclick = performModalSearch;
             searchInput.onkeypress = (e) => { if (e.key === 'Enter') performModalSearch(); };
-            
+
             modal.querySelector('.modal-close').onclick = closeModal;
             modal.onclick = (e) => { if (e.target === modal) closeModal(); };
-            
+
             setTimeout(() => searchInput.focus(), 100);
         }
 
@@ -1766,9 +1766,9 @@
             if (confirm('Are you sure you want to logout?')) {
                 // Clear user data from localStorage
                 localStorage.removeItem('user');
-                
-                // Redirect to login page
-                window.location.href = '../login.html';
+
+                // Redirect to home page
+                window.location.href = '../posts/home.html';
             }
         });
 
@@ -1789,31 +1789,31 @@
         // Fetch with authentication
         async function fetchWithAuth(url, options = {}) {
             const csrfToken = await getCSRFToken();
-            
+
             const headers = {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': csrfToken,
             };
-            
+
             if (options.headers) {
                 Object.assign(headers, options.headers);
             }
-            
+
             const response = await fetch(url, {
                 ...options,
                 headers,
                 credentials: 'include',
             });
-            
+
             if (response.status === 401 || response.status === 403) {
                 window.location.href = '../login.html';
                 return;
             }
-            
+
             if (!response.ok) {
                 throw new Error('Request failed');
             }
-            
+
             return response.json();
         }
 
@@ -1821,16 +1821,16 @@
         async function loadDashboardStats() {
             try {
                 const response = await fetchWithAuth('/api/dashboard-stats/');
-                
+
                 // Update profile views
                 document.getElementById('profileViewsCount').textContent = response.user_stats?.profile_views || 0;
-                
+
                 // Update available opportunities
                 document.getElementById('availableOpportunitiesCount').textContent = response.opportunity_stats?.available || 0;
-                
+
                 // Update matching opportunities
                 document.getElementById('matchingOpportunitiesCount').textContent = response.opportunity_stats?.matching || 0;
-                
+
                 // Update profile completion
                 if (response.profile_completion) {
                     const progressBar = document.querySelector('.progress-bar');
@@ -1840,28 +1840,28 @@
                         progressText.textContent = response.profile_completion + '%';
                     }
                 }
-                
+
                 // Update mentors count
                 document.getElementById('mentorsCount').textContent = response.opportunity_stats?.total_mentors || 0;
-                
+
                 // Calculate real profile completion
                 let completion = 0;
                 if (response.profile_completion) {
                     let completed = 0;
                     let total = 6;
-                    
+
                     if (response.profile_completion.has_bio) completed++;
                     if (response.profile_completion.has_profile_pic) completed++;
                     if (response.profile_completion.has_education) completed++;
                     if (response.profile_completion.has_experience) completed++;
                     if (response.profile_completion.has_phone) completed++;
                     if (response.profile_completion.has_location) completed++;
-                    
+
                     completion = Math.round((completed / total) * 100);
                 }
                 document.getElementById('profileProgressBar').style.width = completion + '%';
                 document.getElementById('profileProgressText').textContent = completion + '% Complete';
-                
+
             } catch (error) {
                 console.error('Error loading dashboard stats:', error);
             }
@@ -1874,45 +1874,45 @@
                     fetchWithAuth('/api/opportunities/?status=approved'),
                     fetchWithAuth('/api/get-preferences/')
                 ]);
-                
+
                 const opportunities = opportunitiesResponse.opportunities || [];
                 const userPreferences = preferencesResponse.preferences || {};
-                
 
-                
+
+
                 // Filter only approved opportunities that are not past deadline
                 const availableOpportunities = opportunities.filter(opp => {
                     if (opp.status !== 'approved') return false;
                     if (opp.deadline && new Date(opp.deadline) < new Date()) return false;
                     return true;
                 });
-                
+
                 // Update available opportunities count in stats
                 document.getElementById('availableOpportunitiesCount').textContent = availableOpportunities.length;
-                
+
                 // Filter opportunities based on user preferences
                 let recommendedOpportunities = availableOpportunities;
-                
+
                 if (userPreferences.opportunity_types && userPreferences.opportunity_types.length > 0) {
-                    recommendedOpportunities = availableOpportunities.filter(opp => 
+                    recommendedOpportunities = availableOpportunities.filter(opp =>
                         userPreferences.opportunity_types.includes(opp.opportunity_type)
                     );
                 }
-                
+
                 // If no matches found, show general opportunities
                 if (recommendedOpportunities.length === 0) {
                     recommendedOpportunities = availableOpportunities;
                 }
-                
+
                 // Update matching profile count
                 document.getElementById('matchingOpportunitiesCount').textContent = recommendedOpportunities.length;
-                
+
                 const container = document.getElementById('recommendedOpportunities');
                 if (recommendedOpportunities.length === 0) {
                     container.innerHTML = '<p>No opportunities available at the moment.</p>';
                     return;
                 }
-                
+
                 container.innerHTML = recommendedOpportunities.map(opp => `
                     <div class="opportunity-item">
                         <h3>${escapeHtml(opp.title)}</h3>
@@ -1937,40 +1937,40 @@
                     fetchWithAuth('/api/my-webinar-registrations/'),
                     fetchWithAuth('/api/my-training-registrations/')
                 ]);
-                
+
                 const webinars = webinarsResponse || [];
                 const trainings = trainingsResponse || [];
-                
+
                 // Filter upcoming events
                 const now = new Date();
                 const today = new Date();
                 today.setHours(0, 0, 0, 0);
-                
+
                 const upcomingWebinars = webinars.filter(reg => {
                     const startDate = new Date(reg.webinar.start_time);
                     const webinarDate = new Date(startDate);
                     webinarDate.setHours(0, 0, 0, 0);
                     return webinarDate >= today;
                 });
-                
+
                 const upcomingTrainings = trainings.filter(reg => {
                     const startDate = new Date(reg.session.start_time);
                     const trainingDate = new Date(startDate);
                     trainingDate.setHours(0, 0, 0, 0);
                     return trainingDate >= today;
                 });
-                
+
                 const allEvents = [
                     ...upcomingWebinars.map(reg => ({...reg.webinar, type: 'webinar'})),
                     ...upcomingTrainings.map(reg => ({...reg.session, type: 'training'}))
                 ];
-                
+
                 const container = document.getElementById('upcomingEvents');
                 if (allEvents.length === 0) {
                     container.innerHTML = '<p>No registered events at the moment.</p>';
                     return;
                 }
-                
+
                 container.innerHTML = allEvents.slice(0, 3).map(event => `
                     <div class="event-item">
                         <h3>${escapeHtml(event.title)}</h3>
@@ -1997,9 +1997,9 @@
                     fetchWithAuth('/api/experiences/'),
                     fetchWithAuth('/api/user/')
                 ]);
-                
+
                 let activities = [];
-                
+
                 // Add education activities
                 if (educations && educations.length > 0) {
                     educations.forEach(edu => {
@@ -2010,7 +2010,7 @@
                         });
                     });
                 }
-                
+
                 // Add experience activities
                 if (experiences && experiences.length > 0) {
                     experiences.forEach(exp => {
@@ -2021,7 +2021,7 @@
                         });
                     });
                 }
-                
+
                 // Add profile update activity if user has recent updates
                 if (user.expertise) {
                     activities.push({
@@ -2030,18 +2030,18 @@
                         type: 'profile'
                     });
                 }
-                
+
                 // Sort by date (newest first)
                 activities.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-                
+
                 const container = document.getElementById('recentActivity');
                 if (activities.length === 0) {
                     container.innerHTML = '<div class="empty-state">No recent profile activities.</div>';
                     return;
                 }
-                
+
                 const showCount = window.showAllActivities ? activities.length : Math.min(7, activities.length);
-                
+
                 container.innerHTML = activities.slice(0, showCount).map(activity => `
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
@@ -2052,10 +2052,10 @@
                         </div>
                     </div>
                 `).join('');
-                
+
                 // Add show more/less buttons
                 if (activities.length > 7) {
-                    const buttonHtml = window.showAllActivities ? 
+                    const buttonHtml = window.showAllActivities ?
                         '<button class="btn btn-secondary" onclick="toggleActivities(false)">Show Less</button>' :
                         '<button class="btn btn-secondary" onclick="toggleActivities(true)">Show More</button>';
                     container.innerHTML += `<div style="text-align: center; margin-top: 15px;">${buttonHtml}</div>`;
@@ -2069,13 +2069,13 @@
         // Format time ago
         function formatTimeAgo(timestamp) {
             if (!timestamp) return 'Unknown time';
-            
+
             const date = new Date(timestamp);
             if (isNaN(date.getTime())) return 'Unknown time';
-            
+
             const now = new Date();
             const diff = now - date;
-            
+
             if (diff < 60000) return 'Just now';
             if (diff < 3600000) return Math.floor(diff / 60000) + ' minutes ago';
             if (diff < 86400000) return Math.floor(diff / 3600000) + ' hours ago';
@@ -2089,11 +2089,11 @@
             div.textContent = text;
             return div.innerHTML;
         }
-        
+
         // Security: Input validation
         function validateInput(input, type = 'text') {
             if (!input) return '';
-            
+
             switch(type) {
                 case 'email':
                     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -2106,15 +2106,15 @@
 
         // Toggle activities display
         window.showAllActivities = false;
-        
+
         function toggleActivities(showAll) {
             window.showAllActivities = showAll;
             loadRecentActivities();
         }
-        
+
         // Make toggleActivities globally available
         window.toggleActivities = toggleActivities;
-        
+
         // Show training details modal
         function showTrainingDetails(session) {
             const modal = document.getElementById('trainingModal');
@@ -2122,30 +2122,30 @@
             const modalMeta = document.getElementById('modalMeta');
             const modalDescription = document.getElementById('modalDescription');
             const modalMeetingLink = document.getElementById('modalMeetingLink');
-            
+
             modalTitle.textContent = session.title;
-            
+
             const startDate = new Date(session.start_time);
             const endDate = new Date(session.end_time);
-            
+
             modalMeta.innerHTML = `
                 <span><i class="fas fa-calendar-alt"></i> ${startDate.toLocaleDateString()} - ${endDate.toLocaleDateString()}</span>
                 <span><i class="fas fa-clock"></i> ${session.duration} minutes</span>
                 <span><i class="fas fa-user"></i> ${session.trainer_name || 'TBA'}</span>
                 <span><i class="fas fa-users"></i> ${session.max_participants} max participants</span>
             `;
-            
+
             modalDescription.innerHTML = `<p><strong>Description:</strong></p><p>${session.description || 'No description available.'}</p>`;
-            
+
             if (session.meeting_link) {
                 modalMeetingLink.innerHTML = `<br><p><strong>Meeting Link:</strong></p><p><a href="${session.meeting_link}" target="_blank" class="btn btn-primary">Join Session</a></p>`;
             } else {
                 modalMeetingLink.innerHTML = '';
             }
-            
+
             modal.style.display = 'block';
         }
-        
+
         // Close modal functionality
         document.addEventListener('click', function(event) {
             if (event.target.classList.contains('close')) {
@@ -2155,7 +2155,7 @@
                 document.getElementById('trainingModal').style.display = 'none';
             }
         });
-        
+
         // Make function globally available
         window.showTrainingDetails = showTrainingDetails;
 
@@ -2187,11 +2187,11 @@
                     const allUsers = await fetchWithAuth('/api/users/');
                     profileUser = allUsers.find(user => user.id == userId);
                 }
-                
+
                 if (!profileUser) {
                     throw new Error('User not found');
                 }
-                
+
                 // Update profile info
                 document.getElementById('userName').textContent = profileUser.full_name || 'Unknown User';
                 // Don't show generic 'User' role, only show if it's mentor/admin
@@ -2206,22 +2206,22 @@
                 }
                 document.getElementById('userEmail').textContent = profileUser.email || '';
                 document.getElementById('profileBioText').textContent = profileUser.short_bio || 'No bio available.';
-                
+
                 // Update About Me section (visible to everyone)
                 document.getElementById('aboutMeContent').textContent = profileUser.bio || profileUser.about_me || 'No additional information available.';
-                
+
                 // Update profile picture
                 if (profileUser.profile_pic) {
                     document.getElementById('profileImage').src = profileUser.profile_pic;
                 }
-                
+
                 // Show appropriate connections label
                 if (profileUser.role === 'mentor') {
                     document.getElementById('connectionsLabel').textContent = 'Mentees';
                 } else {
                     document.getElementById('connectionsLabel').textContent = 'Mentors';
                 }
-                
+
                 // Load profile sections
                 await Promise.all([
                     loadEducation(userId),
@@ -2229,7 +2229,7 @@
                     loadUserPosts(userId),
                     loadConnections(userId, profileUser.role)
                 ]);
-                
+
             } catch (error) {
                 console.error('Error loading profile:', error);
                 document.getElementById('userName').textContent = 'Profile not found';
@@ -2246,18 +2246,18 @@
                     document.getElementById('educationCount').textContent = '0';
                     return;
                 }
-                
+
                 const response = await fetchWithAuth(`/api/educations/`);
                 const educations = response || [];
-                
+
                 document.getElementById('educationCount').textContent = educations.length;
-                
+
                 const container = document.getElementById('educationList');
                 if (educations.length === 0) {
                     container.innerHTML = '<div class="empty-state">No education information available.</div>';
                     return;
                 }
-                
+
                 container.innerHTML = educations.map(edu => `
                     <div class="opportunity-item" style="margin-bottom: 15px;">
                         <h4 style="margin: 0 0 5px 0; color: var(--primary);">${edu.degree}</h4>
@@ -2279,16 +2279,16 @@
                     document.getElementById('experienceList').innerHTML = '<div class="empty-state">Experience information not available for other users.</div>';
                     return;
                 }
-                
+
                 const response = await fetchWithAuth(`/api/experiences/`);
                 const experiences = response || [];
-                
+
                 const container = document.getElementById('experienceList');
                 if (experiences.length === 0) {
                     container.innerHTML = '<div class="empty-state">No experience information available.</div>';
                     return;
                 }
-                
+
                 container.innerHTML = experiences.map(exp => `
                     <div class="opportunity-item" style="margin-bottom: 15px;">
                         <h4 style="margin: 0 0 5px 0; color: var(--primary);">${exp.title}</h4>
@@ -2307,15 +2307,15 @@
                 const response = await fetchWithAuth(`/api/community/posts/`);
                 const allPosts = response || [];
                 const userPosts = allPosts.filter(post => post.user.id == userId);
-                
+
                 document.getElementById('postsCount').textContent = userPosts.length;
-                
+
                 const container = document.getElementById('userPosts');
                 if (userPosts.length === 0) {
                     container.innerHTML = '<div class="empty-state">No posts yet.</div>';
                     return;
                 }
-                
+
                 container.innerHTML = userPosts.slice(0, 3).map(post => `
                     <div class="opportunity-item">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
@@ -2344,7 +2344,7 @@
                 const response = await fetchWithAuth('/api/mentorship/requests/');
                 const requests = response || [];
                 const approvedRequests = requests.filter(req => req.status === 'approved');
-                
+
                 let connectionCount = 0;
                 if (userRole === 'mentor') {
                     // Count mentees
@@ -2353,7 +2353,7 @@
                     // Count mentors
                     connectionCount = approvedRequests.filter(req => req.mentee.id == userId).length;
                 }
-                
+
                 document.getElementById('connectionsCount').textContent = connectionCount;
             } catch (error) {
                 console.error('Error loading connections:', error);
@@ -2379,16 +2379,16 @@
             try {
                 // Fetch current user data for sidebar/header
                 const currentUser = await fetchWithAuth('/api/user/');
-                
+
                 // Update sidebar and header with current user
                 document.getElementById('sidebarUserName').textContent = `Welcome, ${currentUser.full_name || 'User'}`;
                 document.getElementById('headerUserName').textContent = currentUser.full_name || 'User';
-                
+
                 if (currentUser.profile_pic) {
                     document.getElementById('sidebarProfilePic').src = currentUser.profile_pic;
                     document.getElementById('headerProfilePic').src = currentUser.profile_pic;
                 }
-                
+
                 // Update role display
                 const roleElement = document.querySelector('.user-profile .role');
                 if (currentUser.role === 'super_admin') {
@@ -2400,22 +2400,22 @@
                 } else {
                     roleElement.textContent = 'Member';
                 }
-                
+
                 // Load notifications count
                 const notificationsResponse = await fetchWithAuth('/api/notifications/');
                 const unreadCount = notificationsResponse.unread_count || 0;
                 document.getElementById('notificationBadge').textContent = unreadCount;
                 document.getElementById('notificationCount').textContent = unreadCount;
-                
+
                 // Load the profile being viewed
                 await loadUserProfile();
-                
+
                 // Record profile view if viewing someone else's profile
                 const userId = getUserIdFromUrl();
                 if (userId && currentUser.id != userId) {
                     await recordProfileView(userId);
                 }
-                
+
             } catch (error) {
                 console.error('Error initializing profile view:', error);
                 window.location.href = '../login.html';
@@ -2424,3 +2424,4 @@
     </script>
 </body>
 </html>
+

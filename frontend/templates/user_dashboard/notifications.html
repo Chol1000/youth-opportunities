@@ -83,11 +83,11 @@
                 display: block;
                 overflow-x: hidden;
             }
-            
+
             .sidebar {
                 display: none !important;
             }
-            
+
             .main-content {
                 margin-left: 0 !important;
                 margin-right: 0 !important;
@@ -102,7 +102,7 @@
                 right: auto;
                 transform: none;
             }
-            
+
             .header {
                 height: 60px;
                 padding: 0 10px;
@@ -115,29 +115,29 @@
                 justify-content: space-between;
                 align-items: center;
             }
-            
+
             .header-left {
                 display: flex;
                 order: 1;
             }
-            
+
             .header-left .search-bar {
                 display: none;
             }
-            
+
             .header-right {
                 display: none;
             }
-            
+
             .menu-toggle {
                 order: 2;
             }
-            
+
             .notification-bell,
             .theme-toggle {
                 display: none !important;
             }
-            
+
             .menu-toggle {
                 display: flex !important;
                 order: 2;
@@ -148,7 +148,7 @@
                 cursor: pointer;
                 z-index: 100;
             }
-            
+
             .menu-toggle span {
                 width: 100%;
                 height: 3px;
@@ -753,7 +753,7 @@
         @keyframes fadeOut {
             to { opacity: 0; }
         }
-        
+
         .search-modal {
             position: fixed;
             top: 0;
@@ -769,12 +769,12 @@
             visibility: hidden;
             transition: all 0.3s ease;
         }
-        
+
         .search-modal.show {
             opacity: 1;
             visibility: visible;
         }
-        
+
         .search-modal .modal-content {
             background: var(--card-bg);
             border-radius: 12px;
@@ -787,11 +787,11 @@
             transform: scale(0.7);
             transition: transform 0.3s ease;
         }
-        
+
         .search-modal.show .modal-content {
             transform: scale(1);
         }
-        
+
         .modal-header {
             display: flex;
             justify-content: space-between;
@@ -799,12 +799,12 @@
             padding: 20px;
             border-bottom: 1px solid var(--card-border);
         }
-        
+
         .modal-header h3 {
             margin: 0;
             color: var(--text-color);
         }
-        
+
         .modal-close {
             background: none;
             border: none;
@@ -812,13 +812,13 @@
             cursor: pointer;
             color: var(--text-color);
         }
-        
+
         .search-form {
             padding: 20px;
             display: flex;
             gap: 10px;
         }
-        
+
         .modal-search-input {
             flex: 1;
             padding: 12px;
@@ -828,7 +828,7 @@
             background: var(--card-bg);
             color: var(--text-color);
         }
-        
+
         .modal-search-btn {
             background: var(--primary);
             color: white;
@@ -837,14 +837,14 @@
             border-radius: 6px;
             cursor: pointer;
         }
-        
+
         .search-results {
             padding: 0 20px 20px;
             overflow-y: auto;
             flex: 1;
             max-height: 400px;
         }
-        
+
         .search-result-item {
             padding: 15px;
             border: 1px solid var(--card-border);
@@ -853,22 +853,22 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .search-result-item:hover {
             background: var(--hover-bg);
         }
-        
+
         .search-result-item h5 {
             margin-bottom: 5px;
             color: var(--primary);
         }
-        
+
         .search-result-item p {
             color: var(--text-color);
             font-size: 0.9rem;
             margin: 0;
         }
-        
+
         @media (max-width: 768px) {
             .search-modal .modal-content {
                 width: 95% !important;
@@ -890,7 +890,7 @@
             z-index: 1000;
             box-sizing: border-box;
         }
-        
+
         .bottom-nav-items {
             display: flex;
             justify-content: space-around;
@@ -898,7 +898,7 @@
             width: 100%;
             max-width: 100%;
         }
-        
+
         .bottom-nav-item {
             display: flex;
             flex-direction: column;
@@ -910,12 +910,12 @@
             flex: 1;
             max-width: 20%;
         }
-        
+
         .bottom-nav-item i {
             font-size: 16px;
             margin-bottom: 2px;
         }
-        
+
         .bottom-nav-item span {
             font-size: 9px;
             font-weight: 500;
@@ -924,12 +924,12 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        
+
         .bottom-nav-item:hover,
         .bottom-nav-item.active {
             color: var(--primary);
         }
-        
+
         .mobile-menu-dropdown {
             position: fixed;
             top: 75px;
@@ -941,11 +941,11 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             z-index: 1001;
         }
-        
+
         .mobile-menu-content {
             padding: 8px 0;
         }
-        
+
         .mobile-menu-item {
             display: flex;
             align-items: center;
@@ -957,21 +957,21 @@
             cursor: pointer;
             position: relative;
         }
-        
+
         .mobile-menu-item:hover {
             background: var(--hover-bg);
         }
-        
+
         .mobile-menu-item i {
             width: 16px;
             font-size: 14px;
         }
-        
+
         .mobile-menu-item span {
             font-size: 14px;
             font-weight: 500;
         }
-        
+
         .mobile-menu-item .badge {
             margin-left: auto;
             background: var(--danger);
@@ -982,12 +982,12 @@
             min-width: 16px;
             text-align: center;
         }
-        
+
         @media (max-width: 768px) {
             .mobile-bottom-nav {
                 display: block;
             }
-            
+
             .notifications-header {
                 flex-direction: column;
                 gap: 15px;
@@ -1007,7 +1007,7 @@
                 overflow-x: auto;
                 padding-bottom: 5px;
             }
-            
+
             .filter-tab {
                 flex-shrink: 0;
                 padding: 6px 12px;
@@ -1026,15 +1026,15 @@
                 height: 35px;
                 font-size: 14px;
             }
-            
+
             .notification-item {
                 padding: 15px;
             }
-            
+
             .notification-title {
                 font-size: 1rem;
             }
-            
+
             .notification-message {
                 font-size: 13px;
             }
@@ -1052,65 +1052,65 @@
                 <div class="admin-name" id="sidebarUserName">Welcome, Loading...</div>
             </div>
         </div>
-        
+
         <div class="sidebar-menu">
             <a href="index.html" class="menu-item" data-section="dashboard">
                 <i class="fas fa-home"></i>
                 <span>Dashboard</span>
             </a>
-            
+
             <a href="profile.html" class="menu-item" data-section="profile">
                 <i class="fas fa-user"></i>
                 <span>My Profile</span>
             </a>
-            
+
             <a href="opportunities.html" class="menu-item" data-section="opportunities">
                 <i class="fas fa-briefcase"></i>
                 <span>Opportunities</span>
             </a>
-            
+
             <a href="mentors.html" class="menu-item" data-section="mentors">
                 <i class="fas fa-chalkboard-teacher"></i>
                 <span>Mentors</span>
             </a>
-            
+
             <a href="community.html" class="menu-item" data-section="community">
                 <i class="fas fa-users"></i>
                 <span>Community</span>
             </a>
-            
+
             <a href="inbox.html" class="menu-item" data-section="inbox">
                 <i class="fas fa-inbox"></i>
                 <span>Inbox</span>
                 <span class="badge" id="messageCount">0</span>
             </a>
-            
+
             <a href="cv-review.html" class="menu-item" data-section="cv-review">
                 <i class="fas fa-file-alt"></i>
                 <span>CV Review</span>
             </a>
-            
+
             <a href="training.html" class="menu-item" data-section="training">
                 <i class="fas fa-graduation-cap"></i>
                 <span>Training</span>
             </a>
-            
+
             <a href="webinars.html" class="menu-item" data-section="webinars">
                 <i class="fas fa-video"></i>
                 <span>Webinars</span>
             </a>
-            
+
             <a href="notifications.html" class="menu-item active" data-section="notifications">
                 <i class="fas fa-bell"></i>
                 <span>Notifications</span>
                 <span class="badge" id="notificationCount">0</span>
             </a>
-            
+
             <a href="settings.html" class="menu-item" data-section="settings">
                 <i class="fas fa-cog"></i>
                 <span>Settings</span>
             </a>
-            
+
             <div class="menu-item" id="logoutBtn">
                 <i class="fas fa-sign-out-alt"></i>
                 <span>Logout</span>
@@ -1170,7 +1170,7 @@
 
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay"></div>
-    
+
     <!-- Mobile Bottom Navigation -->
     <div class="mobile-bottom-nav">
         <div class="bottom-nav-items">
@@ -1212,18 +1212,18 @@
                     <input type="text" id="notificationSearch" placeholder="Search notifications...">
                 </div>
             </div>
-            
+
             <div class="header-right">
                 <div class="theme-toggle" id="themeToggle">
                     <i class="fas fa-moon"></i>
                     <span class="toggle-text">Dark Mode</span>
                 </div>
-                
+
                 <div class="notification-bell" id="notificationBell">
                     <i class="fas fa-bell"></i>
                     <span class="badge" id="notificationBadge">0</span>
                 </div>
-                
+
                 <div class="user-profile">
                     <img id="headerProfilePic" src="../../static/images/default-image.jpg" alt="User">
                     <div>
@@ -1292,32 +1292,32 @@
         // Fetch with authentication
         async function fetchWithAuth(url, options = {}) {
             const csrfToken = await getCSRFToken();
-            
+
             const headers = {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': csrfToken,
             };
-            
+
             if (options.headers) {
                 Object.assign(headers, options.headers);
             }
-            
+
             const response = await fetch(url, {
                 ...options,
                 headers,
                 credentials: 'include',
             });
-            
+
             if (response.status === 401 || response.status === 403) {
                 window.location.href = '../login.html';
                 return;
             }
-            
+
             if (!response.ok) {
                 const errorData = await response.json();
                 throw new Error(errorData.message || 'Request failed');
             }
-            
+
             return response.json();
         }
 
@@ -1338,7 +1338,7 @@
             `;
             notification.className = `notification ${type === 'error' ? 'error' : ''}`;
             notification.style.display = 'flex';
-            
+
             setTimeout(() => {
                 notification.style.display = 'none';
             }, 3000);
@@ -1349,7 +1349,7 @@
             try {
                 showLoading();
                 const response = await fetchWithAuth('/api/notifications/');
-                
+
                 if (response && response.notifications) {
                     notifications = response.notifications;
                     renderNotifications();
@@ -1371,9 +1371,9 @@
         function renderNotifications() {
             const container = document.getElementById('notificationsList');
             const emptyState = document.getElementById('emptyNotifications');
-            
+
             let filteredNotifications = notifications;
-            
+
             // Apply filter
             if (currentFilter !== 'all') {
                 filteredNotifications = notifications.filter(notification => {
@@ -1398,10 +1398,10 @@
         function createNotificationElement(notification) {
             const iconType = getNotificationIconType(notification.title);
             const timeAgo = formatTimeAgo(notification.created_at);
-            
+
             return `
-                <div class="notification-item ${!notification.is_read ? 'unread' : ''}" 
-                     data-id="${notification.id}" 
+                <div class="notification-item ${!notification.is_read ? 'unread' : ''}"
+                     data-id="${notification.id}"
                      onclick="handleNotificationClick(${notification.id}, '${notification.link || '#'}')">
                     <div class="notification-header">
                         <div class="notification-icon ${iconType}">
@@ -1450,12 +1450,12 @@
             const date = new Date(dateString);
             const now = new Date();
             const diffInSeconds = Math.floor((now - date) / 1000);
-            
+
             if (diffInSeconds < 60) return 'Just now';
             if (diffInSeconds < 3600) return `${Math.floor(diffInSeconds / 60)}m ago`;
             if (diffInSeconds < 86400) return `${Math.floor(diffInSeconds / 3600)}h ago`;
             if (diffInSeconds < 604800) return `${Math.floor(diffInSeconds / 86400)}d ago`;
-            
+
             return date.toLocaleDateString();
         }
 
@@ -1467,7 +1467,7 @@
                 if (notification && !notification.is_read) {
                     await markAsRead(notificationId);
                 }
-                
+
                 // Navigate to link if provided
                 if (link && link !== '#') {
                     window.location.href = link;
@@ -1482,18 +1482,18 @@
             if (event) {
                 event.stopPropagation();
             }
-            
+
             try {
                 await fetchWithAuth(`/api/notifications/${notificationId}/read/`, {
                     method: 'POST'
                 });
-                
+
                 // Update local state
                 const notification = notifications.find(n => n.id === notificationId);
                 if (notification) {
                     notification.is_read = true;
                 }
-                
+
                 renderNotifications();
                 updateNotificationCounts();
                 showAlert('Notification marked as read', 'success');
@@ -1509,10 +1509,10 @@
                 await fetchWithAuth('/api/notifications/mark-all-read/', {
                     method: 'POST'
                 });
-                
+
                 // Update local state
                 notifications.forEach(n => n.is_read = true);
-                
+
                 renderNotifications();
                 updateNotificationCounts();
                 showAlert('All notifications marked as read', 'success');
@@ -1525,7 +1525,7 @@
         // Update notification counts
         function updateNotificationCounts() {
             const unreadCount = notifications.filter(n => !n.is_read).length;
-            
+
             document.getElementById('notificationBadge').textContent = unreadCount;
             document.getElementById('notificationCount').textContent = unreadCount;
         }
@@ -1568,7 +1568,7 @@
         const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
         const mobileThemeToggle = document.getElementById('mobileThemeToggle');
         const mobileLogout = document.getElementById('mobileLogout');
-        
+
         if (menuToggle) {
             menuToggle.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -1579,7 +1579,7 @@
                 }
             });
         }
-        
+
         // Close menu when clicking outside
         document.addEventListener('click', function() {
             if (mobileMenuDropdown) {
@@ -1589,7 +1589,7 @@
                 }
             }
         });
-        
+
         // Mobile theme toggle
         if (mobileThemeToggle) {
             mobileThemeToggle.addEventListener('click', function() {
@@ -1605,17 +1605,17 @@
                 mobileMenuDropdown.style.display = 'none';
             });
         }
-        
+
         // Mobile logout
         if (mobileLogout) {
             mobileLogout.addEventListener('click', function() {
                 if (confirm('Are you sure you want to logout?')) {
                     localStorage.removeItem('user');
-                    window.location.href = '../login.html';
+                    window.location.href = '../posts/home.html';
                 }
             });
         }
-        
+
         // Mobile search modal
         const mobileSearch = document.getElementById('mobileSearch');
         if (mobileSearch) {
@@ -1624,21 +1624,21 @@
                 mobileMenuDropdown.style.display = 'none';
             });
         }
-        
+
         // Desktop search functionality
         const notificationSearch = document.getElementById('notificationSearch');
         if (notificationSearch) {
             notificationSearch.addEventListener('input', function() {
                 const searchTerm = this.value.toLowerCase();
                 const notificationItems = document.querySelectorAll('.notification-item');
-                
+
                 notificationItems.forEach(item => {
                     const content = item.textContent.toLowerCase();
                     item.style.display = content.includes(searchTerm) ? 'block' : 'none';
                 });
             });
         }
-        
+
         // Show search modal (mobile)
         function showSearchModal() {
             const modal = document.createElement('div');
@@ -1657,13 +1657,13 @@
                 </div>
             `;
             document.body.appendChild(modal);
-            
+
             setTimeout(() => modal.classList.add('show'), 10);
-            
+
             const searchInput = modal.querySelector('.modal-search-input');
             const searchButton = modal.querySelector('.modal-search-btn');
             const resultsDiv = modal.querySelector('#searchResults');
-            
+
             function closeModal() {
                 modal.classList.remove('show');
                 setTimeout(() => {
@@ -1672,16 +1672,16 @@
                     }
                 }, 300);
             }
-            
+
             function performModalSearch() {
                 const query = searchInput.value.toLowerCase().trim();
                 if (!query) return;
-                
+
                 resultsDiv.innerHTML = '<p>Searching...</p>';
-                
+
                 const results = [];
                 const notificationItems = document.querySelectorAll('.notification-item');
-                
+
                 notificationItems.forEach(item => {
                     const content = item.textContent || '';
                     if (content.toLowerCase().includes(query)) {
@@ -1694,7 +1694,7 @@
                         });
                     }
                 });
-                
+
                 resultsDiv.innerHTML = `<h4>${results.length} results found</h4>`;
                 results.slice(0, 10).forEach(result => {
                     const resultItem = document.createElement('div');
@@ -1706,31 +1706,31 @@
                     resultsDiv.appendChild(resultItem);
                 });
             }
-            
+
             searchButton.onclick = performModalSearch;
             searchInput.onkeypress = (e) => { if (e.key === 'Enter') performModalSearch(); };
-            
+
             modal.querySelector('.modal-close').onclick = closeModal;
             modal.onclick = (e) => { if (e.target === modal) closeModal(); };
-            
+
             setTimeout(() => searchInput.focus(), 100);
         }
 
         // Filter tabs functionality
         document.addEventListener('DOMContentLoaded', function() {
             const filterTabs = document.querySelectorAll('.filter-tab');
-            
+
             filterTabs.forEach(tab => {
                 tab.addEventListener('click', function() {
                     // Remove active class from all tabs
                     filterTabs.forEach(t => t.classList.remove('active'));
-                    
+
                     // Add active class to clicked tab
                     this.classList.add('active');
-                    
+
                     // Update current filter
                     currentFilter = this.dataset.filter;
-                    
+
                     // Re-render notifications
                     renderNotifications();
                 });
@@ -1746,17 +1746,17 @@
                 // Fetch current user data
                 const userResponse = await fetchWithAuth('/api/user/');
                 currentUser = userResponse;
-                
+
                 // Update UI with user data
                 document.getElementById('sidebarProfilePic').src = currentUser.profile_pic || '../../static/images/default-profile.png';
                 document.getElementById('headerProfilePic').src = currentUser.profile_pic || '../../static/images/default-profile.png';
-                
+
                 document.getElementById('sidebarUserName').textContent = `Welcome, ${currentUser.full_name || 'User'}`;
                 document.getElementById('headerUserName').textContent = currentUser.full_name || 'User';
-                
+
                 // Load notifications
                 await loadNotifications();
-                
+
             } catch (error) {
                 console.error('Error initializing page:', error);
                 if (error.message.includes('401') || error.message.includes('403')) {
@@ -1778,7 +1778,7 @@
                     credentials: 'include',
                 })
                 .then(() => {
-                    window.location.href = '../login.html';
+                    window.location.href = '../posts/home.html';
                 })
                 .catch(error => {
                     console.error('Error logging out:', error);
@@ -1789,3 +1789,4 @@
     </script>
 </body>
 </html>
+

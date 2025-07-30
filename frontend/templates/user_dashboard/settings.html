@@ -82,11 +82,11 @@
                 display: block;
                 overflow-x: hidden;
             }
-            
+
             .sidebar {
                 display: none !important;
             }
-            
+
             .main-content {
                 margin-left: 0 !important;
                 margin-right: 0 !important;
@@ -101,7 +101,7 @@
                 right: auto;
                 transform: none;
             }
-            
+
             .header {
                 height: 60px;
                 padding: 0 10px;
@@ -114,29 +114,29 @@
                 justify-content: space-between;
                 align-items: center;
             }
-            
+
             .header-left {
                 display: flex;
                 order: 1;
             }
-            
+
             .header-left .search-bar {
                 display: none;
             }
-            
+
             .header-right {
                 display: none;
             }
-            
+
             .menu-toggle {
                 order: 2;
             }
-            
+
             .notification-bell,
             .theme-toggle {
                 display: none !important;
             }
-            
+
             .menu-toggle {
                 display: flex !important;
                 order: 2;
@@ -147,7 +147,7 @@
                 cursor: pointer;
                 z-index: 100;
             }
-            
+
             .menu-toggle span {
                 width: 100%;
                 height: 3px;
@@ -533,7 +533,7 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
-        
+
         .section-header {
             display: flex;
             justify-content: space-between;
@@ -542,18 +542,18 @@
             padding-bottom: 15px;
             border-bottom: 1px solid var(--divider-color);
         }
-        
+
         .section-header h2 {
             font-size: 18px;
             color: var(--text-color);
             margin: 0;
             font-weight: 600;
         }
-        
+
         .edit-btn {
             display: none;
         }
-        
+
         .edit-btn:hover {
             background: rgba(99, 102, 241, 0.1);
         }
@@ -582,7 +582,7 @@
         .form-group {
             margin-bottom: 15px;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 8px;
@@ -617,26 +617,26 @@
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .custom-select-wrapper {
             position: relative;
         }
-        
+
         .custom-select {
             display: flex;
             align-items: center;
             justify-content: space-between;
             cursor: pointer;
         }
-        
+
         .select-arrow {
             transition: transform 0.3s ease;
         }
-        
+
         .custom-select.active .select-arrow {
             transform: rotate(180deg);
         }
-        
+
         .select-options {
             position: absolute;
             top: 100%;
@@ -650,18 +650,18 @@
             max-height: 200px;
             overflow-y: auto;
         }
-        
+
         .select-option {
             padding: 12px 15px;
             cursor: pointer;
             transition: background 0.2s ease;
             font-size: 14px;
         }
-        
+
         .select-option:hover {
             background: var(--hover-bg);
         }
-        
+
         .select-option.selected {
             background: rgba(99, 102, 241, 0.1);
             color: var(--primary);
@@ -718,7 +718,7 @@
         @keyframes fadeOut {
             to { opacity: 0; }
         }
-        
+
         .search-modal {
             position: fixed;
             top: 0;
@@ -734,12 +734,12 @@
             visibility: hidden;
             transition: all 0.3s ease;
         }
-        
+
         .search-modal.show {
             opacity: 1;
             visibility: visible;
         }
-        
+
         .search-modal .modal-content {
             background: var(--card-bg);
             border-radius: 12px;
@@ -752,11 +752,11 @@
             transform: scale(0.7);
             transition: transform 0.3s ease;
         }
-        
+
         .search-modal.show .modal-content {
             transform: scale(1);
         }
-        
+
         .modal-header {
             display: flex;
             justify-content: space-between;
@@ -764,12 +764,12 @@
             padding: 20px;
             border-bottom: 1px solid var(--card-border);
         }
-        
+
         .modal-header h3 {
             margin: 0;
             color: var(--text-color);
         }
-        
+
         .modal-close {
             background: none;
             border: none;
@@ -777,13 +777,13 @@
             cursor: pointer;
             color: var(--text-color);
         }
-        
+
         .search-form {
             padding: 20px;
             display: flex;
             gap: 10px;
         }
-        
+
         .modal-search-input {
             flex: 1;
             padding: 12px;
@@ -793,7 +793,7 @@
             background: var(--card-bg);
             color: var(--text-color);
         }
-        
+
         .modal-search-btn {
             background: var(--primary);
             color: white;
@@ -802,14 +802,14 @@
             border-radius: 6px;
             cursor: pointer;
         }
-        
+
         .search-results {
             padding: 0 20px 20px;
             overflow-y: auto;
             flex: 1;
             max-height: 400px;
         }
-        
+
         .search-result-item {
             padding: 15px;
             border: 1px solid var(--card-border);
@@ -818,22 +818,22 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .search-result-item:hover {
             background: var(--hover-bg);
         }
-        
+
         .search-result-item h5 {
             margin-bottom: 5px;
             color: var(--primary);
         }
-        
+
         .search-result-item p {
             color: var(--text-color);
             font-size: 0.9rem;
             margin: 0;
         }
-        
+
         @media (max-width: 768px) {
             .search-modal .modal-content {
                 width: 95% !important;
@@ -922,7 +922,7 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
-        
+
         .profile-pic {
             position: relative;
             width: 120px;
@@ -932,13 +932,13 @@
             flex-shrink: 0;
             border: 4px solid var(--primary-light);
         }
-        
+
         .profile-pic img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         .profile-pic-edit {
             display: none;
         }
@@ -946,18 +946,18 @@
         .profile-pic-edit:hover {
             background: rgba(0,0,0,0.7);
         }
-        
+
         .profile-info {
             flex: 1;
         }
-        
+
         .profile-info h1 {
             margin: 0 0 10px 0;
             font-size: 28px;
             color: var(--text-color);
             font-weight: 700;
         }
-        
+
         .profile-info p {
             margin: 0;
             font-size: 16px;
@@ -979,7 +979,7 @@
             z-index: 1000;
             box-sizing: border-box;
         }
-        
+
         .bottom-nav-items {
             display: flex;
             justify-content: space-around;
@@ -987,7 +987,7 @@
             width: 100%;
             max-width: 100%;
         }
-        
+
         .bottom-nav-item {
             display: flex;
             flex-direction: column;
@@ -999,12 +999,12 @@
             flex: 1;
             max-width: 20%;
         }
-        
+
         .bottom-nav-item i {
             font-size: 16px;
             margin-bottom: 2px;
         }
-        
+
         .bottom-nav-item span {
             font-size: 9px;
             font-weight: 500;
@@ -1013,12 +1013,12 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        
+
         .bottom-nav-item:hover,
         .bottom-nav-item.active {
             color: var(--primary);
         }
-        
+
         .mobile-menu-dropdown {
             position: fixed;
             top: 75px;
@@ -1030,11 +1030,11 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             z-index: 1001;
         }
-        
+
         .mobile-menu-content {
             padding: 8px 0;
         }
-        
+
         .mobile-menu-item {
             display: flex;
             align-items: center;
@@ -1046,21 +1046,21 @@
             cursor: pointer;
             position: relative;
         }
-        
+
         .mobile-menu-item:hover {
             background: var(--hover-bg);
         }
-        
+
         .mobile-menu-item i {
             width: 16px;
             font-size: 14px;
         }
-        
+
         .mobile-menu-item span {
             font-size: 14px;
             font-weight: 500;
         }
-        
+
         .mobile-menu-item .badge {
             margin-left: auto;
             background: var(--danger);
@@ -1071,20 +1071,20 @@
             min-width: 16px;
             text-align: center;
         }
-        
+
         @media (max-width: 768px) {
             .mobile-bottom-nav {
                 display: block;
             }
-            
+
             .page-header {
                 margin-bottom: 15px;
             }
-            
+
             .page-title {
                 font-size: 18px;
             }
-            
+
             .profile-header {
                 flex-direction: column;
                 align-items: flex-start;
@@ -1092,46 +1092,46 @@
                 padding: 15px;
                 margin-bottom: 15px;
             }
-            
+
             .profile-pic {
                 width: 100px;
                 height: 100px;
             }
-            
+
             .action-btns {
                 flex-direction: column;
                 gap: 8px;
             }
-            
+
             .profile-section {
                 padding: 15px;
                 margin-bottom: 15px;
             }
-            
+
             .security-item, .danger-item, .profile-item {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 10px;
                 padding: 15px;
             }
-            
+
             .preference-item {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 10px;
                 padding: 15px 0;
             }
-            
+
             .preference-item div {
                 text-align: left;
                 width: 100%;
             }
-            
+
             .preference-item select {
                 width: 100% !important;
                 margin-top: 5px;
             }
-            
+
             .profile-header {
                 flex-direction: column;
                 align-items: center;
@@ -1140,12 +1140,12 @@
                 padding: 15px;
                 margin-bottom: 15px;
             }
-            
+
             .modal-content {
                 width: 95%;
                 margin: 10px;
             }
-            
+
             .modal-body {
                 padding: 15px;
             }
@@ -1196,7 +1196,7 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        
+
         /* Toggle Switch Styles */
         .switch {
             position: relative;
@@ -1204,13 +1204,13 @@
             width: 50px;
             height: 24px;
         }
-        
+
         .switch input {
             opacity: 0;
             width: 0;
             height: 0;
         }
-        
+
         .slider {
             position: absolute;
             cursor: pointer;
@@ -1222,7 +1222,7 @@
             transition: .4s;
             border-radius: 24px;
         }
-        
+
         .slider:before {
             position: absolute;
             content: "";
@@ -1234,15 +1234,15 @@
             transition: .4s;
             border-radius: 50%;
         }
-        
+
         input:checked + .slider {
             background-color: var(--primary);
         }
-        
+
         input:checked + .slider:before {
             transform: translateX(26px);
         }
-        
+
         /* Preference Item Styles */
         .preference-item {
             display: flex;
@@ -1251,17 +1251,17 @@
             padding: 20px 0;
             border-bottom: 1px solid var(--divider-color);
         }
-        
+
         .preference-item:last-child {
             border-bottom: none;
         }
-        
+
         .preference-item h3 {
             font-size: 16px;
             margin-bottom: 5px;
             color: var(--text-color);
         }
-        
+
         .preference-item p {
             font-size: 14px;
             color: var(--text-color);
@@ -1302,65 +1302,65 @@
                 <div class="admin-name" id="sidebarUserName">Welcome, Loading...</div>
             </div>
         </div>
-        
+
         <div class="sidebar-menu">
             <a href="index.html" class="menu-item" data-section="dashboard">
                 <i class="fas fa-home"></i>
                 <span>Dashboard</span>
             </a>
-            
+
             <a href="profile.html" class="menu-item" data-section="profile">
                 <i class="fas fa-user"></i>
                 <span>My Profile</span>
             </a>
-            
+
             <a href="opportunities.html" class="menu-item" data-section="opportunities">
                 <i class="fas fa-briefcase"></i>
                 <span>Opportunities</span>
             </a>
-            
+
             <a href="mentors.html" class="menu-item" data-section="mentors">
                 <i class="fas fa-chalkboard-teacher"></i>
                 <span>Mentors</span>
             </a>
-            
+
             <a href="community.html" class="menu-item" data-section="community">
                 <i class="fas fa-users"></i>
                 <span>Community</span>
             </a>
-            
+
             <a href="inbox.html" class="menu-item" data-section="inbox">
                 <i class="fas fa-inbox"></i>
                 <span>Inbox</span>
                 <span class="badge" id="messageCount">0</span>
             </a>
-            
+
             <a href="cv-review.html" class="menu-item" data-section="cv-review">
                 <i class="fas fa-file-alt"></i>
                 <span>CV Review</span>
             </a>
-            
+
             <a href="training.html" class="menu-item" data-section="training">
                 <i class="fas fa-graduation-cap"></i>
                 <span>Training</span>
             </a>
-            
+
             <a href="webinars.html" class="menu-item" data-section="webinars">
                 <i class="fas fa-video"></i>
                 <span>Webinars</span>
             </a>
-            
+
             <a href="notifications.html" class="menu-item" data-section="notifications">
                 <i class="fas fa-bell"></i>
                 <span>Notifications</span>
                 <span class="badge" id="notificationCount">0</span>
             </a>
-            
+
             <a href="settings.html" class="menu-item active" data-section="settings">
                 <i class="fas fa-cog"></i>
                 <span>Settings</span>
             </a>
-            
+
             <div class="menu-item" id="logoutBtn">
                 <i class="fas fa-sign-out-alt"></i>
                 <span>Logout</span>
@@ -1421,7 +1421,7 @@
 
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay"></div>
-    
+
     <!-- Mobile Bottom Navigation -->
     <div class="mobile-bottom-nav">
         <div class="bottom-nav-items">
@@ -1463,18 +1463,18 @@
                     <input type="text" id="settingsSearch" placeholder="Search settings...">
                 </div>
             </div>
-            
+
             <div class="header-right">
                 <div class="theme-toggle" id="themeToggle">
                     <i class="fas fa-moon"></i>
                     <span class="toggle-text">Dark Mode</span>
                 </div>
-                
+
                 <div class="notification-bell" id="notificationBell">
                     <i class="fas fa-bell"></i>
                     <span class="badge" id="notificationBadge">0</span>
                 </div>
-                
+
                 <div class="user-profile">
                     <img id="headerProfilePic" src="../../static/images/default-image.jpg" alt="User">
                     <div>
@@ -1490,7 +1490,7 @@
             <div class="page-header">
                 <h1 class="page-title">Account Settings</h1>
             </div>
-            
+
             <!-- Profile Header -->
             <div class="profile-header">
                 <div class="profile-pic">
@@ -1520,13 +1520,13 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Profile Information Section -->
             <div class="profile-section">
                 <div class="section-header">
                     <h2>Profile Information</h2>
                 </div>
-                
+
                 <div class="profile-settings">
                     <div class="profile-item">
                         <div>
@@ -1539,7 +1539,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Personal Information Modal -->
             <div class="modal" id="personalInfoModal">
                 <div class="modal-content">
@@ -1554,22 +1554,22 @@
                             <label for="firstName">First Name</label>
                             <input type="text" id="firstName" class="form-control" placeholder="Enter your first name">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="lastName">Last Name</label>
                             <input type="text" id="lastName" class="form-control" placeholder="Enter your last name">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="email">Email Address</label>
                             <input type="email" id="email" class="form-control" placeholder="Enter your email address">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
                             <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="location">Location</label>
                             <input type="text" id="location" class="form-control" placeholder="Enter your location">
@@ -1586,13 +1586,13 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Account Security Section -->
             <div class="profile-section">
                 <div class="section-header">
                     <h2>Account Security</h2>
                 </div>
-                
+
                 <div class="security-settings">
                     <div class="security-item">
                         <div>
@@ -1605,7 +1605,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Change Password Modal -->
             <div class="modal" id="passwordModal">
                 <div class="modal-content">
@@ -1620,12 +1620,12 @@
                             <label for="currentPassword">Current Password</label>
                             <input type="password" id="currentPassword" class="form-control" placeholder="Enter your current password">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="newPassword">New Password</label>
                             <input type="password" id="newPassword" class="form-control" placeholder="Enter your new password">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="confirmPassword">Confirm New Password</label>
                             <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your new password">
@@ -1642,13 +1642,13 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- App Preferences Section -->
             <div class="profile-section">
                 <div class="section-header">
                     <h2>App Preferences</h2>
                 </div>
-                
+
                 <div class="preference-settings">
                     <div class="preference-item">
                         <div>
@@ -1667,7 +1667,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="preference-item">
                         <div>
                             <h3>Language</h3>
@@ -1681,13 +1681,13 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Danger Zone Section -->
             <div class="profile-section">
                 <div class="section-header">
                     <h2>Danger Zone</h2>
                 </div>
-                
+
                 <div class="danger-zone">
                     <div class="danger-item">
                         <div>
@@ -1698,7 +1698,7 @@
                             Deactivate
                         </button>
                     </div>
-                    
+
                     <div class="danger-item">
                         <div>
                             <h3>Delete Account</h3>
@@ -1710,7 +1710,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Deactivate Account Modal -->
             <div class="modal" id="deactivateModal">
                 <div class="modal-content">
@@ -1722,7 +1722,7 @@
                     </div>
                     <div class="modal-body">
                         <p>Are you sure you want to deactivate your account? Your profile will be hidden but you can reactivate it by logging in again.</p>
-                        
+
                         <div class="form-group">
                             <label for="deactivateReason">Reason for deactivating (optional)</label>
                             <div class="custom-select-wrapper">
@@ -1739,7 +1739,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="form-group" id="otherReasonContainer" style="display: none;">
                             <label for="otherReason">Please specify</label>
                             <textarea id="otherReason" class="form-control" rows="3" placeholder="Tell us why you're deactivating"></textarea>
@@ -1761,7 +1761,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Delete Account Modal -->
             <div class="modal" id="deleteAccountModal">
                 <div class="modal-content">
@@ -1775,9 +1775,9 @@
                         <p style="color: var(--danger); font-weight: 500; margin-bottom: 15px;">
                             <i class="fas fa-exclamation-triangle"></i> Warning: This action cannot be undone!
                         </p>
-                        
+
                         <p>All your data including profile information, applications, and messages will be permanently deleted.</p>
-                        
+
                         <div class="form-group">
                             <label for="deletePassword">Enter your password to confirm</label>
                             <input type="password" id="deletePassword" class="form-control" placeholder="Your account password">
@@ -1799,54 +1799,54 @@
 
     <script>
         // API Configuration
-        const API_BASE_URL = 'http://localhost:8000/api'; // Update with your actual API URL
-        
+        const API_BASE_URL = 'https://chol1000.pythonanywhere.com/api'; // Update with your actual API URL
+
         // Get CSRF Token from cookies
         function getCSRFToken() {
             const cookieValue = document.cookie.match('(^|;)\\s*csrftoken\\s*=\\s*([^;]+)');
             return cookieValue ? cookieValue.pop() : '';
         }
-        
+
         // API Request Helper
         async function makeRequest(url, method = 'GET', data = null, isFormData = false) {
             const headers = {
                 'X-CSRFToken': getCSRFToken()
             };
-            
+
             if (!isFormData) {
                 headers['Content-Type'] = 'application/json';
             }
-            
+
             const token = localStorage.getItem('token');
             if (token) {
                 headers['Authorization'] = `Bearer ${token}`;
             }
-            
+
             const config = {
                 method,
                 headers,
                 credentials: 'include'
             };
-            
+
             if (data) {
                 config.body = isFormData ? data : JSON.stringify(data);
             }
-            
+
             try {
                 const response = await fetch(`${API_BASE_URL}${url}`, config);
-                
+
                 if (!response.ok) {
                     const errorData = await response.json();
                     throw new Error(errorData.message || 'Request failed');
                 }
-                
+
                 return await response.json();
             } catch (error) {
                 console.error('API Error:', error);
                 throw error;
             }
         }
-        
+
         // Loading functions
         function showLoading() {
             document.getElementById('loadingOverlay').style.display = 'flex';
@@ -1870,15 +1870,15 @@
                 alert.remove();
             }, 3000);
         }
-        
+
         // Toggle loading state for buttons
         function toggleLoading(buttonId, isLoading) {
             const button = document.getElementById(buttonId);
             if (!button) return;
-            
+
             const textSpan = button.querySelector('span:not(.spinner)');
             const spinner = button.querySelector('.spinner');
-            
+
             if (isLoading) {
                 button.disabled = true;
                 if (textSpan) textSpan.style.display = 'none';
@@ -1889,7 +1889,7 @@
                 if (spinner) spinner.style.display = 'none';
             }
         }
-        
+
         // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
@@ -1922,7 +1922,7 @@
         const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
         const mobileThemeToggle = document.getElementById('mobileThemeToggle');
         const mobileLogout = document.getElementById('mobileLogout');
-        
+
         if (menuToggle) {
             menuToggle.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -1933,7 +1933,7 @@
                 }
             });
         }
-        
+
         // Close menu when clicking outside
         document.addEventListener('click', function() {
             if (mobileMenuDropdown) {
@@ -1943,7 +1943,7 @@
                 }
             }
         });
-        
+
         // Mobile theme toggle
         if (mobileThemeToggle) {
             mobileThemeToggle.addEventListener('click', function() {
@@ -1959,17 +1959,17 @@
                 mobileMenuDropdown.style.display = 'none';
             });
         }
-        
+
         // Mobile logout
         if (mobileLogout) {
             mobileLogout.addEventListener('click', function() {
                 if (confirm('Are you sure you want to logout?')) {
                     localStorage.removeItem('user');
-                    window.location.href = '../login.html';
+                    window.location.href = '../posts/home.html';
                 }
             });
         }
-        
+
         // Mobile search modal
         const mobileSearch = document.getElementById('mobileSearch');
         if (mobileSearch) {
@@ -1978,21 +1978,21 @@
                 mobileMenuDropdown.style.display = 'none';
             });
         }
-        
+
         // Desktop search functionality
         const settingsSearch = document.getElementById('settingsSearch');
         if (settingsSearch) {
             settingsSearch.addEventListener('input', function() {
                 const searchTerm = this.value.toLowerCase();
                 const settingSections = document.querySelectorAll('.profile-section');
-                
+
                 settingSections.forEach(item => {
                     const content = item.textContent.toLowerCase();
                     item.style.display = content.includes(searchTerm) ? 'block' : 'none';
                 });
             });
         }
-        
+
         // Show search modal (mobile)
         function showSearchModal() {
             const modal = document.createElement('div');
@@ -2011,13 +2011,13 @@
                 </div>
             `;
             document.body.appendChild(modal);
-            
+
             setTimeout(() => modal.classList.add('show'), 10);
-            
+
             const searchInput = modal.querySelector('.modal-search-input');
             const searchButton = modal.querySelector('.modal-search-btn');
             const resultsDiv = modal.querySelector('#searchResults');
-            
+
             function closeModal() {
                 modal.classList.remove('show');
                 setTimeout(() => {
@@ -2026,16 +2026,16 @@
                     }
                 }, 300);
             }
-            
+
             function performModalSearch() {
                 const query = searchInput.value.toLowerCase().trim();
                 if (!query) return;
-                
+
                 resultsDiv.innerHTML = '<p>Searching...</p>';
-                
+
                 const results = [];
                 const settingSections = document.querySelectorAll('.profile-section');
-                
+
                 settingSections.forEach(item => {
                     const content = item.textContent || '';
                     if (content.toLowerCase().includes(query)) {
@@ -2048,7 +2048,7 @@
                         });
                     }
                 });
-                
+
                 resultsDiv.innerHTML = `<h4>${results.length} results found</h4>`;
                 results.slice(0, 10).forEach(result => {
                     const resultItem = document.createElement('div');
@@ -2060,39 +2060,39 @@
                     resultsDiv.appendChild(resultItem);
                 });
             }
-            
+
             searchButton.onclick = performModalSearch;
             searchInput.onkeypress = (e) => { if (e.key === 'Enter') performModalSearch(); };
-            
+
             modal.querySelector('.modal-close').onclick = closeModal;
             modal.onclick = (e) => { if (e.target === modal) closeModal(); };
-            
+
             setTimeout(() => searchInput.focus(), 100);
         }
 
         // Initialize the page with user data
         document.addEventListener('DOMContentLoaded', async function() {
             showLoading();
-            
+
             try {
                 // Get current user
                 const response = await makeRequest('/user/');
                 const user = response;
-                
+
                 // Update UI with user data
                 updateUserDisplay(user);
-                
+
                 // Load app preferences from localStorage
                 const savedTheme = localStorage.getItem('theme') || 'light';
-                
+
                 document.getElementById('themeSelect').value = savedTheme;
-                
+
                 hideLoading();
-                
+
             } catch (error) {
                 console.error('Failed to initialize:', error);
                 hideLoading();
-                
+
                 // If unauthorized, redirect to login
                 if (error.message.includes('Unauthorized') || error.message.includes('Authentication')) {
                     window.location.href = '../login.html';
@@ -2101,28 +2101,28 @@
                 }
             }
         });
-        
+
         // Update user display information
         function updateUserDisplay(user) {
             if (!user) return;
-            
+
             // Update profile header
             document.getElementById('userName').textContent = user.full_name || `${user.first_name} ${user.last_name}` || 'User';
             document.getElementById('profileBioText').textContent = user.short_bio || '';
-            
+
             // Update sidebar
             document.getElementById('sidebarUserName').textContent = `Welcome, ${user.full_name || user.first_name || 'User'}`;
-            
+
             // Update header
             document.getElementById('headerUserName').textContent = user.full_name || user.first_name || 'User';
-            
+
             // Update profile pictures
             if (user.profile_pic) {
                 document.getElementById('profileImage').src = user.profile_pic;
                 document.getElementById('sidebarProfilePic').src = user.profile_pic;
                 document.getElementById('headerProfilePic').src = user.profile_pic;
             }
-            
+
             // Update role display
             const roleElement = document.querySelector('.user-profile .role');
             if (user.role === 'super_admin') {
@@ -2135,19 +2135,19 @@
                 roleElement.textContent = 'Member';
             }
         }
-        
+
         // Profile picture upload
         document.querySelector('.profile-pic-edit').addEventListener('click', function() {
             const fileInput = document.createElement('input');
             fileInput.type = 'file';
             fileInput.accept = 'image/*';
             fileInput.click();
-            
+
             fileInput.addEventListener('change', async function() {
                 if (this.files && this.files[0]) {
                     const formData = new FormData();
                     formData.append('profile_pic', this.files[0]);
-                    
+
                     try {
                         const response = await makeRequest('/update-profile/', 'POST', formData, true);
                         updateUserDisplay(response.user);
@@ -2159,7 +2159,7 @@
                 }
             });
         });
-        
+
         // Profile bio editing
         const editProfileBioBtn = document.getElementById('editProfileBioBtn');
         const profileBioContainer = document.getElementById('profileBioContainer');
@@ -2181,19 +2181,19 @@
 
         saveProfileBioBtn.addEventListener('click', async function() {
             const newBio = profileBioTextarea.value;
-            
+
             if (newBio.length > 150) {
                 showAlert('Short bio must be 150 characters or less', 'error');
                 return;
             }
-            
+
             toggleLoading('saveProfileBioBtn', true);
-            
+
             try {
                 const response = await makeRequest('/update-profile/', 'POST', {
                     short_bio: newBio
                 });
-                
+
                 document.getElementById('profileBioText').textContent = newBio;
                 profileBioEdit.style.display = 'none';
                 profileBioContainer.style.display = 'block';
@@ -2204,58 +2204,58 @@
                 toggleLoading('saveProfileBioBtn', false);
             }
         });
-        
+
         // Personal Information Modal
         const editPersonalInfoBtn = document.getElementById('editPersonalInfoBtn');
         const personalInfoModal = document.getElementById('personalInfoModal');
         const closePersonalInfoModal = document.getElementById('closePersonalInfoModal');
         const cancelPersonalInfoChange = document.getElementById('cancelPersonalInfoChange');
-        
+
         editPersonalInfoBtn.addEventListener('click', async function() {
             try {
                 const response = await makeRequest('/user/');
                 const user = response;
-                
+
                 document.getElementById('firstName').value = user.first_name || '';
                 document.getElementById('lastName').value = user.last_name || '';
                 document.getElementById('email').value = user.email || '';
                 document.getElementById('phone').value = user.phone || '';
                 document.getElementById('location').value = user.location || '';
-                
+
                 personalInfoModal.classList.add('active');
             } catch (error) {
                 showAlert('Failed to load personal information', 'error');
             }
         });
-        
+
         closePersonalInfoModal.addEventListener('click', function() {
             personalInfoModal.classList.remove('active');
         });
-        
+
         cancelPersonalInfoChange.addEventListener('click', function() {
             personalInfoModal.classList.remove('active');
         });
-        
+
         document.getElementById('savePersonalInfoChange').addEventListener('click', async function() {
             const firstName = document.getElementById('firstName').value;
             const lastName = document.getElementById('lastName').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
             const location = document.getElementById('location').value;
-            
+
             if (!firstName || !lastName || !email) {
                 showAlert('Please fill in all required fields', 'error');
                 return;
             }
-            
+
             // Simple email validation
             if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                 showAlert('Please enter a valid email address', 'error');
                 return;
             }
-            
+
             toggleLoading('savePersonalInfoChange', true);
-            
+
             try {
                 const response = await makeRequest('/update-profile/', 'POST', {
                     first_name: firstName,
@@ -2264,18 +2264,18 @@
                     phone: phone,
                     location: location
                 });
-                
+
                 updateUserDisplay(response.user);
                 personalInfoModal.classList.remove('active');
                 showAlert('Personal information updated successfully!', 'success');
-                
+
                 // Load notifications count
                 const notificationsResponse = await fetchWithAuth('/api/notifications/');
                 const unreadCount = notificationsResponse.unread_count || 0;
                 document.getElementById('notificationBadge').textContent = unreadCount;
                 document.getElementById('notificationCount').textContent = unreadCount;
                 document.getElementById('messageCount').textContent = '0'; // Set to 0 or load from messages API
-                
+
                 // Reload notifications to show the update notification
                 setTimeout(() => {
                     window.location.reload();
@@ -2286,56 +2286,56 @@
                 toggleLoading('savePersonalInfoChange', false);
             }
         });
-        
+
         // Password Change Modal
         const changePasswordBtn = document.getElementById('changePasswordBtn');
         const passwordModal = document.getElementById('passwordModal');
         const closePasswordModal = document.getElementById('closePasswordModal');
         const cancelPasswordChange = document.getElementById('cancelPasswordChange');
-        
+
         changePasswordBtn.addEventListener('click', function() {
             passwordModal.classList.add('active');
         });
-        
+
         closePasswordModal.addEventListener('click', function() {
             passwordModal.classList.remove('active');
         });
-        
+
         cancelPasswordChange.addEventListener('click', function() {
             passwordModal.classList.remove('active');
         });
-        
+
         document.getElementById('savePasswordChange').addEventListener('click', async function() {
             const currentPassword = document.getElementById('currentPassword').value;
             const newPassword = document.getElementById('newPassword').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
-            
+
             if (!currentPassword || !newPassword || !confirmPassword) {
                 showAlert('Please fill in all fields', 'error');
                 return;
             }
-            
+
             if (newPassword !== confirmPassword) {
                 showAlert('New passwords do not match', 'error');
                 return;
             }
-            
+
             if (newPassword.length < 8) {
                 showAlert('Password must be at least 8 characters', 'error');
                 return;
             }
-            
+
             toggleLoading('savePasswordChange', true);
-            
+
             try {
                 await makeRequest('/change-password/', 'POST', {
                     current_password: currentPassword,
                     new_password: newPassword
                 });
-                
+
                 passwordModal.classList.remove('active');
                 showAlert('Password changed successfully!', 'success');
-                
+
                 // Clear the form
                 document.getElementById('currentPassword').value = '';
                 document.getElementById('newPassword').value = '';
@@ -2346,7 +2346,7 @@
                 toggleLoading('savePasswordChange', false);
             }
         });
-        
+
         // Initialize custom selects
         function initCustomSelects() {
             // Theme select
@@ -2357,20 +2357,20 @@
                 options.style.display = isVisible ? 'none' : 'block';
                 this.classList.toggle('active');
             });
-            
+
             document.querySelectorAll('#themeSelectOptions .select-option').forEach(option => {
                 option.addEventListener('click', function() {
                     const value = this.dataset.value;
                     const text = this.textContent;
                     const select = document.getElementById('themeSelect');
                     const selectText = select.querySelector('.select-text');
-                    
+
                     selectText.textContent = text;
                     select.dataset.value = value;
-                    
+
                     document.getElementById('themeSelectOptions').style.display = 'none';
                     select.classList.remove('active');
-                    
+
                     // Apply theme
                     if (value === 'auto') {
                         const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -2392,11 +2392,11 @@
                         }
                         localStorage.setItem('theme', value);
                     }
-                    
+
                     showAlert('Theme updated successfully!', 'success');
                 });
             });
-            
+
             // Deactivate reason select
             document.getElementById('deactivateReason').addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -2405,20 +2405,20 @@
                 options.style.display = isVisible ? 'none' : 'block';
                 this.classList.toggle('active');
             });
-            
+
             document.querySelectorAll('#deactivateReasonOptions .select-option').forEach(option => {
                 option.addEventListener('click', function() {
                     const value = this.dataset.value;
                     const text = this.textContent;
                     const select = document.getElementById('deactivateReason');
                     const selectText = select.querySelector('.select-text');
-                    
+
                     selectText.textContent = text;
                     select.dataset.value = value;
-                    
+
                     document.getElementById('deactivateReasonOptions').style.display = 'none';
                     select.classList.remove('active');
-                    
+
                     // Show/hide other reason field
                     const otherReasonContainer = document.getElementById('otherReasonContainer');
                     if (value === 'other') {
@@ -2428,7 +2428,7 @@
                     }
                 });
             });
-            
+
             // Close dropdowns when clicking outside
             document.addEventListener('click', function() {
                 document.getElementById('themeSelectOptions').style.display = 'none';
@@ -2437,10 +2437,10 @@
                 document.getElementById('deactivateReason').classList.remove('active');
             });
         }
-        
+
         // Language Selection (disabled for now)
         // Will be enabled when translation is implemented
-        
+
         // Deactivate Account Modal
         const deactivateAccountBtn = document.getElementById('deactivateAccountBtn');
         const deactivateModal = document.getElementById('deactivateModal');
@@ -2448,35 +2448,35 @@
         const cancelDeactivate = document.getElementById('cancelDeactivate');
         const deactivateReason = document.getElementById('deactivateReason');
         const otherReasonContainer = document.getElementById('otherReasonContainer');
-        
+
         deactivateAccountBtn.addEventListener('click', function() {
             deactivateModal.classList.add('active');
         });
-        
+
         closeDeactivateModal.addEventListener('click', function() {
             deactivateModal.classList.remove('active');
         });
-        
+
         cancelDeactivate.addEventListener('click', function() {
             deactivateModal.classList.remove('active');
         });
-        
+
         // Initialize custom selects
         initCustomSelects();
-        
+
         document.getElementById('confirmDeactivate').addEventListener('click', async function() {
-            const reason = document.getElementById('deactivateReason').dataset.value === 'other' ? 
-                document.getElementById('otherReason').value : 
+            const reason = document.getElementById('deactivateReason').dataset.value === 'other' ?
+                document.getElementById('otherReason').value :
                 document.getElementById('deactivateReason').dataset.value;
-            
+
             toggleLoading('confirmDeactivate', true);
-            
+
             try {
                 await makeRequest('/deactivate-account/', 'POST', { reason });
-                
+
                 deactivateModal.classList.remove('active');
                 showAlert('Your account has been deactivated. We hope to see you again soon!', 'success');
-                
+
                 // Clear user data and redirect
                 localStorage.removeItem('token');
                 setTimeout(() => {
@@ -2488,41 +2488,41 @@
                 toggleLoading('confirmDeactivate', false);
             }
         });
-        
+
         // Delete Account Modal
         const deleteAccountBtn = document.getElementById('deleteAccountBtn');
         const deleteAccountModal = document.getElementById('deleteAccountModal');
         const closeDeleteModal = document.getElementById('closeDeleteModal');
         const cancelDelete = document.getElementById('cancelDelete');
-        
+
         deleteAccountBtn.addEventListener('click', function() {
             deleteAccountModal.classList.add('active');
         });
-        
+
         closeDeleteModal.addEventListener('click', function() {
             deleteAccountModal.classList.remove('active');
         });
-        
+
         cancelDelete.addEventListener('click', function() {
             deleteAccountModal.classList.remove('active');
         });
-        
+
         document.getElementById('confirmDelete').addEventListener('click', async function() {
             const password = document.getElementById('deletePassword').value;
-            
+
             if (!password) {
                 showAlert('Please enter your password to confirm', 'error');
                 return;
             }
-            
+
             toggleLoading('confirmDelete', true);
-            
+
             try {
                 await makeRequest('/delete-account/', 'POST', { password });
-                
+
                 deleteAccountModal.classList.remove('active');
                 showAlert('Your account has been permanently deleted. Thank you for using our platform.', 'success');
-                
+
                 // Clear user data and redirect
                 localStorage.removeItem('token');
                 setTimeout(() => {
@@ -2534,18 +2534,18 @@
                 toggleLoading('confirmDelete', false);
             }
         });
-        
+
         // Logout functionality
         document.getElementById('logoutBtn').addEventListener('click', async function() {
             if (confirm('Are you sure you want to logout?')) {
                 try {
                     await makeRequest('/logout/', 'POST');
-                    
+
                     // Clear user data from localStorage
                     localStorage.removeItem('token');
-                    
+
                     // Redirect to login page
-                    window.location.href = '../login.html';
+                    window.location.href = '../posts/home.html';
                 } catch (error) {
                     showAlert('Failed to logout', 'error');
                 }
@@ -2554,3 +2554,4 @@
     </script>
 </body>
 </html>
+

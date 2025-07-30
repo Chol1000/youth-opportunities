@@ -85,11 +85,11 @@
                 display: block;
                 overflow-x: hidden;
             }
-            
+
             .sidebar {
                 display: none !important;
             }
-            
+
             .main-content {
                 margin-left: 0 !important;
                 margin-right: 0 !important;
@@ -103,7 +103,7 @@
                 right: auto;
                 transform: none;
             }
-            
+
             .header {
                 height: 60px;
                 padding: 0 10px;
@@ -116,29 +116,29 @@
                 justify-content: space-between;
                 align-items: center;
             }
-            
+
             .header-left {
                 display: flex;
                 order: 1;
             }
-            
+
             .header-left .search-bar {
                 display: none;
             }
-            
+
             .header-right {
                 display: none;
             }
-            
+
             .menu-toggle {
                 order: 2;
             }
-            
+
             .notification-bell,
             .theme-toggle {
                 display: none !important;
             }
-            
+
             .menu-toggle {
                 display: flex !important;
                 order: 2;
@@ -149,7 +149,7 @@
                 cursor: pointer;
                 z-index: 100;
             }
-            
+
             .menu-toggle span {
                 width: 100%;
                 height: 3px;
@@ -157,7 +157,7 @@
                 border-radius: 3px;
                 transition: all 0.3s ease;
             }
-            
+
             .profile-section {
                 padding: 8px;
                 margin-bottom: 8px;
@@ -259,7 +259,7 @@
             padding-top: calc(var(--header-height) + 25px);
             transition: margin-left 0.3s ease;
         }
-        
+
         @media (max-width: 768px) {
             .main-content {
                 margin-left: 0 !important;
@@ -552,7 +552,7 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
-        
+
         .section-header {
             display: flex;
             justify-content: space-between;
@@ -561,14 +561,14 @@
             padding-bottom: 15px;
             border-bottom: 1px solid var(--divider-color);
         }
-        
+
         .section-header h2 {
             font-size: 18px;
             color: var(--text-color);
             margin: 0;
             font-weight: 600;
         }
-        
+
         .edit-btn {
             display: flex;
             align-items: center;
@@ -582,7 +582,7 @@
             border-radius: 6px;
             transition: all 0.3s ease;
         }
-        
+
         .edit-btn:hover {
             background: rgba(99, 102, 241, 0.1);
         }
@@ -596,7 +596,7 @@
         .form-group {
             margin-bottom: 15px;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 8px;
@@ -764,7 +764,7 @@
         @keyframes fadeOut {
             to { opacity: 0; }
         }
-        
+
         .search-modal {
             position: fixed;
             top: 0;
@@ -780,12 +780,12 @@
             visibility: hidden;
             transition: all 0.3s ease;
         }
-        
+
         .search-modal.show {
             opacity: 1;
             visibility: visible;
         }
-        
+
         .search-modal .modal-content {
             background: var(--card-bg);
             border-radius: 12px;
@@ -798,11 +798,11 @@
             transform: scale(0.7);
             transition: transform 0.3s ease;
         }
-        
+
         .search-modal.show .modal-content {
             transform: scale(1);
         }
-        
+
         .modal-header {
             display: flex;
             justify-content: space-between;
@@ -810,12 +810,12 @@
             padding: 20px;
             border-bottom: 1px solid var(--card-border);
         }
-        
+
         .modal-header h3 {
             margin: 0;
             color: var(--text-color);
         }
-        
+
         .modal-close {
             background: none;
             border: none;
@@ -823,13 +823,13 @@
             cursor: pointer;
             color: var(--text-color);
         }
-        
+
         .search-form {
             padding: 20px;
             display: flex;
             gap: 10px;
         }
-        
+
         .modal-search-input {
             flex: 1;
             padding: 12px;
@@ -839,7 +839,7 @@
             background: var(--card-bg);
             color: var(--text-color);
         }
-        
+
         .modal-search-btn {
             background: var(--primary);
             color: white;
@@ -848,14 +848,14 @@
             border-radius: 6px;
             cursor: pointer;
         }
-        
+
         .search-results {
             padding: 0 20px 20px;
             overflow-y: auto;
             flex: 1;
             max-height: 400px;
         }
-        
+
         .search-result-item {
             padding: 15px;
             border: 1px solid var(--card-border);
@@ -864,16 +864,16 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .search-result-item:hover {
             background: var(--hover-bg);
         }
-        
+
         .search-result-item h5 {
             margin-bottom: 5px;
             color: var(--primary);
         }
-        
+
         .search-result-item p {
             color: var(--text-color);
             font-size: 0.9rem;
@@ -893,7 +893,7 @@
             z-index: 1000;
             box-sizing: border-box;
         }
-        
+
         .bottom-nav-items {
             display: flex;
             justify-content: space-around;
@@ -901,7 +901,7 @@
             width: 100%;
             max-width: 100%;
         }
-        
+
         .bottom-nav-item {
             display: flex;
             flex-direction: column;
@@ -913,12 +913,12 @@
             flex: 1;
             max-width: 20%;
         }
-        
+
         .bottom-nav-item i {
             font-size: 16px;
             margin-bottom: 2px;
         }
-        
+
         .bottom-nav-item span {
             font-size: 9px;
             font-weight: 500;
@@ -927,12 +927,12 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        
+
         .bottom-nav-item:hover,
         .bottom-nav-item.active {
             color: var(--primary);
         }
-        
+
         .mobile-menu-dropdown {
             position: fixed;
             top: 75px;
@@ -944,11 +944,11 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             z-index: 1001;
         }
-        
+
         .mobile-menu-content {
             padding: 8px 0;
         }
-        
+
         .mobile-menu-item {
             display: flex;
             align-items: center;
@@ -960,21 +960,21 @@
             cursor: pointer;
             position: relative;
         }
-        
+
         .mobile-menu-item:hover {
             background: var(--hover-bg);
         }
-        
+
         .mobile-menu-item i {
             width: 16px;
             font-size: 14px;
         }
-        
+
         .mobile-menu-item span {
             font-size: 14px;
             font-weight: 500;
         }
-        
+
         .mobile-menu-item .badge {
             margin-left: auto;
             background: var(--danger);
@@ -985,29 +985,29 @@
             min-width: 16px;
             text-align: center;
         }
-        
+
         @media (max-width: 768px) {
             .mobile-bottom-nav {
                 display: block;
             }
-            
+
             .action-buttons {
                 flex-direction: column;
                 gap: 8px;
             }
-            
+
             .action-buttons .btn {
                 width: 100%;
                 justify-content: center;
                 font-size: 12px;
                 padding: 8px 12px;
             }
-            
+
             .action-btns {
                 flex-direction: row;
                 gap: 8px;
             }
-            
+
             .action-btns .btn {
                 flex: 1;
                 font-size: 12px;
@@ -1015,26 +1015,26 @@
                 justify-content: center;
             }
         }
-        
+
         .custom-select-wrapper {
             position: relative;
         }
-        
+
         .custom-select {
             display: flex;
             align-items: center;
             justify-content: space-between;
             cursor: pointer;
         }
-        
+
         .select-arrow {
             transition: transform 0.3s ease;
         }
-        
+
         .custom-select.active .select-arrow {
             transform: rotate(180deg);
         }
-        
+
         .select-options {
             position: absolute;
             top: 100%;
@@ -1048,43 +1048,43 @@
             max-height: 200px;
             overflow-y: auto;
         }
-        
+
         .select-option {
             padding: 12px 15px;
             cursor: pointer;
             transition: background 0.2s ease;
             font-size: 14px;
         }
-        
+
         .select-option:hover {
             background: var(--hover-bg);
         }
-        
+
         .select-option.selected {
             background: rgba(99, 102, 241, 0.1);
             color: var(--primary);
         }
-        
+
         @media (max-width: 768px) {
             input[type="date"] {
                 position: relative;
                 z-index: 999;
             }
         }
-        
+
         @media (max-width: 480px) {
             .main-content {
                 padding: 8px;
             }
-            
+
             .profile-section {
                 padding: 10px;
             }
-            
+
             .header {
                 padding: 0 15px;
             }
-            
+
             .header-right {
                 gap: 10px;
             }
@@ -1102,65 +1102,65 @@
                 <div class="admin-name" id="sidebarUserName">Welcome, Loading ...</div>
             </div>
         </div>
-        
+
         <div class="sidebar-menu">
             <a href="index.html" class="menu-item" data-section="dashboard">
                 <i class="fas fa-home"></i>
                 <span>Dashboard</span>
             </a>
-            
+
             <a href="profile.html" class="menu-item" data-section="profile">
                 <i class="fas fa-user"></i>
                 <span>My Profile</span>
             </a>
-            
+
             <a href="opportunities.html" class="menu-item active" data-section="opportunities">
                 <i class="fas fa-briefcase"></i>
                 <span>Opportunities</span>
             </a>
-            
+
             <a href="mentors.html" class="menu-item" data-section="mentors">
                 <i class="fas fa-chalkboard-teacher"></i>
                 <span>Mentors</span>
             </a>
-            
+
             <a href="community.html" class="menu-item" data-section="community">
                 <i class="fas fa-users"></i>
                 <span>Community</span>
             </a>
-            
+
             <a href="inbox.html" class="menu-item" data-section="inbox">
                 <i class="fas fa-inbox"></i>
                 <span>Inbox</span>
                 <span class="badge" id="messageCount">0</span>
             </a>
-            
+
             <a href="cv-review.html" class="menu-item" data-section="cv-review">
                 <i class="fas fa-file-alt"></i>
                 <span>CV Review</span>
             </a>
-            
+
             <a href="training.html" class="menu-item" data-section="training">
                 <i class="fas fa-graduation-cap"></i>
                 <span>Training</span>
             </a>
-            
+
             <a href="webinars.html" class="menu-item" data-section="webinars">
                 <i class="fas fa-video"></i>
                 <span>Webinars</span>
             </a>
-            
+
             <a href="notifications.html" class="menu-item" data-section="notifications">
                 <i class="fas fa-bell"></i>
                 <span>Notifications</span>
                 <span class="badge" id="notificationCount">0</span>
             </a>
-            
+
             <a href="settings.html" class="menu-item" data-section="settings">
                 <i class="fas fa-cog"></i>
                 <span>Settings</span>
             </a>
-            
+
             <div class="menu-item" id="logoutBtn">
                 <i class="fas fa-sign-out-alt"></i>
                 <span>Logout</span>
@@ -1213,7 +1213,7 @@
 
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay"></div>
-    
+
     <!-- Mobile Bottom Navigation -->
     <div class="mobile-bottom-nav">
         <div class="bottom-nav-items">
@@ -1255,18 +1255,18 @@
                     <input type="text" id="opportunitySearch" placeholder="Search opportunities...">
                 </div>
             </div>
-            
+
             <div class="header-right">
                 <div class="theme-toggle" id="themeToggle">
                     <i class="fas fa-moon"></i>
                     <span class="toggle-text">Dark Mode</span>
                 </div>
-                
+
                 <div class="notification-bell" id="notificationBell">
                     <i class="fas fa-bell"></i>
                     <span class="badge" id="notificationBadge">0</span>
                 </div>
-                
+
                 <div class="user-profile">
                     <img id="headerProfilePic" src="../../static/images/default-image.jpg" alt="User">
                     <div>
@@ -1293,31 +1293,31 @@
                     </button>
                 </div>
             </div>
-            
+
             <!-- Share Opportunity Section -->
             <div class="profile-section" id="shareOpportunitySection" style="display: none;">
                 <div class="section-header">
                     <h2>Share an Opportunity</h2>
                 </div>
-                
+
                 <div class="share-opportunity-form">
                     <p style="margin-bottom: 20px;">Found an interesting opportunity? Share it with the community and help others grow!</p>
-                    
+
                     <div class="form-group">
                         <label for="opportunityTitle">Opportunity Title*</label>
                         <input type="text" id="opportunityTitle" class="form-control" placeholder="e.g. Software Engineering Internship at Google">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="opportunityOrganization">Organization*</label>
                         <input type="text" id="opportunityOrganization" class="form-control" placeholder="e.g. Google">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="organizationLogo">Organization Logo (Optional)</label>
                         <input type="file" id="organizationLogo" class="form-control" accept="image/*">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="opportunityType">Opportunity Type*</label>
                         <div class="custom-select-wrapper">
@@ -1340,34 +1340,34 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="opportunityLocation">Location*</label>
                         <input type="text" id="opportunityLocation" class="form-control" placeholder="e.g. Kigali, Rwanda or Remote">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="opportunityDeadline">Deadline*</label>
                         <input type="text" id="opportunityDeadline" class="form-control" placeholder="e.g. 12/31/2024 or December 31, 2024">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="opportunityDescription">Description*</label>
                         <textarea id="opportunityDescription" class="form-control" rows="5" placeholder="Provide details about the opportunity, requirements, benefits, etc."></textarea>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="opportunityLink">Application Link*</label>
                         <input type="url" id="opportunityLink" class="form-control" placeholder="https://example.com/apply">
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="featuredImage">Featured Image/Poster (Optional)</label>
                         <input type="file" id="featuredImage" class="form-control" accept="image/*">
                     </div>
-                    
 
-                    
+
+
                     <div class="action-btns">
                         <button class="btn btn-primary" id="submitOpportunityBtn">
                             <i class="fas fa-share"></i> Share Opportunity
@@ -1375,24 +1375,24 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Shared Opportunities Section -->
             <div class="profile-section">
                 <div class="section-header">
                     <h2>My Shared Opportunities</h2>
                 </div>
-                
+
                 <div class="shared-opportunities-list">
                     <p>You haven't shared any opportunities yet.</p>
                 </div>
             </div>
-            
+
             <!-- Available Opportunities Section -->
             <div class="profile-section">
                 <div class="section-header">
                     <h2>Available Opportunities</h2>
                 </div>
-                
+
                 <div class="opportunities-list" id="allOpportunities">
                     <div class="opportunity-item">
                         <h3>Software Engineer Internship</h3>
@@ -1403,7 +1403,7 @@
                             <button class="btn btn-secondary">View Details</button>
                         </div>
                     </div>
-                    
+
                     <div class="opportunity-item">
                         <h3>Google Developer Scholarship</h3>
                         <p>Google | Deadline: June 15, 2023</p>
@@ -1413,7 +1413,7 @@
                             <button class="btn btn-secondary">View Details</button>
                         </div>
                     </div>
-                    
+
                     <div class="opportunity-item">
                         <h3>Marketing Assistant</h3>
                         <p>UNICEF | Deadline: June 1, 2023</p>
@@ -1461,7 +1461,7 @@
         const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
         const mobileThemeToggle = document.getElementById('mobileThemeToggle');
         const mobileLogout = document.getElementById('mobileLogout');
-        
+
         if (menuToggle) {
             menuToggle.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -1472,7 +1472,7 @@
                 }
             });
         }
-        
+
         // Close menu when clicking outside
         document.addEventListener('click', function() {
             if (mobileMenuDropdown) {
@@ -1482,7 +1482,7 @@
                 }
             }
         });
-        
+
         // Mobile theme toggle
         if (mobileThemeToggle) {
             mobileThemeToggle.addEventListener('click', function() {
@@ -1498,17 +1498,17 @@
                 mobileMenuDropdown.style.display = 'none';
             });
         }
-        
+
         // Mobile logout
         if (mobileLogout) {
             mobileLogout.addEventListener('click', function() {
                 if (confirm('Are you sure you want to logout?')) {
                     localStorage.removeItem('user');
-                    window.location.href = '../login.html';
+                    window.location.href = '../posts/home.html';
                 }
             });
         }
-        
+
         // Mobile search modal
         const mobileSearch = document.getElementById('mobileSearch');
         if (mobileSearch) {
@@ -1517,7 +1517,7 @@
                 mobileMenuDropdown.style.display = 'none';
             });
         }
-        
+
         // Desktop search functionality
         const opportunitySearch = document.getElementById('opportunitySearch');
         if (opportunitySearch) {
@@ -1525,13 +1525,13 @@
                 const searchTerm = this.value.toLowerCase();
                 const opportunityItems = document.querySelectorAll('.opportunity-item');
                 const sharedItems = document.querySelectorAll('.shared-opportunity-item');
-                
+
                 // Search opportunities
                 opportunityItems.forEach(item => {
                     const content = item.textContent.toLowerCase();
                     item.style.display = content.includes(searchTerm) ? 'block' : 'none';
                 });
-                
+
                 // Search shared opportunities
                 sharedItems.forEach(item => {
                     const content = item.textContent.toLowerCase();
@@ -1539,7 +1539,7 @@
                 });
             });
         }
-        
+
         // Show search modal (mobile)
         function showSearchModal() {
             const modal = document.createElement('div');
@@ -1558,13 +1558,13 @@
                 </div>
             `;
             document.body.appendChild(modal);
-            
+
             setTimeout(() => modal.classList.add('show'), 10);
-            
+
             const searchInput = modal.querySelector('.modal-search-input');
             const searchButton = modal.querySelector('.modal-search-btn');
             const resultsDiv = modal.querySelector('#searchResults');
-            
+
             function closeModal() {
                 modal.classList.remove('show');
                 setTimeout(() => {
@@ -1573,17 +1573,17 @@
                     }
                 }, 300);
             }
-            
+
             function performModalSearch() {
                 const query = searchInput.value.toLowerCase().trim();
                 if (!query) return;
-                
+
                 resultsDiv.innerHTML = '<p>Searching...</p>';
-                
+
                 const results = [];
                 const opportunityItems = document.querySelectorAll('.opportunity-item');
                 const sharedItems = document.querySelectorAll('.shared-opportunity-item');
-                
+
                 // Search opportunities
                 opportunityItems.forEach(item => {
                     const content = item.textContent || '';
@@ -1595,7 +1595,7 @@
                         });
                     }
                 });
-                
+
                 // Search shared opportunities
                 sharedItems.forEach(item => {
                     const content = item.textContent || '';
@@ -1607,7 +1607,7 @@
                         });
                     }
                 });
-                
+
                 resultsDiv.innerHTML = `<h4>${results.length} results found</h4>`;
                 results.slice(0, 10).forEach(result => {
                     const resultItem = document.createElement('div');
@@ -1619,13 +1619,13 @@
                     resultsDiv.appendChild(resultItem);
                 });
             }
-            
+
             searchButton.onclick = performModalSearch;
             searchInput.onkeypress = (e) => { if (e.key === 'Enter') performModalSearch(); };
-            
+
             modal.querySelector('.modal-close').onclick = closeModal;
             modal.onclick = (e) => { if (e.target === modal) closeModal(); };
-            
+
             setTimeout(() => searchInput.focus(), 100);
         }
 
@@ -1635,7 +1635,7 @@
             fileInput.type = 'file';
             fileInput.accept = 'image/*';
             fileInput.click();
-            
+
             fileInput.addEventListener('change', function() {
                 if (this.files && this.files[0]) {
                     const reader = new FileReader();
@@ -1669,14 +1669,14 @@
             }
             const description = document.getElementById('opportunityDescription').value;
             const link = document.getElementById('opportunityLink').value;
-            
+
             console.log('Form values:', { title, organization, type, location, deadline, description, link });
-            
+
             if (!title || !organization || !type || !location || !deadline || !description || !link) {
                 showAlert('Please fill in all required fields', 'error');
                 return;
             }
-            
+
             try {
                 const formData = new FormData();
                 formData.append('title', title);
@@ -1688,30 +1688,30 @@
                 formData.append('description', description);
                 formData.append('opportunity_link', link);
 
-                
+
                 // Debug: Log FormData contents
                 for (let [key, value] of formData.entries()) {
                     console.log(key, value);
                 }
-                
+
                 // Add files if selected
                 const logoFile = document.getElementById('organizationLogo').files[0];
                 if (logoFile) {
                     formData.append('organization_logo', logoFile);
                 }
-                
+
                 const imageFile = document.getElementById('featuredImage').files[0];
                 if (imageFile) {
                     formData.append('featured_image', imageFile);
                 }
-                
+
                 const response = await fetchWithAuthFile('/api/create-opportunity/', {
                     method: 'POST',
                     body: formData
                 });
-                
+
                 showAlert('Opportunity shared successfully! It will be reviewed by admins.', 'success');
-                
+
                 // Reset form
                 document.getElementById('opportunityTitle').value = '';
                 document.getElementById('opportunityOrganization').value = '';
@@ -1723,10 +1723,10 @@
 
                 document.getElementById('organizationLogo').value = '';
                 document.getElementById('featuredImage').value = '';
-                
+
                 // Refresh shared opportunities
                 await loadMySharedOpportunities();
-                
+
             } catch (error) {
                 console.error('Error sharing opportunity:', error);
                 showAlert('Failed to share opportunity. Please try again.', 'error');
@@ -1737,7 +1737,7 @@
         document.getElementById('shareOpportunityToggleBtn').addEventListener('click', function() {
             const section = document.getElementById('shareOpportunitySection');
             const btn = document.getElementById('shareOpportunityToggleBtn');
-            
+
             if (section.style.display === 'none') {
                 section.style.display = 'block';
                 btn.innerHTML = '<i class="fas fa-minus"></i> Hide Form';
@@ -1749,7 +1749,7 @@
 
         // Filter state
         let currentFilter = 'all';
-        
+
         // Filter Opportunities
         document.getElementById('filterOpportunitiesBtn').addEventListener('click', function() {
             const filterOptions = [
@@ -1765,7 +1765,7 @@
                 { value: 'competition', label: 'Competitions' },
                 { value: 'miscellaneous', label: 'Miscellaneous' }
             ];
-            
+
             let filterHtml = '<div style="padding: 20px;"><h3>Filter Opportunities</h3>';
             filterOptions.forEach(option => {
                 const checked = currentFilter === option.value ? 'checked' : '';
@@ -1775,15 +1775,15 @@
                 </label>`;
             });
             filterHtml += '<div style="margin-top: 20px;"><button onclick="applyFilter()" class="btn btn-primary">Apply Filter</button> <button onclick="closeFilter()" class="btn btn-secondary">Cancel</button></div></div>';
-            
+
             const filterModal = document.createElement('div');
             filterModal.id = 'filterModal';
             filterModal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;';
             filterModal.innerHTML = `<div style="background: var(--card-bg); border-radius: 12px; max-width: 400px; width: 90%;">${filterHtml}</div>`;
-            
+
             document.body.appendChild(filterModal);
         });
-        
+
         // Apply filter function
         window.applyFilter = function() {
             const selectedFilter = document.querySelector('input[name="filter"]:checked').value;
@@ -1791,31 +1791,31 @@
             closeFilter();
             filterOpportunities(selectedFilter);
         };
-        
+
         // Close filter function
         window.closeFilter = function() {
             const modal = document.getElementById('filterModal');
             if (modal) modal.remove();
         };
-        
+
         // Filter opportunities function
         async function filterOpportunities(filterType) {
             try {
                 const response = await fetchWithAuth('/api/opportunities/');
                 const allOpportunities = response.opportunities || [];
-                
+
                 let filteredOpportunities = allOpportunities.filter(opp => {
                     if (opp.status !== 'approved') return false;
                     if (opp.deadline && new Date(opp.deadline) < new Date()) return false;
                     return true;
                 });
-                
+
                 if (filterType !== 'all') {
-                    filteredOpportunities = filteredOpportunities.filter(opp => 
+                    filteredOpportunities = filteredOpportunities.filter(opp =>
                         opp.opportunity_type === filterType
                     );
                 }
-                
+
                 renderOpportunities(filteredOpportunities);
                 showAlert(`Showing ${filteredOpportunities.length} ${filterType === 'all' ? '' : filterType} opportunities`, 'success');
             } catch (error) {
@@ -1893,61 +1893,61 @@
         // Fetch with authentication
         async function fetchWithAuth(url, options = {}) {
             const csrfToken = await getCSRFToken();
-            
+
             const headers = {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': csrfToken,
             };
-            
+
             if (options.headers) {
                 Object.assign(headers, options.headers);
             }
-            
+
             const response = await fetch(url, {
                 ...options,
                 headers,
                 credentials: 'include',
             });
-            
+
             if (response.status === 401 || response.status === 403) {
                 window.location.href = '../login.html';
                 return;
             }
-            
+
             if (!response.ok) {
                 throw new Error('Request failed');
             }
-            
+
             return response.json();
         }
-        
+
         // Fetch with authentication for file uploads
         async function fetchWithAuthFile(url, options = {}) {
             const csrfToken = await getCSRFToken();
-            
+
             const headers = {
                 'X-CSRFToken': csrfToken,
             };
-            
+
             if (options.headers) {
                 Object.assign(headers, options.headers);
             }
-            
+
             const response = await fetch(url, {
                 ...options,
                 headers,
                 credentials: 'include',
             });
-            
+
             if (response.status === 401 || response.status === 403) {
                 window.location.href = '../login.html';
                 return;
             }
-            
+
             if (!response.ok) {
                 throw new Error('Request failed');
             }
-            
+
             return response.json();
         }
 
@@ -1956,14 +1956,14 @@
             try {
                 const response = await fetchWithAuth('/api/opportunities/');
                 const opportunities = response.opportunities || [];
-                
+
                 // Filter only approved opportunities that are not past deadline
                 const availableOpportunities = opportunities.filter(opp => {
                     if (opp.status !== 'approved') return false;
                     if (opp.deadline && new Date(opp.deadline) < new Date()) return false;
                     return true;
                 });
-                
+
                 renderOpportunities(availableOpportunities);
             } catch (error) {
                 console.error('Error loading opportunities:', error);
@@ -1974,12 +1974,12 @@
         // Render opportunities
         function renderOpportunities(opportunities) {
             const container = document.getElementById('allOpportunities');
-            
+
             if (opportunities.length === 0) {
                 container.innerHTML = '<p>No opportunities available at the moment.</p>';
                 return;
             }
-            
+
             container.innerHTML = opportunities.map(opp => `
                 <div class="opportunity-item">
                     <h3>${opp.title}</h3>
@@ -1998,10 +1998,10 @@
             try {
                 const response = await fetchWithAuth('/api/opportunities/?status=all');
                 const allOpportunities = response.opportunities || [];
-                
+
                 // Filter only opportunities created by current user
                 const user = await fetchWithAuth('/api/user/');
-                const myOpportunities = allOpportunities.filter(opp => 
+                const myOpportunities = allOpportunities.filter(opp =>
                     opp.created_by && opp.created_by.id === user.id
                 );
                 renderMySharedOpportunities(myOpportunities);
@@ -2013,12 +2013,12 @@
         // Render user's shared opportunities
         function renderMySharedOpportunities(opportunities) {
             const container = document.querySelector('.shared-opportunities-list');
-            
+
             if (opportunities.length === 0) {
                 container.innerHTML = '<p>You haven\'t shared any opportunities yet.</p>';
                 return;
             }
-            
+
             container.innerHTML = opportunities.map(opp => `
                 <div class="shared-opportunity-item">
                     <div class="shared-opportunity-title">${escapeHtml(opp.title)}</div>
@@ -2042,46 +2042,46 @@
                 options.style.display = isVisible ? 'none' : 'block';
                 this.classList.toggle('active');
             });
-            
+
             document.querySelectorAll('#opportunityTypeOptions .select-option').forEach(option => {
                 option.addEventListener('click', function() {
                     const value = this.dataset.value;
                     const text = this.textContent;
                     const select = document.getElementById('opportunityType');
                     const selectText = select.querySelector('.select-text');
-                    
+
                     selectText.textContent = text;
                     select.dataset.value = value;
-                    
+
                     document.getElementById('opportunityTypeOptions').style.display = 'none';
                     select.classList.remove('active');
                 });
             });
-            
+
             // Close dropdown when clicking outside
             document.addEventListener('click', function() {
                 document.getElementById('opportunityTypeOptions').style.display = 'none';
                 document.getElementById('opportunityType').classList.remove('active');
             });
         }
-        
+
         // Initialize the page with user data
         document.addEventListener('DOMContentLoaded', async function() {
             initOpportunityTypeSelect();
             try {
                 // Fetch current user data
                 const user = await fetchWithAuth('/api/user/');
-                
+
                 // Update UI with user data
                 document.getElementById('sidebarUserName').textContent = `Welcome, ${user.full_name || 'User'}`;
                 document.getElementById('headerUserName').textContent = user.full_name || 'User';
-                
+
                 // Update profile pictures
                 if (user.profile_pic) {
                     document.getElementById('sidebarProfilePic').src = user.profile_pic;
                     document.getElementById('headerProfilePic').src = user.profile_pic;
                 }
-                
+
                 // Update role display
                 const roleElement = document.querySelector('.user-profile .role');
                 if (user.role === 'super_admin') {
@@ -2093,17 +2093,17 @@
                 } else {
                     roleElement.textContent = 'Member';
                 }
-                
+
                 // Load opportunities
                 await loadOpportunities();
                 await loadMySharedOpportunities();
-                
+
                 // Load notifications count
                 const notificationsResponse = await fetchWithAuth('/api/notifications/');
                 const unreadCount = notificationsResponse.unread_count || 0;
                 document.getElementById('notificationBadge').textContent = unreadCount;
                 document.getElementById('notificationCount').textContent = unreadCount;
-                
+
             } catch (error) {
                 console.error('Error initializing page:', error);
                 window.location.href = '../login.html';
@@ -2115,11 +2115,12 @@
             if (confirm('Are you sure you want to logout?')) {
                 // Clear user data from localStorage
                 localStorage.removeItem('user');
-                
-                // Redirect to login page
-                window.location.href = '../login.html';
+
+                // Redirect to home page
+                window.location.href = '../posts/home.html';
             }
         });
     </script>
 </body>
 </html>
+

@@ -85,11 +85,11 @@
                 display: block;
                 overflow-x: hidden;
             }
-            
+
             .sidebar {
                 display: none !important;
             }
-            
+
             .main-content {
                 margin-left: 0 !important;
                 margin-right: 0 !important;
@@ -103,7 +103,7 @@
                 right: auto;
                 transform: none;
             }
-            
+
             .header {
                 height: 60px;
                 padding: 0 10px;
@@ -113,35 +113,35 @@
                 right: 0;
                 box-sizing: border-box;
             }
-            
+
             .header {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
             }
-            
+
             .header-left {
                 display: flex;
                 order: 1;
             }
-            
+
             .header-left .search-bar {
                 display: none;
             }
-            
+
             .header-right {
                 display: none;
             }
-            
+
             .menu-toggle {
                 order: 2;
             }
-            
+
             .notification-bell,
             .theme-toggle {
                 display: none !important;
             }
-            
+
             .menu-toggle {
                 display: flex !important;
                 order: 2;
@@ -152,7 +152,7 @@
                 cursor: pointer;
                 z-index: 100;
             }
-            
+
             .menu-toggle span {
                 width: 100%;
                 height: 3px;
@@ -160,31 +160,31 @@
                 border-radius: 3px;
                 transition: all 0.3s ease;
             }
-            
+
             .user-profile .name {
                 font-size: 14px;
             }
-            
+
             .stats-cards {
                 grid-template-columns: 1fr 1fr;
                 gap: 8px;
                 width: 100%;
                 margin: 0;
             }
-            
+
             .stat-card {
                 padding: 12px 8px;
                 min-width: 0;
             }
-            
+
             .stat-value {
                 font-size: 18px;
             }
-            
+
             .stat-label {
                 font-size: 11px;
             }
-            
+
             .profile-header {
                 flex-direction: column;
                 align-items: center;
@@ -192,94 +192,94 @@
                 padding: 15px;
                 gap: 15px;
             }
-            
+
             .profile-pic {
                 width: 70px;
                 height: 70px;
                 flex-shrink: 0;
                 align-self: center;
             }
-            
+
             .profile-info {
                 flex: 1;
                 min-width: 0;
             }
-            
+
             .profile-section {
                 padding: 8px;
                 margin-bottom: 8px;
                 width: 100%;
                 max-width: 100%;
             }
-            
+
             .profile-info h1 {
                 font-size: 18px;
                 word-wrap: break-word;
             }
-            
+
             .profile-info p {
                 font-size: 14px;
                 word-wrap: break-word;
             }
-            
+
             .timeline-content {
                 padding: 10px;
             }
-            
+
             .timeline-text {
                 font-size: 12px;
                 word-wrap: break-word;
             }
-            
+
             .section-header {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 8px;
             }
-            
+
             .section-header h2 {
                 font-size: 16px;
                 margin: 0;
             }
-            
+
             .btn {
                 padding: 6px 12px;
                 font-size: 11px;
             }
-            
+
             .page-title {
                 font-size: 18px;
             }
-            
+
             .opportunity-item,
             .event-item {
                 padding: 12px;
                 margin-bottom: 10px;
             }
-            
+
             .opportunity-item h3,
             .event-item h3 {
                 font-size: 14px;
                 line-height: 1.3;
             }
-            
+
             .opportunity-item p,
             .event-item p {
                 font-size: 12px;
             }
-            
+
             .action-btns {
                 flex-direction: row;
                 gap: 8px;
             }
-            
+
             .action-btns .btn {
                 flex: 1;
                 font-size: 12px;
                 padding: 8px 12px;
                 justify-content: center;
             }
-            
+
             .btn {
                 padding: 8px 12px;
                 font-size: 12px;
@@ -287,7 +287,7 @@
                 justify-content: center;
             }
         }
-        
+
         .mobile-bottom-nav {
             display: none;
             position: fixed;
@@ -301,7 +301,7 @@
             z-index: 1000;
             box-sizing: border-box;
         }
-        
+
         .bottom-nav-items {
             display: flex;
             justify-content: space-around;
@@ -309,7 +309,7 @@
             width: 100%;
             max-width: 100%;
         }
-        
+
         .bottom-nav-item {
             display: flex;
             flex-direction: column;
@@ -321,12 +321,12 @@
             flex: 1;
             max-width: 20%;
         }
-        
+
         .bottom-nav-item i {
             font-size: 16px;
             margin-bottom: 2px;
         }
-        
+
         .bottom-nav-item span {
             font-size: 9px;
             font-weight: 500;
@@ -335,12 +335,12 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        
+
         .bottom-nav-item:hover,
         .bottom-nav-item.active {
             color: var(--primary);
         }
-        
+
         .mobile-menu-dropdown {
             position: fixed;
             top: 75px;
@@ -352,7 +352,7 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             z-index: 1001;
         }
-        
+
         .search-modal {
             position: fixed;
             top: 0;
@@ -368,12 +368,12 @@
             visibility: hidden;
             transition: all 0.3s ease;
         }
-        
+
         .search-modal.show {
             opacity: 1;
             visibility: visible;
         }
-        
+
         .search-modal .modal-content {
             background: var(--card-bg);
             border-radius: 12px;
@@ -386,11 +386,11 @@
             transform: scale(0.7);
             transition: transform 0.3s ease;
         }
-        
+
         .search-modal.show .modal-content {
             transform: scale(1);
         }
-        
+
         .modal-header {
             display: flex;
             justify-content: space-between;
@@ -398,12 +398,12 @@
             padding: 20px;
             border-bottom: 1px solid var(--card-border);
         }
-        
+
         .modal-header h3 {
             margin: 0;
             color: var(--text-color);
         }
-        
+
         .modal-close {
             background: none;
             border: none;
@@ -411,13 +411,13 @@
             cursor: pointer;
             color: var(--text-color);
         }
-        
+
         .search-form {
             padding: 20px;
             display: flex;
             gap: 10px;
         }
-        
+
         .modal-search-input {
             flex: 1;
             padding: 12px;
@@ -427,7 +427,7 @@
             background: var(--card-bg);
             color: var(--text-color);
         }
-        
+
         .modal-search-btn {
             background: var(--primary);
             color: white;
@@ -436,14 +436,14 @@
             border-radius: 6px;
             cursor: pointer;
         }
-        
+
         .search-results {
             padding: 0 20px 20px;
             overflow-y: auto;
             flex: 1;
             max-height: 400px;
         }
-        
+
         .search-result-item {
             padding: 15px;
             border: 1px solid var(--card-border);
@@ -452,26 +452,26 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .search-result-item:hover {
             background: var(--hover-bg);
         }
-        
+
         .search-result-item h5 {
             margin-bottom: 5px;
             color: var(--primary);
         }
-        
+
         .search-result-item p {
             color: var(--text-color);
             font-size: 0.9rem;
             margin: 0;
         }
-        
+
         .mobile-menu-content {
             padding: 8px 0;
         }
-        
+
         .mobile-menu-item {
             display: flex;
             align-items: center;
@@ -483,21 +483,21 @@
             cursor: pointer;
             position: relative;
         }
-        
+
         .mobile-menu-item:hover {
             background: var(--hover-bg);
         }
-        
+
         .mobile-menu-item i {
             width: 16px;
             font-size: 14px;
         }
-        
+
         .mobile-menu-item span {
             font-size: 14px;
             font-weight: 500;
         }
-        
+
         .mobile-menu-item .badge {
             margin-left: auto;
             background: var(--danger);
@@ -508,35 +508,35 @@
             min-width: 16px;
             text-align: center;
         }
-        
+
         @media (max-width: 768px) {
             .mobile-bottom-nav {
                 display: block;
             }
         }
-        
+
         @media (max-width: 480px) {
             .stats-cards {
                 grid-template-columns: 1fr;
                 gap: 10px;
             }
-            
+
             .main-content {
                 padding: 8px;
             }
-            
+
             .profile-header {
                 padding: 10px;
             }
-            
+
             .profile-section {
                 padding: 10px;
             }
-            
+
             .header {
                 padding: 0 8px;
             }
-            
+
             .header-right {
                 gap: 10px;
             }
@@ -635,7 +635,7 @@
             padding-top: calc(var(--header-height) + 25px);
             transition: margin-left 0.3s ease;
         }
-        
+
         @media (max-width: 768px) {
             .main-content {
                 margin-left: 0 !important;
@@ -931,7 +931,7 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
-        
+
         .section-header {
             display: flex;
             justify-content: space-between;
@@ -940,18 +940,18 @@
             padding-bottom: 15px;
             border-bottom: 1px solid var(--divider-color);
         }
-        
+
         .section-header h2 {
             font-size: 18px;
             color: var(--text-color);
             margin: 0;
             font-weight: 600;
         }
-        
+
         .edit-btn {
             display: none;
         }
-        
+
         .edit-btn:hover {
             background: rgba(99, 102, 241, 0.1);
         }
@@ -973,7 +973,7 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
-        
+
         .profile-pic {
             position: relative;
             width: 120px;
@@ -983,13 +983,13 @@
             flex-shrink: 0;
             border: 4px solid var(--primary-light);
         }
-        
+
         .profile-pic img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         .profile-pic-edit {
             display: none;
         }
@@ -997,18 +997,18 @@
         .profile-pic-edit:hover {
             background: rgba(0,0,0,0.7);
         }
-        
+
         .profile-info {
             flex: 1;
         }
-        
+
         .profile-info h1 {
             margin: 0 0 10px 0;
             font-size: 28px;
             color: var(--text-color);
             font-weight: 700;
         }
-        
+
         .profile-info p {
             margin: 0;
             font-size: 16px;
@@ -1078,7 +1078,7 @@
             margin-bottom: 20px;
             height: 10px;
         }
-        
+
         .progress-bar {
             height: 100%;
             background-color: var(--primary);
@@ -1086,7 +1086,7 @@
             width: 0%;
             transition: width 0.5s ease;
         }
-        
+
         .progress-text {
             text-align: center;
             margin-top: 10px;
@@ -1253,16 +1253,16 @@
                 align-items: flex-start;
                 gap: 20px;
             }
-            
+
             .profile-pic {
                 width: 100px;
                 height: 100px;
             }
-            
+
             .action-btns {
                 flex-direction: column;
             }
-            
+
             .stats-cards {
                 grid-template-columns: 1fr;
             }
@@ -1280,65 +1280,65 @@
                 <div class="admin-name" id="sidebarUserName">Welcome, Loading...</div>
             </div>
         </div>
-        
+
         <div class="sidebar-menu">
             <a href="index.html" class="menu-item active" data-section="dashboard">
                 <i class="fas fa-home"></i>
                 <span>Dashboard</span>
             </a>
-            
+
             <a href="profile.html" class="menu-item" data-section="profile">
                 <i class="fas fa-user"></i>
                 <span>My Profile</span>
             </a>
-            
+
             <a href="opportunities.html" class="menu-item" data-section="opportunities">
                 <i class="fas fa-briefcase"></i>
                 <span>Opportunities</span>
             </a>
-            
+
             <a href="mentors.html" class="menu-item" data-section="mentors">
                 <i class="fas fa-chalkboard-teacher"></i>
                 <span>Mentors</span>
             </a>
-            
+
             <a href="community.html" class="menu-item" data-section="community">
                 <i class="fas fa-users"></i>
                 <span>Community</span>
             </a>
-            
+
             <a href="inbox.html" class="menu-item" data-section="inbox">
                 <i class="fas fa-inbox"></i>
                 <span>Inbox</span>
                 <span class="badge" id="messageCount">0</span>
             </a>
-            
+
             <a href="cv-review.html" class="menu-item" data-section="cv-review">
                 <i class="fas fa-file-alt"></i>
                 <span>CV Review</span>
             </a>
-            
+
             <a href="training.html" class="menu-item" data-section="training">
                 <i class="fas fa-graduation-cap"></i>
                 <span>Training</span>
             </a>
-            
+
             <a href="webinars.html" class="menu-item" data-section="webinars">
                 <i class="fas fa-video"></i>
                 <span>Webinars</span>
             </a>
-            
+
             <a href="notifications.html" class="menu-item" data-section="notifications">
                 <i class="fas fa-bell"></i>
                 <span>Notifications</span>
                 <span class="badge" id="notificationCount">0</span>
             </a>
-            
+
             <a href="settings.html" class="menu-item" data-section="settings">
                 <i class="fas fa-cog"></i>
                 <span>Settings</span>
             </a>
-            
+
             <div class="menu-item" id="logoutBtn">
                 <i class="fas fa-sign-out-alt"></i>
                 <span>Logout</span>
@@ -1364,18 +1364,18 @@
                     <input type="text" id="dashboardSearch" placeholder="Search opportunities...">
                 </div>
             </div>
-            
+
             <div class="header-right">
                 <div class="theme-toggle" id="themeToggle">
                     <i class="fas fa-moon"></i>
                     <span class="toggle-text">Dark Mode</span>
                 </div>
-                
+
                 <div class="notification-bell" id="notificationBell">
                     <i class="fas fa-bell"></i>
                     <span class="badge" id="notificationBadge">0</span>
                 </div>
-                
+
                 <div class="user-profile">
                     <img id="headerProfilePic" src="../../static/images/default-image.jpg" alt="User">
                     <div>
@@ -1424,7 +1424,7 @@
                     <div class="stat-value" id="profileViewsCount">0</div>
                     <div class="stat-label">Profile Views</div>
                 </div>
-                
+
                 <div class="stat-card">
                     <div class="stat-icon">
                         <i class="fas fa-briefcase"></i>
@@ -1432,7 +1432,7 @@
                     <div class="stat-value" id="availableOpportunitiesCount">0</div>
                     <div class="stat-label">Available Opportunities</div>
                 </div>
-                
+
                 <div class="stat-card">
                     <div class="stat-icon">
                         <i class="fas fa-check-circle"></i>
@@ -1440,7 +1440,7 @@
                     <div class="stat-value" id="matchingOpportunitiesCount">0</div>
                     <div class="stat-label">Matching Profile</div>
                 </div>
-                
+
                 <div class="stat-card">
                     <div class="stat-icon">
                         <i class="fas fa-users"></i>
@@ -1459,7 +1459,7 @@
                     <div class="progress-bar" id="profileProgressBar" style="width: 75%"></div>
                     <div class="progress-text" id="profileProgressText">0</div>
                 </div>
-                
+
                 <div class="activity-timeline" id="recentActivity">
                     <div class="empty-state">Loading activities...</div>
                 </div>
@@ -1473,7 +1473,7 @@
                         <i class="fas fa-eye"></i> View All
                     </a>
                 </div>
-                
+
                 <div class="opportunities-list" id="recommendedOpportunities">
                     <p>Loading opportunities...</p>
                 </div>
@@ -1485,14 +1485,14 @@
                     <h2>My Registered Events</h2>
 
                 </div>
-                
+
                 <div class="events-list" id="upcomingEvents">
                     <p>Loading events...</p>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <!-- Mobile Menu Dropdown -->
     <div class="mobile-menu-dropdown" id="mobileMenuDropdown" style="display: none;">
         <div class="mobile-menu-content">
@@ -1535,7 +1535,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- Mobile Bottom Navigation -->
     <div class="mobile-bottom-nav">
         <div class="bottom-nav-items">
@@ -1561,7 +1561,7 @@
             </a>
         </div>
     </div>
-    
+
     <!-- Training Details Modal -->
     <div id="trainingModal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
         <div class="modal-content" style="background-color: var(--card-bg); margin: 5% auto; padding: 30px; border-radius: 12px; width: 80%; max-width: 600px; max-height: 80vh; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.3); overflow-y: auto;">
@@ -1606,7 +1606,7 @@
         const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
         const mobileThemeToggle = document.getElementById('mobileThemeToggle');
         const mobileLogout = document.getElementById('mobileLogout');
-        
+
         if (menuToggle) {
             menuToggle.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -1617,7 +1617,7 @@
                 }
             });
         }
-        
+
         // Close menu when clicking outside
         document.addEventListener('click', function() {
             if (mobileMenuDropdown) {
@@ -1627,7 +1627,7 @@
                 }
             }
         });
-        
+
         // Mobile theme toggle
         if (mobileThemeToggle) {
             mobileThemeToggle.addEventListener('click', function() {
@@ -1643,17 +1643,17 @@
                 mobileMenuDropdown.style.display = 'none';
             });
         }
-        
+
         // Mobile logout
         if (mobileLogout) {
             mobileLogout.addEventListener('click', function() {
                 if (confirm('Are you sure you want to logout?')) {
                     localStorage.removeItem('user');
-                    window.location.href = '../login.html';
+                    window.location.href = '../posts/home.html';
                 }
             });
         }
-        
+
         // Mobile search modal
         const mobileSearch = document.getElementById('mobileSearch');
         if (mobileSearch) {
@@ -1662,7 +1662,7 @@
                 mobileMenuDropdown.style.display = 'none';
             });
         }
-        
+
         // Desktop search functionality
         const dashboardSearch = document.getElementById('dashboardSearch');
         if (dashboardSearch) {
@@ -1670,24 +1670,24 @@
                 const searchTerm = this.value.toLowerCase();
                 const opportunityItems = document.querySelectorAll('.opportunity-item');
                 const eventItems = document.querySelectorAll('.event-item');
-                
+
                 // Search opportunities
                 opportunityItems.forEach(item => {
                     const title = item.querySelector('h3')?.textContent.toLowerCase() || '';
                     const content = item.textContent.toLowerCase();
-                    
+
                     if (title.includes(searchTerm) || content.includes(searchTerm)) {
                         item.style.display = 'block';
                     } else {
                         item.style.display = 'none';
                     }
                 });
-                
+
                 // Search events
                 eventItems.forEach(item => {
                     const title = item.querySelector('h3')?.textContent.toLowerCase() || '';
                     const content = item.textContent.toLowerCase();
-                    
+
                     if (title.includes(searchTerm) || content.includes(searchTerm)) {
                         item.style.display = 'block';
                     } else {
@@ -1703,7 +1703,7 @@
             fileInput.type = 'file';
             fileInput.accept = 'image/*';
             fileInput.click();
-            
+
             fileInput.addEventListener('change', function() {
                 if (this.files && this.files[0]) {
                     const reader = new FileReader();
@@ -1764,9 +1764,9 @@
             if (confirm('Are you sure you want to logout?')) {
                 // Clear user data from localStorage
                 localStorage.removeItem('user');
-                
+
                 // Redirect to login page
-                window.location.href = '../login.html';
+                window.location.href = '../posts/home.html';
             }
         });
 
@@ -1787,31 +1787,31 @@
         // Fetch with authentication
         async function fetchWithAuth(url, options = {}) {
             const csrfToken = await getCSRFToken();
-            
+
             const headers = {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': csrfToken,
             };
-            
+
             if (options.headers) {
                 Object.assign(headers, options.headers);
             }
-            
+
             const response = await fetch(url, {
                 ...options,
                 headers,
                 credentials: 'include',
             });
-            
+
             if (response.status === 401 || response.status === 403) {
                 window.location.href = '../login.html';
                 return;
             }
-            
+
             if (!response.ok) {
                 throw new Error('Request failed');
             }
-            
+
             return response.json();
         }
 
@@ -1819,16 +1819,16 @@
         async function loadDashboardStats() {
             try {
                 const response = await fetchWithAuth('/api/dashboard-stats/');
-                
+
                 // Update profile views
                 document.getElementById('profileViewsCount').textContent = response.user_stats?.profile_views || 0;
-                
+
                 // Update available opportunities
                 document.getElementById('availableOpportunitiesCount').textContent = response.opportunity_stats?.available || 0;
-                
+
                 // Update matching opportunities
                 document.getElementById('matchingOpportunitiesCount').textContent = response.opportunity_stats?.matching || 0;
-                
+
                 // Update profile completion
                 if (response.profile_completion) {
                     const progressBar = document.querySelector('.progress-bar');
@@ -1838,28 +1838,28 @@
                         progressText.textContent = response.profile_completion + '%';
                     }
                 }
-                
+
                 // Update mentors count
                 document.getElementById('mentorsCount').textContent = response.opportunity_stats?.total_mentors || 0;
-                
+
                 // Calculate real profile completion
                 let completion = 0;
                 if (response.profile_completion) {
                     let completed = 0;
                     let total = 6;
-                    
+
                     if (response.profile_completion.has_bio) completed++;
                     if (response.profile_completion.has_profile_pic) completed++;
                     if (response.profile_completion.has_education) completed++;
                     if (response.profile_completion.has_experience) completed++;
                     if (response.profile_completion.has_phone) completed++;
                     if (response.profile_completion.has_location) completed++;
-                    
+
                     completion = Math.round((completed / total) * 100);
                 }
                 document.getElementById('profileProgressBar').style.width = completion + '%';
                 document.getElementById('profileProgressText').textContent = completion + '% Complete';
-                
+
             } catch (error) {
                 console.error('Error loading dashboard stats:', error);
             }
@@ -1872,45 +1872,45 @@
                     fetchWithAuth('/api/opportunities/?status=approved'),
                     fetchWithAuth('/api/get-preferences/')
                 ]);
-                
+
                 const opportunities = opportunitiesResponse.opportunities || [];
                 const userPreferences = preferencesResponse.preferences || {};
-                
 
-                
+
+
                 // Filter only approved opportunities that are not past deadline
                 const availableOpportunities = opportunities.filter(opp => {
                     if (opp.status !== 'approved') return false;
                     if (opp.deadline && new Date(opp.deadline) < new Date()) return false;
                     return true;
                 });
-                
+
                 // Update available opportunities count in stats
                 document.getElementById('availableOpportunitiesCount').textContent = availableOpportunities.length;
-                
+
                 // Filter opportunities based on user preferences
                 let recommendedOpportunities = availableOpportunities;
-                
+
                 if (userPreferences.opportunity_types && userPreferences.opportunity_types.length > 0) {
-                    recommendedOpportunities = availableOpportunities.filter(opp => 
+                    recommendedOpportunities = availableOpportunities.filter(opp =>
                         userPreferences.opportunity_types.includes(opp.opportunity_type)
                     );
                 }
-                
+
                 // If no matches found, show general opportunities
                 if (recommendedOpportunities.length === 0) {
                     recommendedOpportunities = availableOpportunities;
                 }
-                
+
                 // Update matching profile count
                 document.getElementById('matchingOpportunitiesCount').textContent = recommendedOpportunities.length;
-                
+
                 const container = document.getElementById('recommendedOpportunities');
                 if (recommendedOpportunities.length === 0) {
                     container.innerHTML = '<p>No opportunities available at the moment.</p>';
                     return;
                 }
-                
+
                 container.innerHTML = recommendedOpportunities.map(opp => `
                     <div class="opportunity-item">
                         <h3>${escapeHtml(opp.title)}</h3>
@@ -1935,40 +1935,40 @@
                     fetchWithAuth('/api/my-webinar-registrations/'),
                     fetchWithAuth('/api/my-training-registrations/')
                 ]);
-                
+
                 const webinars = webinarsResponse || [];
                 const trainings = trainingsResponse || [];
-                
+
                 // Filter upcoming events
                 const now = new Date();
                 const today = new Date();
                 today.setHours(0, 0, 0, 0);
-                
+
                 const upcomingWebinars = webinars.filter(reg => {
                     const startDate = new Date(reg.webinar.start_time);
                     const webinarDate = new Date(startDate);
                     webinarDate.setHours(0, 0, 0, 0);
                     return webinarDate >= today;
                 });
-                
+
                 const upcomingTrainings = trainings.filter(reg => {
                     const startDate = new Date(reg.session.start_time);
                     const trainingDate = new Date(startDate);
                     trainingDate.setHours(0, 0, 0, 0);
                     return trainingDate >= today;
                 });
-                
+
                 const allEvents = [
                     ...upcomingWebinars.map(reg => ({...reg.webinar, type: 'webinar'})),
                     ...upcomingTrainings.map(reg => ({...reg.session, type: 'training'}))
                 ];
-                
+
                 const container = document.getElementById('upcomingEvents');
                 if (allEvents.length === 0) {
                     container.innerHTML = '<p>No registered events at the moment.</p>';
                     return;
                 }
-                
+
                 container.innerHTML = allEvents.slice(0, 3).map(event => `
                     <div class="event-item">
                         <h3>${escapeHtml(event.title)}</h3>
@@ -1995,9 +1995,9 @@
                     fetchWithAuth('/api/experiences/'),
                     fetchWithAuth('/api/user/')
                 ]);
-                
+
                 let activities = [];
-                
+
                 // Add education activities
                 if (educations && educations.length > 0) {
                     educations.forEach(edu => {
@@ -2008,7 +2008,7 @@
                         });
                     });
                 }
-                
+
                 // Add experience activities
                 if (experiences && experiences.length > 0) {
                     experiences.forEach(exp => {
@@ -2019,7 +2019,7 @@
                         });
                     });
                 }
-                
+
                 // Add profile update activity if user has recent updates
                 if (user.expertise) {
                     activities.push({
@@ -2028,18 +2028,18 @@
                         type: 'profile'
                     });
                 }
-                
+
                 // Sort by date (newest first)
                 activities.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
-                
+
                 const container = document.getElementById('recentActivity');
                 if (activities.length === 0) {
                     container.innerHTML = '<div class="empty-state">No recent profile activities.</div>';
                     return;
                 }
-                
+
                 const showCount = window.showAllActivities ? activities.length : Math.min(7, activities.length);
-                
+
                 container.innerHTML = activities.slice(0, showCount).map(activity => `
                     <div class="timeline-item">
                         <div class="timeline-dot"></div>
@@ -2050,10 +2050,10 @@
                         </div>
                     </div>
                 `).join('');
-                
+
                 // Add show more/less buttons
                 if (activities.length > 7) {
-                    const buttonHtml = window.showAllActivities ? 
+                    const buttonHtml = window.showAllActivities ?
                         '<button class="btn btn-secondary" onclick="toggleActivities(false)">Show Less</button>' :
                         '<button class="btn btn-secondary" onclick="toggleActivities(true)">Show More</button>';
                     container.innerHTML += `<div style="text-align: center; margin-top: 15px;">${buttonHtml}</div>`;
@@ -2067,13 +2067,13 @@
         // Format time ago
         function formatTimeAgo(timestamp) {
             if (!timestamp) return 'Unknown time';
-            
+
             const date = new Date(timestamp);
             if (isNaN(date.getTime())) return 'Unknown time';
-            
+
             const now = new Date();
             const diff = now - date;
-            
+
             if (diff < 60000) return 'Just now';
             if (diff < 3600000) return Math.floor(diff / 60000) + ' minutes ago';
             if (diff < 86400000) return Math.floor(diff / 3600000) + ' hours ago';
@@ -2087,11 +2087,11 @@
             div.textContent = text;
             return div.innerHTML;
         }
-        
+
         // Security: Input validation
         function validateInput(input, type = 'text') {
             if (!input) return '';
-            
+
             switch(type) {
                 case 'email':
                     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -2104,15 +2104,15 @@
 
         // Toggle activities display
         window.showAllActivities = false;
-        
+
         function toggleActivities(showAll) {
             window.showAllActivities = showAll;
             loadRecentActivities();
         }
-        
+
         // Make toggleActivities globally available
         window.toggleActivities = toggleActivities;
-        
+
         // Show training details modal
         function showTrainingDetails(session) {
             const modal = document.getElementById('trainingModal');
@@ -2120,30 +2120,30 @@
             const modalMeta = document.getElementById('modalMeta');
             const modalDescription = document.getElementById('modalDescription');
             const modalMeetingLink = document.getElementById('modalMeetingLink');
-            
+
             modalTitle.textContent = session.title;
-            
+
             const startDate = new Date(session.start_time);
             const endDate = new Date(session.end_time);
-            
+
             modalMeta.innerHTML = `
                 <span><i class="fas fa-calendar-alt"></i> ${startDate.toLocaleDateString()} - ${endDate.toLocaleDateString()}</span>
                 <span><i class="fas fa-clock"></i> ${session.duration} minutes</span>
                 <span><i class="fas fa-user"></i> ${session.trainer_name || 'TBA'}</span>
                 <span><i class="fas fa-users"></i> ${session.max_participants} max participants</span>
             `;
-            
+
             modalDescription.innerHTML = `<p><strong>Description:</strong></p><p>${session.description || 'No description available.'}</p>`;
-            
+
             if (session.meeting_link) {
                 modalMeetingLink.innerHTML = `<br><p><strong>Meeting Link:</strong></p><p><a href="${session.meeting_link}" target="_blank" class="btn btn-primary">Join Session</a></p>`;
             } else {
                 modalMeetingLink.innerHTML = '';
             }
-            
+
             modal.style.display = 'block';
         }
-        
+
         // Close modal functionality
         document.addEventListener('click', function(event) {
             if (event.target.classList.contains('close')) {
@@ -2153,10 +2153,10 @@
                 document.getElementById('trainingModal').style.display = 'none';
             }
         });
-        
+
         // Make function globally available
         window.showTrainingDetails = showTrainingDetails;
-        
+
         // Show search modal (mobile)
         function showSearchModal() {
             const modal = document.createElement('div');
@@ -2175,13 +2175,13 @@
                 </div>
             `;
             document.body.appendChild(modal);
-            
+
             setTimeout(() => modal.classList.add('show'), 10);
-            
+
             const searchInput = modal.querySelector('.modal-search-input');
             const searchButton = modal.querySelector('.modal-search-btn');
             const resultsDiv = modal.querySelector('#searchResults');
-            
+
             function closeModal() {
                 modal.classList.remove('show');
                 setTimeout(() => {
@@ -2190,25 +2190,25 @@
                     }
                 }, 300);
             }
-            
+
             async function performModalSearch() {
                 const query = searchInput.value.toLowerCase().trim();
                 if (!query) return;
-                
+
                 resultsDiv.innerHTML = '<p>Searching...</p>';
-                
+
                 try {
                     const response = await fetchWithAuth('/api/opportunities/?status=approved');
                     const data = response.opportunities || [];
-                    
-                    const filteredOpportunities = data.filter(opp => 
+
+                    const filteredOpportunities = data.filter(opp =>
                         opp.title?.toLowerCase().includes(query) ||
                         opp.description?.toLowerCase().includes(query) ||
                         opp.location?.toLowerCase().includes(query) ||
                         opp.organization?.toLowerCase().includes(query) ||
                         opp.opportunity_type?.toLowerCase().includes(query)
                     );
-                    
+
                     resultsDiv.innerHTML = `<h4>${filteredOpportunities.length} results found</h4>`;
                     filteredOpportunities.slice(0, 10).forEach(opp => {
                         const resultItem = document.createElement('div');
@@ -2226,13 +2226,13 @@
                     resultsDiv.innerHTML = '<p>Error searching opportunities</p>';
                 }
             }
-            
+
             searchButton.onclick = performModalSearch;
             searchInput.onkeypress = (e) => { if (e.key === 'Enter') performModalSearch(); };
-            
+
             modal.querySelector('.modal-close').onclick = closeModal;
             modal.onclick = (e) => { if (e.target === modal) closeModal(); };
-            
+
             setTimeout(() => searchInput.focus(), 100);
         }
 
@@ -2241,26 +2241,26 @@
             try {
                 // Fetch current user data
                 const user = await fetchWithAuth('/api/user/');
-                
+
                 // Update UI with user data (sanitized)
                 document.getElementById('sidebarUserName').textContent = `Welcome, ${validateInput(user.full_name) || 'User'}`;
                 document.getElementById('headerUserName').textContent = validateInput(user.full_name) || 'User';
                 document.getElementById('userName').textContent = validateInput(user.full_name) || 'User';
-                
+
                 // Update profile pictures
                 if (user.profile_pic) {
                     document.getElementById('profileImage').src = user.profile_pic;
                     document.getElementById('sidebarProfilePic').src = user.profile_pic;
                     document.getElementById('headerProfilePic').src = user.profile_pic;
                 }
-                
+
                 // Update bio (use short_bio for dashboard, sanitized)
                 if (user.short_bio) {
                     document.getElementById('profileBioText').textContent = validateInput(user.short_bio);
                 } else if (user.bio) {
                     document.getElementById('profileBioText').textContent = validateInput(user.bio).substring(0, 100) + '...';
                 }
-                
+
                 // Update role display
                 const roleElement = document.querySelector('.user-profile .role');
                 if (user.role === 'super_admin') {
@@ -2272,21 +2272,21 @@
                 } else {
                     roleElement.textContent = 'Member';
                 }
-                
+
                 // Load dashboard stats
                 await loadDashboardStats();
-                
+
                 // Load real data
                 await loadRecommendedOpportunities();
                 await loadUpcomingEvents();
                 await loadRecentActivities();
-                
+
                 // Load notifications count
                 const notificationsResponse = await fetchWithAuth('/api/notifications/');
                 const unreadCount = notificationsResponse.unread_count || 0;
                 document.getElementById('notificationBadge').textContent = unreadCount;
                 document.getElementById('notificationCount').textContent = unreadCount;
-                
+
             } catch (error) {
                 console.error('Error initializing dashboard:', error);
                 window.location.href = '../login.html';
@@ -2295,3 +2295,4 @@
     </script>
 </body>
 </html>
+
