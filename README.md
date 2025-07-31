@@ -100,63 +100,68 @@ Around the world, millions of young individuals encounter great hindrances in ac
 - **Input Validation**: Comprehensive server-side and client-side validation
 - **Security Middleware**: Custom security headers and input sanitization middleware
 
-### 🚧 Planned Features (Not Yet Implemented)
-- **Mentorship System**: Connect youth with professional mentors
-- **Community Forums**: Discussion boards for peer support and Q&A
-- **Profile Building Tools**: Comprehensive user profiles with CV/resume builders
+### ✅ Community & Mentorship Features
+- **Mentorship System**: Connect youth with professional mentors - direct request and acceptance flow
+- **Community Forums**: Discussion boards with topics, replies, and peer support
+- **Direct Messaging**: Communication between users and mentors through the platform
+- **Community Posts**: Share experiences, ask questions, and engage with peers
+- **User Profiles**: Comprehensive user profiles with goals, interests, and expertise
+
+### 🚧 Planned Features (Future Development)
+- **Profile Building Tools**: Enhanced CV/resume builders and portfolio management
 - **Application Tracking**: Track application status and deadlines
 - **Personalized Recommendations**: AI-powered opportunity matching
-- **Direct Messaging**: Communication between users and mentors
 - **Achievement Badges**: Gamification elements to encourage engagement
 - **Calendar Integration**: Deadline reminders and scheduling tools
+- **Advanced Analytics**: Detailed insights for users and administrators
 
 ## 🛠 Tech Stack
 
 ### Backend
 - **Framework**: Django 5.2.1
 - **Database**: MySQL
-- **API**: Django REST Framework
-- **Authentication**: Token-based authentication
-- **File Handling**: Django file uploads with Pillow
-
+OAOAOAOAOA- **API**: Django REST Framework
+OAOA- **Authentication**: Token-based authentication
+OA- **File Handling**: Django file uploads with Pillow
+OAOA
 ### Frontend
 - **Languages**: HTML5, CSS3, JavaScript (ES6+)
-- **Styling**: Custom CSS with CSS Variables
-- **Icons**: Font Awesome 6.0
-- **Fonts**: Google Fonts (Poppins, Open Sans)
-- **Responsive**: Mobile-first design
-
+OAOA- **Styling**: Custom CSS with CSS Variables
+OAOA- **Icons**: Font Awesome 6.0
+OA- **Fonts**: Google Fonts (Poppins, Open Sans)
+OAOA- **Responsive**: Mobile-first design
+OAOA
 ### Additional Tools
 - **Rich Text Editor**: CKEditor
-- **CORS**: Django CORS Headers
-- **Environment**: python-dotenv
-- **Cleanup**: django-cleanup
-
+OA- **CORS**: Django CORS Headers
+OAOA- **Environment**: python-dotenv
+OA- **Cleanup**: django-cleanup
+OA
 ## 🌐 Live Demo
-
-Visit the live application: [https://chol1000.pythonanywhere.com](https://chol1000.pythonanywhere.com)
+OA
+OAOAVisit the live application: [https://chol1000.pythonanywhere.com](https://chol1000.pythonanywhere.com)
 
 ## 🚀 Quick Start
 
-> **Want to see it in action first?** 
+OAOA> **Want to see it in action first?** 
 > 
 > 🎥 **[Watch the Demo Video](https://drive.google.com/file/d/17XR_GEtvaoZ0bQwKYmPB2OdcWtX9szQC/view?usp=sharing)** 
-> 
+OAOA> 
 > 🌐 **[Try Live Demo](https://chol1000.pythonanywhere.com)**
-
-### ⚡ One-Command Setup (Recommended)
+OAOAOA
+OA### ⚡ One-Command Setup (Recommended)
 
 ```bash
 # Clone and setup in one go
-git clone https://github.com/Chol1000/youth-opportunities.git
+OAOAgit clone https://github.com/Chol1000/youth-opportunities.git
 cd youth-opportunities
-./setup.sh  # For Linux/Mac
+OAOA./setup.sh  # For Linux/Mac
 # OR
 setup.bat   # For Windows
 ```
 
 ---
-
+OA
 ## ⚙️ Detailed Setup
 
 ### 📋 Prerequisites
@@ -172,8 +177,7 @@ Before you begin, ensure you have the following installed:
 
 ### 🔧 Step-by-Step Installation
 
-<details>
-<summary><b>📥 Step 1: Clone the Repository</b></summary>
+#### 📥 Step 1: Clone the Repository
 
 ```bash
 # Clone the repository
@@ -186,10 +190,7 @@ cd youth-opportunities
 ls -la
 ```
 
-</details>
-
-<details>
-<summary><b>🐍 Step 2: Set Up Python Environment</b></summary>
+#### 🐍 Step 2: Set Up Python Environment
 
 ```bash
 # Create virtual environment
@@ -206,10 +207,7 @@ source venv/bin/activate
 which python
 ```
 
-</details>
-
-<details>
-<summary><b>📦 Step 3: Install Dependencies</b></summary>
+#### 📦 Step 3: Install Dependencies
 
 ```bash
 # Upgrade pip first
@@ -222,12 +220,9 @@ pip install -r backend/api/requirements.txt
 pip list
 ```
 
-</details>
+#### 🗄️ Step 4: Database Configuration
 
-<details>
-<summary><b>🗄️ Step 4: Database Configuration</b></summary>
-
-#### Option A: Using MySQL Command Line
+**Option A: Using MySQL Command Line**
 ```sql
 -- Connect to MySQL as root
 mysql -u root -p
@@ -240,15 +235,12 @@ FLUSH PRIVILEGES;
 EXIT;
 ```
 
-#### Option B: Using MySQL Workbench
+**Option B: Using MySQL Workbench**
 1. Open MySQL Workbench
 2. Connect to your MySQL server
 3. Execute the SQL commands above
 
-</details>
-
-<details>
-<summary><b>⚙️ Step 5: Environment Configuration</b></summary>
+#### ⚙️ Step 5: Environment Configuration
 
 Create a `.env` file in the **root directory** (same level as `backend` folder):
 
@@ -278,10 +270,7 @@ EMAIL_HOST_PASSWORD=your-app-password
 > python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
 > ```
 
-</details>
-
-<details>
-<summary><b>🔄 Step 6: Database Migration</b></summary>
+#### 🔄 Step 6: Database Migration
 
 ```bash
 # Navigate to backend directory
@@ -297,10 +286,7 @@ python manage.py migrate
 python manage.py showmigrations
 ```
 
-</details>
-
-<details>
-<summary><b>👤 Step 7: Create Admin User</b></summary>
+#### 👤 Step 7: Create Admin User
 
 ```bash
 # Create superuser account
@@ -312,10 +298,7 @@ python manage.py createsuperuser
 # Password: (choose a strong password)
 ```
 
-</details>
-
-<details>
-<summary><b>📁 Step 8: Collect Static Files</b></summary>
+#### 📁 Step 8: Collect Static Files
 
 ```bash
 # Collect all static files
@@ -325,10 +308,7 @@ python manage.py collectstatic --noinput
 ls -la staticfiles/
 ```
 
-</details>
-
-<details>
-<summary><b>🚀 Step 9: Launch the Application</b></summary>
+#### 🚀 Step 9: Launch the Application
 
 ```bash
 # Start the development server
@@ -341,8 +321,6 @@ python manage.py runserver
 **🎉 Success!** Open your browser and navigate to:
 - **Main Site**: http://localhost:8000
 - **Admin Panel**: http://localhost:8000/admin
-
-</details>
 
 ### 🔍 Verification Checklist
 
