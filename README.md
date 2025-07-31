@@ -15,7 +15,7 @@
 - [Usage](#usage)
 - [API Documentation](#api-documentation)
 - [Contributing](#contributing)
-- [License](#license)
+
 
 ## 🎯 About
 
@@ -98,7 +98,7 @@ source venv/bin/activate
 
 ### Step 3: Install Dependencies
 ```bash
-pip install -r requirements.txt
+pip install -r backend/api/requirements.txt
 ```
 
 ### Step 4: Database Setup
@@ -112,7 +112,7 @@ FLUSH PRIVILEGES;
 ```
 
 ### Step 5: Environment Configuration
-Create a `.env` file in the `backend` directory:
+Create a `.env` file in the root directory (same level as backend folder):
 ```env
 DJANGO_SECRET_KEY=your-super-secret-key-here
 DB_USER=youth_user
@@ -149,7 +149,7 @@ Visit `http://localhost:8000` to see the application running.
 ## ⚙️ Configuration
 
 ### Environment Variables
-Create a `.env` file in the backend directory with the following variables:
+Create a `.env` file in the root directory (same level as backend folder) with the following variables:
 
 ```env
 # Django Settings
@@ -267,15 +267,13 @@ We welcome contributions! Please follow these steps:
 - Ensure CSRF middleware is enabled
 - Check `CSRF_TRUSTED_ORIGINS` in settings
 
-## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👨‍💻 Author
 
 **Chol Atem Giet**
-- Email: cholnaroh@gmail.com
-- GitHub: [@yourusername](https://github.com/yourusername)
+- Email: c.monykuch@alustudent.com
+- GitHub: [Chol1000](https://github.com/Chol1000)
 
 ## 🙏 Acknowledgments
 
