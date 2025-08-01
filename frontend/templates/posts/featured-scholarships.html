@@ -28,7 +28,7 @@
             --footer-bg: rgba(20, 8, 8, 0.8);
             --footer-bottom-bg: #16B2DC;
         }
-        
+
         .dark-theme {
             --bg-color: #140808;
             --text-color: #F7F7F7;
@@ -42,9 +42,9 @@
             --header-bg: #1a1a1a;
             --header-border: #333;
         }
-        
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        
+
         body {
             font-family: 'Poppins', sans-serif;
             background: var(--bg-color);
@@ -53,11 +53,11 @@
             transition: all 0.3s ease;
             padding-top: 180px;
         }
-        
+
         h1, h2, h3, h4, h5, h6 { font-family: 'Open Sans', sans-serif; font-weight: 700; line-height: 1.3; }
         p { font-size: 1rem; line-height: 1.6; margin-bottom: 1rem; }
         .container { max-width: 1920px; margin: 0 auto; position: relative; }
-        
+
         /* Header Styles */
         .header-container { width: 100%; margin: 0 auto; background: var(--bg-color); position: fixed; top: 0; left: 0; z-index: 1000; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .dark-theme .header-container { background: var(--header-bg); border-bottom: 1px solid var(--header-border); box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
@@ -96,12 +96,12 @@
         .dark-theme .nav-link:hover { background-color: rgba(255, 215, 0, 0.3); }
         .nav-link::after { content: ''; position: absolute; bottom: 0; left: 12px; width: 0; height: 2px; background: var(--active-color); transition: width 0.3s ease; }
         .nav-link:hover::after { width: calc(100% - 24px); }
-        
+
         /* Main Content */
         .main-content-container { width: 100%; max-width: 1200px; margin: 20px auto; padding: 0 20px; display: flex; }
         .content-main { flex: 1; margin-right: 20px; }
         .content-sidebar { width: 300px; }
-        
+
         /* Hero Section */
         .hero-section { position: relative; margin-bottom: 40px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         .dark-theme .hero-section { box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
@@ -127,7 +127,7 @@
         .hero-indicators { position: absolute; top: 20px; right: 20px; display: flex; gap: 10px; z-index: 2; }
         .hero-indicator { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: all 0.3s ease; }
         .hero-indicator.active { background: white; transform: scale(1.2); }
-        
+
         /* Horizontal Ad Cards */
         .horizontal-ads { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
         .horizontal-ad-card { flex: 1; min-width: 200px; background: var(--card-bg); padding: 15px; border: 2px dashed var(--primary); display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.3s ease; }
@@ -137,7 +137,7 @@
         .horizontal-ad-text { font-size: 0.8125rem; color: var(--gray); margin-bottom: 12px; line-height: 1.4; }
         .horizontal-ad-btn { background: var(--primary); color: white; border: none; padding: 6px 12px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 0.75rem; width: 100%; max-width: 120px; }
         .horizontal-ad-btn:hover { background: var(--primary-dark); }
-        
+
         /* Opportunity Cards */
         .opportunity-card { background: var(--card-bg); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; margin-bottom: 30px; width: 285px; display: flex; flex-direction: column; border: 1px solid var(--light-gray); position: relative; }
         .dark-theme .opportunity-card { border: 1px solid var(--header-border); }
@@ -169,7 +169,7 @@
         .dark-theme .org-logo { background: #333; }
         .org-logo img { width: 40px; height: 40px; object-fit: cover; border-radius: 50%; }
         .org-name { font-size: 0.8125rem; color: var(--gray); font-weight: 500; }
-        
+
         /* Grid and Sections */
         .opportunities-grid { display: grid; grid-template-columns: repeat(3, 285px); gap: 20px; margin: 30px 0; padding: 0; justify-content: space-between; }
         .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding: 0 0 10px 0; border-bottom: 2px solid var(--primary); }
@@ -186,7 +186,7 @@
         .search-input { width: 100%; padding: 10px 15px; border: 1px solid var(--light-gray); border-radius: 6px; font-family: 'Poppins', sans-serif; font-size: 0.875rem; padding-right: 40px; background: var(--card-bg); color: var(--text-color); }
         .search-btn { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: transparent; border: none; color: var(--primary); cursor: pointer; }
         .language-select, .theme-select { width: 100%; padding: 8px 12px; border: 1px solid var(--light-gray); border-radius: 6px; font-family: 'Poppins', sans-serif; font-size: 0.875rem; background-color: var(--card-bg); color: var(--text-color); cursor: pointer; margin-bottom: 15px; }
-        
+
         /* Footer */
         .back-to-top-container { width: 100%; display: flex; justify-content: center; margin: 32px 0; }
         .back-to-top { display: inline-flex; align-items: center; justify-content: center; padding: 10px 15px; min-width: 136px; height: 38px; border: 1px solid rgba(22, 178, 220, 0.36); background: transparent; color: rgba(22, 178, 220, 0.88); font-weight: 400; font-size: 1.125rem; line-height: 1.125rem; cursor: pointer; transition: all 0.3s ease; white-space: nowrap; font-family: 'Open Sans', sans-serif; }
@@ -214,7 +214,7 @@
         .footer-bottom-content { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px; }
         .footer-bottom p { font-weight: 400; font-size: 0.875rem; line-height: 1.5; color: #FFFFFF; font-family: 'Poppins', sans-serif; }
         .footer-bottom i { margin-right: 5px; }
-        
+
         /* Modal Styles */
         .language-modal, .search-modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; justify-content: center; align-items: center; z-index: 9999; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
         .language-modal.show, .search-modal.show { opacity: 1; visibility: visible; }
@@ -232,13 +232,13 @@
         .modal-search-btn { background: var(--primary); color: white; border: none; padding: 12px 20px; border-radius: 6px; cursor: pointer; transition: background 0.3s ease; }
         .modal-search-btn:hover { background: var(--primary-dark); }
         .search-results { padding: 0 20px 20px; overflow-y: auto; flex: 1; max-height: 400px; }
-        
+
         @media (max-width: 768px) {
             .modal-content {
                 max-width: 95%;
                 max-height: 85vh;
             }
-            
+
             .search-results {
                 max-height: 300px;
             }
@@ -247,14 +247,14 @@
         .search-result-item:hover { background: var(--light); transform: translateY(-2px); }
         .search-result-item h5 { margin-bottom: 5px; color: var(--primary); }
         .search-result-item p { color: var(--gray); font-size: 0.9rem; margin: 0; }
-        
+
         /* Mobile Header */
         .mobile-header { display: none; align-items: center; height: 80px; padding: 0 15px; justify-content: space-between; }
         .mobile-header .date { font-size: 0.75rem; color: var(--text-color); flex: 1; }
         .mobile-header .logo-container { height: 50px; position: absolute; left: 50%; transform: translateX(-50%); }
         .mobile-header .logo { height: 100%; width: auto; object-fit: contain; }
         .mobile-header .nav-toggle { background: var(--primary); color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 1rem; margin-left: auto; }
-        
+
         /* Navigation Menu */
         .nav-menu { position: fixed; top: 80px; left: -100%; width: 320px; height: calc(100vh - 80px); background: var(--card-bg); transition: left 0.3s ease; overflow-y: auto; box-shadow: 2px 0 10px rgba(0,0,0,0.1); z-index: 999; -webkit-overflow-scrolling: touch; padding-bottom: 100px; }
         .nav-menu-content { padding: 20px; min-height: 100%; padding-bottom: 150px; padding-top: 30px; }
@@ -267,7 +267,7 @@
         .nav-menu .nav-link { display: block; color: var(--text-color); text-decoration: none; padding: 14px 15px; margin-bottom: 8px; border-radius: 6px; transition: all 0.3s ease; font-size: 0.95rem; font-weight: 500; }
         .nav-menu .nav-link:hover { background: var(--primary); color: white; transform: translateX(5px); }
         .nav-menu .nav-link.active { background: var(--active-color); color: #000; font-weight: 600; }
-        
+
         /* Mobile Bottom Navigation */
         .mobile-bottom-nav { display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: var(--card-bg); border-top: 1px solid var(--light-gray); padding: 10px 0; z-index: 1000; }
         .bottom-nav-items { display: flex; justify-content: space-around; align-items: center; }
@@ -277,24 +277,24 @@
         .bottom-nav-item:hover, .bottom-nav-item.active { color: var(--primary); transform: translateY(-2px); }
         .bottom-nav-item.donate { color: #FF6B6B; }
         .bottom-nav-item.donate:hover { color: #FF5252; }
-        
+
         /* Overlay */
         .nav-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 998; opacity: 0; visibility: hidden; transition: all 0.3s ease; }
         .nav-overlay.active { opacity: 1; visibility: visible; }
-        
+
         /* Responsive Design */
         @media (max-width: 1000px) {
             .opportunities-grid { grid-template-columns: repeat(2, 285px); justify-content: space-around; }
             .horizontal-ads { flex-direction: column; }
             .horizontal-ad-card { min-width: 100%; }
         }
-        
+
         @media (min-width: 769px) {
             .mobile-header { display: none !important; }
             .mobile-bottom-nav { display: none !important; }
             .nav-menu { display: none !important; }
         }
-        
+
         @media (max-width: 768px) {
             body { padding-top: 100px !important; padding-bottom: 70px; }
             .footer-bottom-content { justify-content: center; text-align: center; }
@@ -313,30 +313,30 @@
             .horizontal-ads { flex-direction: column; }
             .horizontal-ad-card { min-width: 100%; }
         }
-        
+
         @media (max-width: 600px) {
             .opportunities-grid { grid-template-columns: 1fr; }
             .hero-carousel { height: 250px; }
         }
-        
+
         /* Sticky header on scroll */
         .header-container.scrolled { padding: 0; }
         .header-container.scrolled .top-bar { height: 70px; }
         .header-container.scrolled .logo-container { height: 60px; }
         .header-container.scrolled .logo { max-height: 60px; }
         .header-container.scrolled .main-header-container { position: fixed; top: 70px; width: 100%; }
-    
+
         .form-group {
             margin-bottom: 15px;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 5px;
             font-weight: 600;
             color: var(--text-color);
         }
-        
+
         .form-group input,
         .form-group select,
         .form-group textarea {
@@ -349,14 +349,14 @@
             background: var(--card-bg);
             color: var(--text-color);
         }
-        
+
         .form-actions {
             display: flex;
             gap: 10px;
             justify-content: flex-end;
             margin-top: 20px;
         }
-        
+
         .form-actions button {
             padding: 10px 20px;
             border: none;
@@ -365,40 +365,40 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-        
+
         .form-actions button[type="submit"] {
             background: var(--primary);
             color: white;
         }
-        
+
         .form-actions button[type="submit"]:hover {
             background: var(--primary-dark);
         }
-        
+
         .form-actions button[type="button"] {
             background: var(--light-gray);
             color: var(--text-color);
         }
-        
+
         .form-actions button[type="button"]:hover {
             background: var(--gray);
             color: white;
         }
-        
+
         .modal-body {
             padding: 20px;
         }
-        
+
         .modal-body-scroll {
             padding: 20px;
             max-height: 60vh;
             overflow-y: auto;
         }
-        
+
         .feedback-modal {
             max-height: 80vh;
         }
-        
+
         .form-group textarea {
             resize: vertical;
             min-height: 80px;
@@ -439,35 +439,35 @@
                     <span>DONATE NOW</span>
                 </a>
             </div>
-            
+
             <div class="main-header-container">
                 <div class="main-header">
                     <nav class="main-nav">
-                        <a href="home.html" class="nav-link">HOME</a>
-                        <a href="internships.html" class="nav-link">INTERNSHIPS</a>
-                        <a href="jobs.html" class="nav-link">JOBS</a>
-                        <a href="grants.html" class="nav-link">GRANTS</a>
-                        <a href="scholarships.html" class="nav-link active">SCHOLARSHIPS</a>
-                        <a href="fellowships.html" class="nav-link">FELLOWSHIPS</a>
-                        <a href="conferences.html" class="nav-link">CONFERENCES</a>
-                        <a href="workshops.html" class="nav-link">WORKSHOPS</a>
-                        <a href="trainings.html" class="nav-link">TRAININGS</a>
+                        <a href="/home/" class="nav-link">HOME</a>
+                        <a href="/internships/" class="nav-link">INTERNSHIPS</a>
+                        <a href="/jobs/" class="nav-link">JOBS</a>
+                        <a href="/grants/" class="nav-link">GRANTS</a>
+                        <a href="/scholarships/" class="nav-link active">SCHOLARSHIPS</a>
+                        <a href="/fellowships/" class="nav-link">FELLOWSHIPS</a>
+                        <a href="/conferences/" class="nav-link">CONFERENCES</a>
+                        <a href="/workshops/" class="nav-link">WORKSHOPS</a>
+                        <a href="/trainings/" class="nav-link">TRAININGS</a>
                     </nav>
                     <nav class="secondary-nav">
-                        <a href="community.html" class="nav-link">COMMUNITY</a>
-                        <a href="competitions.html" class="nav-link">COMPETITIONS</a>
-                        <a href="share-opportunity.html" class="nav-link">SHARE OPPORTUNITY</a>
-                        
-                        <a href="services.html" class="nav-link">SERVICES</a>
+                        <a href="/community/" class="nav-link">COMMUNITY</a>
+                        <a href="/competitions/" class="nav-link">COMPETITIONS</a>
+                        <a href="/share-opportunity/" class="nav-link">SHARE OPPORTUNITY</a>
 
-                        <a href="blogs.html" class="nav-link">BLOGS</a>
+                        <a href="/services/" class="nav-link">SERVICES</a>
 
-                        <a href="announcements.html" class="nav-link">ANNOUNCEMENTS</a>
-                        <a href="miscellaneous.html" class="nav-link">MISCELLANEOUS</a>
+                        <a href="/blogs/" class="nav-link">BLOGS</a>
+
+                        <a href="/announcements/" class="nav-link">ANNOUNCEMENTS</a>
+                        <a href="/miscellaneous/" class="nav-link">MISCELLANEOUS</a>
                     </nav>
                 </div>
             </div>
-            
+
             <!-- Mobile Header -->
             <div class="mobile-header">
                 <div class="date" id="currentDateMobile"></div>
@@ -479,7 +479,7 @@
                 </button>
             </div>
         </header>
-        
+
         <!-- Navigation Menu -->
         <div class="nav-overlay" id="navOverlay"></div>
         <nav class="nav-menu" id="navMenu">
@@ -491,36 +491,36 @@
                     <a href="#" class="mobile-social-icon"><i class="fab fa-youtube"></i></a>
                     <a href="#" class="mobile-social-icon"><i class="fab fa-instagram"></i></a>
                 </div>
-                
+
                 <div class="nav-section">
                     <h3>Main Navigation</h3>
-                    <a href="home.html" class="nav-link">HOME</a>
-                    <a href="internships.html" class="nav-link">INTERNSHIPS</a>
-                    <a href="jobs.html" class="nav-link">JOBS</a>
-                    <a href="grants.html" class="nav-link">GRANTS</a>
-                    <a href="scholarships.html" class="nav-link active">SCHOLARSHIPS</a>
-                    <a href="fellowships.html" class="nav-link">FELLOWSHIPS</a>
-                    <a href="conferences.html" class="nav-link">CONFERENCES</a>
-                    <a href="workshops.html" class="nav-link">WORKSHOPS</a>
-                    <a href="trainings.html" class="nav-link">TRAININGS</a>
+                    <a href="/home/" class="nav-link">HOME</a>
+                    <a href="/internships/" class="nav-link">INTERNSHIPS</a>
+                    <a href="/jobs/" class="nav-link">JOBS</a>
+                    <a href="/grants/" class="nav-link">GRANTS</a>
+                    <a href="/scholarships/" class="nav-link active">SCHOLARSHIPS</a>
+                    <a href="/fellowships/" class="nav-link">FELLOWSHIPS</a>
+                    <a href="/conferences/" class="nav-link">CONFERENCES</a>
+                    <a href="/workshops/" class="nav-link">WORKSHOPS</a>
+                    <a href="/trainings/" class="nav-link">TRAININGS</a>
                 </div>
-                
+
                 <div class="nav-section">
                     <h3>More Options</h3>
-                    <a href="community.html" class="nav-link">COMMUNITY</a>
-                    <a href="competitions.html" class="nav-link">COMPETITIONS</a>
-                    <a href="share-opportunity.html" class="nav-link">SHARE OPPORTUNITY</a>
-                    
-                    <a href="services.html" class="nav-link">SERVICES</a>
+                    <a href="/community/" class="nav-link">COMMUNITY</a>
+                    <a href="/competitions/" class="nav-link">COMPETITIONS</a>
+                    <a href="/share-opportunity/" class="nav-link">SHARE OPPORTUNITY</a>
 
-                        <a href="blogs.html" class="nav-link">BLOGS</a>
+                    <a href="/services/" class="nav-link">SERVICES</a>
 
-                        <a href="announcements.html" class="nav-link">ANNOUNCEMENTS</a>
-                    <a href="miscellaneous.html" class="nav-link">MISCELLANEOUS</a>
+                        <a href="/blogs/" class="nav-link">BLOGS</a>
+
+                        <a href="/announcements/" class="nav-link">ANNOUNCEMENTS</a>
+                    <a href="/miscellaneous/" class="nav-link">MISCELLANEOUS</a>
                 </div>
             </div>
         </nav>
-        
+
         <!-- Mobile Bottom Navigation -->
         <div class="mobile-bottom-nav">
             <div class="bottom-nav-items">
@@ -546,7 +546,7 @@
                 </a>
             </div>
         </div>
-        
+
         <div class="main-content-container">
             <div class="content-main">
                 <!-- Hero Section -->
@@ -571,20 +571,20 @@
 
                 <!-- Breadcrumb -->
                 <div class="breadcrumb" style="margin-bottom: 20px; padding: 10px 0; border-bottom: 1px solid var(--light-gray); font-size: 0.9rem; color: var(--gray);">
-                    <a href="home.html" style="color: var(--primary); text-decoration: none;">Home</a>
+                    <a href="/home/" style="color: var(--primary); text-decoration: none;">Home</a>
                     <span style="margin: 0 8px; color: var(--gray);">»</span>
-                    <a href="scholarships.html" style="color: var(--primary); text-decoration: none;">Scholarships</a>
+                    <a href="/scholarships/" style="color: var(--primary); text-decoration: none;">Scholarships</a>
                     <span style="margin: 0 8px; color: var(--gray);">»</span>
                     <span style="color: var(--text-color); font-weight: 500;">Featured</span>
                 </div>
-                
+
                 <!-- Featured Jobs Section -->
                 <div class="section">
                     <div class="section-header">
                         <h2 class="section-title">All Featured Scholarships</h2>
                     </div>
                     <div class="opportunities-grid" id="featuredGrid"></div>
-                    
+
                     <div class="view-more-container" id="viewMoreContainer" style="display: none; text-align: center; margin-top: 30px;">
                         <button class="view-more-btn" id="viewMoreBtn" style="background: var(--primary); color: white; border: none; padding: 12px 30px; border-radius: 6px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-size: 0.9rem;">
                             <i class="fas fa-chevron-down" style="margin-right: 8px;"></i>
@@ -594,7 +594,7 @@
                 </div>
 
             </div>
-            
+
             <div class="content-sidebar">
                 <div class="sidebar-card">
                     <div class="search-box">
@@ -602,7 +602,7 @@
                         <button class="search-btn" id="sidebarSearchBtn"><i class="fas fa-search"></i></button>
                     </div>
                 </div>
-                
+
                 <div class="sidebar-card">
                     <h3 class="sidebar-title">Language</h3>
                     <select class="language-select" id="languageSelector">
@@ -618,7 +618,7 @@
                         <option value="ja">日本語 (Japanese)</option>
                         <option value="sw">Kiswahili (Swahili)</option>
                     </select>
-                    
+
                     <h3 class="sidebar-title" style="margin-top: 15px;">Theme</h3>
                     <select class="theme-select" id="themeSelector">
                         <option value="light">Light</option>
@@ -631,7 +631,7 @@
     <!-- Footer -->
     <div class="back-to-top-container">
         <button class="back-to-top" id="backToTopBtn">
-            <i class="fas fa-arrow-up"></i> 
+            <i class="fas fa-arrow-up"></i>
             <span>BACK TO TOP</span>
         </button>
     </div>
@@ -648,7 +648,7 @@
                 <h3>ABOUT US</h3>
                 <p>Founded in 2024, Youth Opportunities Uniting Talent and Hope is a youth-led platform dedicated to sharing global opportunities—internships, scholarships, fellowships, jobs, conferences, and more. We connect young talents to life-changing resources that inspire growth, exposure, and hope for a brighter future.</p>
                 <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 10px;">
-                    <a href="aboutus.html?from=featured-scholarships" class="footer-btn footer-btn-learn-more" style="text-decoration: none;">LEARN MORE</a>
+                    <a href="/aboutus/?from=featured-scholarships" class="footer-btn footer-btn-learn-more" style="text-decoration: none;">LEARN MORE</a>
                     <button class="footer-btn footer-btn-feedback">FEEDBACK</button>
                 </div>
             </div>
@@ -683,7 +683,7 @@
                 <button class="footer-btn">SUBSCRIBE</button>
 
                 <h3 style="margin-top: 30px;">FREQUENTLY ASKED QUESTIONS</h3>
-                <a href="faq.html?from=featured-scholarships" class="footer-btn" style="padding: 5px 15px; height: 28px; font-size: 15px; text-decoration: none;">FAQ</a>
+                <a href="/faq/?from=featured-scholarships" class="footer-btn" style="padding: 5px 15px; height: 28px; font-size: 15px; text-decoration: none;">FAQ</a>
             </div>
         </div>
 
@@ -698,10 +698,10 @@
 
     <script>
         let allOpportunities = [];
-        
+
         async function fetchFeatured() {
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/opportunities/?status=approved');
+                const response = await fetch('https://chol1000.pythonanywhere.com/api/opportunities/?status=approved');
                 const data = await response.json();
                 allOpportunities = data.opportunities?.filter(opp => opp.is_featured && opp.opportunity_type === 'scholarship') || [];
                 return allOpportunities;
@@ -710,15 +710,15 @@
                 return [];
             }
         }
-        
+
         function formatOpportunity(opportunity) {
             const now = new Date();
             const deadlineType = opportunity.deadline_type || 'specific';
             const deadline = opportunity.deadline ? new Date(opportunity.deadline) : null;
             const isExpired = deadlineType === 'specific' && deadline && deadline < now;
-            
+
             let status, statusIcon, statusText, statusColor, deadlineDisplay;
-            
+
             if (deadlineType === 'rolling') {
                 status = 'rolling';
                 statusIcon = 'fa-infinity';
@@ -756,19 +756,19 @@
                 statusColor = '#27ae60';
                 deadlineDisplay = deadline ? deadline.toLocaleDateString() : 'TBD';
             }
-            
+
             return {
                 id: opportunity.id,
                 title: opportunity.title,
                 description: opportunity.description?.replace(/<[^>]*>/g, '').substring(0, 150) + '...' || '',
-                image: opportunity.featured_image || 'https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80',
+                image: opportunity.featured_image?.startsWith('http') ? opportunity.featured_image : `https://chol1000.pythonanywhere.com${opportunity.featured_image}`,
                 location: opportunity.location || 'Global',
                 type: opportunity.opportunity_type?.charAt(0).toUpperCase() + opportunity.opportunity_type?.slice(1) || 'Job',
                 deadline: deadlineDisplay,
                 badge: 'FEATURED',
                 featured: opportunity.is_featured,
                 organization: opportunity.organization || 'Organization',
-                organization_logo: opportunity.organization_logo || 'https://via.placeholder.com/80',
+                organization_logo: opportunity.organization_logo?.startsWith('http')? opportunity.organization_logo : `https://chol1000.pythonanywhere.com${opportunity.organization_logo}`,
                 status: status,
                 statusIcon: statusIcon,
                 statusText: statusText,
@@ -777,7 +777,7 @@
                 expired: isExpired
             };
         }
-        
+
         function createOpportunityCard(opportunity) {
             const card = document.createElement('div');
             card.className = 'opportunity-card';
@@ -813,14 +813,14 @@
                     </div>
                 </div>
             `;
-            
+
             card.addEventListener('click', () => {
-                window.location.href = `opportunity-details.html?id=${opportunity.id}`;
+                window.location.href = `/opportunity-details/?id=${opportunity.id}`;
             });
-            
+
             return card;
         }
-        
+
         function updateTrendingTicker() {
             const now = new Date();
             const latestJobs = allOpportunities
@@ -834,18 +834,18 @@
                 .slice(0, 10)
                 .map(opp => opp.title)
                 .join(' • ');
-            
+
             const trendingText = document.getElementById('trendingText');
             if (trendingText && latestJobs) {
                 trendingText.textContent = latestJobs;
             }
         }
-        
+
         function sortOpportunitiesByStatus(opportunities) {
             return opportunities.sort((a, b) => {
                 const aFormatted = formatOpportunity(a);
                 const bFormatted = formatOpportunity(b);
-                
+
                 // Priority order: active/ongoing/rolling > expired
                 const statusPriority = {
                     'active': 1,
@@ -855,31 +855,31 @@
                     'no_deadline': 5,
                     'expired': 6
                 };
-                
+
                 const aPriority = statusPriority[aFormatted.status] || 5;
                 const bPriority = statusPriority[bFormatted.status] || 5;
-                
+
                 if (aPriority !== bPriority) {
                     return aPriority - bPriority;
                 }
-                
+
                 return new Date(b.created_at || b.id) - new Date(a.created_at || a.id);
             });
         }
-        
+
         let currentPage = 1;
         const itemsPerPage = 30;
         let allFeaturedOpportunities = [];
-        
+
         function populateFeatured() {
             const featuredGrid = document.getElementById('featuredGrid');
             const viewMoreContainer = document.getElementById('viewMoreContainer');
             const viewMoreBtn = document.getElementById('viewMoreBtn');
-            
+
             allFeaturedOpportunities = sortOpportunitiesByStatus([...allOpportunities]).map(formatOpportunity);
-            
+
             showFeaturedPage(1);
-            
+
             if (allFeaturedOpportunities.length > itemsPerPage) {
                 viewMoreContainer.style.display = 'block';
                 updateViewMoreButton();
@@ -887,23 +887,23 @@
                 viewMoreContainer.style.display = 'none';
             }
         }
-        
+
         function showFeaturedPage(page) {
             const featuredGrid = document.getElementById('featuredGrid');
             featuredGrid.innerHTML = '';
-            
+
             const startIndex = 0;
             const endIndex = page * itemsPerPage;
             const itemsToShow = allFeaturedOpportunities.slice(startIndex, endIndex);
-            
+
             itemsToShow.forEach(opp => featuredGrid.appendChild(createOpportunityCard(opp)));
         }
-        
+
         function updateViewMoreButton() {
             const viewMoreBtn = document.getElementById('viewMoreBtn');
             const totalItems = allFeaturedOpportunities.length;
             const currentlyShowing = currentPage * itemsPerPage;
-            
+
             if (currentlyShowing >= totalItems) {
                 viewMoreBtn.innerHTML = '<i class="fas fa-chevron-up" style="margin-right: 8px;"></i>View Less';
             } else {
@@ -911,17 +911,17 @@
                 viewMoreBtn.innerHTML = `<i class="fas fa-chevron-down" style="margin-right: 8px;"></i>View More (${remaining} more)`;
             }
         }
-        
+
         let currentSlide = 0;
         let heroSlides = [];
         let slideInterval;
-        
+
         async function initHeroCarousel() {
             const carouselInner = document.getElementById('heroCarousel');
             const indicatorsContainer = document.getElementById('heroIndicators');
-            
+
             await fetchFeatured();
-            
+
             const now = new Date();
             const activeFeatured = allOpportunities.filter(opp => {
                 if (!opp.is_featured) return false;
@@ -930,7 +930,7 @@
                 const deadline = new Date(opp.deadline);
                 return deadline >= now;
             });
-            
+
             let carouselOpportunities = [...activeFeatured];
             if (carouselOpportunities.length < 10) {
                 const latestOpportunities = allOpportunities
@@ -943,26 +943,26 @@
                     })
                     .sort((a, b) => new Date(b.created_at || b.id) - new Date(a.created_at || a.id))
                     .slice(0, 10 - carouselOpportunities.length);
-                
+
                 carouselOpportunities = [...carouselOpportunities, ...latestOpportunities];
             }
-            
+
             const featuredOpportunities = carouselOpportunities.slice(0, 10).map(formatOpportunity);
-            
+
             if (featuredOpportunities.length === 0) return;
-            
+
             heroSlides = featuredOpportunities;
-            
+
             featuredOpportunities.forEach((opportunity, index) => {
                 const slide = document.createElement('div');
                 slide.className = 'hero-slide';
                 slide.style.backgroundImage = `url('${opportunity.image}')`;
                 slide.style.cursor = 'pointer';
-                
+
                 slide.addEventListener('click', () => {
-                    window.location.href = `opportunity-details.html?id=${opportunity.id}`;
+                    window.location.href = `/opportunity-details/?id=${opportunity.id}`;
                 });
-                
+
                 slide.innerHTML = `
                     ${opportunity.featured ? '<div class="hero-slide-featured"><i class="fas fa-star"></i></div>' : ''}
                     <div class="hero-slide-badge">${opportunity.badge}</div>
@@ -975,10 +975,10 @@
                         </div>
                     </div>
                 `;
-                
+
                 carouselInner.appendChild(slide);
             });
-            
+
             featuredOpportunities.forEach((_, index) => {
                 const indicator = document.createElement('div');
                 indicator.className = 'hero-indicator';
@@ -986,61 +986,61 @@
                 indicator.addEventListener('click', () => goToSlide(index));
                 indicatorsContainer.appendChild(indicator);
             });
-            
+
             const prevBtn = document.getElementById('heroPrevBtn');
             const nextBtn = document.getElementById('heroNextBtn');
-            
+
             if (prevBtn) prevBtn.addEventListener('click', () => goToSlide(currentSlide - 1));
             if (nextBtn) nextBtn.addEventListener('click', () => goToSlide(currentSlide + 1));
-            
+
             startAutoSlide();
         }
-        
+
         function goToSlide(index) {
             if (heroSlides.length === 0) return;
-            
+
             if (index < 0) index = heroSlides.length - 1;
             if (index >= heroSlides.length) index = 0;
-            
+
             currentSlide = index;
-            
+
             const carouselInner = document.getElementById('heroCarousel');
             const indicators = document.querySelectorAll('.hero-indicator');
-            
+
             carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
-            
+
             indicators.forEach((indicator, i) => {
                 indicator.classList.toggle('active', i === currentSlide);
             });
         }
-        
+
         function startAutoSlide() {
             slideInterval = setInterval(() => {
                 goToSlide(currentSlide + 1);
             }, 5000);
         }
-        
+
         function updateDate() {
             const now = new Date();
-            const options = { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
             };
-            
+
             const mobileOptions = {
                 weekday: 'short',
                 month: 'short',
                 day: 'numeric'
             };
-            
+
             const dateElement = document.getElementById('currentDate');
             const dateElementMobile = document.getElementById('currentDateMobile');
-            
+
             const formattedDate = now.toLocaleDateString('en-US', options);
             const mobileDate = now.toLocaleDateString('en-US', mobileOptions);
-            
+
             if (dateElement) {
                 dateElement.textContent = formattedDate;
             }
@@ -1048,9 +1048,9 @@
                 dateElementMobile.textContent = mobileDate;
             }
         }
-        
+
         document.addEventListener('DOMContentLoaded', async function() {
-            
+
             // Add click event to feedback button
             const feedbackBtns = document.querySelectorAll('.footer-btn');
             feedbackBtns.forEach(btn => {
@@ -1067,18 +1067,18 @@
                     });
                 }
             });
-            
+
             await initHeroCarousel();
             populateFeatured();
             updateTrendingTicker();
             updateDate();
-            
+
             const viewMoreBtn = document.getElementById('viewMoreBtn');
             if (viewMoreBtn) {
                 viewMoreBtn.addEventListener('click', function() {
                     const totalItems = allFeaturedOpportunities.length;
                     const currentlyShowing = currentPage * itemsPerPage;
-                    
+
                     if (currentlyShowing >= totalItems) {
                         // Show less - reset to first page
                         currentPage = 1;
@@ -1088,23 +1088,23 @@
                         currentPage++;
                         showFeaturedPage(currentPage);
                     }
-                    
+
                     updateViewMoreButton();
                 });
             }
-            
+
             const themeSelector = document.getElementById('themeSelector');
             const languageSelector = document.getElementById('languageSelector');
-            
+
             const savedTheme = localStorage.getItem('theme') || 'light';
             if (savedTheme === 'dark') {
                 document.body.classList.add('dark-theme');
                 if (themeSelector) themeSelector.value = 'dark';
             }
-            
+
             const savedLang = localStorage.getItem('language') || 'en';
             if (languageSelector) languageSelector.value = savedLang;
-            
+
             if (themeSelector) {
                 themeSelector.addEventListener('change', function() {
                     if (this.value === 'dark') {
@@ -1116,53 +1116,53 @@
                     }
                 });
             }
-            
+
             if (languageSelector) {
                 languageSelector.addEventListener('change', function() {
                     localStorage.setItem('language', this.value);
                 });
             }
-            
+
             const navToggleMobile = document.getElementById('navToggleMobile');
             const navMenu = document.getElementById('navMenu');
             const navOverlay = document.getElementById('navOverlay');
-            
+
             function toggleNav() {
                 navMenu.classList.toggle('active');
                 navOverlay.classList.toggle('active');
             }
-            
+
             function closeNav() {
                 navMenu.classList.remove('active');
                 navOverlay.classList.remove('active');
             }
-            
+
             if (navToggleMobile) navToggleMobile.addEventListener('click', toggleNav);
             if (navOverlay) navOverlay.addEventListener('click', closeNav);
-            
+
             const navLinks = document.querySelectorAll('.nav-link');
             navLinks.forEach(link => {
                 link.addEventListener('click', closeNav);
             });
-            
+
             const languageToggle = document.getElementById('languageToggle');
             const searchBtn = document.getElementById('searchBtn');
             const themeToggle = document.getElementById('themeToggle');
-            
+
             if (languageToggle) {
                 languageToggle.addEventListener('click', function(e) {
                     e.preventDefault();
                     showLanguageModal();
                 });
             }
-            
+
             if (searchBtn) {
                 searchBtn.addEventListener('click', function(e) {
                     e.preventDefault();
                     showSearchModal();
                 });
             }
-            
+
             const desktopSearchBtn = document.getElementById('desktopSearchBtn');
             if (desktopSearchBtn) {
                 desktopSearchBtn.addEventListener('click', function(e) {
@@ -1170,17 +1170,17 @@
                     showSearchModal();
                 });
             }
-            
+
             const sidebarSearchBtn = document.getElementById('sidebarSearchBtn');
             const sidebarSearchInput = document.getElementById('sidebarSearchInput');
-            
+
             if (sidebarSearchBtn) {
                 sidebarSearchBtn.addEventListener('click', function(e) {
                     e.preventDefault();
                     showSearchModal();
                 });
             }
-            
+
             if (sidebarSearchInput) {
                 sidebarSearchInput.addEventListener('keypress', function(e) {
                     if (e.key === 'Enter') {
@@ -1189,10 +1189,10 @@
                     }
                 });
             }
-            
+
             // Mobile theme toggle
             const themeIcon = document.getElementById('themeIcon');
-            
+
             if (themeToggle) {
                 themeToggle.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -1209,7 +1209,7 @@
                     }
                 });
             }
-            
+
             // Set initial theme icon
             if (themeIcon) {
                 if (savedTheme === 'dark') {
@@ -1218,24 +1218,24 @@
                     themeIcon.className = 'fas fa-sun';
                 }
             }
-            
+
             const header = document.querySelector('.header-container');
             if (header) {
                 let headerHeight = header.offsetHeight;
-                
+
                 function updateLayout() {
                     const isMobile = window.innerWidth <= 768;
-                    
+
                     if (isMobile) {
                         document.body.style.paddingTop = '100px';
                     } else {
                         document.body.style.paddingTop = headerHeight + 'px';
                     }
                 }
-                
+
                 window.addEventListener('scroll', function() {
                     const isMobile = window.innerWidth <= 768;
-                    
+
                     if (!isMobile) {
                         if (window.pageYOffset > 50) {
                             header.classList.add('scrolled');
@@ -1246,12 +1246,12 @@
                         }
                     }
                 });
-                
+
                 window.addEventListener('resize', function() {
                     headerHeight = header.offsetHeight;
                     updateLayout();
                 });
-                
+
                 updateLayout();
             }
         });
@@ -1292,9 +1292,9 @@
                 </div>
             `;
             document.body.appendChild(modal);
-            
+
             setTimeout(() => modal.classList.add('show'), 10);
-            
+
             function closeModal() {
                 modal.classList.remove('show');
                 setTimeout(() => {
@@ -1303,22 +1303,22 @@
                     }
                 }, 300);
             }
-            
+
             window.closeFeedbackModal = closeModal;
-            
+
             modal.querySelector('.modal-close').onclick = closeModal;
             modal.onclick = (e) => { if (e.target === modal) closeModal(); };
-            
+
             const form = modal.querySelector('#feedbackForm');
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
-                
+
                 const formData = new FormData(this);
                 const data = Object.fromEntries(formData.entries());
                 data.feedback_type = 'general';
-                
+
                 try {
-                    const response = await fetch('http://127.0.0.1:8000/api/feedback/', {
+                    const response = await fetch('https://chol1000.pythonanywhere.com/api/feedback/', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -1326,9 +1326,9 @@
                         },
                         body: JSON.stringify(data)
                     });
-                    
+
                     const result = await response.json();
-                    
+
                     if (response.ok) {
                         alert(result.message);
                         closeModal();
@@ -1341,7 +1341,7 @@
                 }
             });
         }
-        
+
         function showNewsletterModal() {
             const modal = document.createElement('div');
             modal.className = 'search-modal';
@@ -1370,9 +1370,9 @@
                 </div>
             `;
             document.body.appendChild(modal);
-            
+
             setTimeout(() => modal.classList.add('show'), 10);
-            
+
             function closeModal() {
                 modal.classList.remove('show');
                 setTimeout(() => {
@@ -1381,21 +1381,21 @@
                     }
                 }, 300);
             }
-            
+
             window.closeNewsletterModal = closeModal;
-            
+
             modal.querySelector('.modal-close').onclick = closeModal;
             modal.onclick = (e) => { if (e.target === modal) closeModal(); };
-            
+
             const form = modal.querySelector('#newsletterForm');
             form.addEventListener('submit', async function(e) {
                 e.preventDefault();
-                
+
                 const formData = new FormData(this);
                 const data = Object.fromEntries(formData.entries());
-                
+
                 try {
-                    const response = await fetch('http://127.0.0.1:8000/api/newsletter/subscribe/', {
+                    const response = await fetch('https://chol1000.pythonanywhere.com/api/newsletter/subscribe/', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -1403,9 +1403,9 @@
                         },
                         body: JSON.stringify(data)
                     });
-                    
+
                     const result = await response.json();
-                    
+
                     if (response.ok) {
                         alert(result.message);
                         closeModal();
@@ -1418,7 +1418,7 @@
                 }
             });
         }
-        
+
         function getCookie(name) {
             let cookieValue = null;
             if (document.cookie && document.cookie !== '') {
@@ -1433,7 +1433,7 @@
             }
             return cookieValue || document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
         }
-        
+
         function showLanguageModal() {
             const modal = document.createElement('div');
             modal.className = 'language-modal';
@@ -1459,9 +1459,9 @@
                 </div>
             `;
             document.body.appendChild(modal);
-            
+
             setTimeout(() => modal.classList.add('show'), 10);
-            
+
             function closeModal() {
                 modal.classList.remove('show');
                 setTimeout(() => {
@@ -1470,10 +1470,10 @@
                     }
                 }, 300);
             }
-            
+
             modal.querySelector('.modal-close').onclick = closeModal;
             modal.onclick = (e) => { if (e.target === modal) closeModal(); };
-            
+
             modal.querySelectorAll('.lang-option').forEach(option => {
                 option.onclick = () => {
                     const lang = option.dataset.lang;
@@ -1484,7 +1484,7 @@
                 };
             });
         }
-        
+
         function showSearchModal() {
             const modal = document.createElement('div');
             modal.className = 'search-modal';
@@ -1502,13 +1502,13 @@
                 </div>
             `;
             document.body.appendChild(modal);
-            
+
             setTimeout(() => modal.classList.add('show'), 10);
-            
+
             const searchInput = modal.querySelector('.modal-search-input');
             const searchButton = modal.querySelector('.modal-search-btn');
             const resultsDiv = modal.querySelector('#searchResults');
-            
+
             function closeModal() {
                 modal.classList.remove('show');
                 setTimeout(() => {
@@ -1517,20 +1517,20 @@
                     }
                 }, 300);
             }
-            
+
             async function performModalSearch() {
                 const query = searchInput.value.toLowerCase().trim();
                 if (!query) return;
-                
+
                 resultsDiv.innerHTML = '<p>Searching...</p>';
-                
+
                 try {
-                    const response = await fetch('http://127.0.0.1:8000/api/opportunities/?status=approved');
+                    const response = await fetch('https://chol1000.pythonanywhere.com/api/opportunities/?status=approved');
                     const data = await response.json();
                     const allOpportunities = data.opportunities || [];
-                    
+
                     const allowedTypes = ['scholarship', 'internship', 'job', 'grant', 'fellowship', 'conference', 'workshop', 'training', 'competition', 'announcement', 'miscellaneous'];
-                    const filteredOpportunities = allOpportunities.filter(opp => 
+                    const filteredOpportunities = allOpportunities.filter(opp =>
                         allowedTypes.includes(opp.opportunity_type) &&
                         (opp.title?.toLowerCase().includes(query) ||
                         opp.description?.toLowerCase().includes(query) ||
@@ -1538,7 +1538,7 @@
                         opp.organization?.toLowerCase().includes(query) ||
                         opp.opportunity_type?.toLowerCase().includes(query))
                     );
-                    
+
                     resultsDiv.innerHTML = `<h4>${filteredOpportunities.length} results found</h4>`;
                     filteredOpportunities.slice(0, 10).forEach(opp => {
                         const resultItem = document.createElement('div');
@@ -1548,7 +1548,7 @@
                             <p>${opp.opportunity_type} • ${opp.location}</p>
                         `;
                         resultItem.onclick = () => {
-                            window.location.href = `opportunity-details.html?id=${opp.id}`;
+                            window.location.href = `/opportunity-details/?id=${opp.id}`;
                         };
                         resultsDiv.appendChild(resultItem);
                     });
@@ -1556,16 +1556,16 @@
                     resultsDiv.innerHTML = '<p>Error searching job opportunities</p>';
                 }
             }
-            
+
             searchButton.onclick = performModalSearch;
             searchInput.onkeypress = (e) => { if (e.key === 'Enter') performModalSearch(); };
-            
+
             modal.querySelector('.modal-close').onclick = closeModal;
             modal.onclick = (e) => { if (e.target === modal) closeModal(); };
-            
+
             setTimeout(() => searchInput.focus(), 100);
         }
-        
+
         // Back to top functionality
         const backToTopBtn = document.getElementById('backToTopBtn');
         if (backToTopBtn) {
@@ -1579,3 +1579,4 @@
     </script>
 </body>
 </html>
+
