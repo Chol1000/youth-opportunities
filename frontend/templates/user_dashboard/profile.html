@@ -86,11 +86,11 @@
                 display: block;
                 overflow-x: hidden;
             }
-
+            
             .sidebar {
                 display: none !important;
             }
-
+            
             .main-content {
                 margin-left: 0 !important;
                 margin-right: 0 !important;
@@ -104,7 +104,7 @@
                 right: auto;
                 transform: none;
             }
-
+            
             .header {
                 height: 60px;
                 padding: 0 10px;
@@ -117,29 +117,29 @@
                 justify-content: space-between;
                 align-items: center;
             }
-
+            
             .header-left {
                 display: flex;
                 order: 1;
             }
-
+            
             .header-left .search-bar {
                 display: none;
             }
-
+            
             .header-right {
                 display: none;
             }
-
+            
             .menu-toggle {
                 order: 2;
             }
-
+            
             .notification-bell,
             .theme-toggle {
                 display: none !important;
             }
-
+            
             .menu-toggle {
                 display: flex !important;
                 order: 2;
@@ -150,7 +150,7 @@
                 cursor: pointer;
                 z-index: 100;
             }
-
+            
             .menu-toggle span {
                 width: 100%;
                 height: 3px;
@@ -158,7 +158,7 @@
                 border-radius: 3px;
                 transition: all 0.3s ease;
             }
-
+            
             .profile-header {
                 flex-direction: column;
                 align-items: center;
@@ -166,18 +166,18 @@
                 padding: 15px;
                 gap: 15px;
             }
-
+            
             .profile-pic {
                 width: 70px;
                 height: 70px;
                 flex-shrink: 0;
             }
-
+            
             .profile-info {
                 flex: 1;
                 min-width: 0;
             }
-
+            
             .profile-section {
                 padding: 8px;
                 margin-bottom: 8px;
@@ -280,7 +280,7 @@
             padding-top: calc(var(--header-height) + 25px);
             transition: margin-left 0.3s ease;
         }
-
+        
         @media (max-width: 768px) {
             .main-content {
                 margin-left: 0 !important;
@@ -906,26 +906,26 @@
             gap: 10px;
             margin-bottom: 20px;
         }
-
+        
         .custom-select-wrapper {
             position: relative;
         }
-
+        
         .custom-select {
             display: flex;
             align-items: center;
             justify-content: space-between;
             cursor: pointer;
         }
-
+        
         .select-arrow {
             transition: transform 0.3s ease;
         }
-
+        
         .custom-select.active .select-arrow {
             transform: rotate(180deg);
         }
-
+        
         .select-options {
             position: absolute;
             top: 100%;
@@ -939,18 +939,18 @@
             max-height: 200px;
             overflow-y: auto;
         }
-
+        
         .select-option {
             padding: 12px 15px;
             cursor: pointer;
             transition: background 0.2s ease;
             font-size: 14px;
         }
-
+        
         .select-option:hover {
             background: var(--hover-bg);
         }
-
+        
         .select-option.selected {
             background: rgba(99, 102, 241, 0.1);
             color: var(--primary);
@@ -1016,7 +1016,7 @@
         @keyframes fadeOut {
             to { opacity: 0; }
         }
-
+        
         .search-modal {
             position: fixed;
             top: 0;
@@ -1032,12 +1032,12 @@
             visibility: hidden;
             transition: all 0.3s ease;
         }
-
+        
         .search-modal.show {
             opacity: 1;
             visibility: visible;
         }
-
+        
         .search-modal .modal-content {
             background: var(--card-bg);
             border-radius: 12px;
@@ -1050,11 +1050,11 @@
             transform: scale(0.7);
             transition: transform 0.3s ease;
         }
-
+        
         .search-modal.show .modal-content {
             transform: scale(1);
         }
-
+        
         .modal-header {
             display: flex;
             justify-content: space-between;
@@ -1062,12 +1062,12 @@
             padding: 20px;
             border-bottom: 1px solid var(--card-border);
         }
-
+        
         .modal-header h3 {
             margin: 0;
             color: var(--text-color);
         }
-
+        
         .modal-close {
             background: none;
             border: none;
@@ -1075,13 +1075,13 @@
             cursor: pointer;
             color: var(--text-color);
         }
-
+        
         .search-form {
             padding: 20px;
             display: flex;
             gap: 10px;
         }
-
+        
         .modal-search-input {
             flex: 1;
             padding: 12px;
@@ -1091,7 +1091,7 @@
             background: var(--card-bg);
             color: var(--text-color);
         }
-
+        
         .modal-search-btn {
             background: var(--primary);
             color: white;
@@ -1100,14 +1100,14 @@
             border-radius: 6px;
             cursor: pointer;
         }
-
+        
         .search-results {
             padding: 0 20px 20px;
             overflow-y: auto;
             flex: 1;
             max-height: 400px;
         }
-
+        
         .search-result-item {
             padding: 15px;
             border: 1px solid var(--card-border);
@@ -1116,16 +1116,16 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
+        
         .search-result-item:hover {
             background: var(--hover-bg);
         }
-
+        
         .search-result-item h5 {
             margin-bottom: 5px;
             color: var(--primary);
         }
-
+        
         .search-result-item p {
             color: var(--text-color);
             font-size: 0.9rem;
@@ -1139,23 +1139,23 @@
             gap: 8px;
             margin-top: 15px;
         }
-
+        
         @media (max-width: 768px) {
             .skills-container {
                 gap: 6px;
             }
-
+            
             .skill-tag {
                 font-size: 11px;
                 padding: 4px 8px;
             }
         }
-
+        
         @media (max-width: 480px) {
             .skills-container {
                 gap: 4px;
             }
-
+            
             .skill-tag {
                 font-size: 10px;
                 padding: 3px 6px;
@@ -1251,7 +1251,7 @@
             z-index: 1000;
             box-sizing: border-box;
         }
-
+        
         .bottom-nav-items {
             display: flex;
             justify-content: space-around;
@@ -1259,7 +1259,7 @@
             width: 100%;
             max-width: 100%;
         }
-
+        
         .bottom-nav-item {
             display: flex;
             flex-direction: column;
@@ -1271,12 +1271,12 @@
             flex: 1;
             max-width: 20%;
         }
-
+        
         .bottom-nav-item i {
             font-size: 16px;
             margin-bottom: 2px;
         }
-
+        
         .bottom-nav-item span {
             font-size: 9px;
             font-weight: 500;
@@ -1285,12 +1285,12 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-
+        
         .bottom-nav-item:hover,
         .bottom-nav-item.active {
             color: var(--primary);
         }
-
+        
         .mobile-menu-dropdown {
             position: fixed;
             top: 75px;
@@ -1302,11 +1302,11 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             z-index: 1001;
         }
-
+        
         .mobile-menu-content {
             padding: 8px 0;
         }
-
+        
         .mobile-menu-item {
             display: flex;
             align-items: center;
@@ -1318,21 +1318,21 @@
             cursor: pointer;
             position: relative;
         }
-
+        
         .mobile-menu-item:hover {
             background: var(--hover-bg);
         }
-
+        
         .mobile-menu-item i {
             width: 16px;
             font-size: 14px;
         }
-
+        
         .mobile-menu-item span {
             font-size: 14px;
             font-weight: 500;
         }
-
+        
         .mobile-menu-item .badge {
             margin-left: auto;
             background: var(--danger);
@@ -1343,30 +1343,30 @@
             min-width: 16px;
             text-align: center;
         }
-
+        
         @media (max-width: 768px) {
             .mobile-bottom-nav {
                 display: block;
             }
         }
-
+        
         @media (max-width: 480px) {
             .main-content {
                 padding: 8px;
             }
-
+            
             .profile-header {
                 padding: 10px;
             }
-
+            
             .profile-section {
                 padding: 10px;
             }
-
+            
             .header {
                 padding: 0 15px;
             }
-
+            
             .header-right {
                 gap: 10px;
             }
@@ -1384,65 +1384,65 @@
                 <div class="admin-name" id="sidebarUserName">Welcome, Loading</div>
             </div>
         </div>
-
+        
         <div class="sidebar-menu">
             <a href="index.html" class="menu-item" data-section="dashboard">
                 <i class="fas fa-home"></i>
                 <span>Dashboard</span>
             </a>
-
+            
             <a href="profile.html" class="menu-item active" data-section="profile">
                 <i class="fas fa-user"></i>
                 <span>My Profile</span>
             </a>
-
+            
             <a href="opportunities.html" class="menu-item" data-section="opportunities">
                 <i class="fas fa-briefcase"></i>
                 <span>Opportunities</span>
             </a>
-
+            
             <a href="mentors.html" class="menu-item" data-section="mentors">
                 <i class="fas fa-chalkboard-teacher"></i>
                 <span>Mentors</span>
             </a>
-
+            
             <a href="community.html" class="menu-item" data-section="community">
                 <i class="fas fa-users"></i>
                 <span>Community</span>
             </a>
-
+            
             <a href="inbox.html" class="menu-item" data-section="inbox">
                 <i class="fas fa-inbox"></i>
                 <span>Inbox</span>
                 <span class="badge" id="messageCount">0</span>
             </a>
-
+            
             <a href="cv-review.html" class="menu-item" data-section="cv-review">
                 <i class="fas fa-file-alt"></i>
                 <span>CV Review</span>
             </a>
-
+            
             <a href="training.html" class="menu-item" data-section="training">
                 <i class="fas fa-graduation-cap"></i>
                 <span>Training</span>
             </a>
-
+            
             <a href="webinars.html" class="menu-item" data-section="webinars">
                 <i class="fas fa-video"></i>
                 <span>Webinars</span>
             </a>
-
+            
             <a href="notifications.html" class="menu-item" data-section="notifications">
                 <i class="fas fa-bell"></i>
                 <span>Notifications</span>
                 <span class="badge" id="notificationCount">0</span>
             </a>
-
+            
             <a href="settings.html" class="menu-item" data-section="settings">
                 <i class="fas fa-cog"></i>
                 <span>Settings</span>
             </a>
-
+            
             <div class="menu-item" id="logoutBtn">
                 <i class="fas fa-sign-out-alt"></i>
                 <span>Logout</span>
@@ -1476,18 +1476,18 @@
                     <input type="text" id="profileSearch" placeholder="Search profile...">
                 </div>
             </div>
-
+            
             <div class="header-right">
                 <div class="theme-toggle" id="themeToggle">
                     <i class="fas fa-moon"></i>
                     <span class="toggle-text">Dark Mode</span>
                 </div>
-
+                
                 <div class="notification-bell" id="notificationBell">
                     <i class="fas fa-bell"></i>
                     <span class="badge" id="notificationBadge">0</span>
                 </div>
-
+                
                 <div class="user-profile">
                     <img id="headerProfilePic" src="../../static/images/default-image.jpg" alt="User">
                     <div>
@@ -1576,7 +1576,7 @@
                 </div>
                 <div class="about-content" id="bioDisplay">
                     <p id="bioText"></p>
-
+                    
                     <div class="skills-container" id="expertiseContainer">
                         <!-- Expertise tags will be added here dynamically -->
                     </div>
@@ -1633,7 +1633,7 @@
                     <h2>Education</h2>
                     <button class="edit-btn" id="addEducationBtn"><i class="fas fa-plus"></i> Add</button>
                 </div>
-
+                
                 <div class="education-form" id="educationForm" style="display: none;">
                     <div class="form-group">
                         <label for="eduInstitution">Institution*</label>
@@ -1678,7 +1678,7 @@
                         <button class="secondary-btn" id="cancelEducationBtn">CANCEL</button>
                     </div>
                 </div>
-
+                
                 <div class="experience-list" id="educationList">
                     <!-- Education items will be added here dynamically -->
                     <div class="no-file" id="noEducationMessage">No education information added yet.</div>
@@ -1691,7 +1691,7 @@
                     <h2>Experiences</h2>
                     <button class="edit-btn" id="addExperienceBtn"><i class="fas fa-plus"></i> Add</button>
                 </div>
-
+                
                 <div class="experience-form" id="experienceForm" style="display: none;">
                     <div class="form-group">
                         <label for="expTitle">Title/Role*</label>
@@ -1725,7 +1725,7 @@
                         <button class="secondary-btn" id="cancelExperienceBtn">CANCEL</button>
                     </div>
                 </div>
-
+                
                 <div class="experience-list" id="experienceList">
                     <!-- Experience items will be added here dynamically -->
                     <div class="no-file" id="noExperienceMessage">No work experience added yet.</div>
@@ -1737,7 +1737,7 @@
                 <div class="section-header">
                     <h2>Opportunity Preferences</h2>
                 </div>
-
+                
                 <div class="opportunity-preferences-form">
                     <div class="form-group">
                         <label>Opportunity Types I'm Interested In</label>
@@ -1771,7 +1771,7 @@
                             </label>
                         </div>
                     </div>
-
+                    
                     <!-- Scholarship Specific Fields (shown when scholarship is selected) -->
                     <div class="scholarship-fields" style="display: none;">
                         <div class="form-group">
@@ -1791,7 +1791,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="form-group">
                             <label for="scholarship_type">Scholarship Type</label>
                             <div class="custom-select-wrapper">
@@ -1807,7 +1807,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="form-group">
                             <label for="scholarship_location">Preferred Location</label>
                             <div class="custom-select-wrapper">
@@ -1825,13 +1825,13 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="form-group">
                             <label for="scholarship_field">Field of Study</label>
                             <input type="text" id="scholarship_field" name="scholarship_field" class="form-control" placeholder="e.g. Computer Science, Medicine">
                         </div>
                     </div>
-
+                    
                     <!-- Job Specific Fields (shown when job is selected) -->
                     <div class="job-fields" style="display: none;">
                         <div class="form-group">
@@ -1850,17 +1850,17 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="form-group">
                             <label for="job_industry">Industry</label>
                             <input type="text" id="job_industry" name="job_industry" class="form-control" placeholder="e.g. Technology, Healthcare">
                         </div>
-
+                        
                         <div class="form-group">
                             <label for="job_location">Preferred Location</label>
                             <input type="text" id="job_location" name="job_location" class="form-control" placeholder="e.g. Rwanda, Remote">
                         </div>
-
+                        
                         <div class="form-group">
                             <label for="job_experience">Experience Level</label>
                             <div class="custom-select-wrapper">
@@ -1877,7 +1877,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <!-- Internship Specific Fields (shown when internship is selected) -->
                     <div class="internship-fields" style="display: none;">
                         <div class="form-group">
@@ -1895,12 +1895,12 @@
                                 </div>
                             </div>
                         </div>
-
+                        
                         <div class="form-group">
                             <label for="internship_field">Field of Interest</label>
                             <input type="text" id="internship_field" name="internship_field" class="form-control" placeholder="e.g. Software Development, Marketing">
                         </div>
-
+                        
                         <div class="form-group">
                             <label for="internship_paid">Compensation Preference</label>
                             <div class="custom-select-wrapper">
@@ -1917,7 +1917,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="action-btns">
                         <button class="primary-btn" id="savePreferencesBtn">SAVE PREFERENCES</button>
                     </div>
@@ -1971,7 +1971,7 @@
 
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay"></div>
-
+    
     <!-- Mobile Bottom Navigation -->
     <div class="mobile-bottom-nav">
         <div class="bottom-nav-items">
@@ -2000,7 +2000,7 @@
 
     <!-- Notification Element -->
     <div id="notificationElement" class="notification" style="display: none;"></div>
-
+    
     <script>
         // Global variables
         let currentUser = null;
@@ -2009,18 +2009,18 @@
         let isEditingEducation = false;
         let isEditingExperience = false;
         let currentEditingId = null;
-
+        
         // Security: HTML escaping function
         function escapeHtml(text) {
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
         }
-
+        
         // Security: Input validation
         function validateInput(input, type = 'text') {
             if (!input) return '';
-
+            
             switch(type) {
                 case 'email':
                     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -2033,7 +2033,7 @@
                     return input.replace(/<script[^>]*>.*?<\/script>/gi, '').trim();
             }
         }
-
+    
         // CSRF Token Handling
         async function getCSRFToken() {
             try {
@@ -2047,19 +2047,19 @@
                 return null;
             }
         }
-
+    
         // Check for session before proceeding
         async function checkSession() {
             try {
                 const response = await fetch('/api/user/', {
                     credentials: 'include'
                 });
-
+                
                 if (!response.ok) {
                     window.location.href = '../login.html';
                     return false;
                 }
-
+                
                 return true;
             } catch (error) {
                 console.error('Session check failed:', error);
@@ -2067,39 +2067,39 @@
                 return false;
             }
         }
-
+    
         // Fetch with authentication
         async function fetchWithAuth(url, options = {}) {
             const csrfToken = await getCSRFToken();
-
+            
             const headers = {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': csrfToken,
             };
-
+            
             if (options.headers) {
                 Object.assign(headers, options.headers);
             }
-
+            
             const response = await fetch(url, {
                 ...options,
                 headers,
                 credentials: 'include',
             });
-
+            
             if (response.status === 401 || response.status === 403) {
                 window.location.href = '../login.html';
                 return;
             }
-
+            
             if (!response.ok) {
                 const errorData = await response.json();
                 throw new Error(errorData.message || 'Request failed');
             }
-
+            
             return response.json();
         }
-
+    
         // Helper functions
         function showLoading() {
             document.getElementById('loadingOverlay').style.display = 'flex';
@@ -2114,7 +2114,7 @@
             const date = new Date(dateString);
             return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' });
         }
-
+    
         function showAlert(message, type = 'success') {
             const notification = document.getElementById('notificationElement');
             notification.innerHTML = `
@@ -2123,17 +2123,17 @@
             `;
             notification.className = `notification ${type === 'error' ? 'error' : ''}`;
             notification.style.display = 'flex';
-
+            
             setTimeout(() => {
                 notification.style.display = 'none';
             }, 3000);
         }
-
+    
         // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
         const body = document.body;
         const currentTheme = localStorage.getItem('theme') || 'light';
-
+    
         // Set initial theme
         if (currentTheme === 'dark') {
             body.setAttribute('data-theme', 'dark');
@@ -2142,7 +2142,7 @@
             body.removeAttribute('data-theme');
             themeToggle.innerHTML = '<i class="fas fa-moon"></i><span class="toggle-text">Dark Mode</span>';
         }
-
+    
         // Toggle theme
         themeToggle.addEventListener('click', () => {
             if (body.getAttribute('data-theme') === 'dark') {
@@ -2155,13 +2155,13 @@
                 themeToggle.innerHTML = '<i class="fas fa-sun"></i><span class="toggle-text">Light Mode</span>';
             }
         });
-
+    
         // Toggle mobile menu dropdown
         const menuToggle = document.querySelector('.menu-toggle');
         const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
         const mobileThemeToggle = document.getElementById('mobileThemeToggle');
         const mobileLogout = document.getElementById('mobileLogout');
-
+        
         if (menuToggle) {
             menuToggle.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -2172,7 +2172,7 @@
                 }
             });
         }
-
+        
         // Close menu when clicking outside
         document.addEventListener('click', function() {
             if (mobileMenuDropdown) {
@@ -2182,7 +2182,7 @@
                 }
             }
         });
-
+        
         // Mobile theme toggle
         if (mobileThemeToggle) {
             mobileThemeToggle.addEventListener('click', function() {
@@ -2198,17 +2198,17 @@
                 mobileMenuDropdown.style.display = 'none';
             });
         }
-
+        
         // Mobile logout
         if (mobileLogout) {
             mobileLogout.addEventListener('click', function() {
                 if (confirm('Are you sure you want to logout?')) {
                     localStorage.removeItem('user');
-                    window.location.href = '../posts/home.html';
+                    window.location.href = '../login.html';
                 }
             });
         }
-
+        
         // Mobile search modal
         const mobileSearch = document.getElementById('mobileSearch');
         if (mobileSearch) {
@@ -2217,7 +2217,7 @@
                 mobileMenuDropdown.style.display = 'none';
             });
         }
-
+        
         // Desktop search functionality
         const profileSearch = document.getElementById('profileSearch');
         if (profileSearch) {
@@ -2226,19 +2226,19 @@
                 const educationItems = document.querySelectorAll('.education-item');
                 const experienceItems = document.querySelectorAll('.experience-item');
                 const skillTags = document.querySelectorAll('.skill-tag');
-
+                
                 // Search education
                 educationItems.forEach(item => {
                     const content = item.textContent.toLowerCase();
                     item.style.display = content.includes(searchTerm) ? 'block' : 'none';
                 });
-
+                
                 // Search experience
                 experienceItems.forEach(item => {
                     const content = item.textContent.toLowerCase();
                     item.style.display = content.includes(searchTerm) ? 'block' : 'none';
                 });
-
+                
                 // Search skills
                 skillTags.forEach(item => {
                     const content = item.textContent.toLowerCase();
@@ -2246,7 +2246,7 @@
                 });
             });
         }
-
+        
         // Show search modal (mobile)
         function showSearchModal() {
             const modal = document.createElement('div');
@@ -2265,13 +2265,13 @@
                 </div>
             `;
             document.body.appendChild(modal);
-
+            
             setTimeout(() => modal.classList.add('show'), 10);
-
+            
             const searchInput = modal.querySelector('.modal-search-input');
             const searchButton = modal.querySelector('.modal-search-btn');
             const resultsDiv = modal.querySelector('#searchResults');
-
+            
             function closeModal() {
                 modal.classList.remove('show');
                 setTimeout(() => {
@@ -2280,18 +2280,18 @@
                     }
                 }, 300);
             }
-
+            
             function performModalSearch() {
                 const query = searchInput.value.toLowerCase().trim();
                 if (!query) return;
-
+                
                 resultsDiv.innerHTML = '<p>Searching...</p>';
-
+                
                 const results = [];
                 const educationItems = document.querySelectorAll('.education-item');
                 const experienceItems = document.querySelectorAll('.experience-item');
                 const skillTags = document.querySelectorAll('.skill-tag');
-
+                
                 // Search education
                 educationItems.forEach(item => {
                     const content = item.textContent || '';
@@ -2303,7 +2303,7 @@
                         });
                     }
                 });
-
+                
                 // Search experience
                 experienceItems.forEach(item => {
                     const content = item.textContent || '';
@@ -2315,7 +2315,7 @@
                         });
                     }
                 });
-
+                
                 // Search skills
                 skillTags.forEach(item => {
                     const content = item.textContent || '';
@@ -2327,7 +2327,7 @@
                         });
                     }
                 });
-
+                
                 resultsDiv.innerHTML = `<h4>${results.length} results found</h4>`;
                 results.slice(0, 10).forEach(result => {
                     const resultItem = document.createElement('div');
@@ -2339,51 +2339,51 @@
                     resultsDiv.appendChild(resultItem);
                 });
             }
-
+            
             searchButton.onclick = performModalSearch;
             searchInput.onkeypress = (e) => { if (e.key === 'Enter') performModalSearch(); };
-
+            
             modal.querySelector('.modal-close').onclick = closeModal;
             modal.onclick = (e) => { if (e.target === modal) closeModal(); };
-
+            
             setTimeout(() => searchInput.focus(), 100);
         }
-
+    
         // Profile picture upload
         document.querySelector('.profile-pic-edit').addEventListener('click', function() {
             const fileInput = document.createElement('input');
             fileInput.type = 'file';
             fileInput.accept = 'image/*';
             fileInput.click();
-
+            
             fileInput.addEventListener('change', async function() {
                 if (this.files && this.files[0]) {
                     const file = this.files[0];
-
+                    
                     // Enhanced file validation
                     if (!['image/jpeg', 'image/jpg', 'image/png'].includes(file.type)) {
                         showAlert('Only JPG, JPEG, and PNG images are allowed', 'error');
                         return;
                     }
-
+                    
                     // Check file size (max 2MB)
                     if (file.size > 2 * 1024 * 1024) {
                         showAlert('Image size must be less than 2MB', 'error');
                         return;
                     }
-
-                    // Check file name for malicious patterns
-                    if (!/^[a-zA-Z0-9._-]+$/.test(file.name) || file.name.includes('..')) {
-                        showAlert('Invalid file name', 'error');
+                    
+                    // Check file name for malicious patterns (allow spaces and common characters)
+                    if (file.name.includes('..') || /[<>:"/\|?*]/.test(file.name)) {
+                        showAlert('File name contains invalid characters', 'error');
                         return;
                     }
-
+                    
                     try {
                         const formData = new FormData();
                         formData.append('profile_pic', file);
-
+                        
                         const csrfToken = await getCSRFToken();
-
+                        
                         const response = await fetch('/api/update-profile/', {
                             method: 'POST',
                             body: formData,
@@ -2392,18 +2392,18 @@
                             },
                             credentials: 'include',
                         });
-
+                        
                         if (!response.ok) {
                             throw new Error('Failed to upload profile picture');
                         }
-
+                        
                         const data = await response.json();
-
+                        
                         // Update profile picture in UI
                         document.getElementById('profileImage').src = data.user.profile_pic || '../../static/images/default-profile.png';
                         document.getElementById('sidebarProfilePic').src = data.user.profile_pic || '../../static/images/default-profile.png';
                         document.getElementById('headerProfilePic').src = data.user.profile_pic || '../../static/images/default-profile.png';
-
+                        
                         showAlert('Profile picture updated successfully!');
                     } catch (error) {
                         console.error('Error uploading profile picture:', error);
@@ -2412,7 +2412,7 @@
                 }
             });
         });
-
+    
         // Profile bio editing
         const editProfileBioBtn = document.getElementById('editProfileBioBtn');
         const profileBioContainer = document.getElementById('profileBioContainer');
@@ -2420,30 +2420,30 @@
         const profileBioTextarea = document.getElementById('profileBioTextarea');
         const saveProfileBioBtn = document.getElementById('saveProfileBioBtn');
         const cancelProfileBioBtn = document.getElementById('cancelProfileBioBtn');
-
+    
         editProfileBioBtn.addEventListener('click', function() {
             profileBioContainer.style.display = 'none';
             profileBioEdit.style.display = 'block';
             profileBioTextarea.value = document.getElementById('profileBioText').textContent;
         });
-
+    
         cancelProfileBioBtn.addEventListener('click', function() {
             profileBioEdit.style.display = 'none';
             profileBioContainer.style.display = 'block';
         });
-
+    
         saveProfileBioBtn.addEventListener('click', async function() {
             const shortBio = profileBioTextarea.value;
-
+            
             try {
                 const response = await fetchWithAuth('/api/update-profile/', {
                     method: 'POST',
-                    body: JSON.stringify({
+                    body: JSON.stringify({ 
                         short_bio: shortBio,
                         bio: document.getElementById('bioText').textContent
                     }),
                 });
-
+                
                 document.getElementById('profileBioText').textContent = shortBio;
                 profileBioEdit.style.display = 'none';
                 profileBioContainer.style.display = 'block';
@@ -2453,18 +2453,18 @@
                 showAlert('Failed to update bio', 'error');
             }
         });
-
+    
         // Personal Information editing
         const editPersonalInfoBtn = document.getElementById('editPersonalInfoBtn');
         const personalInfoDisplay = document.getElementById('personalInfoDisplay');
         const personalInfoEdit = document.getElementById('personalInfoEdit');
         const savePersonalInfoBtn = document.getElementById('savePersonalInfoBtn');
         const cancelPersonalInfoBtn = document.getElementById('cancelPersonalInfoBtn');
-
+    
         editPersonalInfoBtn.addEventListener('click', function() {
             personalInfoDisplay.style.display = 'none';
             personalInfoEdit.style.display = 'block';
-
+            
             // Fill form with current data
             document.getElementById('firstName').value = currentUser.first_name || '';
             document.getElementById('lastName').value = currentUser.last_name || '';
@@ -2472,24 +2472,24 @@
             document.getElementById('phone').value = currentUser.phone || '';
             document.getElementById('location').value = currentUser.location || '';
         });
-
+    
         cancelPersonalInfoBtn.addEventListener('click', function() {
             personalInfoEdit.style.display = 'none';
             personalInfoDisplay.style.display = 'block';
         });
-
+    
         savePersonalInfoBtn.addEventListener('click', async function() {
             const firstName = validateInput(document.getElementById('firstName').value);
             const lastName = validateInput(document.getElementById('lastName').value);
             const email = validateInput(document.getElementById('email').value, 'email');
             const phone = validateInput(document.getElementById('phone').value, 'phone');
             const location = validateInput(document.getElementById('location').value);
-
+            
             if (!firstName || !lastName || !email) {
                 showAlert('First name, last name, and email are required', 'error');
                 return;
             }
-
+            
             try {
                 const response = await fetchWithAuth('/api/update-profile/', {
                     method: 'POST',
@@ -2501,25 +2501,25 @@
                         location: location
                     }),
                 });
-
+                
                 // Update the display
                 document.getElementById('displayFullName').textContent = `${firstName} ${lastName}`;
                 document.getElementById('displayEmail').textContent = email;
                 document.getElementById('displayPhone').textContent = phone || 'Not provided';
                 document.getElementById('displayLocation').textContent = location || 'Not provided';
-
+                
                 // Update the username in header and sidebar
                 document.getElementById('userName').textContent = `${firstName} ${lastName}`;
                 document.getElementById('headerUserName').textContent = `${firstName} ${lastName}`;
                 document.getElementById('sidebarUserName').textContent = `Welcome, ${firstName}`;
-
+                
                 // Update current user data
                 currentUser.first_name = firstName;
                 currentUser.last_name = lastName;
                 currentUser.email = email;
                 currentUser.phone = phone;
                 currentUser.location = location;
-
+                
                 personalInfoEdit.style.display = 'none';
                 personalInfoDisplay.style.display = 'block';
                 showAlert('Personal information updated successfully!');
@@ -2528,7 +2528,7 @@
                 showAlert('Failed to update personal information', 'error');
             }
         });
-
+    
         // Bio editing
         const editBioBtn = document.getElementById('editBioBtn');
         const bioDisplay = document.getElementById('bioDisplay');
@@ -2537,39 +2537,39 @@
         const expertiseInput = document.getElementById('expertiseInput');
         const saveBioBtn = document.getElementById('saveBioBtn');
         const cancelBioBtn = document.getElementById('cancelBioBtn');
-
+    
         editBioBtn.addEventListener('click', function() {
             bioDisplay.style.display = 'none';
             bioEdit.style.display = 'block';
             bioTextarea.value = document.getElementById('bioText').textContent;
             expertiseInput.value = currentUser.expertise || '';
         });
-
+    
         cancelBioBtn.addEventListener('click', function() {
             bioEdit.style.display = 'none';
             bioDisplay.style.display = 'block';
         });
-
+    
         saveBioBtn.addEventListener('click', async function() {
             const bio = validateInput(bioTextarea.value);
             const expertise = validateInput(expertiseInput.value);
-
+            
             try {
                 const response = await fetchWithAuth('/api/update-profile/', {
                     method: 'POST',
-                    body: JSON.stringify({
+                    body: JSON.stringify({ 
                         bio: bio,
-                        expertise: expertise
+                        expertise: expertise 
                     }),
                 });
-
+                
                 document.getElementById('bioText').textContent = bio;
                 currentUser.bio = bio;
                 currentUser.expertise = expertise;
-
+                
                 // Update expertise tags
                 updateExpertiseTags();
-
+                
                 bioEdit.style.display = 'none';
                 bioDisplay.style.display = 'block';
                 showAlert('Bio updated successfully!');
@@ -2578,14 +2578,14 @@
                 showAlert('Failed to update bio', 'error');
             }
         });
-
+    
         function updateExpertiseTags() {
             const container = document.getElementById('expertiseContainer');
             container.innerHTML = '';
-
+            
             if (currentUser.expertise) {
                 const expertiseList = currentUser.expertise.split(',').map(item => item.trim());
-
+                
                 expertiseList.forEach(expertise => {
                     if (expertise) {
                         const tag = document.createElement('div');
@@ -2593,16 +2593,16 @@
                         tag.innerHTML = `
                             ${escapeHtml(expertise)} <i class="fas fa-times"></i>
                         `;
-
+                        
                         tag.querySelector('i').addEventListener('click', async () => {
                             const newExpertise = expertiseList.filter(item => item !== expertise).join(', ');
-
+                            
                             try {
                                 const response = await fetchWithAuth('/api/update-profile/', {
                                     method: 'POST',
                                     body: JSON.stringify({ expertise: newExpertise }),
                                 });
-
+                                
                                 currentUser.expertise = newExpertise;
                                 updateExpertiseTags();
                                 showAlert('Expertise updated successfully!');
@@ -2611,12 +2611,12 @@
                                 showAlert('Failed to remove expertise', 'error');
                             }
                         });
-
+                        
                         container.appendChild(tag);
                     }
                 });
             }
-
+            
             // Add "Add Skill" button
             const addSkillBtn = document.createElement('div');
             addSkillBtn.className = 'skill-tag';
@@ -2628,9 +2628,9 @@
                 if (newSkill) {
                     const currentExpertise = currentUser.expertise ? currentUser.expertise.split(',').map(item => item.trim()) : [];
                     currentExpertise.push(newSkill);
-
+                    
                     const newExpertise = currentExpertise.join(', ');
-
+                    
                     fetchWithAuth('/api/update-profile/', {
                         method: 'POST',
                         body: JSON.stringify({ expertise: newExpertise }),
@@ -2646,10 +2646,10 @@
                     });
                 }
             });
-
+            
             container.appendChild(addSkillBtn);
         }
-
+    
         // Mentor Information (only for mentors)
         const mentorInfoSection = document.getElementById('mentorInfoSection');
         const editMentorInfoBtn = document.getElementById('editMentorInfoBtn');
@@ -2657,13 +2657,13 @@
         const mentorInfoEdit = document.getElementById('mentorInfoEdit');
         const saveMentorInfoBtn = document.getElementById('saveMentorInfoBtn');
         const cancelMentorInfoBtn = document.getElementById('cancelMentorInfoBtn');
-
+    
         function updateMentorInfoDisplay() {
             if (currentUser.role === 'mentor') {
                 mentorInfoSection.style.display = 'block';
                 document.getElementById('mentorBioText').textContent = currentUser.mentor_bio || 'No mentor bio available';
                 document.getElementById('mentorExpertiseText').textContent = currentUser.mentor_expertise || 'Not specified';
-
+                
                 if (currentUser.mentor_availability && Object.keys(currentUser.mentor_availability).length > 0) {
                     document.getElementById('mentorAvailabilityText').textContent = 'Set (see edit view for details)';
                 } else {
@@ -2673,67 +2673,67 @@
                 mentorInfoSection.style.display = 'none';
             }
         }
-
+    
         editMentorInfoBtn.addEventListener('click', function() {
             mentorInfoDisplay.style.display = 'none';
             mentorInfoEdit.style.display = 'block';
-
+            
             // Fill form with current data
             document.getElementById('mentorBio').value = currentUser.mentor_bio || '';
             document.getElementById('mentorExpertise').value = currentUser.mentor_expertise || '';
-
+            
             // Generate availability grid
             const availabilityGrid = document.getElementById('availabilityGrid');
             availabilityGrid.innerHTML = '';
-
+            
             const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
             const timeSlots = ['Morning', 'Afternoon', 'Evening'];
-
+            
             days.forEach(day => {
                 const dayGroup = document.createElement('div');
                 dayGroup.className = 'day-group';
-
+                
                 const dayLabel = document.createElement('label');
                 dayLabel.textContent = day;
                 dayGroup.appendChild(dayLabel);
-
+                
                 timeSlots.forEach(slot => {
                     const checkboxId = `avail-${day.toLowerCase()}-${slot.toLowerCase()}`;
                     const checkbox = document.createElement('input');
                     checkbox.type = 'checkbox';
                     checkbox.id = checkboxId;
                     checkbox.value = `${day}-${slot}`;
-
+                    
                     // Check if this slot is available
                     if (currentUser.mentor_availability && currentUser.mentor_availability[day]) {
                         checkbox.checked = currentUser.mentor_availability[day].includes(slot);
                     }
-
+                    
                     const label = document.createElement('label');
                     label.htmlFor = checkboxId;
                     label.textContent = slot;
-
+                    
                     dayGroup.appendChild(checkbox);
                     dayGroup.appendChild(label);
                 });
-
+                
                 availabilityGrid.appendChild(dayGroup);
             });
         });
-
+    
         cancelMentorInfoBtn.addEventListener('click', function() {
             mentorInfoEdit.style.display = 'none';
             mentorInfoDisplay.style.display = 'block';
         });
-
+    
         saveMentorInfoBtn.addEventListener('click', async function() {
             const mentorBio = document.getElementById('mentorBio').value;
             const mentorExpertise = document.getElementById('mentorExpertise').value;
-
+            
             // Get availability
             const availability = {};
             const checkboxes = document.querySelectorAll('#availabilityGrid input[type="checkbox"]');
-
+            
             checkboxes.forEach(checkbox => {
                 if (checkbox.checked) {
                     const [day, slot] = checkbox.value.split('-');
@@ -2743,7 +2743,7 @@
                     availability[day].push(slot);
                 }
             });
-
+            
             try {
                 const response = await fetchWithAuth('/api/update-profile/', {
                     method: 'POST',
@@ -2753,11 +2753,11 @@
                         mentor_availability: availability
                     }),
                 });
-
+                
                 currentUser.mentor_bio = mentorBio;
                 currentUser.mentor_expertise = mentorExpertise;
                 currentUser.mentor_availability = availability;
-
+                
                 updateMentorInfoDisplay();
                 mentorInfoEdit.style.display = 'none';
                 mentorInfoDisplay.style.display = 'block';
@@ -2767,7 +2767,7 @@
                 showAlert('Failed to update mentor information', 'error');
             }
         });
-
+    
         // Education Form Handling
         const addEducationBtn = document.getElementById('addEducationBtn');
         const educationForm = document.getElementById('educationForm');
@@ -2775,12 +2775,12 @@
         const cancelEducationBtn = document.getElementById('cancelEducationBtn');
         const educationList = document.getElementById('educationList');
         const noEducationMessage = document.getElementById('noEducationMessage');
-
+    
         addEducationBtn.addEventListener('click', function() {
             educationForm.style.display = 'block';
             isEditingEducation = false;
             currentEditingId = null;
-
+            
             // Reset form
             document.getElementById('eduInstitution').value = '';
             document.getElementById('eduDegree').value = '';
@@ -2788,31 +2788,31 @@
             document.getElementById('eduStartDate').value = '';
             document.getElementById('eduEndDate').value = '';
             document.getElementById('eduDescription').value = '';
-
+            
             saveEducationBtn.textContent = 'SAVE EDUCATION';
         });
-
+    
         cancelEducationBtn.addEventListener('click', function() {
             educationForm.style.display = 'none';
         });
-
+    
         function renderEducationItems() {
             educationList.innerHTML = '';
-
+            
             if (educationItems.length === 0) {
                 noEducationMessage.style.display = 'block';
                 return;
             }
-
+            
             noEducationMessage.style.display = 'none';
-
+            
             educationItems.forEach(edu => {
                 const eduItem = document.createElement('div');
                 eduItem.className = 'education-item';
                 eduItem.dataset.id = edu.id;
-
+                
                 const endDateDisplay = edu.end_date ? formatDate(edu.end_date) : 'Present';
-
+                
                 eduItem.innerHTML = `
                     <h3>${escapeHtml(edu.institution)}</h3>
                     <p>${escapeHtml(getDegreeDisplay(edu.degree))} in ${escapeHtml(edu.field_of_study)} | ${formatDate(edu.start_date)} - ${endDateDisplay}</p>
@@ -2826,20 +2826,20 @@
                         </button>
                     </div>
                 `;
-
+                
                 // Add event listeners
                 eduItem.querySelector('.edit-edu-btn').addEventListener('click', () => {
                     editEducation(edu);
                 });
-
+                
                 eduItem.querySelector('.delete-edu-btn').addEventListener('click', () => {
                     deleteEducation(edu.id);
                 });
-
+                
                 educationList.appendChild(eduItem);
             });
         }
-
+    
         function getDegreeDisplay(degreeValue) {
             const degreeMap = {
                 'primary': 'Primary School',
@@ -2851,14 +2851,14 @@
             };
             return degreeMap[degreeValue] || degreeValue;
         }
-
+    
         saveEducationBtn.addEventListener('click', async function() {
             const institution = document.getElementById('eduInstitution').value;
             const degree = document.getElementById('eduDegree').dataset.value || document.getElementById('eduDegree').value;
             const field = document.getElementById('eduField').value;
             const startDateInput = document.getElementById('eduStartDate').value;
             const endDateInput = document.getElementById('eduEndDate').value;
-
+            
             // Convert manual date input to ISO format
             let startDate = startDateInput;
             if (startDateInput && !startDateInput.includes('-')) {
@@ -2869,7 +2869,7 @@
                 }
                 startDate = date.toISOString().split('T')[0];
             }
-
+            
             let endDate = endDateInput;
             if (endDateInput && !endDateInput.includes('-')) {
                 const date = new Date(endDateInput);
@@ -2880,12 +2880,12 @@
                 endDate = date.toISOString().split('T')[0];
             }
             const description = document.getElementById('eduDescription').value;
-
+            
             if (!institution || !degree || !field || !startDate) {
                 showAlert('Please fill in all required fields', 'error');
                 return;
             }
-
+            
             const educationData = {
                 institution,
                 degree,
@@ -2894,23 +2894,23 @@
                 end_date: endDate || null,
                 description
             };
-
+            
             try {
                 let response;
-
+                
                 if (isEditingEducation) {
                     // Update existing education
                     response = await fetchWithAuth(`/api/educations/${currentEditingId}/`, {
                         method: 'PUT',
                         body: JSON.stringify(educationData),
                     });
-
+                    
                     // Update in local array
                     const index = educationItems.findIndex(item => item.id === currentEditingId);
                     if (index !== -1) {
                         educationItems[index] = response;
                     }
-
+                    
                     showAlert('Education updated successfully!');
                 } else {
                     // Add new education
@@ -2918,11 +2918,11 @@
                         method: 'POST',
                         body: JSON.stringify(educationData),
                     });
-
+                    
                     educationItems.push(response);
                     showAlert('Education added successfully!');
                 }
-
+                
                 renderEducationItems();
                 educationForm.style.display = 'none';
             } catch (error) {
@@ -2930,7 +2930,7 @@
                 showAlert('Failed to save education', 'error');
             }
         });
-
+    
         // Helper function to set custom select values
         function setCustomSelectValue(selectId, value) {
             const select = document.getElementById(selectId);
@@ -2941,37 +2941,37 @@
                 select.dataset.value = value;
             }
         }
-
+        
         // Edit education
         function editEducation(edu) {
             document.getElementById('eduInstitution').value = edu.institution;
-
+            
             // Set custom select value
             setCustomSelectValue('eduDegree', edu.degree);
-
+            
             document.getElementById('eduField').value = edu.field_of_study;
             document.getElementById('eduStartDate').value = edu.start_date;
             document.getElementById('eduEndDate').value = edu.end_date || '';
             document.getElementById('eduDescription').value = edu.description || '';
-
+            
             educationForm.style.display = 'block';
             isEditingEducation = true;
             currentEditingId = edu.id;
             saveEducationBtn.textContent = 'UPDATE EDUCATION';
         }
-
+    
         // Delete education
         async function deleteEducation(id) {
             if (!confirm('Are you sure you want to delete this education entry?')) return;
-
+            
             try {
                 await fetchWithAuth(`/api/educations/${id}/`, {
                     method: 'DELETE',
                 });
-
+                
                 // Remove from local array
                 educationItems = educationItems.filter(item => item.id !== id);
-
+                
                 renderEducationItems();
                 showAlert('Education deleted successfully!');
             } catch (error) {
@@ -2979,7 +2979,7 @@
                 showAlert('Failed to delete education', 'error');
             }
         }
-
+    
         // Experience Form Handling
         const addExperienceBtn = document.getElementById('addExperienceBtn');
         const experienceForm = document.getElementById('experienceForm');
@@ -2987,12 +2987,12 @@
         const cancelExperienceBtn = document.getElementById('cancelExperienceBtn');
         const experienceList = document.getElementById('experienceList');
         const noExperienceMessage = document.getElementById('noExperienceMessage');
-
+    
         addExperienceBtn.addEventListener('click', function() {
             experienceForm.style.display = 'block';
             isEditingExperience = false;
             currentEditingId = null;
-
+            
             // Reset form
             document.getElementById('expTitle').value = '';
             document.getElementById('expCompany').value = '';
@@ -3001,31 +3001,31 @@
             document.getElementById('expEndDate').value = '';
             document.getElementById('expCurrentlyWorking').checked = false;
             document.getElementById('expDescription').value = '';
-
+            
             saveExperienceBtn.textContent = 'SAVE EXPERIENCE';
         });
-
+    
         cancelExperienceBtn.addEventListener('click', function() {
             experienceForm.style.display = 'none';
         });
-
+    
         function renderExperienceItems() {
             experienceList.innerHTML = '';
-
+            
             if (experienceItems.length === 0) {
                 noExperienceMessage.style.display = 'block';
                 return;
             }
-
+            
             noExperienceMessage.style.display = 'none';
-
+            
             experienceItems.forEach(exp => {
                 const expItem = document.createElement('div');
                 expItem.className = 'experience-item';
                 expItem.dataset.id = exp.id;
-
+                
                 const endDateDisplay = exp.currently_working ? 'Present' : (exp.end_date ? formatDate(exp.end_date) : '');
-
+                
                 expItem.innerHTML = `
                     <h3>${escapeHtml(exp.title)}</h3>
                     <p>${escapeHtml(exp.company)}${exp.location ? ` (${escapeHtml(exp.location)})` : ''} | ${formatDate(exp.start_date)} - ${endDateDisplay}</p>
@@ -3039,27 +3039,27 @@
                         </button>
                     </div>
                 `;
-
+                
                 // Add event listeners
                 expItem.querySelector('.edit-exp-btn').addEventListener('click', () => {
                     editExperience(exp);
                 });
-
+                
                 expItem.querySelector('.delete-exp-btn').addEventListener('click', () => {
                     deleteExperience(exp.id);
                 });
-
+                
                 experienceList.appendChild(expItem);
             });
         }
-
+    
         saveExperienceBtn.addEventListener('click', async function() {
             const title = document.getElementById('expTitle').value;
             const company = document.getElementById('expCompany').value;
             const location = document.getElementById('expLocation').value;
             const startDateInput = document.getElementById('expStartDate').value;
             const endDateInput = document.getElementById('expEndDate').value;
-
+            
             // Convert manual date input to ISO format
             let startDate = startDateInput;
             if (startDateInput && !startDateInput.includes('-')) {
@@ -3070,7 +3070,7 @@
                 }
                 startDate = date.toISOString().split('T')[0];
             }
-
+            
             let endDate = endDateInput;
             if (endDateInput && !endDateInput.includes('-')) {
                 const date = new Date(endDateInput);
@@ -3082,12 +3082,12 @@
             }
             const currentlyWorking = document.getElementById('expCurrentlyWorking').checked;
             const description = document.getElementById('expDescription').value;
-
+            
             if (!title || !company || !startDate) {
                 showAlert('Please fill in all required fields', 'error');
                 return;
             }
-
+            
             const experienceData = {
                 title,
                 company,
@@ -3097,23 +3097,23 @@
                 currently_working: currentlyWorking,
                 description
             };
-
+            
             try {
                 let response;
-
+                
                 if (isEditingExperience) {
                     // Update existing experience
                     response = await fetchWithAuth(`/api/experiences/${currentEditingId}/`, {
                         method: 'PUT',
                         body: JSON.stringify(experienceData),
                     });
-
+                    
                     // Update in local array
                     const index = experienceItems.findIndex(item => item.id === currentEditingId);
                     if (index !== -1) {
                         experienceItems[index] = response;
                     }
-
+                    
                     showAlert('Experience updated successfully!');
                 } else {
                     // Add new experience
@@ -3121,11 +3121,11 @@
                         method: 'POST',
                         body: JSON.stringify(experienceData),
                     });
-
+                    
                     experienceItems.push(response);
                     showAlert('Experience added successfully!');
                 }
-
+                
                 renderExperienceItems();
                 experienceForm.style.display = 'none';
             } catch (error) {
@@ -3133,7 +3133,7 @@
                 showAlert('Failed to save experience', 'error');
             }
         });
-
+    
         // Edit experience
         function editExperience(exp) {
             document.getElementById('expTitle').value = exp.title;
@@ -3143,25 +3143,25 @@
             document.getElementById('expEndDate').value = exp.end_date || '';
             document.getElementById('expCurrentlyWorking').checked = exp.currently_working;
             document.getElementById('expDescription').value = exp.description || '';
-
+            
             experienceForm.style.display = 'block';
             isEditingExperience = true;
             currentEditingId = exp.id;
             saveExperienceBtn.textContent = 'UPDATE EXPERIENCE';
         }
-
+    
         // Delete experience
         async function deleteExperience(id) {
             if (!confirm('Are you sure you want to delete this experience?')) return;
-
+            
             try {
                 await fetchWithAuth(`/api/experiences/${id}/`, {
                     method: 'DELETE',
                 });
-
+                
                 // Remove from local array
                 experienceItems = experienceItems.filter(item => item.id !== id);
-
+                
                 renderExperienceItems();
                 showAlert('Experience deleted successfully!');
             } catch (error) {
@@ -3169,7 +3169,7 @@
                 showAlert('Failed to delete experience', 'error');
             }
         }
-
+    
         // Opportunity Preferences Section
         const opportunityCheckboxes = document.querySelectorAll('input[name="opportunity_types"]');
         const scholarshipFields = document.querySelector('.scholarship-fields');
@@ -3177,7 +3177,7 @@
         const internshipFields = document.querySelector('.internship-fields');
         const savePreferencesBtn = document.getElementById('savePreferencesBtn');
         const preferencesContainer = document.querySelector('.opportunity-preferences-form');
-
+    
         // Create dropdown container for complex preferences
         const createPreferencesDropdown = () => {
             const dropdownHTML = `
@@ -3192,7 +3192,7 @@
                 </div>
             `;
             preferencesContainer.insertAdjacentHTML('afterbegin', dropdownHTML);
-
+            
             // Add toggle functionality
             document.querySelector('.dropdown-toggle').addEventListener('click', function() {
                 const content = this.nextElementSibling;
@@ -3201,22 +3201,22 @@
                 this.querySelector('i').classList.toggle('fa-chevron-down');
             });
         };
-
+    
         // Function to update the saved preferences list
         const updateSavedPreferencesList = (preferences) => {
             const savedList = document.getElementById('savedPreferencesList');
             savedList.innerHTML = '';
-
+            
             if (!preferences.opportunity_types || preferences.opportunity_types.length === 0) {
                 savedList.innerHTML = '<p>No preferences saved yet</p>';
                 return;
             }
-
+            
             let html = '<ul class="saved-preferences">';
-
+            
             // Main opportunity types
             html += '<li><strong>Selected Types:</strong> ' + preferences.opportunity_types.join(', ') + '</li>';
-
+            
             // Scholarship details
             if (preferences.scholarship) {
                 html += `
@@ -3231,7 +3231,7 @@
                     </li>
                 `;
             }
-
+            
             // Job details
             if (preferences.job) {
                 html += `
@@ -3246,7 +3246,7 @@
                     </li>
                 `;
             }
-
+            
             // Internship details
             if (preferences.internship) {
                 html += `
@@ -3260,17 +3260,17 @@
                     </li>
                 `;
             }
-
+            
             html += '</ul>';
             savedList.innerHTML = html;
         };
-
+    
         // Show/hide specific fields based on opportunity type selection
         opportunityCheckboxes.forEach(checkbox => {
             checkbox.addEventListener('change', function() {
                 const value = this.value;
                 const isChecked = this.checked;
-
+                
                 if (value === 'scholarship') {
                     scholarshipFields.style.display = isChecked ? 'block' : 'none';
                     if (!isChecked) {
@@ -3281,7 +3281,7 @@
                         document.getElementById('scholarship_field').value = '';
                     }
                 }
-
+                
                 if (value === 'job') {
                     jobFields.style.display = isChecked ? 'block' : 'none';
                     if (!isChecked) {
@@ -3292,7 +3292,7 @@
                         document.getElementById('job_experience').value = '';
                     }
                 }
-
+                
                 if (value === 'internship') {
                     internshipFields.style.display = isChecked ? 'block' : 'none';
                     if (!isChecked) {
@@ -3304,16 +3304,16 @@
                 }
             });
         });
-
+    
         // Load preferences with improved handling
         async function loadPreferences() {
             try {
                 const response = await fetchWithAuth('/api/get-preferences/');
                 const preferences = response.preferences || {};
-
+                
                 // Update the saved preferences dropdown
                 updateSavedPreferencesList(preferences);
-
+                
                 // Check the opportunity types
                 if (preferences.opportunity_types) {
                     preferences.opportunity_types.forEach(type => {
@@ -3325,7 +3325,7 @@
                         }
                     });
                 }
-
+                
                 // Fill scholarship fields if scholarship is selected
                 if (preferences.scholarship) {
                     if (preferences.scholarship.level) setCustomSelectValue('scholarship_level', preferences.scholarship.level);
@@ -3333,7 +3333,7 @@
                     if (preferences.scholarship.location) setCustomSelectValue('scholarship_location', preferences.scholarship.location);
                     document.getElementById('scholarship_field').value = preferences.scholarship.field || '';
                 }
-
+                
                 // Fill job fields if job is selected
                 if (preferences.job) {
                     if (preferences.job.type) setCustomSelectValue('job_type', preferences.job.type);
@@ -3341,19 +3341,19 @@
                     document.getElementById('job_location').value = preferences.job.location || '';
                     if (preferences.job.experience) setCustomSelectValue('job_experience', preferences.job.experience);
                 }
-
+                
                 // Fill internship fields if internship is selected
                 if (preferences.internship) {
                     if (preferences.internship.duration) setCustomSelectValue('internship_duration', preferences.internship.duration);
                     document.getElementById('internship_field').value = preferences.internship.field || '';
                     if (preferences.internship.paid) setCustomSelectValue('internship_paid', preferences.internship.paid);
                 }
-
+                
                 // Hide all complex fields by default
                 scholarshipFields.style.display = 'none';
                 jobFields.style.display = 'none';
                 internshipFields.style.display = 'none';
-
+                
                 return preferences;
             } catch (error) {
                 console.error('Error loading preferences:', error);
@@ -3361,12 +3361,12 @@
                 return {};
             }
         }
-
+    
         // Save preferences
         savePreferencesBtn.addEventListener('click', async function() {
             const selectedTypes = Array.from(document.querySelectorAll('input[name="opportunity_types"]:checked'))
                 .map(el => el.value);
-
+            
             const preferences = {
                 opportunity_types: selectedTypes,
                 scholarship: {
@@ -3387,28 +3387,28 @@
                     paid: document.getElementById('internship_paid').dataset.value || document.getElementById('internship_paid').value
                 }
             };
-
+            
             try {
                 const response = await fetchWithAuth('/api/save-preferences/', {
                     method: 'POST',
                     body: JSON.stringify(preferences),
                 });
-
+                
                 // Update the saved preferences display
                 updateSavedPreferencesList(preferences);
-
+                
                 // Hide all complex fields after saving
                 scholarshipFields.style.display = 'none';
                 jobFields.style.display = 'none';
                 internshipFields.style.display = 'none';
-
+                
                 showAlert('Preferences saved successfully!');
             } catch (error) {
                 console.error('Error saving preferences:', error);
                 showAlert('Failed to save preferences', 'error');
             }
         });
-
+    
         // Logout functionality
         document.getElementById('logoutBtn').addEventListener('click', function() {
             if (confirm('Are you sure you want to logout?')) {
@@ -3420,7 +3420,7 @@
                     credentials: 'include',
                 })
                 .then(() => {
-                    window.location.href = '../posts/home.html';
+                    window.location.href = '../login.html';
                 })
                 .catch(error => {
                     console.error('Error logging out:', error);
@@ -3428,11 +3428,11 @@
                 });
             }
         });
-
+    
         // Initialize the page when loaded
         async function initializePage() {
             showLoading();
-
+            
             try {
                 // First verify the user is authenticated
                 const isAuthenticated = await checkSession();
@@ -3440,23 +3440,23 @@
                     hideLoading();
                     return;
                 }
-
+                
                 // Fetch current user data
                 const userResponse = await fetchWithAuth('/api/user/');
                 if (!userResponse || userResponse.error) {
                     throw new Error('Failed to fetch user data');
                 }
                 currentUser = userResponse;
-
+                
                 // Update UI with user data
                 document.getElementById('sidebarProfilePic').src = currentUser.profile_pic || '../../static/images/default-profile.png';
                 document.getElementById('headerProfilePic').src = currentUser.profile_pic || '../../static/images/default-profile.png';
                 document.getElementById('profileImage').src = currentUser.profile_pic || '../../static/images/default-profile.png';
-
+                
                 document.getElementById('sidebarUserName').textContent = `Welcome, ${currentUser.full_name || 'User'}`;
                 document.getElementById('headerUserName').textContent = currentUser.full_name || 'User';
                 document.getElementById('userName').textContent = currentUser.full_name || 'User';
-
+                
                 // Update role display
                 const roleElement = document.querySelector('.user-profile .role');
                 if (currentUser.role === 'super_admin') {
@@ -3468,52 +3468,52 @@
                 } else {
                     roleElement.textContent = 'Member';
                 }
-
+                
                 // Update personal info display
                 document.getElementById('displayFullName').textContent = currentUser.full_name || 'User';
                 document.getElementById('displayEmail').textContent = currentUser.email || 'Not provided';
                 document.getElementById('displayPhone').textContent = currentUser.phone || 'Not provided';
                 document.getElementById('displayLocation').textContent = currentUser.location || 'Not provided';
                 document.getElementById('displayRole').textContent = currentUser.role || 'User';
-
+                
                 // Update bios
                 document.getElementById('profileBioText').textContent = currentUser.short_bio || 'No bio available';
                 document.getElementById('bioText').textContent = currentUser.bio || 'No information provided';
-
+                
                 // Update expertise
                 updateExpertiseTags();
-
+                
                 // Show/hide mentor section
                 updateMentorInfoDisplay();
-
+                
                 // Fetch education items
                 const educationResponse = await fetchWithAuth('/api/educations/');
                 educationItems = educationResponse;
                 renderEducationItems();
-
+                
                 // Fetch experience items
                 const experienceResponse = await fetchWithAuth('/api/experiences/');
                 experienceItems = experienceResponse;
                 renderExperienceItems();
-
+                
                 // Initialize preferences dropdown
                 createPreferencesDropdown();
-
+                
                 // Load opportunity preferences
                 await loadPreferences();
-
+                
                 // Fetch notifications count
                 const notificationsResponse = await fetchWithAuth('/api/notifications/');
                 const unreadCount = notificationsResponse.unread_count || 0;
                 document.getElementById('notificationBadge').textContent = unreadCount;
                 document.getElementById('notificationCount').textContent = unreadCount;
-
+                
                 hideLoading();
-
+                
             } catch (error) {
                 console.error('Error initializing page:', error);
                 hideLoading();
-
+                
                 // If not authenticated, redirect to login
                 if (error.message.includes('401') || error.message.includes('403')) {
                     window.location.href = '../login.html';
@@ -3522,7 +3522,7 @@
                 }
             }
         }
-
+    
         // Custom select functionality for profile dropdowns
         function initCustomSelects() {
             // Scholarship level
@@ -3533,22 +3533,22 @@
                 options.style.display = isVisible ? 'none' : 'block';
                 this.classList.toggle('active');
             });
-
+            
             document.querySelectorAll('#scholarshipLevelOptions .select-option').forEach(option => {
                 option.addEventListener('click', function() {
                     const value = this.dataset.value;
                     const text = this.textContent;
                     const select = document.getElementById('scholarship_level');
                     const selectText = select.querySelector('.select-text');
-
+                    
                     selectText.textContent = text;
                     select.dataset.value = value;
-
+                    
                     document.getElementById('scholarshipLevelOptions').style.display = 'none';
                     select.classList.remove('active');
                 });
             });
-
+            
             // Scholarship type
             document.getElementById('scholarship_type').addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -3557,22 +3557,22 @@
                 options.style.display = isVisible ? 'none' : 'block';
                 this.classList.toggle('active');
             });
-
+            
             document.querySelectorAll('#scholarshipTypeOptions .select-option').forEach(option => {
                 option.addEventListener('click', function() {
                     const value = this.dataset.value;
                     const text = this.textContent;
                     const select = document.getElementById('scholarship_type');
                     const selectText = select.querySelector('.select-text');
-
+                    
                     selectText.textContent = text;
                     select.dataset.value = value;
-
+                    
                     document.getElementById('scholarshipTypeOptions').style.display = 'none';
                     select.classList.remove('active');
                 });
             });
-
+            
             // Scholarship location
             document.getElementById('scholarship_location').addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -3581,22 +3581,22 @@
                 options.style.display = isVisible ? 'none' : 'block';
                 this.classList.toggle('active');
             });
-
+            
             document.querySelectorAll('#scholarshipLocationOptions .select-option').forEach(option => {
                 option.addEventListener('click', function() {
                     const value = this.dataset.value;
                     const text = this.textContent;
                     const select = document.getElementById('scholarship_location');
                     const selectText = select.querySelector('.select-text');
-
+                    
                     selectText.textContent = text;
                     select.dataset.value = value;
-
+                    
                     document.getElementById('scholarshipLocationOptions').style.display = 'none';
                     select.classList.remove('active');
                 });
             });
-
+            
             // Job type
             document.getElementById('job_type').addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -3605,22 +3605,22 @@
                 options.style.display = isVisible ? 'none' : 'block';
                 this.classList.toggle('active');
             });
-
+            
             document.querySelectorAll('#jobTypeOptions .select-option').forEach(option => {
                 option.addEventListener('click', function() {
                     const value = this.dataset.value;
                     const text = this.textContent;
                     const select = document.getElementById('job_type');
                     const selectText = select.querySelector('.select-text');
-
+                    
                     selectText.textContent = text;
                     select.dataset.value = value;
-
+                    
                     document.getElementById('jobTypeOptions').style.display = 'none';
                     select.classList.remove('active');
                 });
             });
-
+            
             // Job experience
             document.getElementById('job_experience').addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -3629,22 +3629,22 @@
                 options.style.display = isVisible ? 'none' : 'block';
                 this.classList.toggle('active');
             });
-
+            
             document.querySelectorAll('#jobExperienceOptions .select-option').forEach(option => {
                 option.addEventListener('click', function() {
                     const value = this.dataset.value;
                     const text = this.textContent;
                     const select = document.getElementById('job_experience');
                     const selectText = select.querySelector('.select-text');
-
+                    
                     selectText.textContent = text;
                     select.dataset.value = value;
-
+                    
                     document.getElementById('jobExperienceOptions').style.display = 'none';
                     select.classList.remove('active');
                 });
             });
-
+            
             // Internship duration
             document.getElementById('internship_duration').addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -3653,22 +3653,22 @@
                 options.style.display = isVisible ? 'none' : 'block';
                 this.classList.toggle('active');
             });
-
+            
             document.querySelectorAll('#internshipDurationOptions .select-option').forEach(option => {
                 option.addEventListener('click', function() {
                     const value = this.dataset.value;
                     const text = this.textContent;
                     const select = document.getElementById('internship_duration');
                     const selectText = select.querySelector('.select-text');
-
+                    
                     selectText.textContent = text;
                     select.dataset.value = value;
-
+                    
                     document.getElementById('internshipDurationOptions').style.display = 'none';
                     select.classList.remove('active');
                 });
             });
-
+            
             // Internship compensation
             document.getElementById('internship_paid').addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -3677,22 +3677,22 @@
                 options.style.display = isVisible ? 'none' : 'block';
                 this.classList.toggle('active');
             });
-
+            
             document.querySelectorAll('#internshipPaidOptions .select-option').forEach(option => {
                 option.addEventListener('click', function() {
                     const value = this.dataset.value;
                     const text = this.textContent;
                     const select = document.getElementById('internship_paid');
                     const selectText = select.querySelector('.select-text');
-
+                    
                     selectText.textContent = text;
                     select.dataset.value = value;
-
+                    
                     document.getElementById('internshipPaidOptions').style.display = 'none';
                     select.classList.remove('active');
                 });
             });
-
+            
             // Education degree
             document.getElementById('eduDegree').addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -3701,22 +3701,22 @@
                 options.style.display = isVisible ? 'none' : 'block';
                 this.classList.toggle('active');
             });
-
+            
             document.querySelectorAll('#eduDegreeOptions .select-option').forEach(option => {
                 option.addEventListener('click', function() {
                     const value = this.dataset.value;
                     const text = this.textContent;
                     const select = document.getElementById('eduDegree');
                     const selectText = select.querySelector('.select-text');
-
+                    
                     selectText.textContent = text;
                     select.dataset.value = value;
-
+                    
                     document.getElementById('eduDegreeOptions').style.display = 'none';
                     select.classList.remove('active');
                 });
             });
-
+            
             // Close dropdowns when clicking outside
             document.addEventListener('click', function() {
                 document.querySelectorAll('.select-options').forEach(options => {
@@ -3727,7 +3727,7 @@
                 });
             });
         }
-
+        
         // Initialize the page when loaded
         document.addEventListener('DOMContentLoaded', function() {
             initCustomSelects();
@@ -3736,4 +3736,3 @@
     </script>
 </body>
 </html>
-

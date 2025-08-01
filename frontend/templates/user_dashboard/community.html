@@ -86,11 +86,11 @@
                 display: block;
                 overflow-x: hidden;
             }
-
+            
             .sidebar {
                 display: none !important;
             }
-
+            
             .main-content {
                 margin-left: 0 !important;
                 margin-right: 0 !important;
@@ -104,7 +104,7 @@
                 right: auto;
                 transform: none;
             }
-
+            
             .header {
                 height: 60px;
                 padding: 0 10px;
@@ -117,29 +117,29 @@
                 justify-content: space-between;
                 align-items: center;
             }
-
+            
             .header-left {
                 display: flex;
                 order: 1;
             }
-
+            
             .header-left .search-bar {
                 display: none;
             }
-
+            
             .header-right {
                 display: none;
             }
-
+            
             .menu-toggle {
                 order: 2;
             }
-
+            
             .notification-bell,
             .theme-toggle {
                 display: none !important;
             }
-
+            
             .menu-toggle {
                 display: flex !important;
                 order: 2;
@@ -150,7 +150,7 @@
                 cursor: pointer;
                 z-index: 100;
             }
-
+            
             .menu-toggle span {
                 width: 100%;
                 height: 3px;
@@ -158,19 +158,19 @@
                 border-radius: 3px;
                 transition: all 0.3s ease;
             }
-
+            
             .profile-section {
                 padding: 8px;
                 margin-bottom: 8px;
                 width: 100%;
                 max-width: 100%;
             }
-
+            
             .community-container {
                 flex-direction: column;
                 gap: 10px;
             }
-
+            
             .community-sidebar {
                 display: none;
             }
@@ -370,7 +370,7 @@
             z-index: 1000;
             box-sizing: border-box;
         }
-
+        
         .bottom-nav-items {
             display: flex;
             justify-content: space-around;
@@ -378,7 +378,7 @@
             width: 100%;
             max-width: 100%;
         }
-
+        
         .bottom-nav-item {
             display: flex;
             flex-direction: column;
@@ -390,12 +390,12 @@
             flex: 1;
             max-width: 20%;
         }
-
+        
         .bottom-nav-item i {
             font-size: 16px;
             margin-bottom: 2px;
         }
-
+        
         .bottom-nav-item span {
             font-size: 9px;
             font-weight: 500;
@@ -404,12 +404,12 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-
+        
         .bottom-nav-item:hover,
         .bottom-nav-item.active {
             color: var(--primary);
         }
-
+        
         .mobile-menu-dropdown {
             position: fixed;
             top: 75px;
@@ -421,11 +421,11 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             z-index: 1001;
         }
-
+        
         .mobile-menu-content {
             padding: 8px 0;
         }
-
+        
         .mobile-menu-item {
             display: flex;
             align-items: center;
@@ -437,21 +437,21 @@
             cursor: pointer;
             position: relative;
         }
-
+        
         .mobile-menu-item:hover {
             background: var(--hover-bg);
         }
-
+        
         .mobile-menu-item i {
             width: 16px;
             font-size: 14px;
         }
-
+        
         .mobile-menu-item span {
             font-size: 14px;
             font-weight: 500;
         }
-
+        
         .mobile-menu-item .badge {
             margin-left: auto;
             background: var(--danger);
@@ -462,35 +462,35 @@
             min-width: 16px;
             text-align: center;
         }
-
+        
         @media (max-width: 768px) {
             .mobile-bottom-nav {
                 display: block;
             }
-
+            
             .action-buttons {
                 flex-direction: column;
                 gap: 8px;
             }
-
+            
             .action-buttons .btn {
                 width: 100%;
                 justify-content: center;
                 font-size: 12px;
                 padding: 8px 12px;
             }
-
+            
             .tab-buttons {
                 width: 100%;
             }
-
+            
             .tab-btn {
                 flex: 1;
                 font-size: 12px;
                 padding: 8px 12px;
                 justify-content: center;
             }
-
+            
             /* Facebook-style posts */
             .profile-section {
                 border-radius: 0 !important;
@@ -502,14 +502,14 @@
                 margin-right: -5px !important;
                 width: calc(100% + 10px) !important;
             }
-
+            
             .profile-section img[style*="width: 100%"] {
                 margin-left: -25px !important;
                 margin-right: -25px !important;
                 width: calc(100% + 50px) !important;
                 border-radius: 0 !important;
             }
-
+            
             /* Discussion responsive fixes */
             .new-post.discussion-form {
                 border-radius: 0 !important;
@@ -517,30 +517,30 @@
                 margin-right: -5px !important;
                 width: calc(100% + 10px) !important;
             }
-
+            
             .discussion-title-row {
                 flex-direction: column !important;
                 gap: 10px !important;
             }
-
+            
             .discussion-title-input,
             .discussion-topic-select {
                 width: 100% !important;
                 min-width: auto !important;
             }
-
+            
             .discussion-topic-select {
                 max-width: 100% !important;
                 box-sizing: border-box !important;
                 overflow: hidden !important;
             }
-
+            
             .discussion-submit-btn {
                 padding: 8px 16px !important;
                 font-size: 12px !important;
                 border-radius: 6px !important;
             }
-
+            
             /* Discussion modal fixes */
             div[style*="position: fixed"] div[style*="width: 90%"] {
                 width: 95% !important;
@@ -549,20 +549,20 @@
                 max-height: 90vh !important;
             }
         }
-
+        
         @media (max-width: 480px) {
             .main-content {
                 padding: 8px;
             }
-
+            
             .profile-section {
                 padding: 10px;
             }
-
+            
             .header {
                 padding: 0 15px;
             }
-
+            
             .header-right {
                 gap: 10px;
             }
@@ -815,7 +815,7 @@
         .notification.error {
             background: var(--warning);
         }
-
+        
         .notification.info {
             background: var(--info);
         }
@@ -832,7 +832,7 @@
         @keyframes fadeOut {
             to { opacity: 0; }
         }
-
+        
         .search-modal {
             position: fixed;
             top: 0;
@@ -848,12 +848,12 @@
             visibility: hidden;
             transition: all 0.3s ease;
         }
-
+        
         .search-modal.show {
             opacity: 1;
             visibility: visible;
         }
-
+        
         .search-modal .modal-content {
             background: var(--card-bg);
             border-radius: 12px;
@@ -866,7 +866,7 @@
             transform: scale(0.7);
             transition: transform 0.3s ease;
         }
-
+        
         @media (max-width: 768px) {
             .search-modal .modal-content {
                 width: 95% !important;
@@ -874,11 +874,11 @@
                 margin: 10px !important;
             }
         }
-
+        
         .search-modal.show .modal-content {
             transform: scale(1);
         }
-
+        
         .modal-header {
             display: flex;
             justify-content: space-between;
@@ -886,12 +886,12 @@
             padding: 20px;
             border-bottom: 1px solid var(--card-border);
         }
-
+        
         .modal-header h3 {
             margin: 0;
             color: var(--text-color);
         }
-
+        
         .modal-close {
             background: none;
             border: none;
@@ -899,13 +899,13 @@
             cursor: pointer;
             color: var(--text-color);
         }
-
+        
         .search-form {
             padding: 20px;
             display: flex;
             gap: 10px;
         }
-
+        
         .modal-search-input {
             flex: 1;
             padding: 12px;
@@ -915,7 +915,7 @@
             background: var(--card-bg);
             color: var(--text-color);
         }
-
+        
         .modal-search-btn {
             background: var(--primary);
             color: white;
@@ -924,14 +924,14 @@
             border-radius: 6px;
             cursor: pointer;
         }
-
+        
         .search-results {
             padding: 0 20px 20px;
             overflow-y: auto;
             flex: 1;
             max-height: 400px;
         }
-
+        
         .search-result-item {
             padding: 15px;
             border: 1px solid var(--card-border);
@@ -940,16 +940,16 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-
+        
         .search-result-item:hover {
             background: var(--hover-bg);
         }
-
+        
         .search-result-item h5 {
             margin-bottom: 5px;
             color: var(--primary);
         }
-
+        
         .search-result-item p {
             color: var(--text-color);
             font-size: 0.9rem;
@@ -991,7 +991,7 @@
             padding: 5px;
             border-radius: 10px;
         }
-
+        
         .tab-btn {
             display: flex;
             align-items: center;
@@ -1002,7 +1002,7 @@
             transition: all 0.3s ease;
             border: none;
         }
-
+        
         .tab-btn i {
             font-size: 16px;
         }
@@ -1082,7 +1082,7 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-
+        
         /* Post form styling */
         .new-post {
             background: var(--card-bg);
@@ -1093,17 +1093,17 @@
             box-shadow: var(--card-shadow);
             transition: all 0.3s ease;
         }
-
+        
         .post-form {
             border: 2px solid var(--primary-light);
         }
-
+        
         .post-form-header {
             display: flex;
             gap: 15px;
             margin-bottom: 20px;
         }
-
+        
         .new-post-avatar {
             width: 40px;
             height: 40px;
@@ -1111,11 +1111,11 @@
             object-fit: cover;
             flex-shrink: 0;
         }
-
+        
         .post-inputs {
             flex: 1;
         }
-
+        
         .post-content-input {
             width: 100%;
             min-height: 100px;
@@ -1129,13 +1129,13 @@
             resize: vertical;
             transition: all 0.3s ease;
         }
-
+        
         .post-content-input:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
         }
-
+        
         .new-post-preview {
             margin-bottom: 15px;
             position: relative;
@@ -1147,13 +1147,13 @@
             justify-content: center;
             background-color: var(--hover-bg);
         }
-
+        
         .new-post-preview img {
             width: 100%;
             max-height: 500px;
             object-fit: contain;
         }
-
+        
         .new-post-remove {
             position: absolute;
             top: 10px;
@@ -1168,7 +1168,7 @@
             justify-content: center;
             cursor: pointer;
         }
-
+        
         .post-form-actions {
             display: flex;
             justify-content: space-between;
@@ -1176,12 +1176,12 @@
             padding-top: 15px;
             border-top: 1px solid var(--divider-color);
         }
-
+        
         .post-options {
             display: flex;
             gap: 15px;
         }
-
+        
         .post-option {
             display: flex;
             align-items: center;
@@ -1194,11 +1194,11 @@
             color: var(--text-color);
             font-weight: 500;
         }
-
+        
         .post-option:hover {
             background: var(--hover-bg);
         }
-
+        
         .post-option input[type="file"] {
             position: absolute;
             top: 0;
@@ -1208,7 +1208,7 @@
             opacity: 0;
             cursor: pointer;
         }
-
+        
         .post-submit-btn {
             display: flex;
             align-items: center;
@@ -1218,31 +1218,31 @@
             font-weight: 600;
             border-radius: 10px;
         }
-
+        
         /* Discussion form styling */
         .discussion-form {
             border: 2px solid var(--primary-light);
         }
-
+        
         .discussion-form-header {
             display: flex;
             gap: 15px;
             margin-bottom: 20px;
         }
-
+        
         .discussion-inputs {
             flex: 1;
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
-
+        
         .discussion-title-row {
             display: flex;
             gap: 15px;
             align-items: center;
         }
-
+        
         .discussion-title-input {
             flex: 1;
             padding: 15px 20px;
@@ -1254,18 +1254,18 @@
             font-weight: 600;
             transition: all 0.3s ease;
         }
-
+        
         .discussion-title-input:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
         }
-
+        
         .custom-select-wrapper {
             position: relative;
             min-width: 180px;
         }
-
+        
         .discussion-topic-select {
             padding: 15px 20px;
             border-radius: 12px;
@@ -1280,15 +1280,15 @@
             align-items: center;
             justify-content: space-between;
         }
-
+        
         .select-arrow {
             transition: transform 0.3s ease;
         }
-
+        
         .custom-select.active .select-arrow {
             transform: rotate(180deg);
         }
-
+        
         .select-options {
             position: absolute;
             top: 100%;
@@ -1302,29 +1302,29 @@
             max-height: 200px;
             overflow-y: auto;
         }
-
+        
         .select-option {
             padding: 12px 15px;
             cursor: pointer;
             transition: background 0.2s ease;
             font-size: 14px;
         }
-
+        
         .select-option:hover {
             background: var(--hover-bg);
         }
-
+        
         .select-option.selected {
             background: rgba(99, 102, 241, 0.1);
             color: var(--primary);
         }
-
+        
         .discussion-topic-select:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
         }
-
+        
         .discussion-content-input {
             width: 100%;
             min-height: 120px;
@@ -1338,13 +1338,13 @@
             resize: vertical;
             transition: all 0.3s ease;
         }
-
+        
         .discussion-content-input:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
         }
-
+        
         .discussion-form-actions {
             display: flex;
             justify-content: space-between;
@@ -1352,7 +1352,7 @@
             padding-top: 15px;
             border-top: 1px solid var(--divider-color);
         }
-
+        
         .discussion-tips {
             display: flex;
             align-items: center;
@@ -1361,11 +1361,11 @@
             opacity: 0.7;
             font-size: 13px;
         }
-
+        
         .discussion-tips i {
             color: var(--warning);
         }
-
+        
         .discussion-submit-btn {
             display: flex;
             align-items: center;
@@ -1388,65 +1388,65 @@
                 <div class="admin-name" id="sidebarUserName">Welcome, Loading ...</div>
             </div>
         </div>
-
+        
         <div class="sidebar-menu">
             <a href="index.html" class="menu-item" data-section="dashboard">
                 <i class="fas fa-home"></i>
                 <span>Dashboard</span>
             </a>
-
+            
             <a href="profile.html" class="menu-item" data-section="profile">
                 <i class="fas fa-user"></i>
                 <span>My Profile</span>
             </a>
-
+            
             <a href="opportunities.html" class="menu-item" data-section="opportunities">
                 <i class="fas fa-briefcase"></i>
                 <span>Opportunities</span>
             </a>
-
+            
             <a href="mentors.html" class="menu-item" data-section="mentors">
                 <i class="fas fa-chalkboard-teacher"></i>
                 <span>Mentors</span>
             </a>
-
+            
             <a href="community.html" class="menu-item active" data-section="community">
                 <i class="fas fa-users"></i>
                 <span>Community</span>
             </a>
-
+            
             <a href="inbox.html" class="menu-item" data-section="inbox">
                 <i class="fas fa-inbox"></i>
                 <span>Inbox</span>
                 <span class="badge" id="messageCount">0</span>
             </a>
-
+            
             <a href="cv-review.html" class="menu-item" data-section="cv-review">
                 <i class="fas fa-file-alt"></i>
                 <span>CV Review</span>
             </a>
-
+            
             <a href="training.html" class="menu-item" data-section="training">
                 <i class="fas fa-graduation-cap"></i>
                 <span>Training</span>
             </a>
-
+            
             <a href="webinars.html" class="menu-item" data-section="webinars">
                 <i class="fas fa-video"></i>
                 <span>Webinars</span>
             </a>
-
+            
             <a href="notifications.html" class="menu-item" data-section="notifications">
                 <i class="fas fa-bell"></i>
                 <span>Notifications</span>
                 <span class="badge" id="notificationCount">0</span>
             </a>
-
+            
             <a href="settings.html" class="menu-item" data-section="settings">
                 <i class="fas fa-cog"></i>
                 <span>Settings</span>
             </a>
-
+            
             <div class="menu-item" id="logoutBtn">
                 <i class="fas fa-sign-out-alt"></i>
                 <span>Logout</span>
@@ -1499,7 +1499,7 @@
 
     <!-- Mobile Menu Overlay -->
     <div class="mobile-menu-overlay"></div>
-
+    
     <!-- Mobile Bottom Navigation -->
     <div class="mobile-bottom-nav">
         <div class="bottom-nav-items">
@@ -1541,18 +1541,18 @@
                     <input type="text" id="communitySearch" placeholder="Search community...">
                 </div>
             </div>
-
+            
             <div class="header-right">
                 <div class="theme-toggle" id="themeToggle">
                     <i class="fas fa-moon"></i>
                     <span class="toggle-text">Dark Mode</span>
                 </div>
-
+                
                 <div class="notification-bell" id="notificationBell">
                     <i class="fas fa-bell"></i>
                     <span class="badge" id="notificationBadge">0</span>
                 </div>
-
+                
                 <div class="user-profile">
                     <img id="headerProfilePic" src="../../static/images/default-image.jpg" alt="User">
                     <div>
@@ -1585,7 +1585,7 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <!-- Posts Section -->
                 <div id="postsSection">
                     <!-- New Post Form -->
@@ -1617,14 +1617,14 @@
                             </button>
                         </div>
                     </div>
-
+                    
                     <!-- Community Posts -->
                     <div class="posts-container" id="postsContainer">
                         <div class="spinner" id="loadingSpinner"></div>
                         <!-- Posts will be dynamically loaded here -->
                     </div>
                 </div>
-
+                
                 <!-- Discussions Section -->
                 <div id="discussionsSection" style="display: none;">
                     <!-- New Discussion Form -->
@@ -1664,7 +1664,7 @@
                             </button>
                         </div>
                     </div>
-
+                    
                     <!-- Discussions List -->
                     <div class="discussions-container" id="discussionsContainer">
                         <div class="spinner" id="discussionsLoadingSpinner"></div>
@@ -1725,7 +1725,7 @@
             document.getElementById('discussionsTab').className = 'btn btn-secondary tab-btn';
             document.getElementById('communitySearch').placeholder = 'Search posts...';
         });
-
+        
         document.getElementById('discussionsTab').addEventListener('click', function() {
             document.getElementById('postsSection').style.display = 'none';
             document.getElementById('discussionsSection').style.display = 'block';
@@ -1766,7 +1766,7 @@
         const mobileMenuDropdown = document.getElementById('mobileMenuDropdown');
         const mobileThemeToggle = document.getElementById('mobileThemeToggle');
         const mobileLogout = document.getElementById('mobileLogout');
-
+        
         if (menuToggle) {
             menuToggle.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -1777,7 +1777,7 @@
                 }
             });
         }
-
+        
         // Close menu when clicking outside
         document.addEventListener('click', function() {
             if (mobileMenuDropdown) {
@@ -1787,7 +1787,7 @@
                 }
             }
         });
-
+        
         // Mobile theme toggle
         if (mobileThemeToggle) {
             mobileThemeToggle.addEventListener('click', function() {
@@ -1803,17 +1803,17 @@
                 mobileMenuDropdown.style.display = 'none';
             });
         }
-
+        
         // Mobile logout
         if (mobileLogout) {
             mobileLogout.addEventListener('click', function() {
                 if (confirm('Are you sure you want to logout?')) {
                     localStorage.removeItem('user');
-                    window.location.href = '../posts/home.html';
+                    window.location.href = '../login.html';
                 }
             });
         }
-
+        
         // Mobile search modal
         const mobileSearch = document.getElementById('mobileSearch');
         if (mobileSearch) {
@@ -1822,20 +1822,20 @@
                 mobileMenuDropdown.style.display = 'none';
             });
         }
-
+        
         // Desktop search functionality
         const communitySearch = document.getElementById('communitySearch');
         const communitySearchSecond = document.getElementById('communitySearchSecond');
-
+        
         function performSearch(searchTerm) {
             const postItems = document.querySelectorAll('.profile-section');
-
+            
             postItems.forEach(item => {
                 const content = item.textContent.toLowerCase();
                 item.style.display = content.includes(searchTerm) ? 'block' : 'none';
             });
         }
-
+        
         if (communitySearch) {
             communitySearch.addEventListener('input', function() {
                 const searchTerm = this.value.toLowerCase();
@@ -1843,7 +1843,7 @@
                 performSearch(searchTerm);
             });
         }
-
+        
         if (communitySearchSecond) {
             communitySearchSecond.addEventListener('input', function() {
                 const searchTerm = this.value.toLowerCase();
@@ -1851,7 +1851,7 @@
                 performSearch(searchTerm);
             });
         }
-
+        
         // Show search modal (mobile)
         function showSearchModal() {
             const modal = document.createElement('div');
@@ -1870,13 +1870,13 @@
                 </div>
             `;
             document.body.appendChild(modal);
-
+            
             setTimeout(() => modal.classList.add('show'), 10);
-
+            
             const searchInput = modal.querySelector('.modal-search-input');
             const searchButton = modal.querySelector('.modal-search-btn');
             const resultsDiv = modal.querySelector('#searchResults');
-
+            
             function closeModal() {
                 modal.classList.remove('show');
                 setTimeout(() => {
@@ -1885,16 +1885,16 @@
                     }
                 }, 300);
             }
-
+            
             function performModalSearch() {
                 const query = searchInput.value.toLowerCase().trim();
                 if (!query) return;
-
+                
                 resultsDiv.innerHTML = '<p>Searching...</p>';
-
+                
                 const results = [];
                 const profileSections = document.querySelectorAll('.profile-section');
-
+                
                 // Search community content
                 profileSections.forEach(item => {
                     const content = item.textContent || '';
@@ -1908,7 +1908,7 @@
                         });
                     }
                 });
-
+                
                 resultsDiv.innerHTML = `<h4>${results.length} results found</h4>`;
                 results.slice(0, 10).forEach(result => {
                     const resultItem = document.createElement('div');
@@ -1920,16 +1920,16 @@
                     resultsDiv.appendChild(resultItem);
                 });
             }
-
+            
             searchButton.onclick = performModalSearch;
             searchInput.onkeypress = (e) => { if (e.key === 'Enter') performModalSearch(); };
-
+            
             modal.querySelector('.modal-close').onclick = closeModal;
             modal.onclick = (e) => { if (e.target === modal) closeModal(); };
-
+            
             setTimeout(() => searchInput.focus(), 100);
         }
-
+        
         // Custom select functionality
         document.getElementById('discussionTopic').addEventListener('click', function(e) {
             e.stopPropagation();
@@ -1938,41 +1938,41 @@
             options.style.display = isVisible ? 'none' : 'block';
             this.classList.toggle('active');
         });
-
+        
         document.querySelectorAll('.select-option').forEach(option => {
             option.addEventListener('click', function() {
                 const value = this.dataset.value;
                 const text = this.textContent;
                 const select = document.getElementById('discussionTopic');
                 const selectText = select.querySelector('.select-text');
-
+                
                 selectText.textContent = text;
                 select.dataset.value = value;
-
+                
                 document.querySelectorAll('.select-option').forEach(opt => opt.classList.remove('selected'));
                 this.classList.add('selected');
-
+                
                 document.getElementById('topicOptions').style.display = 'none';
                 select.classList.remove('active');
             });
         });
-
+        
         document.addEventListener('click', function() {
             document.getElementById('topicOptions').style.display = 'none';
             document.getElementById('discussionTopic').classList.remove('active');
         });
-
+        
         // Discussion functionality
         document.getElementById('discussionSubmitBtn').addEventListener('click', async function() {
             const title = document.getElementById('discussionTitleInput').value.trim();
             const content = document.getElementById('discussionContentInput').value.trim();
             const topic = document.getElementById('discussionTopic').dataset.value;
-
+            
             if (!title || !content) {
                 alert('Please fill in both title and content');
                 return;
             }
-
+            
             try {
                 const response = await fetch('/api/internal-discussions/', {
                     method: 'POST',
@@ -1983,7 +1983,7 @@
                     credentials: 'include',
                     body: JSON.stringify({ title, content, topic })
                 });
-
+                
                 if (response.ok) {
                     document.getElementById('discussionTitleInput').value = '';
                     document.getElementById('discussionContentInput').value = '';
@@ -1997,22 +1997,22 @@
                 alert('Failed to create discussion');
             }
         });
-
+        
         // Post submission functionality
         document.getElementById('postSubmitBtn').addEventListener('click', async function() {
             const postContent = document.getElementById('postContentInput').value.trim();
             const imageFile = document.getElementById('imageUpload').files[0];
-
+            
             if (!postContent && !imageFile) {
                 alert('Please add some content or image to your post');
                 return;
             }
-
+            
             try {
                 const formData = new FormData();
                 if (postContent) formData.append('content', postContent);
                 if (imageFile) formData.append('image', imageFile);
-
+                
                 const response = await fetch('/api/community/posts/', {
                     method: 'POST',
                     body: formData,
@@ -2021,7 +2021,7 @@
                         'X-CSRFToken': await getCSRFToken()
                     }
                 });
-
+                
                 if (response.ok) {
                     document.getElementById('postContentInput').value = '';
                     document.getElementById('imageUpload').value = '';
@@ -2035,7 +2035,7 @@
                 alert('Failed to create post');
             }
         });
-
+        
         // Image upload preview
         document.getElementById('imageUpload').addEventListener('change', function() {
             if (this.files && this.files[0]) {
@@ -2047,14 +2047,14 @@
                 reader.readAsDataURL(this.files[0]);
             }
         });
-
+        
         // Remove image preview
         document.getElementById('removePostImage').addEventListener('click', function() {
             document.getElementById('newPostPreview').style.display = 'none';
             document.getElementById('postImagePreview').src = '';
             document.getElementById('imageUpload').value = '';
         });
-
+        
         // Load discussions
         async function loadDiscussions() {
             try {
@@ -2068,24 +2068,24 @@
                 console.error('Error loading discussions:', error);
             }
         }
-
+        
         function renderDiscussions(discussions) {
             const container = document.getElementById('discussionsContainer');
-
+            
             if (discussions.length === 0) {
                 container.innerHTML = '<div class="profile-section"><p>No discussions yet. Start the first one!</p></div>';
                 return;
             }
-
+            
             // Make viewProfile available
             window.viewProfile = viewProfile;
-
+            
             container.innerHTML = discussions.map(discussion => `
                 <div class="profile-section">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-                        <img src="${discussion.user.profile_pic || '../../static/images/default-profile.png'}" alt="${discussion.user.full_name}" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                        <img src="${(discussion.user && discussion.user.profile_pic) ? discussion.user.profile_pic : '../../static/images/default-profile.png'}" alt="${(discussion.user && discussion.user.full_name) ? discussion.user.full_name : 'User'}" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
                         <div>
-                            <div style="font-weight: 600; cursor: pointer; color: var(--primary);" onclick="viewProfile(${discussion.user.id})">${discussion.user.full_name}</div>
+                            <div style="font-weight: 600; cursor: pointer; color: var(--primary);" onclick="viewProfile(${(discussion.user && discussion.user.id) ? discussion.user.id : 0})">${(discussion.user && discussion.user.full_name) ? discussion.user.full_name : 'User'}</div>
                             <div style="font-size: 12px; opacity: 0.7;">${new Date(discussion.created_at).toLocaleDateString()}</div>
                         </div>
                         <span style="margin-left: auto; background: var(--hover-bg); padding: 5px 10px; border-radius: 20px; font-size: 13px;">${discussion.topic}</span>
@@ -2094,7 +2094,7 @@
                                 <i class="fas fa-ellipsis-h"></i>
                             </button>
                             <div id="discussionMenu-${discussion.id}" style="position: absolute; right: 0; top: 100%; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; box-shadow: var(--card-shadow); min-width: 150px; z-index: 10; display: none; overflow: hidden;">
-                                ${window.currentUserId === discussion.user.id ? `
+                                ${window.currentUserId === (discussion.user && discussion.user.id) ? `
                                     <button onclick="editDiscussion(${discussion.id})" style="width: 100%; padding: 8px 15px; text-align: left; background: none; border: none; color: var(--text-color); cursor: pointer; display: flex; align-items: center; gap: 10px; font-size: 14px;">
                                         <i class="fas fa-edit"></i> Edit
                                     </button>
@@ -2116,7 +2116,7 @@
                     </div>
                 </div>
             `).join('');
-
+            
             // Add click outside handler for all menus
             document.addEventListener('click', function(e) {
                 if (!e.target.closest('[onclick*="toggleDiscussionMenu"]')) {
@@ -2136,30 +2136,30 @@
                 }
             });
         }
-
+        
         function viewDiscussion(discussionId) {
             showDiscussionModal(discussionId);
         }
-
+        
         async function showDiscussionModal(discussionId) {
             try {
                 const [discussionResponse, repliesResponse] = await Promise.all([
                     fetch(`/api/internal-discussions/`, { credentials: 'include' }),
                     fetch(`/api/internal-discussions/${discussionId}/replies/`, { credentials: 'include' })
                 ]);
-
+                
                 const discussions = await discussionResponse.json();
                 const discussion = discussions.find(d => d.id === discussionId);
                 const replies = await repliesResponse.json();
-
+                
                 if (!discussion) return;
-
+                
                 // Ensure viewProfile is globally available
                 window.viewProfile = viewProfile;
-
+                
                 const modal = document.createElement('div');
                 modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center; overflow-y: auto;';
-
+                
                 modal.innerHTML = `
                     <div style="background: var(--card-bg); border-radius: 12px; width: 90%; max-width: 800px; max-height: 90vh; overflow-y: auto; margin: 20px;">
                         <div style="display: flex; justify-content: space-between; align-items: center; padding: 20px; border-bottom: 1px solid var(--divider-color);">
@@ -2176,7 +2176,7 @@
                         <div style="padding: 20px;">
                             <h2 style="margin: 0 0 15px 0;">${discussion.title}</h2>
                             <div style="margin-bottom: 20px; line-height: 1.6;">${discussion.content}</div>
-
+                            
                             <div style="border-top: 1px solid var(--divider-color); padding-top: 20px;">
                                 <h4>Replies (${replies.length})</h4>
                                 <div id="repliesContainer-${discussionId}">
@@ -2274,7 +2274,7 @@
                                         </div>
                                     `).join('')}
                                 </div>
-
+                                
                                 <div style="display: flex; gap: 10px; margin-top: 20px;">
                                     <img src="${window.currentUserAvatar || '../../static/images/default-profile.png'}" alt="User" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
                                     <input type="text" placeholder="Write a reply..." id="replyInput-${discussionId}" style="flex: 1; padding: 10px 15px; border-radius: 20px; border: 1px solid var(--input-border); background: var(--input-bg); color: var(--text-color);">
@@ -2286,24 +2286,24 @@
                         </div>
                     </div>
                 `;
-
+                
                 document.body.appendChild(modal);
             } catch (error) {
                 console.error('Error loading discussion:', error);
             }
         }
-
+        
         function closeDiscussionModal() {
             const modal = document.querySelector('div[style*="position: fixed"]');
             if (modal) modal.remove();
         }
-
+        
         async function submitReply(discussionId) {
             const input = document.getElementById(`replyInput-${discussionId}`);
             const content = input.value.trim();
-
+            
             if (!content) return;
-
+            
             try {
                 const response = await fetch(`/api/internal-discussions/${discussionId}/replies/`, {
                     method: 'POST',
@@ -2314,7 +2314,7 @@
                     credentials: 'include',
                     body: JSON.stringify({ content })
                 });
-
+                
                 if (response.ok) {
                     input.value = '';
                     closeDiscussionModal();
@@ -2325,7 +2325,7 @@
                 console.error('Error submitting reply:', error);
             }
         }
-
+        
         function toggleDiscussionMenu(discussionId) {
             event.stopPropagation();
             const menu = document.getElementById(`discussionMenu-${discussionId}`);
@@ -2334,30 +2334,30 @@
             });
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
-
+        
         function editDiscussion(discussionId) {
             alert('Edit functionality will be implemented');
         }
-
+        
         async function loadPosts() {
             try {
                 const response = await fetch('/api/community/posts/', { credentials: 'include' });
                 const posts = await response.json();
-
+                
                 // Comments are included in the post response
                 posts.forEach(post => {
                     if (!post.comments) {
                         post.comments = [];
                     }
                 });
-
+                
                 window.postsData = posts;
                 renderPosts(posts);
             } catch (error) {
                 console.error('Error loading posts:', error);
             }
         }
-
+        
         function renderPosts(posts) {
             // Make sure functions are available
             window.toggleComments = toggleComments;
@@ -2368,12 +2368,12 @@
             window.deletePost = deletePost;
             window.viewProfile = viewProfile;
             const container = document.getElementById('postsContainer');
-
+            
             if (posts.length === 0) {
                 container.innerHTML = '<div class="profile-section"><p>No posts yet. Be the first to share!</p></div>';
                 return;
             }
-
+            
             container.innerHTML = posts.map(post => `
                 <div class="profile-section">
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
@@ -2523,17 +2523,17 @@
                 </div>
             `).join('');
         }
-
+        
         async function editDiscussion(discussionId) {
             try {
                 const discussions = await (await fetch('/api/internal-discussions/', { credentials: 'include' })).json();
                 const discussion = discussions.find(d => d.id === discussionId);
-
+                
                 if (!discussion) return;
-
+                
                 const modal = document.createElement('div');
                 modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;';
-
+                
                 modal.innerHTML = `
                     <div style="background: var(--card-bg); border-radius: 12px; width: 90%; max-width: 600px; padding: 20px;">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
@@ -2556,23 +2556,23 @@
                         </div>
                     </div>
                 `;
-
+                
                 document.body.appendChild(modal);
             } catch (error) {
                 console.error('Error loading discussion for edit:', error);
             }
         }
-
+        
         async function saveDiscussionEdit(discussionId) {
             const title = document.getElementById('editDiscussionTitle').value.trim();
             const content = document.getElementById('editDiscussionContent').value.trim();
             const topic = document.getElementById('editDiscussionTopic').value;
-
+            
             if (!title || !content) {
                 alert('Please fill in both title and content');
                 return;
             }
-
+            
             try {
                 const response = await fetch(`/api/internal-discussions/${discussionId}/`, {
                     method: 'PUT',
@@ -2583,7 +2583,7 @@
                     credentials: 'include',
                     body: JSON.stringify({ title, content, topic })
                 });
-
+                
                 if (response.ok) {
                     closeEditModal();
                     loadDiscussions();
@@ -2593,7 +2593,7 @@
                 console.error('Error updating discussion:', error);
             }
         }
-
+        
         async function deleteDiscussion(discussionId) {
             if (confirm('Are you sure you want to delete this discussion?')) {
                 try {
@@ -2604,7 +2604,7 @@
                         },
                         credentials: 'include'
                     });
-
+                    
                     if (response.ok) {
                         loadDiscussions();
                     }
@@ -2613,14 +2613,14 @@
                 }
             }
         }
-
+        
         function closeEditModal() {
             const modals = document.querySelectorAll('div[style*="position: fixed"]');
             if (modals.length > 0) {
                 modals[modals.length - 1].remove();
             }
         }
-
+        
         function showAlert(message, type = 'success') {
             const notification = document.createElement('div');
             notification.className = `notification ${type === 'error' ? 'error' : ''}`;
@@ -2638,7 +2638,7 @@
                 notification.remove();
             }, 3000);
         }
-
+        
         function toggleReplyMenu(replyId) {
             event.stopPropagation();
             const menu = document.getElementById(`replyMenu-${replyId}`);
@@ -2647,17 +2647,17 @@
             });
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
-
+        
         function editReply(replyId, discussionId) {
             alert('Edit reply functionality will be implemented');
         }
-
+        
         function deleteReply(replyId, discussionId) {
             if (confirm('Are you sure you want to delete this reply?')) {
                 alert('Delete reply functionality will be implemented');
             }
         }
-
+        
         function togglePostMenu(postId) {
             event.stopPropagation();
             const menu = document.getElementById(`postMenu-${postId}`);
@@ -2666,17 +2666,17 @@
             });
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
-
+        
         async function editPost(postId) {
             try {
                 const posts = await (await fetch('/api/community/posts/', { credentials: 'include' })).json();
                 const post = posts.find(p => p.id === postId);
-
+                
                 if (!post) return;
-
+                
                 const modal = document.createElement('div');
                 modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;';
-
+                
                 modal.innerHTML = `
                     <div style="background: var(--card-bg); border-radius: 12px; width: 90%; max-width: 600px; padding: 20px;">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
@@ -2690,21 +2690,21 @@
                         </div>
                     </div>
                 `;
-
+                
                 document.body.appendChild(modal);
             } catch (error) {
                 console.error('Error loading post for edit:', error);
             }
         }
-
+        
         async function savePostEdit(postId) {
             const content = document.getElementById('editPostContent').value.trim();
-
+            
             if (!content) {
                 alert('Please enter post content');
                 return;
             }
-
+            
             try {
                 const response = await fetch(`/api/community/posts/${postId}/`, {
                     method: 'PUT',
@@ -2715,7 +2715,7 @@
                     credentials: 'include',
                     body: JSON.stringify({ content })
                 });
-
+                
                 if (response.ok) {
                     closeEditModal();
                     loadPosts();
@@ -2725,7 +2725,7 @@
                 console.error('Error updating post:', error);
             }
         }
-
+        
         async function deletePost(postId) {
             if (confirm('Are you sure you want to delete this post?')) {
                 try {
@@ -2736,7 +2736,7 @@
                         },
                         credentials: 'include'
                     });
-
+                    
                     if (response.ok) {
                         loadPosts();
                         showAlert('Post deleted successfully!');
@@ -2746,41 +2746,41 @@
                 }
             }
         }
-
+        
         function likePost(postId) {
             alert('Like functionality will be implemented');
         }
-
+        
         function toggleComments(postId) {
             const commentsSection = document.getElementById(`comments-${postId}`);
-
+            
             if (commentsSection.style.display === 'none' || commentsSection.style.display === '') {
                 commentsSection.style.display = 'block';
             } else {
                 commentsSection.style.display = 'none';
             }
         }
-
+        
         function submitComment(postId) {
             const input = document.getElementById(`commentInput-${postId}`);
             const content = input.value.trim();
-
+            
             if (!content) return;
-
+            
             alert('Comment functionality will be implemented');
             input.value = '';
         }
-
+        
         async function editReply(replyId, discussionId) {
             try {
                 const replies = await (await fetch(`/api/internal-discussions/${discussionId}/replies/`, { credentials: 'include' })).json();
                 const reply = replies.find(r => r.id === replyId);
-
+                
                 if (!reply) return;
-
+                
                 const modal = document.createElement('div');
                 modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;';
-
+                
                 modal.innerHTML = `
                     <div style="background: var(--card-bg); border-radius: 12px; width: 90%; max-width: 500px; padding: 20px;">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
@@ -2794,21 +2794,21 @@
                         </div>
                     </div>
                 `;
-
+                
                 document.body.appendChild(modal);
             } catch (error) {
                 console.error('Error loading reply for edit:', error);
             }
         }
-
+        
         async function saveReplyEdit(replyId, discussionId) {
             const content = document.getElementById('editReplyContent').value.trim();
-
+            
             if (!content) {
                 alert('Please enter reply content');
                 return;
             }
-
+            
             try {
                 const response = await fetch(`/api/internal-discussions/replies/${replyId}/`, {
                     method: 'PUT',
@@ -2819,7 +2819,7 @@
                     credentials: 'include',
                     body: JSON.stringify({ content })
                 });
-
+                
                 if (response.ok) {
                     closeEditModal();
                     closeDiscussionModal();
@@ -2829,7 +2829,7 @@
                 console.error('Error updating reply:', error);
             }
         }
-
+        
         async function deleteReply(replyId, discussionId) {
             if (confirm('Are you sure you want to delete this reply?')) {
                 try {
@@ -2840,7 +2840,7 @@
                         },
                         credentials: 'include'
                     });
-
+                    
                     if (response.ok) {
                         closeDiscussionModal();
                         showDiscussionModal(discussionId);
@@ -2850,11 +2850,11 @@
                 }
             }
         }
-
+        
         function toggleReplies(discussionId) {
             const hiddenReplies = document.querySelector('.replies-hidden');
             const showMoreBtn = document.querySelector('.show-more-replies');
-
+            
             if (hiddenReplies.style.display === 'none') {
                 hiddenReplies.style.display = 'block';
                 showMoreBtn.innerHTML = '<i class="fas fa-chevron-up"></i> Show less';
@@ -2864,7 +2864,7 @@
                 showMoreBtn.innerHTML = `<i class="fas fa-chevron-down"></i> Show ${hiddenCount} more replies`;
             }
         }
-
+        
         async function likePost(postId) {
             try {
                 const response = await fetch(`/api/community/posts/${postId}/reactions/`, {
@@ -2876,7 +2876,7 @@
                     credentials: 'include',
                     body: JSON.stringify({ reaction_type: 'like' })
                 });
-
+                
                 if (response.ok) {
                     loadPosts();
                 }
@@ -2884,13 +2884,13 @@
                 console.error('Error liking post:', error);
             }
         }
-
+        
         async function submitComment(postId) {
             const input = document.getElementById(`commentInput-${postId}`);
             const content = input.value.trim();
-
+            
             if (!content) return;
-
+            
             try {
                 const response = await fetch(`/api/community/posts/${postId}/comments/`, {
                     method: 'POST',
@@ -2901,11 +2901,11 @@
                     credentials: 'include',
                     body: JSON.stringify({ content })
                 });
-
+                
                 if (response.ok) {
                     const newComment = await response.json();
                     input.value = '';
-
+                    
                     // Add comment to the comments list immediately
                     const commentsList = document.getElementById(`commentsList-${postId}`);
                     if (commentsList) {
@@ -2923,7 +2923,7 @@
                         `;
                         commentsList.innerHTML += commentHtml;
                     }
-
+                    
                     showAlert('Comment added successfully!');
                     loadPosts(); // Refresh to update counts
                 }
@@ -2931,7 +2931,7 @@
                 console.error('Error submitting comment:', error);
             }
         }
-
+        
         // Make functions global
         window.toggleComments = toggleComments;
         window.likePost = likePost;
@@ -2939,9 +2939,9 @@
         window.togglePostMenu = togglePostMenu;
         window.editPost = editPost;
         window.deletePost = deletePost;
+        
 
-
-
+        
         function toggleCommentMenu(commentId) {
             event.stopPropagation();
             const menu = document.getElementById(`commentMenu-${commentId}`);
@@ -2950,18 +2950,18 @@
             });
             menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
         }
-
+        
         async function editComment(commentId, postId) {
             try {
                 const posts = window.postsData || [];
                 const post = posts.find(p => p.id === postId);
                 const comment = post.comments.find(c => c.id === commentId);
-
+                
                 if (!comment) return;
-
+                
                 const modal = document.createElement('div');
                 modal.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; display: flex; align-items: center; justify-content: center;';
-
+                
                 modal.innerHTML = `
                     <div style="background: var(--card-bg); border-radius: 12px; width: 90%; max-width: 500px; padding: 20px;">
                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
@@ -2975,21 +2975,21 @@
                         </div>
                     </div>
                 `;
-
+                
                 document.body.appendChild(modal);
             } catch (error) {
                 console.error('Error loading comment for edit:', error);
             }
         }
-
+        
         async function saveCommentEdit(commentId, postId) {
             const content = document.getElementById('editCommentContent').value.trim();
-
+            
             if (!content) {
                 alert('Please enter comment content');
                 return;
             }
-
+            
             try {
                 const response = await fetch(`/api/community/comments/${commentId}/`, {
                     method: 'PUT',
@@ -3000,7 +3000,7 @@
                     credentials: 'include',
                     body: JSON.stringify({ content })
                 });
-
+                
                 if (response.ok) {
                     closeEditModal();
                     loadPosts();
@@ -3010,7 +3010,7 @@
                 console.error('Error updating comment:', error);
             }
         }
-
+        
         async function deleteComment(commentId, postId) {
             if (confirm('Are you sure you want to delete this comment?')) {
                 try {
@@ -3021,7 +3021,7 @@
                         },
                         credentials: 'include'
                     });
-
+                    
                     if (response.ok) {
                         loadPosts();
                         showAlert('Comment deleted successfully!');
@@ -3031,11 +3031,11 @@
                 }
             }
         }
-
+        
         function togglePostComments(postId) {
             const hiddenComments = document.querySelector('.comments-hidden');
             const showMoreBtn = document.querySelector('.show-more-comments');
-
+            
             if (hiddenComments && showMoreBtn) {
                 if (hiddenComments.style.display === 'none') {
                     hiddenComments.style.display = 'block';
@@ -3047,7 +3047,7 @@
                 }
             }
         }
-
+        
         async function reportPost(postId) {
             const reason = prompt('Please enter the reason for reporting this post:');
             if (reason && reason.trim()) {
@@ -3065,7 +3065,7 @@
                             description: `Post ID: ${postId}\nReason: ${reason.trim()}`
                         })
                     });
-
+                    
                     if (response.ok) {
                         showAlert('Post reported successfully!');
                     } else {
@@ -3077,7 +3077,7 @@
                 }
             }
         }
-
+        
         async function reportComment(commentId) {
             const reason = prompt('Please enter the reason for reporting this comment:');
             if (reason && reason.trim()) {
@@ -3095,7 +3095,7 @@
                             description: `Comment ID: ${commentId}\nReason: ${reason.trim()}`
                         })
                     });
-
+                    
                     if (response.ok) {
                         showAlert('Comment reported successfully!');
                     } else {
@@ -3107,7 +3107,7 @@
                 }
             }
         }
-
+        
         async function reportDiscussion(discussionId) {
             const reason = prompt('Please enter the reason for reporting this discussion:');
             if (reason && reason.trim()) {
@@ -3125,7 +3125,7 @@
                             description: `Discussion ID: ${discussionId}\nReason: ${reason.trim()}`
                         })
                     });
-
+                    
                     if (response.ok) {
                         showAlert('Discussion reported successfully!');
                     } else {
@@ -3137,7 +3137,7 @@
                 }
             }
         }
-
+        
         async function reportReply(replyId) {
             const reason = prompt('Please enter the reason for reporting this reply:');
             if (reason && reason.trim()) {
@@ -3155,7 +3155,7 @@
                             description: `Reply ID: ${replyId}\nReason: ${reason.trim()}`
                         })
                     });
-
+                    
                     if (response.ok) {
                         showAlert('Reply reported successfully!');
                     } else {
@@ -3167,13 +3167,13 @@
                 }
             }
         }
-
+        
         // Search functionality
         document.getElementById('communitySearch').addEventListener('input', function() {
             const query = this.value.toLowerCase().trim();
             applyFilters();
         });
-
+        
         // Time filter functionality
         document.querySelectorAll('.time-filter').forEach(filter => {
             filter.addEventListener('click', function() {
@@ -3182,7 +3182,7 @@
                 applyFilters();
             });
         });
-
+        
         // Trending topics functionality
         document.querySelectorAll('.trending-tag').forEach(tag => {
             tag.addEventListener('click', function() {
@@ -3191,24 +3191,24 @@
                 applyFilters();
             });
         });
-
+        
         function applyFilters() {
             const query = document.getElementById('communitySearch').value.toLowerCase().trim();
             const timeFilter = document.querySelector('.time-filter.active')?.dataset.filter || 'all';
             const activeTab = document.getElementById('postsTab').className.includes('btn-primary') ? 'posts' : 'discussions';
-
+            
             if (activeTab === 'posts') {
                 filterPosts(query, timeFilter);
             } else {
                 filterDiscussions(query, timeFilter);
             }
         }
-
+        
         function filterPosts(query, timeFilter) {
             if (!window.postsData) return;
-
+            
             let filteredPosts = [...window.postsData];
-
+            
             // Apply time filter
             if (timeFilter !== 'all') {
                 const now = new Date();
@@ -3229,23 +3229,23 @@
                     }
                 });
             }
-
+            
             // Apply search query
             if (query) {
-                filteredPosts = filteredPosts.filter(post =>
+                filteredPosts = filteredPosts.filter(post => 
                     post.content.toLowerCase().includes(query) ||
                     post.user.full_name.toLowerCase().includes(query)
                 );
             }
-
+            
             renderPosts(filteredPosts);
         }
-
+        
         function filterDiscussions(query, timeFilter) {
             if (!window.discussionsData) return;
-
+            
             let filteredDiscussions = [...window.discussionsData];
-
+            
             // Apply time filter
             if (timeFilter !== 'all') {
                 const now = new Date();
@@ -3266,25 +3266,25 @@
                     }
                 });
             }
-
+            
             // Apply search query
             if (query) {
-                filteredDiscussions = filteredDiscussions.filter(discussion =>
+                filteredDiscussions = filteredDiscussions.filter(discussion => 
                     discussion.title.toLowerCase().includes(query) ||
                     discussion.content.toLowerCase().includes(query) ||
                     discussion.user.full_name.toLowerCase().includes(query) ||
                     discussion.topic.toLowerCase().includes(query)
                 );
             }
-
+            
             renderDiscussions(filteredDiscussions);
         }
-
+        
         // Load posts on page load
         document.addEventListener('DOMContentLoaded', function() {
             loadPosts();
         });
-
+        
         async function getCSRFToken() {
             try {
                 const response = await fetch('/api/csrf-token/', { credentials: 'include' });
@@ -3295,92 +3295,80 @@
                 return null;
             }
         }
-
+        
         // Fetch with authentication
         async function fetchWithAuth(url, options = {}) {
             const csrfToken = await getCSRFToken();
-
+            
             const headers = {
                 'Content-Type': 'application/json',
                 'X-CSRFToken': csrfToken,
             };
-
+            
             if (options.headers) {
                 Object.assign(headers, options.headers);
             }
-
+            
             const response = await fetch(url, {
                 ...options,
                 headers,
                 credentials: 'include',
             });
-
+            
             if (!response.ok) {
                 throw new Error('Request failed');
             }
-
+            
             return response.json();
         }
-
+        
         // View profile function
         function viewProfile(userId) {
             if (userId) {
                 window.location.href = `profile-view.html?id=${userId}`;
             }
         }
-
+        
         // Make viewProfile globally available
         window.viewProfile = viewProfile;
-
+        
         // Load user profile data and update avatars
         document.addEventListener('DOMContentLoaded', async function() {
             try {
                 const response = await fetch('/api/user/', { credentials: 'include' });
                 const user = await response.json();
-
+                
                 // Update avatars and store user data
                 const avatarUrl = user.profile_pic || '../../static/images/default-profile.png';
                 document.getElementById('newPostAvatar').src = avatarUrl;
                 document.getElementById('newDiscussionAvatar').src = avatarUrl;
                 document.getElementById('sidebarProfilePic').src = avatarUrl;
                 document.getElementById('headerProfilePic').src = avatarUrl;
-
+                
                 // Update user names
                 const userName = user.full_name || user.first_name || 'User';
                 document.getElementById('sidebarUserName').textContent = `Welcome, ${userName}`;
                 document.getElementById('headerUserName').textContent = userName;
-
+                
                 // Load notifications count
                 const notificationsResponse = await fetchWithAuth('/api/notifications/');
                 const unreadCount = notificationsResponse.unread_count || 0;
                 document.getElementById('notificationBadge').textContent = unreadCount;
                 document.getElementById('notificationCount').textContent = unreadCount;
                 document.getElementById('messageCount').textContent = '0';
-
+                
                 // Store current user data globally
                 window.currentUserId = user.id;
                 window.currentUserAvatar = avatarUrl;
-
+                
                 // Load discussions when switching to discussions tab
                 document.getElementById('discussionsTab').addEventListener('click', loadDiscussions);
-
+                
             } catch (error) {
                 console.error('Error loading user data:', error);
-            }
-        });
-
-        // Logout functionality
-        document.getElementById('logoutBtn').addEventListener('click', function() {
-            if (confirm('Are you sure you want to logout?')) {
-                // Clear user data from localStorage
-                localStorage.removeItem('user');
-
-                // Redirect to login page
-                window.location.href = '../posts/home.html';
             }
         });
     </script>
 
 </body>
 </html>
-
